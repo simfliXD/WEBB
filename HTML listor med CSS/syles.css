@@ -1,0 +1,164 @@
+.body {
+  font-family: "Times New Roman", Times, serif;
+  background-color: grey;
+}
+.DAN {
+  font-size: large;
+  background-color: red;
+  color: white;
+  border: 2px solid black;
+  margin: 5px;
+  padding: 5px;
+  width: 300px;
+  text-align: center;
+}
+
+.FIN {
+  font-size: large;
+  background-color: blue;
+  color: white;
+  border: 2px solid black;
+  margin: 5px;
+  padding: 5px;
+  width: 300px;
+  text-align: center;
+}
+
+.ISL {
+  font-size: large;
+  background-color: blue;
+  color: red;
+  border: 2px solid black;
+  margin: 5px;
+  padding: 5px;
+  width: 300px;
+  text-align: center;
+  -webkit-text-stroke: 0.6px white;
+  font-weight: bold;
+}
+
+.NOR {
+  font-size: large;
+  background-color: red;
+  color: blue;
+  border: 2px solid black;
+  margin: 5px;
+  padding: 5px;
+  width: 300px;
+  text-align: center;
+  -webkit-text-stroke: 0.6px white;
+  font-weight: bold;
+}
+
+.SVE {
+  font-size: large;
+  background-color: blue;
+  color: yellow;
+  border: 2px solid black;
+  margin: 5px;
+  padding: 5px;
+  width: 300px;
+  text-align: center;
+}
+.rubrik {
+  font-size: xx-large;
+  text-align: center;
+  color: darkblue;
+  text-decoration: underline;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.röd {
+    color: white;
+    background-color: red;
+}
+.blå{
+    color: white;
+    background-color: blue;
+}
+.grön{
+    color: white;
+    background-color: green;
+}
+.gul{
+    color: black;
+    background-color: yellow;
+}
+.orange{
+    color: black;
+    background-color: orange;
+}
+.lila{
+    color: white;
+    background-color: purple;
+}
+.silver{
+    color: black;
+    background-color: silver;
+}
+.guld{
+    color: black;
+    background-color: gold;
+}
+.rosa{
+    color: black;
+    background-color: pink;
+}
+.turkos{
+    color: black;
+    background-color: turquoise;
+}
+
+.röd-t{
+    color: red;
+}
+.blå-t{
+    color: blue;
+}
+.grön-t{
+    color: green;
+}
+.gul-t{
+    color:yellow;
+}
+.orange-t{
+    color:orange;
+}
+.lila-t{
+    color:purple;
+}
+.silver-t{
+    color:silver;
+}
+.guld-t{
+    color:gold;
+}
+.rosa-t{
+    color:pink;
+}
+.turkos-t{
+    color:turquoise;
+}
+
+.flaggor-ukraina{
+    background-color: blue;
+    width: 100%;
+    height: 100px;
+}
+.flaggor-frankrike{
+    background-color: white;
+    width: 100%;
+    height: 100px;
+}
+.flaggor-sverige{
+    background-color: blue;
+    width: 100%;
+    height: 100px;
+}
+td,th {
+  border: 1px solid black;
+  text-align: left;
+  padding: 5px;
+}

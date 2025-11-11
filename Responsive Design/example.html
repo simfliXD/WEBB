@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .main {
+        width: 60%;
+        margin: auto;
+        padding: 10px;
+        background-color: lightblue;
+        min-height: 100vh;
+        font-size: 3vw;
+        font-family: Papyrus, serif, sans-serif;
+      }
+
+      @media (800px < width < 1100px) {
+        .main {
+          background-color: cyan;
+          width: 80%;
+          padding: 20px;
+          font-size: 4vw;
+          font-family: serif, sans-serif;
+          background-color: cyan;
+        }
+      }
+      @media (width < 800px) {
+        .main {
+          background-color: pink;
+          width: 100%;
+          padding: 25px;
+          font-size: 5vw;
+          font-family: sans-serif;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <h1>Exempel på responsive design</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque auctor
+        pharetra mi eget lobortis. Vestibulum scelerisque est in ipsum laoreet
+        aliquet. Ut facilisis pretium nunc, et tristique lorem tincidunt eget.
+        Aenean quam libero, fringilla non ullamcorper eleifend, venenatis vitae
+        tellus. Integer mauris eros, eleifend sit amet diam at, vehicula
+        placerat tellus. Aenean lacus erat, semper non euismod quis, accumsan a
+        sapien. Ut vulputate semper augue. Integer dignissim, lorem at placerat
+        varius, tellus tellus elementum velit, a tempus nunc nisi vel nibh.
+        Aenean in tempus urna.
+      </p>
+    </div>
+  </body>
+</html>

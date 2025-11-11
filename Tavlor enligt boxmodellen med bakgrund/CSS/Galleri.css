@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: goldenrod;
+}
+.ram_1{
+    background-color: lightblue;
+    margin: 5%;
+    border-style:groove;
+    border: 7%;
+    padding: 10%;
+}
+.ram_2{
+    background-color: brown;
+    margin: 5%;
+    border-style: dotted;
+    border: 7%;
+    padding: 10%;
+}
+.ram_3{
+    background-color: lightgreen;
+    margin: 5%;
+    border-style: dashed;
+    border: 7%;
+    padding: 16%;
+}
+.ram_4{
+    background-color: lightpink;
+    margin: 5%;
+    border-style: dashed;
+    border: 7%;
+    padding: 6%;
+}
+.ram_5{
+    background-color: lightgrey;
+    margin: 5%;
+    border-style: solid;
+    border: 7%;
+    padding: 12%;
+}
+.ram_6{
+    background-color: lightyellow;
+    margin: 5%;
+    border-style: double;
+    border: 7%;
+    padding: 14%;
+}
+.ram_7{
+    background-color: lightcoral;
+    margin: 5%;
+    border-style: ridge;
+    border: 7%;
+    padding: 8%;
+}
+.ram_8{
+    background-color: lightseagreen;
+    margin: 5%;
+    border-style: inset;
+    border: 7%;
+    padding: 18%;
+}
+img {
+    align-content: center;
+    width: fit-content;
+    height: fit-content;
+}

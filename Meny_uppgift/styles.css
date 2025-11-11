@@ -1,0 +1,96 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #fe8fc5;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #e75480;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+}
+
+ul li a {
+  display: block;
+  color: #ffffff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul li a:hover {
+  text-decoration: underline;
+  background-color: #ff9fb1;
+  color: #1f1f1f;
+}
+
+ul li a.active {
+  background-color: #c43a66;
+  color: #ffffff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-areas:
+    "loga meny meny"
+    "artikel1 artikel1 blurb"
+    "artikel2 artikel2 blurb"
+    "artikel3 artikel3 blurb"
+    "om om om";
+  gap: 5px;
+  background-color: pink;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.grid > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.grid > div.loga {
+  grid-area: loga;
+  text-align: center;
+  justify-content: center;
+}
+
+.grid > div.meny {
+  grid-area: meny;
+  background-color: rgba(255, 255, 255, 0.25);
+  padding-inline: 0;
+}
+
+.grid > div.blurb {
+  grid-area: blurb;
+  padding: 2px 8px;
+}
+
+.grid > div.artikel-1 {
+  grid-area: artikel1;
+}
+.grid > div.artikel-2 {
+  grid-area: artikel2;
+}
+
+.grid > div.artikel-3 {
+  grid-area: artikel3;
+}
+
+.grid > div.om {
+  grid-area: om;
+}
+
+#hem {
+  background-color: black;
+}

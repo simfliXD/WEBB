@@ -1,0 +1,141 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr 0.5fr;
+  grid-template-areas:
+    "loga meny meny"
+    "artikel1 artikel1 blurb"
+    "artikel2 artikel2 blurb"
+    "artikel3 artikel3 blurb"
+    "om om om";
+  gap: 5px;
+  background-color: pink;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.grid > div.meny {
+  grid-area: meny;
+  background-color: rgba(255, 255, 255, 0.25);
+  padding-inline: 0;
+}
+
+.meny ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #e75480;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+}
+
+.meny ul li a {
+  display: block;
+  color: #ffffff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.meny ul li a:hover {
+  text-decoration: underline;
+  background-color: #ff9fb1;
+  color: #1f1f1f;
+}
+
+.meny ul li a.active {
+  background-color: #c43a66;
+  color: #ffffff;
+}
+
+.grid > div {
+  margin: 0;
+  padding: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.grid > div.loga {
+  grid-area: loga;
+  text-align: center;
+  justify-content: center;
+}
+
+.grid > div.loga img {
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 60px;
+  height: 60px;
+}
+
+.grid > div.blurb {
+  grid-area: blurb;
+  padding: 2px 8px;
+}
+
+.grid > div.artikel-1 {
+  grid-area: artikel1;
+  /*id="hem";*/
+}
+.grid > div.artikel-2 {
+  grid-area: artikel2;
+}
+
+.grid > div.artikel-3 {
+  grid-area: artikel3;
+}
+
+.grid > div.om {
+  grid-area: om;
+}
+
+#hem {
+  background-color: black;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "loga meny"
+      "blurb blurb"
+      "artikel1 artikel1"
+      "artikel2 artikel2"
+      "artikel3 artikel3"
+      "om om";
+  }
+  .grid > div.loga img {
+    height: auto;
+    width: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "loga"
+      "meny"
+      "blurb"
+      "artikel1"
+      "artikel2"
+      "artikel3"
+      "om";
+    gap: 4px;
+  }
+  .grid > div.loga img {
+    height: auto;
+    width: 60px;
+    justify-self: center;
+  }
+}

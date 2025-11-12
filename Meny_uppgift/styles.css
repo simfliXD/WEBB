@@ -1,46 +1,24 @@
+:root {
+  --page-bg: #fe8fc5;
+  --grid-bg: #ffc0da;
+  --nav-bg: #e75480;
+  --nav-hover: #ff9fb1;
+  --nav-active: #c43a66;
+  --card-bg: rgba(255,255,255,0.9);
+  --text-on-pink: #ffffff;
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #fe8fc5;
-}
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  background-color: #e75480;
-  display: flex;
-  flex-grow: 1;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 100%;
-  height: auto;
-}
-
-ul li a {
-  display: block;
-  color: #ffffff;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-ul li a:hover {
-  text-decoration: underline;
-  background-color: #ff9fb1;
-  color: #1f1f1f;
-}
-
-ul li a.active {
-  background-color: #c43a66;
-  color: #ffffff;
+  background-color: var(--page-bg);
 }
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-columns: 0.5fr 2fr 0.5fr;
   grid-template-areas:
     "loga meny meny"
     "artikel1 artikel1 blurb"
@@ -48,13 +26,51 @@ ul li a.active {
     "artikel3 artikel3 blurb"
     "om om om";
   gap: 5px;
-  background-color: pink;
+  background-color: var(--grid-bg);
   padding: 5px;
   border-radius: 5px;
 }
 
+.grid > div.meny {
+  grid-area: meny;
+  background-color: rgba(255,255,255,0.95);
+  padding-inline: 0;
+}
+
+.meny ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: var(--nav-bg);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+}
+
+.meny ul li a {
+  display: block;
+  color: var(--text-on-pink);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.meny ul li a:hover {
+  text-decoration: none;
+  background-color: var(--nav-hover);
+  color: #1f1f1f;
+}
+
+.meny ul li a.active {
+  background-color: var(--nav-active);
+  color: var(--text-on-pink);
+}
+
 .grid > div {
-  background-color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  padding: 0;
+  background-color: var(--card-bg);
   padding: 10px;
   border-radius: 8px;
 }
@@ -65,10 +81,12 @@ ul li a.active {
   justify-content: center;
 }
 
-.grid > div.meny {
-  grid-area: meny;
-  background-color: rgba(255, 255, 255, 0.25);
-  padding-inline: 0;
+.grid > div.loga img {
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 60px;
+  height: 60px;
 }
 
 .grid > div.blurb {
@@ -78,6 +96,7 @@ ul li a.active {
 
 .grid > div.artikel-1 {
   grid-area: artikel1;
+  /*id="hem";*/
 }
 .grid > div.artikel-2 {
   grid-area: artikel2;
@@ -93,4 +112,41 @@ ul li a.active {
 
 #hem {
   background-color: black;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "loga meny"
+      "blurb blurb"
+      "artikel1 artikel1"
+      "artikel2 artikel2"
+      "artikel3 artikel3"
+      "om om";
+  }
+  .grid > div.loga img {
+    height: auto;
+    width: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "loga"
+      "meny"
+      "blurb"
+      "artikel1"
+      "artikel2"
+      "artikel3"
+      "om";
+    gap: 4px;
+  }
+  .grid > div.loga img {
+    height: auto;
+    width: 60px;
+    justify-self: center;
+  }
 }

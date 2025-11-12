@@ -3,6 +3,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: #e75480;
 }
 
 .grid {
@@ -14,16 +15,22 @@ body {
     "artikel2 artikel2 blurb"
     "artikel3 artikel3 blurb"
     "om om om";
+  /* keep the header compact (logo + menu) */
+  grid-template-rows: 70px 1fr 1fr 1fr auto;
+  justify-self: center;
   gap: 5px;
   background-color: pink;
   padding: 5px;
-  border-radius: 5px;
+  border: 0;
+  margin: 0 auto;
+  height: 100vh;
+  width: 90%;
 }
 
 .grid > div.meny {
   grid-area: meny;
-  background-color: rgba(255, 255, 255, 0.25);
   padding-inline: 0;
+  align-self: center;
 }
 
 .meny ul {
@@ -32,17 +39,20 @@ body {
   padding: 0;
   background-color: #e75480;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   width: 100%;
   height: auto;
+  list-style: none;
 }
 
 .meny ul li a {
   display: block;
   color: #ffffff;
   text-align: center;
-  padding: 14px 16px;
+  padding: 8px 12px;
   text-decoration: none;
+  transition: all 0.3s ease;
 }
 
 .meny ul li a:hover {
@@ -58,24 +68,26 @@ body {
 
 .grid > div {
   margin: 0;
-  padding: 0;
-  background-color: rgba(255, 255, 255, 0.8);
   padding: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 8px;
 }
 
 .grid > div.loga {
   grid-area: loga;
-  text-align: center;
+  display: flex; /* centrerar loggar både vertikalt och horizontelt*/
+  align-items: center;
   justify-content: center;
+  padding-inline: 6px;
 }
 
 .grid > div.loga img {
   display: block;
   margin: 0;
   padding: 0;
-  width: 60px;
-  height: 60px;
+  width: auto;
+  height: auto;
+  max-height: 48px;
 }
 
 .grid > div.blurb {
@@ -97,10 +109,7 @@ body {
 
 .grid > div.om {
   grid-area: om;
-}
-
-#hem {
-  background-color: black;
+  border-radius: 0;
 }
 
 @media (max-width: 768px) {
@@ -113,14 +122,14 @@ body {
       "artikel2 artikel2"
       "artikel3 artikel3"
       "om om";
+    width: 96%;
   }
-  .grid > div.loga img {
-    height: auto;
-    width: 50px;
+  .grid > div {
+    padding: 1%;
   }
 }
 
-@media (max-width: 480px) {
+@media (720px > width > 480px) {
   .grid {
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -132,10 +141,15 @@ body {
       "artikel3"
       "om";
     gap: 4px;
+    width: 100%;
+  }
+  .meny ul {
+    flex-direction: column;
+    align-items: center;
   }
   .grid > div.loga img {
     height: auto;
-    width: 60px;
+    width: 5%;
     justify-self: center;
   }
 }

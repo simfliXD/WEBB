@@ -3,52 +3,89 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Grid Layout</title>
+    <meta name="desctiption" content="Nyhetssida om lag o rätt på nätet" />
+    <title>Lagar på nätet</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
-    <div class="grid">
+    <div class="grid" id="hem">
       <div class="loga">
         <img src="bilder\loga.png" alt="&#10084;" width="60px" height="auto" />
       </div>
       <div class="meny">
         <ul>
-          <li><a href="#">Hem</a></li>
-          <li><a href="#">Nyheter</a></li>
-          <li><a href="#">Sport</a></li>
-          <li><a href="#">Kultur</a></li>
-          <li><a href="#">Nöje</a></li>
-          <li><a href="#">Debatt</a></li>
-          <li><a href="#">Bloggar</a></li>
-          <li><a href="#">Mer</a></li>
+          <li><a href="#hem">Hem</a></li>
+          <li><a href="#gdpr">Personuppgifter (GDPR)</a></li>
+          <li><a href="#upphovsratt">Upphovsrätt</a></li>
+          <li><a href="#natkrankningar">Nätkränkningar & förtal</a></li>
+          <li><a href="#datorbrott">Datorrelaterade brott</a></li>
+          <li><a href="#kallor">Källor</a></li>
         </ul>
       </div>
-      <div class="artikel-1">
-        <h3>Atrikel nr.1</h3>
+      <div id="gdpr" class="artikel-1">
+        <h2>Personuppgifter online (GDPR)</h2>
         <p>
-          Partiet AFS (alternativ för sverige) får rekordhög andel i kyrko valet
-          på 3%.
+          GDPR skyddar individers personuppgifter. På en webbplats innebär det
+          att du måste ha ett lagligt stöd för att behandla uppgifter (t.ex.
+          samtycke eller avtal), informera användarna om vilken data som samlas
+          in och hur länge den sparas, samt ge användare rättigheter som
+          tillgång, rättelse och radering.
         </p>
-        <p>Val expert Jan Strid kallar dett a ett fiasko</p>
+        <p>
+          Använd cookie-banner och en tydlig integritetspolicy om du använder
+          analytics eller andra tredjepartstjänster.
+        </p>
       </div>
-      <div class="artikel-2">
-        <h3>Artikel</h3>
-        <p>nr.2</p>
+
+      <div id="upphovsratt" class="artikel-2">
+        <h2>Upphovsrätt på nätet</h2>
+        <p>
+          Upphovsrätten skyddar verk som texter, bilder och video. Att publicera
+          annans material utan tillstånd kan vara ett brott. Använd eget
+          material, material med tydlig licens (t.ex. Creative Commons) eller be
+          om tillstånd.
+        </p>
+        <p>Ge alltid källa och ange licens när du återanvänder material.</p>
       </div>
-      <div class="artikel-3">
-        <h3>Artikel</h3>
-        <p>nr.3</p>
+
+      <div id="natkrankningar" class="artikel-3">
+        <h2>Nätkränkningar, förtal och olaga hot</h2>
+        <p>
+          Spridning av osanna påståenden som skadar någons anseende kan utgöra
+          förtal. Olaga hot, trakasserier och hatbrott via meddelanden eller
+          sociala medier kan också vara straffbart. Spara bevis och anmäl
+          allvarliga brott till polisen.
+        </p>
+        <p>
+          För mindre allvarliga fall kan plattformens egna rapporteringsverktyg
+          och blockering vara första steg.
+        </p>
       </div>
-      <div class="blurb">
-        <h3>Blurb</h3>
-        <a href="#">Link 1</a><br /><a href="#">Link 2</a><br /><a href="#"
-          >Link 3</a
-        >
+
+      <div id="datorbrott" class="blurb">
+        <h3>Datorrelaterade brott</h3>
+        <p>
+          Dataintrång, spridning av skadlig kod och överbelastningsattacker
+          (DDoS) är brott i Sverige. Skydda system med uppdateringar, starka
+          lösenord och backups. Kontakta polisen vid misstanke om brott.
+        </p>
       </div>
-      <div class="om">
-        <h4>Om</h4>
-        <p>Denna sida är skapad av Simon.</p>
+
+      <div id="kallor" class="om">
+        <h4>Källor & vidare läsning</h4>
+        <ul>
+          <li><a href="https://www.riksdagen.se">Riksdagen — lagtexter</a></li>
+          <li>
+            <a href="https://imy.se">Integritetsskyddsmyndigheten (IMY)</a>
+          </li>
+          <li><a href="https://polisen.se">Polisen — anmäl brott</a></li>
+        </ul>
+        <p>
+          Disclaimer: Informationen är allmän och utgör inte juridisk
+          rådgivning. För bindande tolkning kontakta jurist eller relevanta
+          myndigheter.
+        </p>
       </div>
     </div>
   </body>

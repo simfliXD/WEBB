@@ -9,14 +9,13 @@ body {
 .grid {
   display: grid;
   grid-template-columns: 0.5fr 2fr 0.5fr;
+  grid-template-rows: auto 1fr 1fr 1fr auto;
   grid-template-areas:
     "loga meny meny"
     "artikel1 artikel1 blurb"
     "artikel2 artikel2 blurb"
     "artikel3 artikel3 blurb"
     "om om om";
-  /* keep the header compact (logo + menu) */
-  grid-template-rows: 70px 1fr 1fr 1fr auto;
   justify-self: center;
   gap: 5px;
   background-color: pink;
@@ -30,6 +29,7 @@ body {
 .grid > div.meny {
   grid-area: meny;
   padding-inline: 0;
+  display: flex;
   align-self: center;
 }
 
@@ -97,7 +97,6 @@ body {
 
 .grid > div.artikel-1 {
   grid-area: artikel1;
-  /*id="hem";*/
 }
 .grid > div.artikel-2 {
   grid-area: artikel2;
@@ -112,9 +111,10 @@ body {
   border-radius: 0;
 }
 
-@media (max-width: 768px) {
+@media (width < 720px) {
   .grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0.5fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr auto;
     grid-template-areas:
       "loga meny"
       "blurb blurb"
@@ -122,6 +122,7 @@ body {
       "artikel2 artikel2"
       "artikel3 artikel3"
       "om om";
+    gap: 4px;
     width: 96%;
   }
   .grid > div {
@@ -129,7 +130,7 @@ body {
   }
 }
 
-@media (720px > width > 480px) {
+@media (width < 500px) {
   .grid {
     grid-template-columns: 1fr;
     grid-template-areas:

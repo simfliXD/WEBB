@@ -22,7 +22,7 @@ body {
   padding: 5px;
   border: 0;
   margin: 0 auto;
-  height: 100vh;
+  height: 100%;
   width: 90%;
 }
 
@@ -87,7 +87,7 @@ body {
   padding: 0;
   width: auto;
   height: auto;
-  max-height: 48px;
+  max-height: 58px;
 }
 
 .grid > div.blurb {
@@ -114,7 +114,7 @@ body {
 @media (width < 720px) {
   .grid {
     grid-template-columns: 0.5fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr auto;
+    grid-template-rows: auto 1fr 1fr 1fr auto;
     grid-template-areas:
       "loga meny"
       "blurb blurb"
@@ -126,13 +126,21 @@ body {
     width: 96%;
   }
   .grid > div {
-    padding: 1%;
+    padding: 5px;
+  }
+  .meny > div.loga {
+    padding: 0;
+  }
+  .meny ul {
+    flex-direction: row;
+    align-items: center;
   }
 }
 
 @media (width < 500px) {
   .grid {
     grid-template-columns: 1fr;
+    grid-template-rows: 0.25fr auto 0.5fr 1fr 1fr 1fr auto;
     grid-template-areas:
       "loga"
       "meny"
@@ -144,13 +152,16 @@ body {
     gap: 4px;
     width: 100%;
   }
+  .meny > div.loga {
+    padding: 0;
+  }
   .meny ul {
     flex-direction: column;
     align-items: center;
   }
   .grid > div.loga img {
     height: auto;
-    width: 5%;
+    width: 20%;
     justify-self: center;
   }
 }

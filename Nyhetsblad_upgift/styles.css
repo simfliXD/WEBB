@@ -8,7 +8,7 @@ body {
 
 .grid {
   display: grid;
-  grid-template-columns: 0.5fr 2fr 0.5fr;
+  grid-template-columns: 0.5fr 2fr 250px;
   grid-template-rows: auto 1fr 1fr 1fr auto;
   grid-template-areas:
     "loga meny meny"
@@ -110,7 +110,30 @@ body {
   grid-area: om;
   border-radius: 0;
 }
-
+@media (820px > width > 720px) {
+  .grid {
+    grid-template-columns: 0.5fr 2fr 0.8fr;
+    grid-template-rows: auto 1fr 1fr 1fr auto;
+    grid-template-areas:
+      "loga meny meny"
+      "artikel1 artikel1 blurb"
+      "artikel2 artikel2 blurb"
+      "artikel3 artikel3 blurb"
+      "om om om";
+    gap: 6px;
+    width: 98%;
+  }
+  .grid > div {
+    padding: 5px;
+  }
+  .meny > div.loga {
+    padding: 0;
+  }
+  .meny ul {
+    flex-direction: row;
+    align-items: center;
+  }
+}
 @media (width < 720px) {
   .grid {
     grid-template-columns: 0.5fr 1fr;

@@ -5,6 +5,11 @@ body {
   background-color: #e75480;
 }
 
+p {
+  font-weight: semi-bold;
+  font-size: large;
+}
+
 .grid {
   display: grid;
   grid-template-columns: 0.5fr 2fr 250px;
@@ -95,8 +100,10 @@ body {
   padding: 2px 8px;
 }
 .grid > div.blurb > div.kortinfo {
-  margin-bottom: 10px;
-  background-color: black;
+  margin: 5px 2px;
+  padding: 1% 0;
+  border-radius: 6px;
+  background-color: #af3358;
   color: white;
 }
 

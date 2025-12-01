@@ -191,7 +191,6 @@ p {
     padding: 0;
   }
   .meny ul {
-    /*flex-direction: column;*/
     align-items: center;
   }
   .grid > div.loga img {

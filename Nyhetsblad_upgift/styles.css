@@ -79,7 +79,7 @@ p {
 
 .grid > div.loga {
   grid-area: loga;
-  display: flex; /* centrerar loggar både vertikalt och horizontelt*/
+  display: flex; /* verkar centrerar loggar både vertikalt och horizontelt*/
   align-items: center;
   justify-content: center;
   padding-inline: 6px;

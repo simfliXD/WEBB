@@ -71,7 +71,7 @@ p {
   color: #ffffff;
 }
 
-.grid > div {
+.grid > article {
   margin: 0;
   padding: 10px;
   background-color: rgba(255, 255, 255, 0.8);
@@ -110,14 +110,14 @@ p {
   color: white;
 }
 
-.grid > div.artikel-1 {
+.grid > article.artikel-1 {
   grid-area: artikel1;
 }
-.grid > div.artikel-2 {
+.grid > article.artikel-2 {
   grid-area: artikel2;
 }
 
-.grid > div.artikel-3 {
+.grid > article.artikel-3 {
   grid-area: artikel3;
 }
 
@@ -238,7 +238,7 @@ p {
   .grid > article {
     padding: 5px;
   }
-  .grid > div.artikel-1 {
+  .grid > article.artikel-1 {
     padding-top: 0;
   }
 

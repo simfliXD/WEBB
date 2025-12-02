@@ -4,7 +4,7 @@
   --nav-bg: #e75480;
   --nav-hover: #ff9fb1;
   --nav-active: #c43a66;
-  --card-bg: rgba(255,255,255,0.9);
+  --card-bg: rgba(255, 255, 255, 0.9);
   --text-on-pink: #ffffff;
 }
 
@@ -33,7 +33,7 @@ body {
 
 .grid > div.meny {
   grid-area: meny;
-  background-color: rgba(255,255,255,0.95);
+  background-color: rgba(255, 255, 255, 0.95);
   padding-inline: 0;
 }
 
@@ -75,13 +75,13 @@ body {
   border-radius: 8px;
 }
 
-.grid > div.loga {
+.grid > header.logga {
   grid-area: loga;
   text-align: center;
   justify-content: center;
 }
 
-.grid > div.loga img {
+.grid > header.logga img {
   display: block;
   margin: 0;
   padding: 0;
@@ -125,7 +125,7 @@ body {
       "artikel3 artikel3"
       "om om";
   }
-  .grid > div.loga img {
+  .grid > header.logga img {
     height: auto;
     width: 50px;
   }
@@ -144,7 +144,7 @@ body {
       "om";
     gap: 4px;
   }
-  .grid > div.loga img {
+  .grid > header.logga img {
     height: auto;
     width: 60px;
     justify-self: center;

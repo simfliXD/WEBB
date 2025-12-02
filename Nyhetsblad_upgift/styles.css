@@ -10,11 +10,6 @@ p {
   font-size: large;
 }
 
-p {
-  font-weight: semi-bold;
-  font-size: large;
-}
-
 .grid {
   display: grid;
   grid-template-columns: 0.5fr 2fr 250px;
@@ -83,16 +78,15 @@ p {
   border-radius: 8px;
 }
 
-.grid > div.loga {
+.grid > header.logga {
   grid-area: loga;
-  display: flex; /* verkar centrerar loggar både vertikalt och horizontelt*/
   display: flex; /* verkar centrerar loggar både vertikalt och horizontelt*/
   align-items: center;
   justify-content: center;
   padding-inline: 6px;
 }
 
-.grid > div.loga img {
+.grid > header.logga img {
   display: block;
   margin: 0;
   padding: 0;
@@ -107,13 +101,7 @@ p {
   background-color: #ff9fb1;
   padding: 2px 8px;
 }
-.grid > div.blurb > div.kort_info {
-  margin: 5px 2px;
-  padding: 1% 2%;
-  border-radius: 6px;
-  background-color: #af3358;
-  color: white;
-}
+
 .grid > aside.blurb > article.kort_info {
   margin: 5px 2px;
   padding: 1% 2%;
@@ -140,10 +128,7 @@ p {
 }
 
 @media (min-width: 721px) and (max-width: 820px) {
-
-@media (min-width: 721px) and (max-width: 820px) {
   .grid {
-    grid-template-columns: 0.5fr 2fr 1fr;
     grid-template-columns: 0.5fr 2fr 1fr;
     grid-template-rows: auto 1fr 1fr 1fr auto;
     grid-template-areas:
@@ -156,36 +141,28 @@ p {
     width: 98%;
   }
 
-
-  .grid > div {
+  .grid > article {
     padding: 5px;
   }
 
-
-  .meny > div.loga {
+  .meny > header.logga {
     padding: 0;
   }
-
 
   .meny ul {
     flex-direction: row;
     align-items: center;
   }
 
-  .grid > div.blurb {
+  .grid > aside.blurb {
     padding: 2px 4px;
   }
 
-  .grid > div.blurb {
-    padding: 2px 4px;
+  .grid > aside.blurb > article.kort_info {
+    margin: 4px 2px;
+    padding: 1% 2%;
   }
 }
-@media (max-width: 720px) {
-  body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
 
 @media (max-width: 720px) {
   body {
@@ -208,16 +185,9 @@ p {
     width: 96%;
   }
 
-
-  .grid > div {
-    padding: 5px;
-  }
-
-
-  .meny > div.loga {
+  .meny > header.logga {
     padding: 0;
   }
-
 
   .meny ul {
     flex-direction: row;
@@ -250,17 +220,8 @@ p {
     padding: 0;
     box-sizing: border-box;
   }
-@media (max-width: 580px) {
-  html,
-  body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
   .grid {
     grid-template-columns: 1fr;
-    grid-template-rows: auto;
     grid-template-rows: auto;
     grid-template-areas:
       "loga"
@@ -281,17 +242,15 @@ p {
     padding-top: 0;
   }
 
-  .meny > div.loga {
+  .meny > header.loga {
     padding: 0;
   }
-
 
   .meny ul {
     align-items: center;
   }
 
-
-  .grid > div.loga img {
+  .grid > header.logga img {
     height: auto;
     width: 20%;
     justify-self: center;

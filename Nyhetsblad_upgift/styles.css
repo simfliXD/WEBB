@@ -71,11 +71,31 @@ p {
   color: #ffffff;
 }
 
+.grid > header {
+  background-color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  padding: 0;
+  border-radius: 6px;
+}
+.grid > nav.meny {
+  margin: 0;
+  border-radius: 6px;
+  padding: 10px;
+  padding-inline: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
 .grid > article {
   margin: 0;
   padding: 10px;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 8px;
+}
+.grid > footer {
+  margin: 0;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 6px;
 }
 
 .grid > header.logga {
@@ -98,8 +118,8 @@ p {
 .grid > aside.blurb {
   grid-area: blurb;
   background-color: #ff9fb1;
-  background-color: #ff9fb1;
   padding: 2px 8px;
+  border-radius: 6px;
 }
 
 .grid > aside.blurb > article.kort_info {
@@ -123,7 +143,6 @@ p {
 
 .grid > footer.om {
   grid-area: om;
-  border-radius: 4px;
   border-radius: 4px;
 }
 
@@ -173,7 +192,7 @@ p {
 
   .grid {
     grid-template-columns: 0.5fr 1fr;
-    grid-template-rows: auto 1fr 1fr 1fr auto;
+    grid-template-rows: auto;
     grid-template-areas:
       "loga meny"
       "blurb blurb"
@@ -185,13 +204,13 @@ p {
     width: 96%;
   }
 
-  .meny > header.logga {
-    padding: 0;
+  .grid > nav.meny {
+    padding: 5px;
+    padding-inline: 0;
   }
 
-  .meny ul {
-    flex-direction: row;
-    align-items: center;
+  .grid > article {
+    padding: 4px;
   }
 
   .grid > aside.blurb {
@@ -201,6 +220,7 @@ p {
     align-items: stretch;
     justify-content: flex-start; /* left-align to ensure the first card doesn't go off-screen */
     overflow-x: auto;
+    border-radius: 4px;
   }
 
   .grid > aside.blurb > article.kort_info {
@@ -237,13 +257,6 @@ p {
   }
   .grid > article {
     padding: 5px;
-  }
-  .grid > article.artikel-1 {
-    padding-top: 0;
-  }
-
-  .meny > header.loga {
-    padding: 0;
   }
 
   .meny ul {

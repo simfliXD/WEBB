@@ -12,8 +12,8 @@ p {
 
 .grid {
   display: grid;
-  grid-template-columns: 0.5fr 2fr 1fr;
-  grid-template-rows: auto calc(1fr / 3) auto;
+  grid-template-columns: 0.5fr 2fr 250px;
+  grid-template-rows: auto 1fr 1fr 1fr auto;
   grid-template-areas:
     "loga meny meny"
     "artikel1 artikel1 blurb"
@@ -30,7 +30,7 @@ p {
   width: 90%;
 }
 
-.grid > nav.meny {
+.grid > div.meny {
   grid-area: meny;
   padding-inline: 0;
   display: flex;
@@ -70,34 +70,14 @@ p {
   color: #ffffff;
 }
 
-.grid > header {
-  background-color: rgba(255, 255, 255, 0.8);
-  margin: 0;
-  padding: 0;
-  border-radius: 6px;
-}
-.grid > nav.meny {
-  margin: 0;
-  border-radius: 6px;
-  padding: 10px;
-  padding-inline: 0;
-  background-color: rgba(255, 255, 255, 0.8);
-}
-
-.grid > article {
+.grid > div {
   margin: 0;
   padding: 10px;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 8px;
 }
-.grid > footer {
-  margin: 0;
-  padding: 10px;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 6px;
-}
 
-.grid > header.logga {
+.grid > div.loga {
   grid-area: loga;
   display: flex; /* verkar centrerar loggar både vertikalt och horizontelt*/
   align-items: center;
@@ -105,7 +85,7 @@ p {
   padding-inline: 6px;
 }
 
-.grid > header.logga img {
+.grid > div.loga img {
   display: block;
   margin: 0;
   padding: 0;
@@ -114,33 +94,31 @@ p {
   max-height: 58px;
 }
 
-.grid > aside.blurb {
+.grid > div.blurb {
   grid-area: blurb;
   background-color: #ff9fb1;
-  padding: 2px 6px;
-  border-radius: 6px;
+  padding: 2px 8px;
 }
-
-.grid > aside.blurb > article.kort_info {
+.grid > div.blurb > div.kort_info {
   margin: 5px 2px;
-  padding: 1% 1.8%;
+  padding: 1% 2%;
   border-radius: 6px;
   background-color: #af3358;
   color: white;
 }
 
-.grid > article.artikel-1 {
+.grid > div.artikel-1 {
   grid-area: artikel1;
 }
-.grid > article.artikel-2 {
+.grid > div.artikel-2 {
   grid-area: artikel2;
 }
 
-.grid > article.artikel-3 {
+.grid > div.artikel-3 {
   grid-area: artikel3;
 }
 
-.grid > footer.om {
+.grid > div.om {
   grid-area: om;
   border-radius: 4px;
 }
@@ -159,11 +137,11 @@ p {
     width: 98%;
   }
 
-  .grid > article {
+  .grid > div {
     padding: 5px;
   }
 
-  .meny > header.logga {
+  .meny > div.loga {
     padding: 0;
   }
 
@@ -172,16 +150,10 @@ p {
     align-items: center;
   }
 
-  .grid > aside.blurb {
+  .grid > div.blurb {
     padding: 2px 4px;
   }
-
-  .grid > aside.blurb > article.kort_info {
-    margin: 4px 2px;
-    padding: 1% 2%;
-  }
 }
-
 @media (max-width: 720px) {
   body {
     margin: 0;
@@ -191,7 +163,7 @@ p {
 
   .grid {
     grid-template-columns: 0.5fr 1fr;
-    grid-template-rows: auto;
+    grid-template-rows: auto 1fr 1fr 1fr auto;
     grid-template-areas:
       "loga meny"
       "blurb blurb"
@@ -203,26 +175,29 @@ p {
     width: 96%;
   }
 
-  .grid > nav.meny {
+  .grid > div {
     padding: 5px;
-    padding-inline: 0;
   }
 
-  .grid > article {
-    padding: 4px;
+  .meny > div.loga {
+    padding: 0;
   }
 
-  .grid > aside.blurb {
+  .meny ul {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .grid > div.blurb {
     display: flex;
     flex-direction: row;
     gap: 4px;
     align-items: stretch;
     justify-content: flex-start; /* left-align to ensure the first card doesn't go off-screen */
     overflow-x: auto;
-    border-radius: 4px;
   }
 
-  .grid > aside.blurb > article.kort_info {
+  .grid > div.blurb > div.kort_info {
     display: flex;
     flex-direction: column;
     flex: 0 0 30%;
@@ -251,24 +226,30 @@ p {
       "artikel3"
       "om";
     gap: 5px;
-    gap: 5px;
     width: 100%;
   }
-  .grid > article {
+  .grid > div {
     padding: 5px;
+  }
+  .grid > div.artikel-1 {
+    padding-top: 0;
+  }
+
+  .meny > div.loga {
+    padding: 0;
   }
 
   .meny ul {
     align-items: center;
   }
 
-  .grid > header.logga img {
+  .grid > div.loga img {
     height: auto;
     width: 20%;
     justify-self: center;
   }
 
-  .grid > aside.blurb {
+  .grid > div.blurb {
     display: flex;
     flex-direction: column;
     gap: 2px;
@@ -276,7 +257,7 @@ p {
     padding: 3px 2px;
   }
 
-  .grid > aside.blurb > article.kort_info {
+  .grid > div.blurb > div.kort_info {
     flex: 0 0 auto;
     width: 100%;
     min-width: auto;

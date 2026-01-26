@@ -1,145 +1,140 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="sv">
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Exempel: javascript</title>
-</head>
-<style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exempel: javascript</title>
+  </head>
+  <style>
     /* Såhär kunde man tydligen göra css för id:s */
-  #visningRuta {
-    display: block;
-    width: 200px;
-    height: 30px;
-    border: 1px solid black;
-    margin-bottom: 10px;
-    padding: 5px;
-    font-size: 18px;
-  }
-</style>
-<body>
-   <h1 id="titel" style="b">Välkommen</h1> 
+    #visningRuta {
+      display: block;
+      width: 200px;
+      height: 30px;
+      border: 1px solid black;
+      margin-bottom: 10px;
+      padding: 5px;
+      font-size: 18px;
+    }
+  </style>
+  <body>
+    <h1 id="titel" style="b">Välkommen</h1>
 
-   <p><button onclick="byt1()">Byt titel</button></p>
+    <p><button onclick="byt1()">Byt titel</button></p>
 
-   <p id="green" style="background-color: green;">Här är det grönt</p>
+    <p id="green" style="background-color: green">Här är det grönt</p>
 
-   <p><button onclick="bytGron()">Byt grön</button></p>
+    <p><button onclick="bytGron()">Byt grön</button></p>
 
-   <p><button id="knappen" onclick="knappText()">Hej</button></p>
+    <p><button id="knappen" onclick="knappText()">Hej</button></p>
 
-   <p id="texten" onclick="pText()">Hej</p>
+    <p id="texten" onclick="pText()">Hej</p>
 
-   <p id="best-text">Vem är bäst?</p>
+    <p id="best-text">Vem är bäst?</p>
 
-   <p><button onclick="jagebast()">S.F</button></p>
+    <p><button onclick="jagebast()">S.F</button></p>
 
-   <p><button onclick="duebast()">R.L</button></p>
+    <p><button onclick="duebast()">R.L</button></p>
 
-   <h2>Miniräknare exempel</h2>'
-   
+    <h2>Miniräknare exempel</h2>
+    '
+
     <output id="visningRuta"></output>
-
 
     <button onclick="skriv('7')">7</button>
     <button onclick="skriv('8')">8</button>
-    <button onclick="skriv('9')">9</button><br>
+    <button onclick="skriv('9')">9</button><br />
 
     <button onclick="skriv('4')">4</button>
     <button onclick="skriv('5')">5</button>
-    <button onclick="skriv('6')">6</button><br>
+    <button onclick="skriv('6')">6</button><br />
 
     <button onclick="skriv('1')">1</button>
     <button onclick="skriv('2')">2</button>
-    <button onclick="skriv('3')">3</button><br>
+    <button onclick="skriv('3')">3</button><br />
 
     <button onclick="skriv('0')">0</button>
-    <button onclick="skriv('.')">.</button><br><br>
-
+    <button onclick="skriv('.')">.</button><br /><br />
 
     <button onclick="skriv('+')">+</button>
     <button onclick="skriv('-')">-</button>
     <button onclick="skriv('*')">*</button>
     <button onclick="skriv('/')">/</button>
     <button onclick="skriv('^')">^</button>
-    <button onclick="rot()">√</button><br><br>
+    <button onclick="rot()">√</button><br /><br />
 
     <button onclick="beräkna()">=</button>
     <button onclick="rensa()">C</button>
 
-<script>
-    /* miniräknare */
-    let display = document.getElementById("visningRuta");
-    
-    function skriv(tecken) {
-        display.value = (display.value) + tecken;
-    }
+    <script>
+      /* miniräknare */
+      let display = document.getElementById("visningRuta");
 
-    function rot() {
+      function skriv(tecken) {
+        display.value = display.value + tecken;
+      }
+
+      function rot() {
         let tal = parseFloat(display.value);
-        display.value = Math.sqrt(tal); /* Det här beräknar rotenur talet direkt vet it hur man gör så den inte gör de :/ */
-    }
+        display.value =
+          Math.sqrt(
+            tal,
+          ); /* Det här beräknar rotenur talet direkt vet it hur man gör så den inte gör de :/ */
+      }
 
-    function rensa() {
+      function rensa() {
         display.value = "";
-    }
+      }
 
-    function beräkna() {
+      function beräkna() {
         let uttryck = display.value;
-        display.value = Function("return " + uttryck)(); /* Fick hjälp med att man måste lägga till "return" */
-    }
-    /* slut av miniräknare */
+        display.value = Function(
+          "return " + uttryck,
+        )(); /* Fick hjälp med att man måste lägga till "return" */
+      }
+      /* slut av miniräknare */
 
-        function jagebast(){
-            document.getElementById("best-text").innerHTML = "Jag är bäst!";
+      function jagebast() {
+        document.getElementById("best-text").innerHTML = "Jag är bäst!";
+      }
+
+      function duebast() {
+        document.getElementById("best-text").innerHTML = "Rasmus är bäst!";
+      }
+
+      function byt1() {
+        document.getElementById("titel").innerHTML =
+          "Välkommen till elev för en dag!";
+        document.getElementById("titel").style.backgroundColor = "red";
+      }
+
+      function bytGron() {
+        var p = document.getElementById("green");
+        p.style.backgroundColor = "HotPink";
+        p.innerHTML = "Här var det grönt";
+      }
+
+      function knappText() {
+        var knappen = document.getElementById("knappen");
+        if (knappen.innerHTML == "Hej") {
+          knappen.innerHTML = "Hå";
+          knappen.style.fontSize = "large";
+        } else if (knappen.innerHTML == "Hå") {
+          knappen.innerHTML = "Hej";
+          knappen.style.fontSize = "small";
         }
+      }
 
-        function duebast(){
-            document.getElementById("best-text").innerHTML = "Rasmus är bäst!";
+      function pText() {
+        var texten = document.getElementById("texten");
+        if (texten.innerHTML == "Hej") {
+          texten.style.fontSize = "large";
+          texten.innerHTML = "Hå";
+        } else if (texten.innerHTML == "Hå") {
+          texten.style.fontSize = "small";
+          texten.innerHTML = "Hej";
         }
-
-       function byt1() 
-	   {
-           document.getElementById("titel").innerHTML = "Välkommen till elev för en dag!";
-           document.getElementById("titel").style.backgroundColor = "red"
-       }
-
-       function bytGron() 
-	   {
-           var p=document.getElementById("green");
-		   p.style.backgroundColor = "HotPink";
-		   p.innerHTML="Här var det grönt";
-       }
-
-       function knappText() 
-	   {
-            var knappen = document.getElementById("knappen");
-            if (knappen.innerHTML == "Hej") 
-			{
-                knappen.innerHTML = "Hå";
-                knappen.style.fontSize = "large";
-            }
-            else if (knappen.innerHTML == "Hå") 
-			{
-                knappen.innerHTML = "Hej";
-                knappen.style.fontSize = "small";
-            }
-       }
-
-       function pText() 
-	   {
-            var texten = document.getElementById("texten");
-            if (texten.innerHTML == "Hej") 
-			{
-                texten.style.fontSize = "large";
-                texten.innerHTML = "Hå";
-            }
-            else if (texten.innerHTML == "Hå") 
-			{
-                texten.style.fontSize = "small";
-                texten.innerHTML = "Hej";
-            }
-       }
-   </script>
-</body>
+      }
+    </script>
+  </body>
 </html>

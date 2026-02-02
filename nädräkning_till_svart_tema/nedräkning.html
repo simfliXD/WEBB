@@ -1,85 +1,56 @@
 <!doctype html>
 <html lang="sv">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
       body {
         padding: 25px;
-        background-color: white;
-        color: black;
-        font-size: 20px;
+        font-family:
+        sans-serif;
+        transition: 0.4s;
+        text-align: center;
       }
-
-      .morkt-läge {
-        background-color: black;
+      .morkt-lage {
+        background: black;
         color: white;
       }
       #nedräkning {
-        font-size: 45px;
-        text-align: center;
+        font-size: 150px;
       }
     </style>
   </head>
-  <body>
-    <h2>Ändra mellan ljust/mörkt läge</h2>
-    <p>
-      Clicka på knappen eller sätt in hur många inputTid och clicka på "Starta
-      Nedräkning".
-    </p>
-
-    <button onclick="andraTema()">Toggle dark mode</button>
-
-    <p id="nedräkning"></p>
-    <input
-      id="inputTid"
-      type="number"
-      defaultValue="00"
-      placeholder="Sätt timern!"
-    />
-    <button onclick="startCountdown()">Start nedräkning</button>
-    <button onclick="startaTimer()">Starta timer</button><br />
-    <button onclick="pausaTimer()">Pausa timer</button>
+  <body id="b">
+    <button onclick="document.body.classList.toggle('morkt-lage')">Mörkt/Ljust</button>
+    <div id="nedrakning">0</div>
+    <input id="input" type="number" placeholder="Sekunder" />
+    <button onclick="start()">Start/Paus</button>
+    <button onclick="stopp()">Stopp</button>
 
     <script>
-      var nedräkningInterval = setInterval(startCountdown, 1000);
-      var countdownEndTime;
-      var timer = document.getElementById("nedräkning");
-
-      function startCountdown() {
-        clearInterval(nedräkningInterval);
-        var inputTid = parseInt(document.getElementById("inputTid").value, 10);
-        if (isNaN(inputTid) || inputTid <= 0) {
-          document.getElementById("nedräkning").innerHTML =
-            "Ange tid för timer!";
-          return;
-        }
-
-        var nu = new Date().getTime();
-        countdownEndTime = nu + inputTid * 60000;
-
-        nedräkningInterval = setInterval(updateCountdown, 1000);
-        updateCountdown();
-      }
+      let klocka, sek = 0;
 
       function start() {
-        document.getElementById("timerr").innerHTML = timer.value;
-        timer.value--;
-        if (timer == -1) {
-          stop();
-          document.getElementById("timerr").innerHTML = "0";
+        if (sek > 0) klocka = setInterval(raknaNed, 1000);
+        if (sek <= 0) sek = parseInt(document.getElementById('input').value);
+        if (klocka) return clearInterval(klocka), klocka = null;
+      }
+
+      function raknaNed() {
+        let d = document.getElementById('nedrakning');
+        if (sek <= 0) {
+          d.innerHTML = "KLAR!";
+          document.body.classList.add('morkt-lage');
+          stopp();
+        } else {
+          d.innerHTML = sek-- + " s";
         }
       }
 
-      function pausaTimer() {
-        clearInterval(nedräkningInterval);
-      }
-
-      function andraTema() {
-        document.body.classList.toggle("morkt-läge");
-      }
-
-      function sattMorktLage() {
-        document.body.classList.add("morkt-läge");
+      function stopp() {
+        clearInterval(klocka);
+        klocka = null; sek = 0;
+        if(document.getElementById('nedräkning').innerHTML !== "KLAR!"){
+        document.getElementById('nedräkning').innerHTML = "0s";
+        }
       }
     </script>
   </body>

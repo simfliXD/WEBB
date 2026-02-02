@@ -1,11 +1,12 @@
 <!doctype html>
 <html lang="sv">
   <head>
+    <meta charset="UTF-8" />
+    <title>nedräkning med JS</title>
     <style>
       body {
         padding: 25px;
-        font-family:
-        sans-serif;
+        font-family: sans-serif;
         transition: 0.4s;
         text-align: center;
       }
@@ -19,26 +20,34 @@
     </style>
   </head>
   <body id="b">
-    <button onclick="document.body.classList.toggle('morkt-lage')">Mörkt/Ljust</button>
+    <button onclick="document.body.classList.toggle('morkt-lage')">
+      Mörkt/Ljust
+    </button>
     <div id="nedrakning">0</div>
     <input id="input" type="number" placeholder="Sekunder" />
     <button onclick="start()">Start/Paus</button>
     <button onclick="stopp()">Stopp</button>
 
     <script>
-      let klocka, sek = 0;
+      let klocka,
+        sek = 0;
 
       function start() {
+        // Om klockan körs pausa den
+        if (klocka) return (klocka = clearInterval(klocka));
+
+        // Om ingen tid finns så hämta från inut
+        if (sek <= 0) sek = parseInt(document.getElementById("input").value);
+
+        // Om det finns sekunder kvar starta klockan
         if (sek > 0) klocka = setInterval(raknaNed, 1000);
-        if (sek <= 0) sek = parseInt(document.getElementById('input').value);
-        if (klocka) return clearInterval(klocka), klocka = null;
       }
 
       function raknaNed() {
-        let d = document.getElementById('nedrakning');
+        let d = document.getElementById("nedrakning");
         if (sek <= 0) {
           d.innerHTML = "KLAR!";
-          document.body.classList.add('morkt-lage');
+          document.body.classList.toggle("morkt-lage");
           stopp();
         } else {
           d.innerHTML = sek-- + " s";
@@ -47,9 +56,10 @@
 
       function stopp() {
         clearInterval(klocka);
-        klocka = null; sek = 0;
-        if(document.getElementById('nedräkning').innerHTML !== "KLAR!"){
-        document.getElementById('nedräkning').innerHTML = "0s";
+        klocka = null;
+        sek = 0;
+        if (document.getElementById("nedrakning").innerHTML !== "KLAR!") {
+          document.getElementById("nedrakning").innerHTML = "0";
         }
       }
     </script>

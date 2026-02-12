@@ -34,7 +34,11 @@
 
       function start() {
         // Om klockan körs pausa den
-        if (klocka) return (klocka = clearInterval(klocka));
+        if (klocka) {
+          clearInterval(klocka);
+          klocka = null;
+          return;
+        }
 
         // Om ingen tid finns så hämta från inut
         if (sek <= 0) sek = parseInt(document.getElementById("input").value);

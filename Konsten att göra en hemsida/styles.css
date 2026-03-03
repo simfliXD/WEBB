@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  height: 100vh;
+}
+header {
+  background-color: #3CAEA3;
+  height: 60px;
+}
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}

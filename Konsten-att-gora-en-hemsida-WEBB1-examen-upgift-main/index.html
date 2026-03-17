@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guide för att skapa en hemsida med HTML, CSS och JavaScript.">
+    <title>Konsten att skapa en hemsida</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header (hidden initially) -->
+        <header class="header hidden" id="header">
+            <div class="header-buttons" id="headerButtons"></div>
+            <h2>My Website</h2>
+            <nav id="main-nav">
+                <button class="nav-btn active" data-page="html">&lt;HTML&gt;</button>
+                <button class="nav-btn" data-page="css">{CSS}</button>
+                <button class="nav-btn" data-page="js">JS()</button>
+                <button class="nav-btn" data-page="historia">📜 HISTORIA</button>
+                <button class="nav-btn" data-page="lagar">⚖️ LAGAR</button>
+            </nav>
+        </header>
+        
+        <!-- Start View (visible initially) -->
+        <div class="start-view" id="startView">
+            <h1>Welcome to My Tutorial</h1>
+            <div class="button-group" id="startButtons">
+                <button class="big-btn" data-topic="html">📄 HTML</button>
+                <button class="big-btn" data-topic="css">🎨 CSS</button>
+                <button class="big-btn" data-topic="js">⚡ JavaScript</button>
+            </div>
+        </div>
+
+        <!-- Guide Container (hidden initially) -->
+        <div class="guide-container hidden" id="guideContainer"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

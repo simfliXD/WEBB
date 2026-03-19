@@ -1,38 +1,88 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="sv">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Guide för att skapa en hemsida med HTML, CSS och JavaScript.">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Guide för att skapa en hemsida med HTML, CSS och JavaScript."
+    />
     <title>Konsten att skapa en hemsida</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <!-- Header (hidden initially) -->
-        <header id="header">
-            <div class="header-logo" id="headerLogo"></div>
-            <nav id="nav">
-                <a href="html.html" data-topic="html">HTML</a>
-                <a href="css.html" data-topic="css">CSS</a>
-                <a href="javascript.html" data-topic="js">JavaScript</a>
-            </nav>
-        </header>
-        
-        <div class="start-view" id="startView">
-            <h1>Welcome to My Tutorial</h1>
-            <div class="button-group" id="startButtons">
-                <button class="big-btn" data-topic="html">📄 HTML</button>
-                <button class="big-btn" data-topic="css">🎨 CSS</button>
-                <button class="big-btn" data-topic="js">⚡ JavaScript</button>
-            </div>
-        </div>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header id="header">
+      <nav class="header-nav">
+        <a href="index.html">home</a>
+        <a href="historia.html">Historia&gt;&lt;</a>
+        <a href="lagar.html">Lagar</a>
+      </nav>
 
-        <div class="container" id="container">
+      <div class="header-logo">
+        <img src="logo.png" alt="Logo" />
+      </div>
 
-        </div>
+      <nav class="header-nav">
+        <a href="html.html" data-topic="html">HTML</a>
+        <a href="css.html" data-topic="css">CSS</a>
+        <a href="javascript.html" data-topic="js">JavaScript</a>
+      </nav>
+
+      <label class="switch">
+        <input type="checkbox" />
+        <span class="slider"></span>
+      </label>
+    </header>
+
+    <!-- The content here will be different depending on the selected topic -->
+    <div class="container" id="content">
+      <nav class="sidebar-nav" id="sidebar">
+        <ul>
+          <li><a href="#home">Title1</a></li>
+          <li><a href="html.html">Title2</a></li>
+          <li><a href="css.html">Title3</a></li>
+          <li><a href="javascript.html">Title4</a></li>
+          <li><a href="#historia">Title5</a></li>
+          <li><a href="#lagar">Title6</a></li>
+        </ul>
+      </nav>
+
+      <!-- Contains the content on the topic -->
+      <article class="container" id="container">
+        <h1>Welcome to My Tutorial</h1>
+        <h1>CONTENT</h1>
+        <p>
+          This is a tutorial on how to create a website using HTML, CSS, and
+          JavaScript. The content of this tutorial will be different depending
+          on the topic you select from the navigation menu.
+          jajajajajajajaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          jaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          ajjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj jjjjjjje topic
+          you select from the navigation menu.
+          jajajajajajajaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          jaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          ajjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj jjjjjjje topic
+          you select from the navigation menu.
+          jajajajajajajaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          jaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          ajjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj jjjjjjje topic
+          you select from the navigation menu.
+          jajajajajajajaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          jaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          ajjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj jjjjjjj e topic
+          you select from the navigation menu.
+          jajajajajajajaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          jaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          ajjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj jjjjjjj
+        </p>
+      </article>
     </div>
 
+    <footer id="footer">
+      <p>&copy; <em>2026 Konsten att gora en hemsida.</em></p>
+    </footer>
+
+    <!-- Script -->
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

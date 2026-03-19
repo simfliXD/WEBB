@@ -6,4 +6,58 @@
     <meta name="description" content="Guide för att skapa en hemsida med CSS">
     <title>Konsten att skapa en hemsida | CSS</title>
     <link rel="stylesheet" href="style.css">
+</head>
+  <body>
+    <header id="header">
+      <nav class="header-nav">
+        <a href="index.html">home</a>
+        <a href="historia.html">Historia&gt;&lt;</a>
+        <a href="lagar.html">Lagar</a>
+      </nav>
+
+      <div class="header-logo">
+        <img src="logo.png" alt="Logo" />
+      </div>
+
+      <nav class="header-nav">
+        <a href="html.html" data-topic="html">HTML</a>
+        <a href="css.html" data-topic="css">CSS</a>
+        <a href="javascript.html" data-topic="js">JavaScript</a>
+      </nav>
+
+      <label class="switch">
+        <input type="checkbox" />
+        <span class="slider"></span>
+      </label>
+    </header>
+
+    <!-- The content here will be different depending on the selected topic -->
+    <div class="container" id="content">
+      <nav class="sidebar-nav" id="sidebar">
+        <ul>
+          <li><a href="#home">Title1</a></li>
+          <li><a href="html.html">Title2</a></li>
+          <li><a href="css.html">Title3</a></li>
+          <li><a href="javascript.html">Title4</a></li>
+          <li><a href="#historia">Title5</a></li>
+          <li><a href="#lagar">Title6</a></li>
+        </ul>
+      </nav>
+
+      <!-- Contains the content on the topic -->
+      <article class="container" id="container">
+        <h1>Welcome to My Tutorial</h1>
+        <h1>CONTENT CSS</h1>
+      </article>
+    </div>
+
+    <footer id="footer">
+      <p>&copy; <em>2026 Konsten att gora en hemsida.</em></p>
+    </footer>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+  </body>
+</html>
+
 </html>

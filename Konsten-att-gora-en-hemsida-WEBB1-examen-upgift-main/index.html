@@ -13,73 +13,100 @@
   <body>
     <header id="header">
       <nav class="header-nav left">
-        <a href="html.html" data-topic="html">HTML</a>
-        <a href="css.html" data-topic="css">CSS</a>
-        <a href="javascript.html" data-topic="js">JavaScript</a>
+        <a href="index.html" data-topic="html">Hem</a>
+        <a href="historia.html">Historia</a>
+        <a href="lagar.html">Lagar</a>
       </nav>
 
       <div class="header-logo">
-        <img src="logo.png" alt="Logo" />
+        <!-- Maybe use SVG later -->
+        <span class="logo-text"> Konsten att skapa en hemsida</span>
       </div>
 
-      <nav class="header-nav">
-        <a href="html.html" data-topic="html">HTML</a>
-        <a href="css.html" data-topic="css">CSS</a>
-        <a href="javascript.html" data-topic="js">JavaScript</a>
-      </nav>
+      <div class="header-right">
+        <nav class="header-nav right">
+          <a href="html.html" data-topic="html">HTML</a>
+          <a href="css.html" data-topic="css">CSS</a>
+          <a href="javascript.html" data-topic="js">JavaScript</a>
+        </nav>
 
-      <label class="switch">
-        <input type="checkbox" />
-        <span class="slider"></span>
-      </label>
+        <label class="switch">
+          <input type="checkbox" id="modeToggle" />
+          <span class="slider"></span>
+        </label>
+      </div>
     </header>
 
-    <!-- The content here will be different depending on the selected topic -->
-    <div class="container" id="content">
-      <nav class="sidebar-nav" id="sidebar">
+    <div class="content-layout">
+      <aside class="sidebar-nav" id="sidebar">
         <ul>
-          <li><a href="#home">Title1</a></li>
-          <li><a href="html.html">Title2</a></li>
-          <li><a href="css.html">Title3</a></li>
-          <li><a href="javascript.html">Title4</a></li>
-          <li><a href="#historia">Title5</a></li>
-          <li><a href="#lagar">Title6</a></li>
+          <!-- These links point to headings inside the article (ID based) -->
+          <li><a href="#title1">Title1</a></li>
+          <li><a href="#title2">Title2</a></li>
+          <li><a href="#title3">Title3</a></li>
+          <li><a href="#title4">Title4</a></li>
+          <li><a href="#title5">Title5</a></li>
+          <li><a href="#title6">Title6</a></li>
         </ul>
-      </nav>
-
-      <!-- Contains the content on the topic -->
-      <article class="container" id="container">
-        <h1>Welcome to My Tutorial</h1>
-        <h1>CONTENT</h1>
+      </aside>
+      <article class="main-content" id="main-content">
+        <!-- inserted IDs for sidebar anchoring -->
+        <h1 id="title1">Welcome to My Tutorial</h1>
+        <h2 id="title2">Title2</h2>
         <p>
-          This is a tutorial on how to create a website using HTML, CSS, and
-          JavaScript. The content of this tutorial will be different depending
-          on the topic you select from the navigation menu.
-          jajajajajajajaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-          jaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          Hnavigation menu.
+          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          ajjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj jjjjjjje topic
+          you select from aaaaaaaaaaaaaaaaaaa ja jaaaaa aaaa aaaa aaaa aaaa aaaa
+        </p>
+
+        <h2 id="title3">Title3</h2>
+        <p>
+          navigation menu.
+          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          ajjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj jjjjjjje topic
+          you select from aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        </p>
+
+        <h2 id="title4">Title4</h2>
+        <p>
+          Hernavignavigation menu.
+          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          ajjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj jjjjjjje topic
+          you select from ation menu.
+          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          ajjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj jjjjjjje topic
+          you select from ajaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa ajjjjjjjjjjjjjjjjj
+        </p>
+
+        <h2 id="title5">Title5</h2>
+        <p>
+          Webnavigation menu.
+          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          ajjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj jjjjjjje topic
+          you select from ben snavigation menu.
+          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          ajjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj jjjjjjje topic
+          you select from aaaaaaaaaaaaaaaaaaaaaaaaaaaa jaaaaaaa
+        </p>
+
+        <h2 id="title6">Title6</h2>
+        <p>
+          navigation menu.
+          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          ajjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj jjjjjjje topic
+          you select from aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
           ajjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj jjjjjjje topic
           you select from the navigation menu.
-          jajajajajajajaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-          jaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
           ajjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj jjjjjjje topic
           you select from the navigation menu.
-          jajajajajajajaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-          jaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-          ajjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj jjjjjjje topic
-          you select from the navigation menu.
-          jajajajajajajaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-          jaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-          ajjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj jjjjjjj e topic
-          you select from the navigation menu.
-          jajajajajajajaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-          jaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-          ajjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj jjjjjjj
         </p>
       </article>
     </div>
 
     <footer id="footer">
-      <p>&copy; <em>2026 Konsten att gora en hemsida.</em></p>
+      <p>&copy; <em>2026 Konsten att gora en hemsida. :D</em></p>
     </footer>
 
     <!-- Script -->

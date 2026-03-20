@@ -1,3 +1,4 @@
+/* ===== CSS VARIABLAR ===== */
 :root {
   --primary-color: #4caf50;
   --secondary-color: #333;
@@ -18,13 +19,15 @@
   --transition-slow: 0.35s;
 }
 /*GRABBEN GÖR NOTERINGAR PÅ SVENSKA HAN SA JU ATT MAN SKA TÄNKA ATT DEN SOM SER DET HÄR KANSKE KOLLAR IN KODEN*/
+
+/* Globara attributer för alla element */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; /* Gör så att padding och border räknas in i elementets totala bredd och höjd ( ändrar hur "width" och "height" attributen kalkyleras) */
 }
 
-/* ===== LIGHT MODE ===== */
+/* ===== VARIABLAR FÖR LJUST LÄGE ===== */
 body.light-mode {
   --primary-color: #f4f8f2;
   --secondary-color: #e6e6e6;
@@ -71,10 +74,10 @@ header {
   gap: 1.5rem;
 }
 
+/* Centers the logo Div. This is can also be done with flexbox */
 .header-logo {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%); /*Flyttar loggan till mitten */
+  display: grid;
+  place-content: center;
 }
 
 .header-logo img {

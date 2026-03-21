@@ -65,12 +65,17 @@ header {
   gap: 1.5rem;
 }
 
+#home {
+  margin-right: auto;
+}
+
 .header-nav.left {
   margin-left: 1.5rem;
 }
 
 .header-right {
   display: flex;
+
   gap: 1.5rem;
 }
 
@@ -78,6 +83,7 @@ header {
 .header-logo {
   display: grid;
   place-content: center;
+  flex-shrink: 0;
 }
 
 .header-logo img {

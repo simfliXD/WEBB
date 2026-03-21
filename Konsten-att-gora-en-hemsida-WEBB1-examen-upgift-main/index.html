@@ -9,35 +9,39 @@
     />
     <title>Konsten att skapa en hemsida</title>
     <link rel="stylesheet" href="style.css" />
+    <link preload  href="assets/logo.svg" as="image" />
+    <!-- Hämta alla sidor för snabbare navigering -->
+    <link prefetch href="historia.html" as="document" />
+    <link prefetch href="lagar.html" as="document" />
+    <link prefetch href="html.html" as="document" />
+    <link prefetch href="css.html" as="document" />
+    <link prefetch href="javascript.html" as="document" />
   </head>
-  <body>
+  <body>  
     <header id="header">
-      <nav class="header-nav left">
-        <a href="index.html" id="home">Hem</a>
-        <a href="historia.html">Historia</a>
-        <a href="lagar.html">Lagar</a>
-      </nav>
-
       <div class="header-logo" id="logo">
-        <!-- Maybe use SVG later -->
-        <span class="logo-text"> Konsten att skapa en hemsida</span>
+        <a href="index.html"><img src="assets/logo.svg" alt="{Logo}" /></a>
+        <a href="index.html"><h2>Konsten att skapa en hemsida</h2></a>
       </div>
 
-      <div class="header-right">
-        <nav class="header-nav right">
-          <a href="html.html" data-topic="html">HTML</a>
-          <a href="css.html" data-topic="css">CSS</a>
-          <a href="javascript.html" data-topic="js">JavaScript</a>
-        </nav>
+      <nav class="header-nav">
+        <!-- <a href="index.html" id="home">Hem</a> -->
+        <a href="historia.html">Historia</a>
+        <a href="lagar.html">Lagar</a>
+        <a href="html.html" data-topic="html">HTML</a>
+        <a href="css.html" data-topic="css">CSS</a>
+        <a href="javascript.html" data-topic="js">JavaScript</a>
+      </nav>
 
         <label class="switch">
           <input type="checkbox" id="modeToggle" />
           <span class="slider"></span>
         </label>
+
       </div>
     </header>
 
-    <div class="content-layout">
+    <main class="content-layout">
       <aside class="sidebar-nav" id="sidebar">
         <ul>
           <!-- These links point to headings inside the article (ID based) -->
@@ -54,56 +58,55 @@
         <h1 id="title1">Welcome to My Tutorial</h1>
         <h2 id="title2">Title2</h2>
         <p>
-          Hnavigation menu.
-          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-          ajjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj jjjjjjje topic
-          you select from aaaaaaaaaaaaaaaaaaa ja jaaaaa aaaa aaaa aaaa aaaa aaaa
+          Hnavigation menu. aaaaaaaaaaaaaa aaaaaaaaaaaaaa aaaaaaaaaaaaaaa
+          aaaaaaaaaaaaaaaa ajjjjjjjjjjjj jjjjjjjjjjj jjjjjjjjjjjjjjjj
+          jjjjjjjjjjjjjj jjjjjjje topic you select from aaaaaaaaaaaaaaaaaaa ja
+          jaaaaa aaaa aaaa aaaa aaaa aaaa Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Quidem nihil quod dolorem ipsa doloremque quo
+          deserunt dicta. Non iure minus voluptas itaque quasi sequi sed,
+          veritatis vero, aperiam ratione vitae!
         </p>
 
         <h2 id="title3">Title3</h2>
         <p>
-          navigation menu.
-          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-          ajjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj jjjjjjje topic
-          you select from aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem nihil
+          quod dolorem ipsa doloremque quo deserunt dicta. Non iure minus
+          voluptas itaque quasi sequi sed, veritatis vero, aperiam ratione
+          vitae!
         </p>
 
         <h2 id="title4">Title4</h2>
         <p>
-          Hernavignavigation menu.
-          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-          ajjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj jjjjjjje topic
-          you select from ation menu.
-          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-          ajjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj jjjjjjje topic
-          you select from ajaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa ajjjjjjjjjjjjjjjjj
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
+          dignissimos voluptatibus dolore, pariatur, quidem odit adipisci
+          perferendis labore reiciendis vero laudantium quo ex tempore rerum
+          nobis illum magnam laboriosam accusantium. Hernavignavigation menu.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora unde
+          ipsum laborum aut maxime, veritatis cum itaque laboriosam nulla enim
+          commodi alias aliquam ullam dolor nisi asperiores libero quod
+          perferendis!
         </p>
 
         <h2 id="title5">Title5</h2>
         <p>
-          Webnavigation menu.
-          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-          ajjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj jjjjjjje topic
-          you select from ben snavigation menu.
-          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-          ajjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj jjjjjjje topic
-          you select from aaaaaaaaaaaaaaaaaaaaaaaaaaaa jaaaaaaa
+          Webnavigation menu. Lorem ipsum dolor sit amet consectetur adipisicing
+          elit. Quidem nihil quod dolorem ipsa doloremque quo deserunt dicta.
+          Non iure minus voluptas itaque quasi sequi sed, veritatis vero,
+          aperiam ratione vitae!
         </p>
 
         <h2 id="title6">Title6</h2>
         <p>
-          navigation menu.
-          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-          ajjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj jjjjjjje topic
-          you select from aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-          ajjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj jjjjjjje topic
-          you select from the navigation menu.
-          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-          ajjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj jjjjjjje topic
-          you select from the navigation menu.
+          navigation menu.Lorem ipsum dolor sit amet consectetur adipisicing
+          elit. Quidem nihil quod dolorem ipsa doloremque quo deserunt dicta.
+          Non iure minus voluptas itaque quasi sequi sed, veritatis vero,
+          aperiam ratione vitae!Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Quidem nihil quod dolorem ipsa doloremque quo
+          deserunt dicta. Non iure minus voluptas itaque quasi sequi sed,
+          veritatis vero, aperiam ratione vitae!
         </p>
       </article>
-    </div>
+    </main>
 
     <footer id="footer">
       <p>&copy; <em>2026 Konsten att gora en hemsida. :D</em></p>

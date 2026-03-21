@@ -1,1 +1,25 @@
 // script.js
+document.addEventListener("DOMContentLoaded", function () {
+  // Dark mode toggle functionality
+  const modeToggle = document.getElementById("modeToggle");
+
+  if (modeToggle) {
+    // Checka local storage för att se om boolean för dark mode är sann,
+    // och om det är sann, lägg till dark mode klassen till body elementet
+    const savedMode = localStorage.getItem("darkMode");
+    if (savedMode === "enabled") {
+      document.body.classList.add("dark-mode");
+      modeToggle.checked = true;
+    }
+
+    modeToggle.addEventListener("change", function () {
+      if (this.checked) {
+        document.body.classList.add("dark-mode");
+        localStorage.setItem("darkMode", "enabled");
+      } else {
+        document.body.classList.remove("dark-mode");
+        localStorage.setItem("darkMode", null);
+      }
+    });
+  }
+});

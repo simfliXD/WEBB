@@ -1,11 +1,12 @@
 /* ===== CSS VARIABLAR ===== */
 :root {
-  --primary-color: #4caf50;
-  --secondary-color: #333;
+  --primary-color: #333;
+  --secondary-color: #4caf50;
   --shadow-color: #2d6a4f;
   --background-color: #f0f0f0;
   --primary-border-color: #198e17;
   --secondary-border-color: #2e3b3f;
+  --header-text-color: #fff;
   --text-color: #333;
   --muted-text-color: #3f810c;
 
@@ -17,6 +18,9 @@
   --transition-quick: 0.2s;
   --transition-standard: 0.3s;
   --transition-slow: 0.35s;
+
+  /*Counter*/
+  counter-reset: headings;
 }
 /*GRABBEN GÖR NOTERINGAR PÅ SVENSKA HAN SA JU ATT MAN SKA TÄNKA ATT DEN SOM SER DET HÄR KANSKE KOLLAR IN KODEN*/
 
@@ -27,23 +31,24 @@
   box-sizing: border-box; /* Gör så att padding och border räknas in i elementets totala bredd och höjd ( ändrar hur "width" och "height" attributen kalkyleras) */
 }
 
-/* ===== VARIABLAR FÖR LJUST LÄGE ===== */
-body.light-mode {
-  --primary-color: #f4f8f2;
-  --secondary-color: #e6e6e6;
-  --background-color: #ffffff;
-  --border-color: #198e17;
-  --text-color: #282a36;
-  --muted-text-color: #6272a4;
+/* ===== VARIABLAR FÖR MÖRKT LÄGE ===== */
+body.dark-mode {
+  --primary-color: #4d4242;
+  --secondary-color: #4caf50;
+  --background-color: #121212;
+  --border-color: #4caf50;
+  --header-text-color: #1b1515;
+  --text-color: #ffffff;
+  --muted-text-color: #888888;
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: var(--background-color);
   color: var(--text-color);
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  width: 100vw;
   min-height: 100vh;
 }
 
@@ -51,10 +56,11 @@ body {
 /*Make this with rectangles with borders to the right and botom for some kind of 3D effect. sluta tänka på ängelska nu för fan*/
 header {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  background: var(--secondary-color);
-  color: white;
+  background: var(--primary-color);
+  color: var(--header-text-color);
   width: 100%;
   padding: 1.2rem 1.5rem;
   border-bottom: 5px solid var(--primary-border-color);
@@ -62,38 +68,43 @@ header {
 
 .header-nav {
   display: flex;
-  gap: 1.5rem;
+  flex-wrap: wrap;
+  width: fit-content;
+  gap: 1rem;
 }
 
 #home {
   margin-right: auto;
 }
 
-.header-nav.left {
-  margin-left: 1.5rem;
-}
-
-.header-right {
-  display: flex;
-
-  gap: 1.5rem;
-}
-
-/* Centers the logo Div. This is can also be done with flexbox */
 .header-logo {
-  display: grid;
-  place-content: center;
-  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
+  margin-right: 1px;
+  padding-right: 1.5em;
+  border-right: calc(15px - 1vw) solid var(--primary-border-color);
+  flex-shrink: 1;
+}
+
+.header-logo a {
+  text-decoration: none;
 }
 
 .header-logo img {
-  max-height: 60px;
-  width: auto;
   display: block;
+  aspect-ratio: 1/1;
+  height: clamp(40px, 6vw, 60px);
+  width: auto;
+}
+.header-logo h2 {
+  font-size: clamp(1.2rem, calc(4vw + 1rem), 2rem);
+  color: var(--header-text-color);
+  text-wrap: 0;
 }
 
 .header-nav a {
-  color: white;
+  color: var(--header-text-color);
   text-decoration: none;
   font-weight: 500;
   padding: 0.5rem 0.75rem;
@@ -102,14 +113,15 @@ header {
 }
 
 .header-nav a:hover {
-  background-color: white;
+  background-color: var(--secondary-color);
   color: #333;
+  font-weight: bold;
 }
 
 /* ===== DARK/LIGHT TOGGLE SWITCH ===== */
 .switch {
   position: relative;
-  display: inline-block;
+  display: flex;
   width: 60px;
   height: 30px;
   flex-shrink: 0;
@@ -171,7 +183,7 @@ input:checked + .slider:before {
   z-index: 1;
   max-height: calc(100vh - 3rem);
   width: clamp(200px, 220px, 240px);
-  background: var(--secondary-color);
+  background: var(--primary-color);
   padding: 1.8rem 1rem;
   border-radius: 10px;
   overflow-y: auto;
@@ -191,13 +203,22 @@ input:checked + .slider:before {
   border-radius: 5px;
   font-weight: 500;
   background-color: rgba(255, 255, 255, 0.1);
+  counter-increment: headings; /* Incrementerar counter "headings" varje gång ny länk skapas */
 }
 .sidebar-nav a:hover {
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
   color: black;
+}
+/* Lägger till nummering för varje länk i sidomenyn */
+.sidebar-nav a::before {
+  content: counter(headings) ". ";
+  font-weight: bold;
+  color: var(--muted-text-color);
 }
 
 .main-content {
+  /*display: grid;
+  place-content: center;*/
   flex: 0 1 720px;
   max-width: 1020px;
   width: min(720px, calc(100% - 280px));
@@ -208,7 +229,8 @@ input:checked + .slider:before {
   border: 1px solid var(--secondary-border-color);
 }
 .main-content h1 {
-  color: var(--secondary-color);
+  font-size: clamp(1.25rem, calc(4vw + 1rem), 3rem);
+  color: var(--primary-color);
   margin-bottom: 1rem;
   border-bottom: 3px solid var(--primary-border-color);
   padding-bottom: 0.5rem;
@@ -221,7 +243,7 @@ input:checked + .slider:before {
 
 /* ===== FOOTER ===== */
 footer {
-  background: var(--secondary-color);
+  background: var(--primary-color);
   color: white;
   padding: 2rem;
   text-align: center;
@@ -231,29 +253,32 @@ footer {
 
 /* responsive tweak: if screen too small, stack sidebar */
 @media (max-width: 800px) {
-  .sidebar-nav {
-    width: 100%;
+  .content-layout {
+    flex-direction: column;
   }
-  header {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.8rem;
+  .sidebar-nav {
+    width: 90%;
+    margin: 0.5em auto;
+    max-width: none;
+    position: relative;
+    max-height: none;
+  }
+  .main-content {
+    width: 90%;
+    justify-self: center;
+    max-width: none;
+    margin: 0.5em auto;
+  }
+}
+@media (max-width: 650px) {
+  /*HÄR SKA HAMBÖRGAR MENYN KOMMA*/
+  .header-nav {
+    display: none;
   }
   .header-logo {
-    position: static;
-    transform: none;
-    order: -1;
-    width: 100%;
-    margin: 0.5rem 0;
+    padding: 1.2rem 1.5rem;
+    border-right: 5px solid var(--primary-border-color);
   }
-  .header-right {
-    margin-left: auto;
-  }
-
-  .header-nav.left {
-    margin-left: 0;
-  }
-  .header-right {
-    margin-right: 0;
-  }
+}
+@media (max-width: 500px) {
 }

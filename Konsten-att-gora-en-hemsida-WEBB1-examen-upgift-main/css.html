@@ -1,63 +1,111 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="sv">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Guide för att skapa en hemsida med CSS">
-    <title>Konsten att skapa en hemsida | CSS</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Guide för att skapa en hemsida med HTML, CSS och JavaScript."
+    />
+    <title>Konsten att skapa en hemsida</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
   <body>
     <header id="header">
-      <nav class="header-nav left">
-        <a href="index.html">home</a>
-        <a href="historia.html">Historia&gt;&lt;</a>
-        <a href="lagar.html">Lagar</a>
-      </nav>
-
-      <div class="header-logo">
-        <img src="logo.png" alt="Logo" />
+      <div class="header-logo" id="logo">
+        <img src="assets/logo.svg" alt="{Logo}" />
+        <h2>Konsten att skapa en hemsida</h2>
       </div>
 
-      <div class="header-right">
-        <nav class="header-nav right">
+      <nav class="header-nav">
+        <!-- <a href="index.html" id="home">Hem</a> -->
+        <a href="historia.html">Historia</a>
+        <a href="lagar.html">Lagar</a>
           <a href="html.html" data-topic="html">HTML</a>
           <a href="css.html" data-topic="css">CSS</a>
           <a href="javascript.html" data-topic="js">JavaScript</a>
-        </nav>
+      </nav>
+
         <label class="switch">
-          <input type="checkbox" />
+          <input type="checkbox" id="modeToggle" />
           <span class="slider"></span>
         </label>
+
       </div>
     </header>
 
-    <!-- The content here will be different depending on the selected topic -->
-    <div class="content-layout">
-      <article class="main-content" id="main-content">
-        <h1>Welcome to My Tutorial</h1>
-        <h1>CONTENT CSS</h1>
-      </article>
-
+    <main class="content-layout">
       <aside class="sidebar-nav" id="sidebar">
         <ul>
-          <li><a href="#home">Title1</a></li>
-          <li><a href="html.html">Title2</a></li>
-          <li><a href="css.html">Title3</a></li>
-          <li><a href="javascript.html">Title4</a></li>
-          <li><a href="#historia">Title5</a></li>
-          <li><a href="#lagar">Title6</a></li>
+          <!-- These links point to headings inside the article (ID based) -->
+          <li><a href="#title1">Title1</a></li>
+          <li><a href="#title2">Title2</a></li>
+          <li><a href="#title3">Title3</a></li>
+          <li><a href="#title4">Title4</a></li>
+          <li><a href="#title5">Title5</a></li>
+          <li><a href="#title6">Title6</a></li>
         </ul>
       </aside>
-    </div>
+      <article class="main-content" id="main-content">
+        <!-- inserted IDs for sidebar anchoring -->
+        <h1 id="title1">Welcome to CSS</h1>
+        <h2 id="title2">Title2</h2>
+        <p>
+          Hnavigation menu. aaaaaaaaaaaaaa aaaaaaaaaaaaaa aaaaaaaaaaaaaaa
+          aaaaaaaaaaaaaaaa ajjjjjjjjjjjj jjjjjjjjjjj jjjjjjjjjjjjjjjj
+          jjjjjjjjjjjjjj jjjjjjje topic you select from aaaaaaaaaaaaaaaaaaa ja
+          jaaaaa aaaa aaaa aaaa aaaa aaaa Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Quidem nihil quod dolorem ipsa doloremque quo
+          deserunt dicta. Non iure minus voluptas itaque quasi sequi sed,
+          veritatis vero, aperiam ratione vitae!
+        </p>
+
+        <h2 id="title3">Title3</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem nihil
+          quod dolorem ipsa doloremque quo deserunt dicta. Non iure minus
+          voluptas itaque quasi sequi sed, veritatis vero, aperiam ratione
+          vitae!
+        </p>
+
+        <h2 id="title4">Title4</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
+          dignissimos voluptatibus dolore, pariatur, quidem odit adipisci
+          perferendis labore reiciendis vero laudantium quo ex tempore rerum
+          nobis illum magnam laboriosam accusantium. Hernavignavigation menu.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora unde
+          ipsum laborum aut maxime, veritatis cum itaque laboriosam nulla enim
+          commodi alias aliquam ullam dolor nisi asperiores libero quod
+          perferendis!
+        </p>
+
+        <h2 id="title5">Title5</h2>
+        <p>
+          Webnavigation menu. Lorem ipsum dolor sit amet consectetur adipisicing
+          elit. Quidem nihil quod dolorem ipsa doloremque quo deserunt dicta.
+          Non iure minus voluptas itaque quasi sequi sed, veritatis vero,
+          aperiam ratione vitae!
+        </p>
+
+        <h2 id="title6">Title6</h2>
+        <p>
+          navigation menu.Lorem ipsum dolor sit amet consectetur adipisicing
+          elit. Quidem nihil quod dolorem ipsa doloremque quo deserunt dicta.
+          Non iure minus voluptas itaque quasi sequi sed, veritatis vero,
+          aperiam ratione vitae!Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Quidem nihil quod dolorem ipsa doloremque quo
+          deserunt dicta. Non iure minus voluptas itaque quasi sequi sed,
+          veritatis vero, aperiam ratione vitae!
+        </p>
+      </article>
+    </main>
 
     <footer id="footer">
-      <p>&copy; <em>2026 Konsten att gora en hemsida.</em></p>
+      <p>&copy; <em>2026 Konsten att gora en hemsida. :D</em></p>
     </footer>
 
     <!-- Script -->
     <script src="script.js" defer></script>
   </body>
-</html>
-
 </html>

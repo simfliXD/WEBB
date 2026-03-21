@@ -11,7 +11,9 @@ document.addEventListener("DOMContentLoaded", function () {
       document.body.classList.add("dark-mode");
       modeToggle.checked = true;
     }
-
+    // Lyssna efter eventet "change" på toggle switchen,
+    // när det ändras uppdatera klassen på body elementet för att ändra färgschemat
+    // och spara det nya värdet i local storage
     modeToggle.addEventListener("change", function () {
       if (this.checked) {
         document.body.classList.add("dark-mode");

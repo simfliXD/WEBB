@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("darkMode", "enabled");
       } else {
         document.body.classList.remove("dark-mode");
-        localStorage.setItem("darkMode", null);
+        localStorage.setItem("darkMode", "disabled");
       }
     });
   }

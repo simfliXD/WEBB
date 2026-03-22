@@ -9,6 +9,7 @@
   --header-text-color: #fff;
   --text-color: #333;
   --muted-text-color: #3f810c;
+  --hover-color: #2e3b3f;
 
   /*FOR LATER CODE SNIPPLETS*/
   --code-snippet-background: #35374b;
@@ -40,6 +41,7 @@ body.dark-mode {
   --header-text-color: #1b1515;
   --text-color: #ffffff;
   --muted-text-color: #888888;
+  --hover-color: #526f53;
 }
 
 body {
@@ -48,59 +50,46 @@ body {
   color: var(--text-color);
   display: grid;
   grid-template-rows: auto 1fr auto;
-  width: 100vw;
   min-height: 100vh;
+  min-height: 100dvh;
 }
 
 /* ===== HEADER ===== */
 /*Make this with rectangles with borders to the right and botom for some kind of 3D effect. sluta tänka på ängelska nu för fan*/
 header {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
+  display: inline-flex;
   background: var(--primary-color);
   color: var(--header-text-color);
-  width: 100%;
-  padding: 1.2rem 1.5rem;
-  border-bottom: 5px solid var(--primary-border-color);
-}
-
-.header-nav {
-  display: flex;
-  flex-wrap: wrap;
-  width: fit-content;
-  gap: 1rem;
-}
-
-#home {
-  margin-right: auto;
+  /*height: clamp(60px, 10vw, 80px);*/
+  padding: 1.2rem 1em;
+  border-bottom: 4px solid var(--primary-border-color);
 }
 
 .header-logo {
   display: flex;
   align-items: center;
+  height: fit-content;
   gap: 0.8em;
-  margin-right: 1px;
   padding-right: 1.5em;
   border-right: calc(15px - 1vw) solid var(--primary-border-color);
-  flex-shrink: 1;
 }
 
-.header-logo a {
-  text-decoration: none;
+svg,
+text {
+  fill: var(--header-text-color);
 }
 
-.header-logo img {
-  display: block;
-  aspect-ratio: 1/1;
-  height: clamp(40px, 6vw, 60px);
-  width: auto;
+.header-nav {
+  align-items: center;
+  margin-left: auto;
+  display: flex;
+  padding-inline: 1.5rem;
 }
-.header-logo h2 {
-  font-size: clamp(1.2rem, calc(4vw + 1rem), 2rem);
-  color: var(--header-text-color);
-  text-wrap: 0;
+
+.header-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
 }
 
 .header-nav a {
@@ -113,9 +102,15 @@ header {
 }
 
 .header-nav a:hover {
-  background-color: var(--secondary-color);
+  background-color: var(--hover-color);
   color: #333;
   font-weight: bold;
+}
+
+.active-link {
+  color: #333;
+  font-weight: bold;
+  border-bottom: 2px solid var(--primary-border-color);
 }
 
 /* ===== DARK/LIGHT TOGGLE SWITCH ===== */
@@ -164,71 +159,67 @@ input:checked + .slider:before {
 }
 
 /* =====  PAGE LAYOUT ===== */
-.content-layout {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  max-width: 1100px;
+main {
+  display: grid;
+  grid-template-columns: 200px auto;
   width: 100%;
+  gap: 2rem;
   margin: 2.5rem auto;
   padding: 0 1.5rem;
-  align-items: flex-start;
-  position: relative;
 }
 
 /* =====  SIDEBAR  ===== */
 .sidebar-nav {
-  /*FIX THIS THE SIDENAV SHOULD BE FAR TO THE LEFT AND ARTICLE CENTERED*/
-  position: sticky;
-  z-index: 1;
-  max-height: calc(100vh - 3rem);
-  width: clamp(200px, 220px, 240px);
+  position: sticky; /* Gör så att elementet "fastnar" på skärmen till den når gränsen av sin förälders avgränsningruta, i detta fall "main" */
+  top: 2rem;
+  z-index: 2;
+  height: fit-content;
+  width: clamp(200px, 15vw, 280px);
   background: var(--primary-color);
-  padding: 1.8rem 1rem;
+  padding: 1.8rem 1.4rem;
   border-radius: 10px;
   overflow-y: auto;
 }
 
 .sidebar-nav ul {
+  text-decoration: none;
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
 }
 
 .sidebar-nav a {
+  text-decoration: none;
   display: block;
   color: white;
-  text-decoration: none;
-  padding: 0.75rem 1.2rem;
+  padding: 1em 2em;
   border-radius: 5px;
   font-weight: 500;
   background-color: rgba(255, 255, 255, 0.1);
   counter-increment: headings; /* Incrementerar counter "headings" varje gång ny länk skapas */
 }
 .sidebar-nav a:hover {
-  background-color: var(--secondary-color);
+  background-color: var(--hover-color);
   color: black;
 }
 /* Lägger till nummering för varje länk i sidomenyn */
-.sidebar-nav a::before {
+.sidebar-nav a:before {
   content: counter(headings) ". ";
   font-weight: bold;
   color: var(--muted-text-color);
 }
 
-.main-content {
-  /*display: grid;
-  place-content: center;*/
+article {
   flex: 0 1 720px;
-  max-width: 1020px;
-  width: min(720px, calc(100% - 280px));
+  max-width: 1100px;
+  width: min(1100px, calc(100% - 1.5rem));
   margin: 0 auto;
   background: var(--background-color);
-  padding: 2.5rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  padding: clamp(1em, 2vw, 2.5em);
   border: 1px solid var(--secondary-border-color);
 }
-.main-content h1 {
+
+article h1 {
   font-size: clamp(1.25rem, calc(4vw + 1rem), 3rem);
   color: var(--primary-color);
   margin-bottom: 1rem;
@@ -236,11 +227,10 @@ input:checked + .slider:before {
   padding-bottom: 0.5rem;
 }
 
-.main-content p {
+article p {
   line-height: 1.6;
   margin: 1.2rem 0;
 }
-
 /* ===== FOOTER ===== */
 footer {
   background: var(--primary-color);
@@ -251,34 +241,36 @@ footer {
   margin-top: auto;
 }
 
-/* responsive tweak: if screen too small, stack sidebar */
-@media (max-width: 800px) {
-  .content-layout {
+@media screen and (max-width: 1100px) {
+  .header-nav {
+    display: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: min(15em, 100%);
+    margin-left: 0;
+    z-index: 10;
+    border-left: 1px solid var(--primary-border-color);
+  }
+  .header-nav ul {
+    width: 100%;
     flex-direction: column;
   }
-  .sidebar-nav {
-    width: 90%;
-    margin: 0.5em auto;
-    max-width: none;
-    position: relative;
-    max-height: none;
+}
+@media (max-width: 800px) {
+  main {
+    flex-direction: column;
   }
-  .main-content {
-    width: 90%;
+  article {
+    width: 100%;
     justify-self: center;
     max-width: none;
     margin: 0.5em auto;
   }
 }
 @media (max-width: 650px) {
-  /*HÄR SKA HAMBÖRGAR MENYN KOMMA*/
-  .header-nav {
-    display: none;
-  }
   .header-logo {
     padding: 1.2rem 1.5rem;
     border-right: 5px solid var(--primary-border-color);
   }
-}
-@media (max-width: 500px) {
 }

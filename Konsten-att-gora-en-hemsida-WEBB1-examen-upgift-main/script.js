@@ -24,4 +24,16 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+
+  // Navbar toggle functionality
+  const navbarToggle = document.getElementById("navbar-menu-toggle");
+  const navbarMenu = document.getElementById("navbar-menu");
+
+  navbarToggle.addEventListener("click", () => {
+    navbarToggle.classList.toggle("active");
+    navbarMenu.classList.toggle("active");
+    console.log("hej");
+  });
+  if (navbarToggle) {
+  }
 });

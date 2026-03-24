@@ -10,6 +10,7 @@
   --text-color: #333;
   --muted-text-color: #3f810c;
   --hover-color: #2e3b3f;
+  --dropdown-menu-color: #45802966;
 
   /*FOR LATER CODE SNIPPLETS*/
   --code-snippet-background: #35374b;
@@ -49,7 +50,7 @@ body {
   background: var(--background-color);
   color: var(--text-color);
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: fit-content 1fr;
   min-height: 100vh;
   min-height: 100dvh;
 }
@@ -79,36 +80,39 @@ text {
   fill: var(--header-text-color);
 }
 
-.header-nav {
+.header-navbar {
+  display: flex;
   align-items: center;
   margin-left: auto;
-  display: flex;
-  padding-inline: 1.5rem;
+  margin-right: 2rem;
 }
 
-.header-nav ul {
-  list-style: none;
+.navbar-menu {
   display: flex;
+  align-items: center;
+  list-style: none;
+  text-decoration: none;
   gap: 1.5rem;
 }
 
-.header-nav a {
+.navbar-menu a {
   color: var(--header-text-color);
   text-decoration: none;
+  width: max-content;
   font-weight: 500;
   padding: 0.5rem 0.75rem;
   transition: var(--transition-quick);
   border-radius: 4px;
 }
 
-.header-nav a:hover {
+.navbar-menu a:hover {
   background-color: var(--hover-color);
-  color: #333;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .active-link {
-  color: #333;
+  text-decoration: none;
+  list-style: none;
   font-weight: bold;
   border-bottom: 2px solid var(--primary-border-color);
 }
@@ -121,11 +125,13 @@ text {
   height: 30px;
   flex-shrink: 0;
 }
+
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
+
 .slider {
   position: absolute;
   cursor: pointer;
@@ -241,22 +247,48 @@ footer {
   margin-top: auto;
 }
 
+.navbar-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.active {
+  display: none;
+}
+
 @media screen and (max-width: 1100px) {
-  .header-nav {
+  .navbar-menu {
+    display: flex; /* Initialy hidden */
     flex-direction: column;
     align-items: flex-start;
-    position: absolute;
+    gap: 1.7rem !important;
+    position: fixed;
     top: 0;
     right: 0;
-    height: 100vh;
-    width: min(15em, 100%);
-    margin-left: 0;
-    z-index: 10;
+    z-index: 9;
+    min-height: 100vh;
+    width: clamp(180px, 25vw, 250px);
+    padding: 5rem 1.5rem;
     border-left: 1px solid var(--primary-border-color);
+    background-color: var(--dropdown-menu-color);
+    backdrop-filter: blur(10px);
   }
-  .header-nav ul {
+  .navbar-menu ul {
     width: 100%;
     flex-direction: column;
+  }
+  .navbar-menu a {
+    width: 100%;
+    font-size: 1.2rem;
+    background-color: var(--secondary-color);
+  }
+  .navbar-menu-toggle {
+    display: block;
+    position: fixed;
+    z-index: 10;
   }
 }
 @media (max-width: 800px) {

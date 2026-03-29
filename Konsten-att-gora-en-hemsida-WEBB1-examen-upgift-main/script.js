@@ -1,16 +1,29 @@
-// script.js
-document.addEventListener("DOMContentLoaded", function () {
-  // Dark mode toggle functionality
-  const modeToggle = document.getElementById("modeToggle");
+// ===== JAVASCRIPT =====
 
+// TIPS: Om du anvdänder VS code så kan man flytta musen över koden för att see förknaringar och klicka på MDN referens för djupare förklaring
+
+document.addEventListener("DOMContentLoaded", function () {
+  const modeToggle = document.getElementById("modeToggle");
+  const navbarToggle = document.querySelector(".navbar-menu-toggle");
+  const navbarMenu = document.querySelector(".navbar-menu");
+  const header = document.querySelector("header");
+
+  // ===== MÖRK LÄGE FUNKTIONALLITET =====
   if (modeToggle) {
+    const savedMode = localStorage.getItem("darkMode");
+
     // Checka local storage för att se om boolean för dark mode är sann,
     // och om det är sann, lägg till dark mode klassen till body elementet
-    const savedMode = localStorage.getItem("darkMode");
     if (savedMode === "enabled") {
       document.body.classList.add("dark-mode");
       modeToggle.checked = true;
     }
+
+    // Efter en frame så sätter vi igån transiton för body:n. Detta ger en mjuk övergång mellan Ljust/Mörkt läge
+    requestAnimationFrame(() => {
+      document.body.style.transition = "var(--transition-quick) ease";
+    });
+
     // Lyssna efter eventet "change" på toggle switchen,
     // när det ändras uppdatera klassen på body elementet för att ändra färgschemat
     // och spara det nya värdet i local storage
@@ -25,15 +38,35 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Navbar toggle functionality
-  const navbarToggle = document.getElementById("navbar-menu-toggle");
-  const navbarMenu = document.getElementById("navbar-menu");
-
+  // Visa navbar när man clickar på knappen (Börgar menyn)
   navbarToggle.addEventListener("click", () => {
-    navbarToggle.classList.toggle("active");
-    navbarMenu.classList.toggle("active");
-    console.log("hej");
+    navbarToggle.classList.toggle("show");
+    navbarMenu.classList.toggle("show");
   });
-  if (navbarToggle) {
-  }
+
+  // ===== SCROLLNINGS LOGIC FÖR ATT BESTÄMMA OM HEADERN SKA VARA SYNLIG =====
+  let lastScrollY = window.scrollY;
+
+  window.addEventListener("scroll", () => {
+    const currentScrollY = window.scrollY;
+    const scrollDelta = currentScrollY - lastScrollY;
+
+    // Ignorera små rscrollningar
+    if (Math.abs(scrollDelta) < 10) return;
+
+    // Göm inte om navbaren är synlig
+    if (navbarMenu.classList.contains("show")) return;
+
+    if (scrollDelta > 0 && currentScrollY > 100) {
+      console.log("scrolling", window.scrollY);
+      // Scrollar ner
+      header.classList.add("hide");
+    } else {
+      // Scrollar upp
+      header.classList.remove("hide");
+    }
+
+    // Updatera senaste scroll värdet
+    lastScrollY = currentScrollY;
+  });
 });

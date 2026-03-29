@@ -17,9 +17,9 @@
   --code-snippet-text: #b1cbd5;
   --code-snippet-border: #2a2b70;
 
-  --transition-quick: 0.2s;
+  --transition-quick: 0.15s;
   --transition-standard: 0.3s;
-  --transition-slow: 0.35s;
+  --transition-slow: 0.4s;
 
   /*Counter*/
   counter-reset: headings;
@@ -56,14 +56,25 @@ body {
 }
 
 /* ===== HEADER ===== */
+
 /*Make this with rectangles with borders to the right and botom for some kind of 3D effect. sluta tänka på ängelska nu för fan*/
 header {
-  display: inline-flex;
+  display: flex;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
   background: var(--primary-color);
   color: var(--header-text-color);
-  /*height: clamp(60px, 10vw, 80px);*/
+  height: clamp(60px, 10vw, 80px);
   padding: 1.2rem 1em;
   border-bottom: 4px solid var(--primary-border-color);
+  transition: transform var(--transition-standard) ease;
+}
+
+/* Göm headern när man scrollar nedåt */
+header.hide {
+  transform: translateY(-100%);
 }
 
 .header-logo {
@@ -87,6 +98,24 @@ text {
   margin-right: 2rem;
 }
 
+.navbar-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.navbar-menu-toggle .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: var(--header-text-color);
+  border-radius: 3px;
+  transition: all var(--transition-quick) ease-in-out;
+}
+
 .navbar-menu {
   display: flex;
   align-items: center;
@@ -95,17 +124,16 @@ text {
   gap: 1.5rem;
 }
 
-.navbar-menu a {
+.navbar-menu li a {
   color: var(--header-text-color);
   text-decoration: none;
   width: max-content;
   font-weight: 500;
   padding: 0.5rem 0.75rem;
-  transition: var(--transition-quick);
   border-radius: 4px;
 }
 
-.navbar-menu a:hover {
+.navbar-menu li a:hover {
   background-color: var(--hover-color);
   font-weight: 700;
 }
@@ -118,6 +146,7 @@ text {
 }
 
 /* ===== DARK/LIGHT TOGGLE SWITCH ===== */
+
 .switch {
   position: relative;
   display: flex;
@@ -151,7 +180,7 @@ text {
   left: 4px;
   bottom: 4px;
   background-color: white;
-  transition: var(--transition-slow);
+  transition: var(--transition-standard);
   border-radius: 50%;
 }
 input:checked + .slider {
@@ -165,17 +194,19 @@ input:checked + .slider:before {
 }
 
 /* =====  PAGE LAYOUT ===== */
+
 main {
   display: grid;
   grid-template-columns: 200px auto;
   width: 100%;
   gap: 2rem;
-  margin: 2.5rem auto;
+  margin: calc(5vw + 2.5rem) 0 2.5rem;
   padding: 0 1.5rem;
 }
 
 /* =====  SIDEBAR  ===== */
-.sidebar-nav {
+
+aside {
   position: sticky; /* Gör så att elementet "fastnar" på skärmen till den når gränsen av sin förälders avgränsningruta, i detta fall "main" */
   top: 2rem;
   z-index: 10;
@@ -187,14 +218,14 @@ main {
   overflow-y: auto;
 }
 
-.sidebar-nav ul {
+aside ul {
   text-decoration: none;
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
 }
 
-.sidebar-nav a {
+aside a {
   text-decoration: none;
   display: block;
   color: white;
@@ -204,12 +235,13 @@ main {
   background-color: rgba(255, 255, 255, 0.1);
   counter-increment: headings; /* Incrementerar counter "headings" varje gång ny länk skapas */
 }
-.sidebar-nav a:hover {
+aside li a:hover {
   background-color: var(--hover-color);
   color: black;
 }
+
 /* Lägger till nummering för varje länk i sidomenyn */
-.sidebar-nav a:before {
+aside li a:before {
   content: counter(headings) ". ";
   font-weight: bold;
   color: var(--muted-text-color);
@@ -248,20 +280,15 @@ footer {
 }
 
 .navbar-menu-toggle {
-  display: none;
   background: none;
   border: none;
   cursor: pointer;
   padding: 0.5rem;
 }
 
-.active {
-  display: none;
-}
-
 @media screen and (max-width: 1100px) {
   .navbar-menu {
-    display: flex; /* Initialy hidden */
+    /*display: none; /* Initialy hidden */
     flex-direction: column;
     align-items: flex-start;
     gap: 1.7rem !important;
@@ -274,12 +301,23 @@ footer {
     padding: 5rem 1.5rem;
     border-left: 1px solid var(--primary-border-color);
     background-color: var(--dropdown-menu-color);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
+
+    /* Flyttar elementet till höger med hela sin längd */
+    transform: translateX(100%);
+    transition: transform var(--transition-standard) ease;
   }
+
+  .navbar-menu.show {
+    /* Flyttar tillbaka elementet till sin start positon */
+    transform: translateX(0);
+  }
+
   .navbar-menu ul {
     width: 100%;
     flex-direction: column;
   }
+
   .navbar-menu a {
     width: 100%;
     font-size: 1.2rem;
@@ -287,11 +325,24 @@ footer {
   }
   .navbar-menu-toggle {
     display: block;
-    position: fixed;
+    position: static;
     z-index: 10;
   }
+
+  /* Make the bars in the navbar toggle form an "X" when the navbar is shown */
+  .navbar-menu-toggle.show .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .navbar-menu-toggle.show .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .navbar-menu-toggle.show .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
 }
-@media (max-width: 800px) {
+@media screen and (max-width: 800px) {
   main {
     flex-direction: column;
   }
@@ -302,9 +353,24 @@ footer {
     margin: 0.5em auto;
   }
 }
-@media (max-width: 650px) {
+@media screen and (max-width: 650px) {
   .header-logo {
-    padding: 1.2rem 1.5rem;
-    border-right: 5px solid var(--primary-border-color);
+    flex-shrink: 1;
+    width: 90%;
+    padding-right: none;
+    border-right: none;
+  }
+  main {
+    grid-template-columns: auto;
+    width: 100%;
+    gap: 0.5rem;
+    margin: calc(5vw + 2.5rem) 0 2.5rem;
+    padding: 0 1.5rem;
+  }
+  aside {
+    display: block;
+    position: static;
+    width: 100%;
+    margin: 0.5rem 0;
   }
 }

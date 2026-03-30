@@ -259,6 +259,7 @@ article {
 
 article h1 {
   font-size: clamp(1.25rem, calc(4vw + 1rem), 3rem);
+  text-align: center;
   color: var(--primary-color);
   margin-bottom: 1rem;
   border-bottom: 3px solid var(--primary-border-color);

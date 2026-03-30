@@ -3,154 +3,151 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="desctiption" content="Nyhetssida om lag o rätt på nätet" />
-    <title>Lagar på nätet</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap"
+    <meta
+      name="description"
+      content="Guide för att skapa en hemsida med HTML, CSS och JavaScript."
     />
+    <title>Konsten att skapa en hemsida | Lagar</title>
+    <link rel="stylesheet" href="style.css" />
+    <link preload href="assets/logo.svg" as="image" />
+    <!-- Hämta alla sidor för snabbare navigering -->
+    <link prefetch href="historia.html" as="document" />
+    <link prefetch href="lagar.html" as="document" />
+    <link prefetch href="html.html" as="document" />
+    <link prefetch href="css.html" as="document" />
+    <link prefetch href="javascript.html" as="document" />
   </head>
 
   <body>
-    <div id="hem" class="grid">
-      <header class="logga">
-        <img src="bilder/loga.png" alt="logga: &#10084;" />
-      </header>
-
+    <header>
       <div class="header-logo" id="logo">
         <a href="index.html">
-          <img src="assets/logo.svg" alt="{Logo}" />
-          <h2>Konsten att skapa en hemsida</h2>
+          <!-- Det här är en SVG (Scalable Vector Graphics) -->
+          <svg
+            width="380"
+            height="30"
+            viewBox="0 0 380 30"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <g class="drawing-elements">
+              <path
+                d="M30,22v3c0,0.552-0.448,1-1,1h-1c-0.552,0-1-0.448-1-1v-3c0-0.552,0.448-1,1-1v-7.539l-11.198-0.896  C16.621,12.822,16.337,13,16,13c-0.552,0-1-0.448-1-1c0-0.552,0.448-1,1-1c0.396,0,0.732,0.235,0.894,0.57l11.186,0.895  c0.516,0.041,0.92,0.479,0.92,0.997V21C29.552,21,30,21.448,30,22z M16,19.725c-0.547,0-1.094-0.111-1.603-0.334L8,16.592v2.227  c0,1.136,0.642,2.175,1.658,2.683l0,0C11.655,22.501,13.827,23,16,23s4.345-0.499,6.341-1.497l0,0C23.358,20.995,24,19.956,24,18.82  v-2.227l-6.397,2.799C17.094,19.614,16.547,19.725,16,19.725z M29.906,11.084L17.202,5.526C16.819,5.358,16.41,5.275,16,5.275  c-0.41,0-0.819,0.084-1.202,0.252L2.094,11.084c-0.799,0.35-0.799,1.483,0,1.832l12.703,5.559c0.765,0.334,1.641,0.334,2.405,0  l9.416-4.121l-9.438-0.755C16.843,13.858,16.434,14,16,14c-1.103,0-2-0.897-2-2c0-1.103,0.897-2,2-2  c0.552,0,1.062,0.224,1.431,0.609l10.729,0.858c0.842,0.067,1.525,0.666,1.751,1.445C30.704,12.561,30.703,11.433,29.906,11.084z"
+              />
+              <text
+                x="41.33334732055664"
+                y="24"
+                fill="#000000"
+                font-family="Segoe UI"
+                font-size="24"
+                font-style="normal"
+                opacity="1"
+                id="text-1774217872752"
+                class=""
+                style="visibility: visible"
+                stroke-width="0"
+                transform="rotate(0, 202.25835037231445, 18.5)"
+              >
+                Konsten att skapa en hemsida
+              </text>
+            </g>
+          </svg>
         </a>
       </div>
 
-      <nav class="meny">
-        <ul>
-          <li><a href="#hem">Hem</a></li>
-          <li><a href="#gdpr">Personuppgifter (GDPR)</a></li>
-          <li><a href="#upphovsratt">Upphovsrätt</a></li>
-          <li><a href="#LEK">Lagen om Elektronisk Kommunikation (LEK)</a></li>
-          <li><a href="#blurb">Blurb</a></li>
-          <li><a href="#kallor">Källor</a></li>
+      <nav class="header-navbar">
+        <button class="navbar-menu-toggle" aria-label="Toggle navigation menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+        <ul class="navbar-menu">
+          <li><a href="index.html">Hem</a></li>
+          <li><a href="historia.html">Historia</a></li>
+          <li><a class="active-link" href="lagar.html">Lagar</a></li>
+          <li><a href="html.html" data-topic="html">HTML</a></li>
+          <li><a href="css.html" data-topic="css">CSS</a></li>
+          <li><a href="javascript.html" data-topic="js">JavaScript</a></li>
         </ul>
       </nav>
-      <article id="gdpr" class="artikel-1">
-        <h2>Dataskyddsförordningen (GDPR)</h2>
-        <p>
-          Dataskyddsförordningen, eller GDPR, värnar om din privata information
-          online. För att få behandla dina uppgifter krävs det att det finns ett
-          stöd i lagen, till exempel ditt godkännande eller ett avtal som
-          tillexempel att du godkänner cookies. Du ska också informeras om vilka
-          uppgifter som sparas om dig och varför. Du har dessutom vissa
-          rättigheter som privatperson, som att få se eller ta bort dina
-          uppgifter.
-        </p>
-        <p>
-          För att vara tydlig med hur webbplatsen hanterar din information,
-          särskilt om den använder kakor eller tjänster från andra företag, är
-          det bra att visa en cookie-banner och ha en lättförståelig
-          integritetspolicy.
-        </p>
-      </article>
+    </header>
 
-      <article id="upphovsratt" class="artikel-2">
-        <h3>Upphovsrätten</h3>
-        <p>
-          Upphovsrätten skyddar verk som tillexempel texter, bilder och video.
-          Upphovsrätten ger skaparen rätt att bestämma hur verket får användas
-          och spridas. Det innebär att du inte får kopiera, dela eller ändra
-          andras verk hur som helst utan tillstånd. När man andvänder andras
-          verk ska man alltid ange källan och respektera licensvilkoren.
-        </p>
-        <p>
-          Att bryta mot upphovsrätten är ett straffbart brott
-          "upphovsrättsbrott" konsekvenser kan vara böter, att man måste betala
-          skadestånde eller till och med fängelse.
-        </p>
-      </article>
-
-      <article id="LEK" class="artikel-3">
-        <h3>Lagen om elektronisk kommunikation (LEK)</h3>
-        <p>
-          Lagen om elektronisk kommunikation (LEK), Fastställer riktlinjerna för
-          hur nätverk och tjänster innom elektrisk kommunikation ska erbjudas.
-          Detta inkluderar områden som internet, telefoni och radio.
-          Lagstiftningens syfte är att säkerställa att alla har tillgång till
-          kommunikations tjänster som både är säkra och pålitliga. Dessutom ska
-          LEK främja konkurrens, uppmuntra innovationer och skydda användarnas
-          rättigheter.
-        </p>
-        <p>
-          LEK ställer krav på de företag som ger tjänster för elektronisk
-          kommunikation. Det innebär bland annat att de måste registrera sig hos
-          Post- och Telestyrelsen (PTS), skydda konsumenters rättigheter, och
-          säkerställa att tjänsterna är trygga. PTS har uppdraget att se till
-          att lagen följs.
-        </p>
-      </article>
-
-      <aside id="blurb" class="blurb">
-        <article class="kort_info">
-          <h3>Nätkränkningar, förtal och olaga hot</h3>
-          <p>
-            Spridning av osanna påståenden som skadar någons ryckte kan utgöra
-            förtal. Olaga hot, trakasserier och hatbrott via meddelanden eller
-            sociala medier kan också vara straffbart.
-          </p>
-        </article>
-        <article class="kort_info">
-          <h3>Kaklagen</h3>
-          <p>
-            Enligt kaklagen måste alla webbplatser be om lov att andvända kakor
-            för att spåra andvändare. Då ska man tydlygöra vilkoren för kakorna
-            och ge alternativ att tacka nej.
-          </p>
-          <p>Var förut en del av LEK men numera GDPR</p>
-        </article>
-        <article class="kort_info">
-          <h3>Ansvar för elektroniska anslagstavlor BBS-lagen</h3>
-          <p>
-            BBS-lagen sätter ansvar på webbplatsägare för innehåll som användare
-            postar på deras plattformar. Om olagligt innehåll inte tas bort.
-          </p>
-          <p>För större webbplatser skall de ske innom en timme.</p>
-        </article>
-      </aside>
-
-      <footer id="kallor" class="om">
-        <h4>Källor & vidare läsning</h4>
+    <main id="main">
+      <aside>
         <ul>
-          <li>
-            <a href="https://www.riksdagen.se">Riksdagen — lagtexter</a>
-          </li>
-          <li>
-            <a href="https://imy.se">Integritetsskyddsmyndigheten (IMY)</a>
-          </li>
-          <li>
-            <a
-              href="https://pts.se/internet-och-telefoni/central-lagstiftning2/lek--lagen-om-elektronisk-kommunikation/"
-              >Post- och telestyrelsen - LEK</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://docs.google.com/presentation/d/1Sc5WDhoC6M6NDIYV_8lcLsnfhYubEJMEzLnNcxOtaVI/edit"
-              >Presentationen i Classrom</a
-            >
-          </li>
-          <li>
-            <a href="https://polisen.se">Polisen — anmäl brott</a>
-          </li>
+          <!-- These links point to headings inside the article (ID based) -->
+          <li><a href="#title1">Title1</a></li>
+          <li><a href="#title2">Title2</a></li>
+          <li><a href="#title3">Title3</a></li>
+          <li><a href="#title4">Title4</a></li>
+          <li><a href="#title5">Title5</a></li>
+          <li><a href="#title6">Title6</a></li>
         </ul>
+      </aside>
+      <article id="main-content">
+        <!-- inserted IDs for sidebar anchoring -->
+        <h1 id="title1">LAGAR PÅ NÄTET</h1>
+        <h2 id="title2">Title2</h2>
         <p>
-          Disclaimer: Informationen är framtagen i lärande syfte och utgör inte
-          juridisk rådgivning. För bindande tolkning kontakta jurist eller
-          relevanta myndigheter.
+          Hnavigation menu. aaaaaaaaaaaaaa aaaaaaaaaaaaaa aaaaaaaaaaaaaaa
+          aaaaaaaaaaaaaaaa ajjjjjjjjjjjj jjjjjjjjjjj jjjjjjjjjjjjjjjj
+          jjjjjjjjjjjjjj jjjjjjje topic you select from aaaaaaaaaaaaaaaaaaa ja
+          jaaaaa aaaa aaaa aaaa aaaa aaaa Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Quidem nihil quod dolorem ipsa doloremque quo
+          deserunt dicta. Non iure minus voluptas itaque quasi sequi sed,
+          veritatis vero, aperiam ratione vitae!
         </p>
-      </footer>
-    </div>
+
+        <h2 id="title3">Title3</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem nihil
+          quod dolorem ipsa doloremque quo deserunt dicta. Non iure minus
+          voluptas itaque quasi sequi sed, veritatis vero, aperiam ratione
+          vitae!
+        </p>
+
+        <h2 id="title4">Title4</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
+          dignissimos voluptatibus dolore, pariatur, quidem odit adipisci
+          perferendis labore reiciendis vero laudantium quo ex tempore rerum
+          nobis illum magnam laboriosam accusantium. Hernavignavigation menu.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora unde
+          ipsum laborum aut maxime, veritatis cum itaque laboriosam nulla enim
+          commodi alias aliquam ullam dolor nisi asperiores libero quod
+          perferendis!
+        </p>
+
+        <h2 id="title5">Title5</h2>
+        <p>
+          Webnavigation menu. Lorem ipsum dolor sit amet consectetur adipisicing
+          elit. Quidem nihil quod dolorem ipsa doloremque quo deserunt dicta.
+          Non iure minus voluptas itaque quasi sequi sed, veritatis vero,
+          aperiam ratione vitae!
+        </p>
+
+        <h2 id="title6">Title6</h2>
+        <p>
+          navigation menu.Lorem ipsum dolor sit amet consectetur adipisicing
+          elit. Quidem nihil quod dolorem ipsa doloremque quo deserunt dicta.
+          Non iure minus voluptas itaque quasi sequi sed, veritatis vero,
+          aperiam ratione vitae!Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Quidem nihil quod dolorem ipsa doloremque quo
+          deserunt dicta. Non iure minus voluptas itaque quasi sequi sed,
+          veritatis vero, aperiam ratione vitae!
+        </p>
+      </article>
+    </main>
+
+    <footer id="footer">
+      <p>&copy; <em>2026 Konsten att gora en hemsida. :D</em></p>
+      <label class="switch">
+        <input type="checkbox" id="modeToggle" />
+        <span class="slider"></span>
+      </label>
+    </footer>
+
+    <!-- Script -->
+    <script src="script.js" defer></script>
   </body>
 </html>

@@ -7,35 +7,75 @@
       name="description"
       content="Guide för att skapa en hemsida med HTML, CSS och JavaScript."
     />
-    <title>Konsten att skapa en hemsida</title>
+    <title>Konsten att skapa en hemsida | HTML</title>
     <link rel="stylesheet" href="style.css" />
+    <link preload href="assets/logo.svg" as="image" />
+    <!-- Hämta alla sidor för snabbare navigering -->
+    <link prefetch href="historia.html" as="document" />
+    <link prefetch href="lagar.html" as="document" />
+    <link prefetch href="html.html" as="document" />
+    <link prefetch href="css.html" as="document" />
+    <link prefetch href="javascript.html" as="document" />
   </head>
+
   <body>
-    <header id="header">
+    <header>
       <div class="header-logo" id="logo">
-        <img src="assets/logo.svg" alt="{Logo}" />
-        <h2>Konsten att skapa en hemsida</h2>
+        <a href="index.html">
+          <!-- Det här är en SVG (Scalable Vector Graphics) -->
+          <svg
+            width="380"
+            height="30"
+            viewBox="0 0 380 30"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <g class="drawing-elements">
+              <path
+                d="M30,22v3c0,0.552-0.448,1-1,1h-1c-0.552,0-1-0.448-1-1v-3c0-0.552,0.448-1,1-1v-7.539l-11.198-0.896  C16.621,12.822,16.337,13,16,13c-0.552,0-1-0.448-1-1c0-0.552,0.448-1,1-1c0.396,0,0.732,0.235,0.894,0.57l11.186,0.895  c0.516,0.041,0.92,0.479,0.92,0.997V21C29.552,21,30,21.448,30,22z M16,19.725c-0.547,0-1.094-0.111-1.603-0.334L8,16.592v2.227  c0,1.136,0.642,2.175,1.658,2.683l0,0C11.655,22.501,13.827,23,16,23s4.345-0.499,6.341-1.497l0,0C23.358,20.995,24,19.956,24,18.82  v-2.227l-6.397,2.799C17.094,19.614,16.547,19.725,16,19.725z M29.906,11.084L17.202,5.526C16.819,5.358,16.41,5.275,16,5.275  c-0.41,0-0.819,0.084-1.202,0.252L2.094,11.084c-0.799,0.35-0.799,1.483,0,1.832l12.703,5.559c0.765,0.334,1.641,0.334,2.405,0  l9.416-4.121l-9.438-0.755C16.843,13.858,16.434,14,16,14c-1.103,0-2-0.897-2-2c0-1.103,0.897-2,2-2  c0.552,0,1.062,0.224,1.431,0.609l10.729,0.858c0.842,0.067,1.525,0.666,1.751,1.445C30.704,12.561,30.703,11.433,29.906,11.084z"
+              />
+              <text
+                x="41.33334732055664"
+                y="24"
+                fill="#000000"
+                font-family="Segoe UI"
+                font-size="24"
+                font-style="normal"
+                opacity="1"
+                id="text-1774217872752"
+                class=""
+                style="visibility: visible"
+                stroke-width="0"
+                transform="rotate(0, 202.25835037231445, 18.5)"
+              >
+                Konsten att skapa en hemsida
+              </text>
+            </g>
+          </svg>
+        </a>
       </div>
 
-      <nav class="header-nav">
-        <!-- <a href="index.html" id="home">Hem</a> -->
-        <a href="historia.html">Historia</a>
-        <a href="lagar.html">Lagar</a>
-          <a href="html.html" data-topic="html">HTML</a>
-          <a href="css.html" data-topic="css">CSS</a>
-          <a href="javascript.html" data-topic="js">JavaScript</a>
+      <nav class="header-navbar">
+        <button class="navbar-menu-toggle" aria-label="Toggle navigation menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+        <ul class="navbar-menu">
+          <li><a href="index.html">Hem</a></li>
+          <li><a href="historia.html">Historia</a></li>
+          <li><a href="lagar.html">Lagar</a></li>
+          <li>
+            <a class="active-link" href="html.html" data-topic="html">HTML</a>
+          </li>
+          <li><a href="css.html" data-topic="css">CSS</a></li>
+          <li><a href="javascript.html" data-topic="js">JavaScript</a></li>
+        </ul>
       </nav>
-
-        <label class="switch">
-          <input type="checkbox" id="modeToggle" />
-          <span class="slider"></span>
-        </label>
-
-      </div>
     </header>
 
-    <main class="content-layout">
-      <aside class="sidebar-nav" id="sidebar">
+    <main id="main">
+      <aside>
         <ul>
           <!-- These links point to headings inside the article (ID based) -->
           <li><a href="#title1">Title1</a></li>
@@ -46,9 +86,9 @@
           <li><a href="#title6">Title6</a></li>
         </ul>
       </aside>
-      <article class="main-content" id="main-content">
+      <article id="main-content">
         <!-- inserted IDs for sidebar anchoring -->
-        <h1 id="title1">Welcome to HTML</h1>
+        <h1 id="title1">HTML</h1>
         <h2 id="title2">Title2</h2>
         <p>
           Hnavigation menu. aaaaaaaaaaaaaa aaaaaaaaaaaaaa aaaaaaaaaaaaaaa
@@ -103,6 +143,10 @@
 
     <footer id="footer">
       <p>&copy; <em>2026 Konsten att gora en hemsida. :D</em></p>
+      <label class="switch">
+        <input type="checkbox" id="modeToggle" />
+        <span class="slider"></span>
+      </label>
     </footer>
 
     <!-- Script -->

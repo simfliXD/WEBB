@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const navbarMenu = document.querySelector(".navbar-menu");
   const header = document.querySelector("header");
 
-  // ===== MÖRK LÄGE FUNKTIONALLITET =====
+  // ===== MÖRKT LÄGE FUNKTIONALLITET =====
   if (modeToggle) {
     const savedMode = localStorage.getItem("darkMode");
 

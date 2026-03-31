@@ -45,19 +45,21 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // ===== SCROLLNINGS LOGIC FÖR ATT BESTÄMMA OM HEADERN SKA VARA SYNLIG =====
+  
   let lastScrollY = window.scrollY;
 
   window.addEventListener("scroll", () => {
     const currentScrollY = window.scrollY;
     const scrollDelta = currentScrollY - lastScrollY;
 
-    // Ignorera små rscrollningar
-    if (Math.abs(scrollDelta) < 10) return;
+    // Ignorera små scrollningar helt
+    if (Math.abs(scrollDelta) < 5) return;
 
     // Göm inte om navbaren är synlig
     if (navbarMenu.classList.contains("show")) return;
 
-    if (scrollDelta > 0 && currentScrollY > 100) {
+    // ScrollDelta ska vara postiv så man scrollar ner och currentScrollY ska vara större än 120px så att headern inte försvinner direkt när
+    if (scrollDelta > 0 && currentScrollY > 120) {
       console.log("scrolling", window.scrollY);
       // Scrollar ner
       header.classList.add("hide");

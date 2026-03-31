@@ -1,4 +1,5 @@
 /* ===== CSS VARIABLAR ===== */
+
 :root {
   --primary-color: #333;
   --secondary-color: #4caf50;
@@ -12,7 +13,7 @@
   --hover-color: #2e3b3f;
   --dropdown-menu-color: #45802966;
 
-  /*FOR LATER CODE SNIPPLETS*/
+  /* FOR LATER CODE SNIPPLETS */
   --code-snippet-background: #35374b;
   --code-snippet-text: #b1cbd5;
   --code-snippet-border: #2a2b70;
@@ -21,10 +22,9 @@
   --transition-standard: 0.3s;
   --transition-slow: 0.4s;
 
-  /*Counter*/
+  /* Räknare för rubiker */
   counter-reset: headings;
 }
-/*GRABBEN GÖR NOTERINGAR PÅ SVENSKA HAN SA JU ATT MAN SKA TÄNKA ATT DEN SOM SER DET HÄR KANSKE KOLLAR IN KODEN*/
 
 /* Globara attributer för alla element */
 * {
@@ -34,6 +34,7 @@
 }
 
 /* ===== VARIABLAR FÖR MÖRKT LÄGE ===== */
+
 body.dark-mode {
   --primary-color: #4d4242;
   --secondary-color: #4caf50;
@@ -49,8 +50,6 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: var(--background-color);
   color: var(--text-color);
-  display: grid;
-  grid-template-rows: fit-content 1fr;
   min-height: 100vh;
   min-height: 100dvh;
 }
@@ -72,7 +71,7 @@ header {
   transition: transform var(--transition-standard) ease;
 }
 
-/* Göm headern när man scrollar nedåt */
+/* Den här crassen sätts på headern när man scrollar nedåt och då flyttas headern uppåt ur synhåll */
 header.hide {
   transform: translateY(-100%);
 }
@@ -86,6 +85,7 @@ header.hide {
   border-right: calc(15px - 1vw) solid var(--primary-border-color);
 }
 
+/* Gör SVG loggan responsiv med färg temat */
 svg,
 text {
   fill: var(--header-text-color);
@@ -172,6 +172,7 @@ text {
   transition: var(--transition-standard);
   border-radius: 30px;
 }
+
 .slider:before {
   position: absolute;
   content: "";
@@ -183,12 +184,15 @@ text {
   transition: var(--transition-standard);
   border-radius: 50%;
 }
+
 input:checked + .slider {
   background-color: #2196f3;
 }
+
 input:focus + .slider {
   box-shadow: 0 0 1px #2196f3;
 }
+
 input:checked + .slider:before {
   transform: translateX(30px);
 }
@@ -197,7 +201,7 @@ input:checked + .slider:before {
 
 main {
   display: grid;
-  grid-template-columns: 200px auto;
+  grid-template-columns: auto 1fr;
   width: 100%;
   gap: 2rem;
   margin: calc(5vw + 2.5rem) 0 2.5rem;
@@ -233,8 +237,9 @@ aside a {
   border-radius: 5px;
   font-weight: 500;
   background-color: rgba(255, 255, 255, 0.1);
-  counter-increment: headings; /* Incrementerar counter "headings" varje gång ny länk skapas */
+  counter-increment: headings; /* Incrementerar räknaren "headings" varje gång ny länk skapas */
 }
+
 aside li a:hover {
   background-color: var(--hover-color);
   color: black;
@@ -248,13 +253,13 @@ aside li a:before {
 }
 
 article {
-  flex: 0 1 720px;
+
   max-width: 1100px;
   width: min(1100px, calc(100% - 1.5rem));
   margin: 0 auto;
   background: var(--background-color);
   padding: clamp(1em, 2vw, 2.5em);
-  border: 1px solid var(--secondary-border-color);
+  border: 2px solid var(--secondary-border-color);
 }
 
 article h1 {
@@ -270,22 +275,18 @@ article p {
   line-height: 1.6;
   margin: 1.2rem 0;
 }
+
 /* ===== FOOTER ===== */
+
 footer {
   background: var(--primary-color);
   color: white;
   padding: 2rem;
   text-align: center;
   border-top: 5px solid var(--primary-border-color);
-  margin-top: auto;
 }
 
-.navbar-menu-toggle {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-}
+/* ===== MEDIA QUERIES ===== */
 
 @media screen and (max-width: 1100px) {
   .navbar-menu {
@@ -324,6 +325,7 @@ footer {
     font-size: 1.2rem;
     background-color: var(--secondary-color);
   }
+
   .navbar-menu-toggle {
     display: block;
     position: static;
@@ -347,6 +349,7 @@ footer {
   main {
     flex-direction: column;
   }
+
   article {
     width: 100%;
     justify-self: center;
@@ -361,6 +364,7 @@ footer {
     padding-right: none;
     border-right: none;
   }
+
   main {
     grid-template-columns: auto;
     width: 100%;
@@ -368,6 +372,7 @@ footer {
     margin: calc(5vw + 2.5rem) 0 2.5rem;
     padding: 0 1.5rem;
   }
+
   aside {
     display: block;
     position: static;

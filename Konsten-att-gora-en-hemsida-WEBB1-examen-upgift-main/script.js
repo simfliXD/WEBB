@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // ===== SCROLLNINGS LOGIC FÖR ATT BESTÄMMA OM HEADERN SKA VARA SYNLIG =====
-  
+
   let lastScrollY = window.scrollY;
 
   window.addEventListener("scroll", () => {

@@ -23,6 +23,9 @@
   --transition-standard: 0.3s;
   --transition-slow: 0.4s;
 
+  --header-height: clamp(60px, 10vw, 80px);
+  --footer-height: 120px; /* höjd inkluderar padding + border */
+
   /* Räknare för rubiker */
   counter-reset: headings;
 }
@@ -67,7 +70,7 @@ header {
   z-index: 100;
   background: var(--primary-color);
   color: var(--header-text-color);
-  height: clamp(60px, 10vw, 80px);
+  height: var(--header-height);
   padding: 1.2rem 1em;
   border-bottom: 4px solid var(--primary-border-color);
   transition: transform var(--transition-standard) ease;
@@ -133,6 +136,21 @@ text {
   font-weight: 500;
   padding: 0.5rem 0.75rem;
   border-radius: 4px;
+}
+
+/* Dark mode toggle in navbar */
+.dark-mode-toggle-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-left: auto;
+  padding: 0.5rem 0.75rem;
+}
+
+.navbar-dark-mode-label {
+  color: var(--header-text-color);
+  font-weight: 500;
+  font-size: 0.95rem;
 }
 
 .navbar-menu li a:hover {
@@ -208,6 +226,7 @@ main {
   gap: 2rem;
   margin: calc(5vw + 2.5rem) 0 2.5rem;
   padding: 0 1.5rem;
+  min-height: calc(100vh - var(--header-height) - var(--footer-height));
 }
 
 /* =====  SIDEBAR  ===== */
@@ -261,6 +280,7 @@ article {
   background: var(--background-color);
   padding: clamp(1em, 2vw, 2.5em);
   border: 2px solid var(--secondary-border-color);
+  min-height: calc(100vh - var(--header-height) - var(--footer-height) - 6rem);
 }
 
 article h1 {
@@ -284,6 +304,7 @@ article a {
 /* ===== FOOTER ===== */
 
 footer {
+  height: var(--footer-height);
   background: var(--primary-color);
   color: white;
   padding: 2rem;
@@ -295,7 +316,6 @@ footer {
 
 @media screen and (max-width: 1100px) {
   .navbar-menu {
-    /*display: none; /* Initialy hidden */
     flex-direction: column;
     align-items: flex-start;
     gap: 1.7rem !important;
@@ -312,7 +332,7 @@ footer {
 
     /* Flyttar elementet till höger med hela sin längd */
     transform: translateX(100%);
-    transition: transform var(--transition-standard) ease;
+    transition: var(--transition-standard) ease;
   }
 
   .navbar-menu.show {
@@ -329,6 +349,19 @@ footer {
     width: 100%;
     font-size: 1.2rem;
     background-color: var(--secondary-color);
+  }
+
+  .dark-mode-toggle-item {
+    margin-left: 0;
+    padding: 0.75rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    width: 100%;
+    padding-top: 1rem;
+    justify-content: space-between;
+  }
+
+  .navbar-dark-mode-label {
+    font-size: 1rem;
   }
 
   .navbar-menu-toggle {
@@ -351,18 +384,13 @@ footer {
   }
 }
 @media screen and (max-width: 800px) {
-  main {
-    flex-direction: column;
-  }
-
   article {
-    width: 100%;
     justify-self: center;
     max-width: none;
     margin: 0.5em auto;
   }
 }
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 750px) {
   .header-logo {
     flex-shrink: 1;
     width: 90%;
@@ -371,6 +399,7 @@ footer {
   }
 
   main {
+    flex-direction: column;
     grid-template-columns: auto;
     width: 100%;
     gap: 0.5rem;

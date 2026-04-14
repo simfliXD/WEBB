@@ -7,11 +7,13 @@
   --background-color: #f0f0f0;
   --primary-border-color: #198e17;
   --secondary-border-color: #2e3b3f;
-  --header-text-color: #fff;
+  --header-text-color: #f1f1ee;
+  --heading-text-color: #253f25;
   --text-color: #333;
   --hyper-text-color: #5537b5;
   --muted-text-color: #3f810c;
   --hover-color: #2e3b3f;
+
   --dropdown-menu-color: #45802966;
 
   /* FOR LATER CODE SNIPPLETS */
@@ -23,8 +25,9 @@
   --transition-standard: 0.3s;
   --transition-slow: 0.4s;
 
+  /* höjd inkluderar padding + border */
   --header-height: clamp(60px, 10vw, 80px);
-  --footer-height: 120px; /* höjd inkluderar padding + border */
+  --footer-height: 120px;
 
   /* Räknare för rubiker */
   counter-reset: headings;
@@ -45,10 +48,17 @@ body.dark-mode {
   --background-color: #121212;
   --border-color: #4caf50;
   --header-text-color: #1b1515;
-  --text-color: #ffffff;
+  --heading-text-color: #386024;
+  --text-color: #fefefe;
   --hyper-text-color: #37b539;
   --muted-text-color: #888888;
   --hover-color: #526f53;
+
+  --dropdown-menu-color: #45802966;
+
+  --code-snippet-background: #35374b;
+  --code-snippet-text: #b1cbd5;
+  --code-snippet-border: #2a2b70;
 }
 
 body {
@@ -61,10 +71,10 @@ body {
 
 /* ===== HEADER ===== */
 
-/*Make this with rectangles with borders to the right and botom for some kind of 3D effect. sluta tänka på ängelska nu för fan*/
+/* Make this with rectangles with borders to the right and botom for some kind of 3D effect. sluta tänka på ängelska nu för fan. */
 header {
   display: flex;
-  position: fixed;
+  position: fixed; /* Gör att headern stannar i toppen av sidan */
   width: 100%;
   top: 0;
   z-index: 100;
@@ -244,20 +254,21 @@ aside {
 }
 
 aside ul {
-  text-decoration: none;
   display: flex;
   flex-direction: column;
+  list-style: none;
+  text-decoration: none;
   gap: 0.6rem;
 }
 
-aside a {
-  text-decoration: none;
+aside li a {
   display: block;
-  color: white;
-  padding: 1em 2em;
+  text-decoration: none;
+  padding: 1em 0.5em;
   border-radius: 5px;
-  font-weight: 500;
   background-color: rgba(255, 255, 255, 0.1);
+  color: var(--header-text-color);
+  font-weight: 600;
   counter-increment: headings; /* Incrementerar räknaren "headings" varje gång ny länk skapas */
 }
 
@@ -286,16 +297,29 @@ article {
 article h1 {
   font-size: clamp(1.25rem, calc(4vw + 1rem), 3rem);
   text-align: center;
-  color: var(--primary-color);
+  color: var(--heading-text-color);
   margin-bottom: 1rem;
   border-bottom: 3px solid var(--primary-border-color);
   padding-bottom: 0.5rem;
+}
+
+article h2 {
+  font-size: clamp(1.15rem, calc(2.5vw + 0.5rem), 2.5rem);
+  color: var(--heading-text-color);
+  margin-top: 2rem;
 }
 
 article p {
   line-height: 1.6;
   margin: 1.2rem 0;
 }
+
+article ul {
+  list-style: disc;
+  margin-left: 2rem;
+  margin-bottom: 1.2rem;
+}
+
 article a {
   color: var(--hyper-text-color);
   text-decoration: none;

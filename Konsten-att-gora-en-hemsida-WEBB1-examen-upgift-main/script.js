@@ -52,7 +52,7 @@ window.addEventListener("scroll", () => {
   const currentScrollY = window.scrollY;
   const scrollDelta = currentScrollY - lastScrollY;
 
-  // Ignorera små scrollningar helt
+  // Ignorera små scrollningar
   if (Math.abs(scrollDelta) < 5) return;
 
   // Göm inte om navbaren är synlig

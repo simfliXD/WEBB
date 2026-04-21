@@ -84,12 +84,12 @@
       <aside>
         <ul>
           <!-- These links point to headings inside the article (ID based) -->
-          <li><a href="#title1">Title1</a></li>
-          <li><a href="#title2">Title2</a></li>
-          <li><a href="#title3">Title3</a></li>
-          <li><a href="#title4">Title4</a></li>
-          <li><a href="#title5">Title5</a></li>
-          <li><a href="#title6">Title6</a></li>
+          <li><a href="#title1">Vad är HTML?</a></li>
+          <li><a href="#title2"></a></li>
+          <li><a href="#title3">Struktur</a></li>
+          <li><a href="#title4">Taggar</a></li>
+          <li><a href="#title5">Attribut</a></li>
+          <li><a href="#title6">Exempel</a></li>
         </ul>
       </aside>
       <article id="main-content">
@@ -97,29 +97,57 @@
         <h1 id="title1">HTML</h1>
         <h2 id="title2">Vad är HTML?</h2>
         <p>
-          HTML (HyperText Markup Language) är det grundläggande språket för att
-          skapa webbsidor. Det används för att strukturera innehållet på en
-          webbplats, inklusive text, bilder, länkar och andra element. HTML
+          HTML (HyperText Markup Language) är det grundlaggande märkspråket för
+          att skapa webbsidor. Det används för att strukturera innehållet på en
+          webbplats exempelvis text, bilder, länkar och andra element. HTML
           består av olika taggar som används för att definiera olika delar av
-          sidan, som huvudrubriker, paragrafer, bilder, länkar och tabeller med mera.
+          sidan, som huvudrubriker, paragrafer, bilder, länkar och tabeller med
+          mera.
         </p>
 
-        <h2 id="title3"></h2>
+        <h2 id="title3">Struktur</h2>
         <p>
-
+          När man skriver ett HTML-dokument, har ldokumentet en viss struktur
+          som måste följas. Det börjar alltid med en doctype deklaration (
+          !DOCTYPE html ) som talar om för webbläsaren att det är ett
+          HTML5-dokument. Sedan följer html-taggen som inehåller hela
+          dokumentet, och inom den finns head-taggen detta är huvudet på
+          documentets kropp och inehåller metadatan. Sedan kommer självakroppen,
+          body taggen den inehåller alla element som documentet består av, till
+          exempel text och bilder, samt så bestämmer du ordningen av elementen
+          här med i vilken ordning du skriver dem i.
         </p>
+        <h3>Exempel på struktur i ett HTML 5 document</h3>
 
-        <h2 id="title4">Title4</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
-          dignissimos voluptatibus dolore, pariatur, quidem odit adipisci
-          perferendis labore reiciendis vero laudantium quo ex tempore rerum
-          nobis illum magnam laboriosam accusantium. Hernavignavigation menu.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora unde
-          ipsum laborum aut maxime, veritatis cum itaque laboriosam nulla enim
-          commodi alias aliquam ullam dolor nisi asperiores libero quod
-          perferendis!
-        </p>
+        <!-- <pre> maintains the texts structure rather than formating it-->
+        <!-- <code> is an element that represents computer code -->
+        <pre><code>&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8" /&gt;
+    &lt;meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    /&gt;
+    &lt;title&gt;Document Title&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;style&gt;
+  body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: pink;
+  }
+  &lt;/style&gt;
+  &lt;body&gt;
+    &lt;header&gt;...&lt;/header&gt;
+    &lt;main&gt;...&lt;/main&gt;
+    &lt;footer&gt;...&lt;/footer&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        <h2 id="title4">Taggar</h2>
+        <p>Det går också att skriva taggar i html</p>
 
         <h2 id="title5">Title5</h2>
         <p>

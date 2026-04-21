@@ -2,36 +2,49 @@
 
 // TIPS: Om du anvdänder VS code så kan man flytta musen över koden för att see förknaringar och klicka på MDN referens för djupare förklaring
 
-// document.addEventListener("DOMContentLoaded", function () { // Tog bort eftersom vi andvänder defer taggen så scriptet körs ändå efter allt har laddats in.
-const modeToggle = document.getElementById("modeToggle");
+const darkModeToggle = document.getElementById("darkModeToggle");
 const navbarToggle = document.querySelector(".navbar-menu-toggle");
 const navbarMenu = document.querySelector(".navbar-menu");
 const header = document.querySelector("header");
 
 // ===== MÖRKT LÄGE FUNKTIONALLITET =====
-if (modeToggle) {
+if (darkModeToggle) {
   const savedMode = localStorage.getItem("darkMode");
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-  // Checka local storage för att se om boolean för dark mode är sann,
-  // och om det är sann, lägg till dark mode klassen till body elementet
   if (savedMode === "enabled") {
     document.body.classList.add("dark-mode");
-    modeToggle.checked = true;
+    darkModeToggle.checked = true;
+  } else if (savedMode === "disabled") {
+    // Gör inget, behåll ljust läge
+  } else {
+    // Inget sparat värde, använd systemets preferens
+    if (prefersDark) {
+      console.log("Föredraget mörkt läge, aktiverar mörkt läge.");
+      document.body.classList.add("dark-mode");
+      darkModeToggle.checked = true;
+      localStorage.setItem("darkMode", "enabled");
+    } else {
+      console.log("Föredraget ljust läge, behåller ljust läge.");
+      localStorage.setItem("darkMode", "disabled");
+    }
   }
 
-  // Efter en frame så sätter vi igån transiton för body:n. Detta ger en mjuk övergång mellan Ljust/Mörkt läge
+  // Efter en frame så sätter vi på en transiton för body:n. Detta ger en mjuk övergång mellan Ljust/Mörkt läge.
   requestAnimationFrame(() => {
     document.body.style.transition = "var(--transition-quick) ease";
   });
 
   // Lyssna efter eventet "change" på toggle switchen,
-  // när det ändras uppdatera klassen på body elementet för att ändra färgschemat
-  // och spara det nya värdet i local storage
-  modeToggle.addEventListener("change", function () {
+  // då uppdatera klassen på body elementet för att ändra färgschemat
+  // och sedan sparas det nya värdet i local storage.
+  darkModeToggle.addEventListener("change", function () {
     if (this.checked) {
+      console.log("Mörkt läge aktiverat.");
       document.body.classList.add("dark-mode");
       localStorage.setItem("darkMode", "enabled");
     } else {
+      console.log("Ljust läge aktiverat.");
       document.body.classList.remove("dark-mode");
       localStorage.setItem("darkMode", "disabled");
     }
@@ -52,23 +65,26 @@ window.addEventListener("scroll", () => {
   const currentScrollY = window.scrollY;
   const scrollDelta = currentScrollY - lastScrollY;
 
-  // Ignorera små scrollningar
+  // Ignorera små scrollningar för att undvika flimmer
   if (Math.abs(scrollDelta) < 5) return;
 
-  // Göm inte om navbaren är synlig
+  // Göm inte headern om mobilmenyn är öppen
   if (navbarMenu.classList.contains("show")) return;
 
-  // ScrollDelta ska vara postiv så man scrollar ner och currentScrollY ska vara större än 120px så att headern inte försvinner direkt när
+  // Om användaren scrollar ner och har scrollat mer än 120px från toppen, göm headern
   if (scrollDelta > 0 && currentScrollY > 120) {
-    console.log("scrolling", window.scrollY);
-    // Scrollar ner
     header.classList.add("hide");
   } else {
-    // Scrollar upp
+    // Annars visa headern
     header.classList.remove("hide");
   }
+  //console.log(
+  //  "Scroll delta:",
+  //  scrollDelta,
+  //  "Current scroll Y:",
+  //  currentScrollY,
+  // );
 
-  // Updatera senaste scroll värdet
+  // Uppdatera senaste scrollpositionen
   lastScrollY = currentScrollY;
 });
-//});

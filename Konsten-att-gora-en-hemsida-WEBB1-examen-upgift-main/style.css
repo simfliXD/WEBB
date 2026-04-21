@@ -4,7 +4,7 @@
   /*Färger*/
   --primary-color: #333333;
   --secondary-color: #4caf50;
-  --shadow-color: #2d6a4f;
+  --shadow-color: #303d37;
   --background-color: #f0f0f0;
   --primary-border-color: #198e17;
   --secondary-border-color: #2e3b3f;
@@ -14,6 +14,7 @@
   --hyper-text-color: #5537b5;
   --muted-text-color: #3f810c;
   --hover-color: #2e3b3f;
+  --toggle-button-color: #a7e9de;
 
   --dropdown-menu-color: #45802966;
 
@@ -48,6 +49,7 @@ body.dark-mode {
   /*Färger i mörkt thema*/
   --primary-color: #4d4242;
   --secondary-color: #4caf50;
+  --shadow-color: #2d6a4f;
   --background-color: #121212;
   --border-color: #4caf50;
   --header-text-color: #1b1515;
@@ -56,6 +58,7 @@ body.dark-mode {
   --hyper-text-color: #37b539;
   --muted-text-color: #888888;
   --hover-color: #526f53;
+  --toggle-button-color: #242424;
 
   --dropdown-menu-color: #45802966;
 
@@ -144,10 +147,10 @@ text {
 }
 
 .navbar-menu li a {
-  color: var(--header-text-color);
-  text-decoration: none;
   width: max-content;
+  text-decoration: none;
   font-weight: 500;
+  color: var(--header-text-color);
   padding: 0.5rem 0.75rem;
   border-radius: 4px;
 }
@@ -158,7 +161,6 @@ text {
   align-items: center;
   gap: 0.8rem;
   margin-left: auto;
-  padding: 0.5rem 0.75rem;
 }
 
 .navbar-dark-mode-label {
@@ -170,6 +172,9 @@ text {
 .navbar-menu li a:hover {
   background-color: var(--hover-color);
   font-weight: 700;
+  box-shadow:
+    0 2px 5px var(--shadow-color),
+    0 4px 10px var(--shadow-color);
 }
 
 .active-link {
@@ -182,10 +187,13 @@ text {
 /* ===== DARK/LIGHT TOGGLE SWITCH ===== */
 
 .switch {
-  position: relative;
-  display: flex;
   width: 60px;
   height: 30px;
+  position: relative;
+  background: var(--toggle-button-color);
+  border-radius: 30px;
+  transition: var(--transition-standard);
+  cursor: pointer;
   flex-shrink: 0;
 }
 
@@ -197,38 +205,18 @@ text {
 
 .slider {
   position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: var(--transition-standard);
-  border-radius: 30px;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
   height: 22px;
   width: 22px;
   left: 4px;
   bottom: 4px;
-  background-color: white;
+  background: linear-gradient(180deg, #ffcc89, #d8860b);
   transition: var(--transition-standard);
   border-radius: 50%;
 }
 
 input:checked + .slider {
-  background-color: #2196f3;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
-}
-
-input:checked + .slider:before {
   transform: translateX(30px);
+  background: linear-gradient(180deg, #777, #3a3a3a3a);
 }
 
 /* =====  PAGE LAYOUT ===== */
@@ -237,7 +225,6 @@ main {
   display: grid;
   grid-template-columns: auto 1fr;
   width: 100%;
-  gap: 2rem;
   margin: calc(5vw + 2.5rem) 0 2.5rem;
   padding: 0 1.5rem;
   min-height: calc(100vh - var(--header-height) - var(--footer-height));
@@ -247,14 +234,15 @@ main {
 
 aside {
   position: sticky; /* Gör så att elementet "fastnar" på skärmen till den når gränsen av sin förälders avgränsningruta, i detta fall "main" */
-  top: 2rem;
+  top: calc(
+    var(--header-height) + 1em
+  ); /* Gör så att elementet stannar 1em under headern*/
   z-index: 10;
   height: fit-content;
-  width: clamp(200px, 15vw, 280px);
+  width: clamp(160px, 15vw, 280px);
   background: var(--primary-color);
-  padding: 1.8rem 1.4rem;
+  padding: 1.5rem 1em;
   border-radius: 10px;
-  overflow-y: auto;
 }
 
 aside ul {
@@ -262,14 +250,14 @@ aside ul {
   flex-direction: column;
   list-style: none;
   text-decoration: none;
-  gap: 0.6rem;
+  gap: 0.5rem;
 }
 
 aside li a {
   display: block;
   text-decoration: none;
   padding: 1em 0.5em;
-  border-radius: 5px;
+  border-radius: 6px;
   background-color: rgba(255, 255, 255, 0.1);
   color: var(--header-text-color);
   font-weight: 600;
@@ -278,7 +266,7 @@ aside li a {
 
 aside li a:hover {
   background-color: var(--hover-color);
-  color: black;
+  color: var(--secondary-color);
 }
 
 /* Lägger till nummering för varje länk i sidomenyn */
@@ -293,7 +281,7 @@ article {
   width: min(1100px, calc(100% - 1.5rem));
   margin: 0 auto;
   background: var(--background-color);
-  padding: clamp(1em, 2vw, 2.5em);
+  padding: clamp(1rem, 2.5vw, 2.5rem);
   border: 2px solid var(--secondary-border-color);
   min-height: calc(100vh - var(--header-height) - var(--footer-height) - 6rem);
 }
@@ -338,20 +326,19 @@ article a {
 
 /* Code blocks */
 article pre {
-  background-color: var(--code-snippet-background-color);
-  color: var(--code-snippet-text-color);
-  border: var(--code-snippet-border);
-  padding: 1rem;
-  overflow-x: auto;
-  border-radius: 5px;
-
-  font-family:
-    "JetBrains Mono", "Courier New", "ui-monospace", "Courier", monospace;
-  white-space: pre-wrap;
-  margin: 1rem 0;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
   font-size: 0.9rem;
   line-height: 1.4;
+  white-space: pre-wrap;
+  background-color: var(--code-snippet-background-color);
+  color: var(--code-snippet-text-color);
+  padding: 1rem;
+  border: var(--code-snippet-border);
+  border-radius: 5px;
+  overflow-x: auto;
+  margin: 1rem 0;
 }
+
 article pre code {
   font-family: inherit;
   color: inherit;

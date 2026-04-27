@@ -125,7 +125,7 @@ header.hide {
 	padding-right: 1.5rem;
 	margin-right: 1rem;
 	border-right-style: solid;
-	border-right-width: clamp(2px, 15px - 1vw, 20px);
+	border-right-width: clamp(2px, 12px - 0.8vw, 8px);
 	border-right-color: var(--primary-border-color);
 }
 
@@ -231,14 +231,14 @@ input:focus-visible {
 	outline: 3px solid var(--secondary-color);
 }
 
-.navbar-menu-toggle:focus-visible .bar {
-	outline: none;
-}
-
 .navbar-menu-toggle:focus-visible {
 	outline: 3px solid var(--secondary-color);
 	outline-offset: 2px;
 	border-radius: 4px;
+}
+
+.navbar-menu-toggle:focus-visible .bar {
+	outline: none;
 }
 
 /* ===== DARK/LIGHT TOGGLE SWITCH ===== */

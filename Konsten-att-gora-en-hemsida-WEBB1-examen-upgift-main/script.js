@@ -99,6 +99,14 @@ navbarToggle?.addEventListener("click", () => {
 	}
 });
 
+// Stäng navbar när man clickar på en länk
+const navbarLinks = document.querySelectorAll("li a");
+navbarLinks.forEach((link) => {
+	link.addEventListener("click", () => {
+		closeNavbar();
+	});
+});
+
 // Stäng navbar när man clickar på overlayen
 overlay?.addEventListener("click", () => {
 	closeNavbar();

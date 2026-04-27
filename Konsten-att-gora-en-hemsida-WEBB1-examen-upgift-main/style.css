@@ -429,7 +429,7 @@ footer {
 		top: 0;
 		right: 0;
 		z-index: 9;
-		min-height: 100vh;
+		min-height: 150vh;
 		width: clamp(180px, 25vw, 250px);
 		padding: 5rem 1.5rem;
 		border-left: 1px solid var(--primary-border-color);

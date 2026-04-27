@@ -15,7 +15,7 @@
 	--muted-text-color: #3f810c;
 	--hover-color: #2e3b3f;
 	--toggle-button-color: #a7e9de;
-
+	--overlayy-color: rgba(0, 0, 0, 0.5);
 	--dropdown-menu-color: #45802966;
 
 	/* Kod exempel*/
@@ -59,7 +59,7 @@ body.dark-mode {
 	--muted-text-color: #888888;
 	--hover-color: #526f53;
 	--toggle-button-color: #242424;
-
+	--overlayy-color: rgba(0, 0, 0, 0.5);
 	--dropdown-menu-color: #45802966;
 
 	/* Kod exempel i mörkt thema*/
@@ -73,6 +73,26 @@ body {
 	background: var(--background-color);
 	color: var(--text-color);
 	min-height: 100dvh;
+}
+
+/* ===== SKIP-TO-CONTENT LINK ===== */
+
+.skip-link {
+	position: absolute;
+	top: -40px;
+	left: 0;
+	background-color: var(--secondary-color);
+	color: white;
+	padding: 8px 16px;
+	text-decoration: none;
+	z-index: 101;
+	border-radius: 0 0 4px 0;
+	font-weight: bold;
+}
+
+.skip-link:focus {
+	top: 0;
+	outline: 3px solid var(--primary-color);
 }
 
 /* ===== HEADER ===== */
@@ -157,6 +177,17 @@ header.hide {
 	border-radius: 4px;
 }
 
+#overlay {
+	position: fixed;
+	inset: 0;
+	background-color: var(--overlayy-color);
+	backdrop-filter: blur(2px);
+	z-index: 8;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity var(--transition-standard) ease;
+}
+
 /* Dark mode toggle in navbar */
 .dark-mode-toggle-item {
 	display: flex;
@@ -184,6 +215,30 @@ header.hide {
 	list-style: none;
 	font-weight: bold;
 	border-bottom: 2px solid var(--primary-border-color);
+}
+
+/* ===== FOCUS INDICATORS FOR KEYBOARD NAVIGATION ===== */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+	outline: 3px solid var(--secondary-color);
+	outline-offset: 2px;
+}
+
+.navbar-menu li a:focus-visible {
+	background-color: var(--hover-color);
+	outline: 3px solid var(--secondary-color);
+}
+
+.navbar-menu-toggle:focus-visible .bar {
+	outline: none;
+}
+
+.navbar-menu-toggle:focus-visible {
+	outline: 3px solid var(--secondary-color);
+	outline-offset: 2px;
+	border-radius: 4px;
 }
 
 /* ===== DARK/LIGHT TOGGLE SWITCH ===== */
@@ -219,6 +274,12 @@ header.hide {
 input:checked + .slider {
 	transform: translateX(30px);
 	background: linear-gradient(180deg, #777, #3a3a3a3a);
+}
+
+.switch input:focus-visible + .slider {
+	outline: 3px solid var(--secondary-color);
+	outline-offset: 2px;
+	border-radius: 50%;
 }
 
 /* =====  PAGE LAYOUT ===== */
@@ -359,7 +420,7 @@ footer {
 
 /* ===== MEDIA QUERIES ===== */
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1150px) {
 	.navbar-menu {
 		flex-direction: column;
 		align-items: flex-start;
@@ -378,6 +439,11 @@ footer {
 		/* Flyttar elementet till höger med hela sin längd */
 		transform: translateX(100%);
 		transition: var(--transition-standard) ease;
+	}
+
+	#overlay.show {
+		opacity: 1;
+		visibility: visible;
 	}
 
 	.navbar-menu.show {

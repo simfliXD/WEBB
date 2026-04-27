@@ -3,6 +3,7 @@
 // TIPS: Om du anvdänder VS code så kan man flytta musen över koden för att see förknaringar och klicka på MDN referens för djupare förklaring
 
 const darkModeToggle = document.getElementById("darkModeToggle");
+const overlay = document.getElementById("overlay");
 const navbarToggle = document.querySelector(".navbar-menu-toggle");
 const navbarMenu = document.querySelector(".navbar-menu");
 const header = document.querySelector("header");
@@ -51,10 +52,51 @@ if (darkModeToggle) {
 	});
 }
 
-// Visa navbar när man clickar på knappen (Börgar menyn)
+// ===== MENY FUNKTIONALLITET =====
+
+const mediaQuery = window.matchMedia("(width < 1150px)");
+
+function updateNavbar(e) {
+	const isSidebar = e.matches;
+	console.log(isSidebar);
+	if (isSidebar) {
+		navbarMenu.setAttribute("inert", " ");
+	} else {
+		navbarMenu.removeAttribute("inert");
+	}
+}
+
+// Kör funktionen en gång närsiudan laddas och updatera sedan varje gång media queryn ändras
+updateNavbar(mediaQuery);
+mediaQuery.addEventListener("change", updateNavbar);
+
+// Funktioner för att öppna och stänga navbaren, dessa används både av knappen och av overlayn (när man clickar utanför menyn så stängs den)
+function closeNavbar() {
+	navbarToggle.classList.remove("show");
+	navbarMenu.classList.remove("show");
+	navbarMenu.setAttribute("inert", " ");
+	overlay.classList.remove("show");
+	navbarToggle.setAttribute("aria-expanded", "false");
+	navbarMenu.setAttribute("aria-hidden", "true");
+	navbarToggle.focus();
+}
+
+function openNavbar() {
+	navbarToggle.classList.add("show");
+	navbarMenu.classList.add("show");
+	navbarMenu.removeAttribute("inert");
+	overlay.classList.add("show");
+	navbarToggle.setAttribute("aria-expanded", "true");
+	navbarMenu.setAttribute("aria-hidden", "false");
+}
+
+// Visa/dölj navbar när man clickar på knappen (Börgar menyn)
 navbarToggle.addEventListener("click", () => {
-	navbarToggle.classList.toggle("show");
-	navbarMenu.classList.toggle("show");
+	if (navbarMenu.classList.contains("show")) {
+		closeNavbar();
+	} else {
+		openNavbar();
+	}
 });
 
 // ===== SCROLLNINGS LOGIC FÖR ATT BESTÄMMA OM HEADERN SKA VARA SYNLIG =====

@@ -20,6 +20,8 @@
 	</head>
 
 	<body>
+		<a href="#main" class="skip-link">Hoppa till huvudinnehål</a>
+
 		<header>
 			<div class="header-logo" id="logo">
 				<a href="index.html">
@@ -30,6 +32,8 @@
 						viewBox="0 0 380 30"
 						xmlns="http://www.w3.org/2000/svg"
 						xmlns:xlink="http://www.w3.org/1999/xlink"
+						role="img"
+						aria-label="Konsten att skapa en hemsida"
 					>
 						<g class="drawing-elements">
 							<path
@@ -57,22 +61,35 @@
 			</div>
 
 			<nav class="header-navbar">
-				<button class="navbar-menu-toggle" aria-label="Toggle navigation menu">
+				<button
+					class="navbar-menu-toggle"
+					aria-label="Toggle navigation menu"
+					aria-expanded="false"
+					aria-controls="navbar-menu"
+				>
 					<span class="bar"></span>
 					<span class="bar"></span>
 					<span class="bar"></span>
 				</button>
-				<ul class="navbar-menu">
+				<ul class="navbar-menu" id="navbar-menu" aria-hidden="true">
 					<li><a href="index.html">Hem</a></li>
 					<li><a href="historia.html">Historia</a></li>
 					<li><a href="lagar.html">Lagar</a></li>
 					<li>
-						<a class="active-link" href="html.html" data-topic="html">HTML</a>
+						<a
+							class="active-link"
+							aria-current="page"
+							href="html.html"
+							data-topic="html"
+							>HTML</a
+						>
 					</li>
 					<li><a href="css.html" data-topic="css">CSS</a></li>
 					<li><a href="javascript.html" data-topic="js">JavaScript</a></li>
 					<li class="dark-mode-toggle-item">
-						<label class="navbar-dark-mode-label">Mörkt läge</label>
+						<label class="navbar-dark-mode-label" for="darkModeToggle"
+							>Mörkt läge</label
+						>
 						<label class="switch">
 							<input type="checkbox" id="darkModeToggle" />
 							<span class="slider"></span>
@@ -82,8 +99,10 @@
 			</nav>
 		</header>
 
+		<div id="overlay" onclick="closeNavbar()" aria-hidden="true"></div>
+
 		<main id="main">
-			<aside>
+			<aside aria-label="Innehållsförteckning">
 				<ul>
 					<!-- These links point to headings inside the article (ID based) -->
 					<li><a href="#title1">Vad är HTML?</a></li>

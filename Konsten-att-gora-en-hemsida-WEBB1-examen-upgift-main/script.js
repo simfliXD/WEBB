@@ -3,9 +3,6 @@
 // TIPS: Om du anvdänder VS code så kan man flytta musen över koden för att see förknaringar och klicka på MDN referens för djupare förklaring
 
 const darkModeToggle = document.getElementById("darkModeToggle");
-const overlay = document.getElementById("overlay");
-const navbarToggle = document.querySelector(".navbar-menu-toggle");
-const navbarMenu = document.querySelector(".navbar-menu");
 const header = document.querySelector("header");
 
 // ===== MÖRKT LÄGE FUNKTIONALLITET =====
@@ -53,6 +50,9 @@ if (darkModeToggle) {
 }
 
 // ===== MENY FUNKTIONALLITET =====
+const overlay = document.getElementById("overlay");
+const navbarToggle = document.querySelector(".navbar-menu-toggle");
+const navbarMenu = document.querySelector(".navbar-menu");
 
 const mediaQuery = window.matchMedia("(width < 1150px)");
 
@@ -91,11 +91,23 @@ function openNavbar() {
 }
 
 // Visa/dölj navbar när man clickar på knappen (Börgar menyn)
-navbarToggle.addEventListener("click", () => {
+navbarToggle?.addEventListener("click", () => {
 	if (navbarMenu.classList.contains("show")) {
 		closeNavbar();
 	} else {
 		openNavbar();
+	}
+});
+
+// Stäng navbar när man clickar på overlayen
+overlay?.addEventListener("click", () => {
+	closeNavbar();
+});
+
+// Stäng nabrar med Escape tangenten
+document.addEventListener("keydown", (e) => {
+	if (e.key === "Escape" && navbarMenu.classList.contains("show")) {
+		closeNavbar();
 	}
 });
 

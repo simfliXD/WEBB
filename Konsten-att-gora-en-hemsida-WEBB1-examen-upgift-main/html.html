@@ -84,8 +84,9 @@
 							>HTML</a
 						>
 					</li>
-					<li><a href="css.html" data-topic="css">CSS</a></li>
-					<li><a href="javascript.html" data-topic="js">JavaScript</a></li>
+					<li><a href="css.html">CSS</a></li>
+					<li><a href="javascript.html">JavaScript</a></li>
+
 					<li class="dark-mode-toggle-item">
 						<label class="navbar-dark-mode-label" for="darkModeToggle"
 							>Mörkt läge</label
@@ -140,8 +141,8 @@
 				</p>
 				<h3>Exempel på struktur i ett HTML 5 document</h3>
 
-				<!-- <pre> maintains the texts structure rather than formating it-->
-				<!-- <code> is an element that represents computer code -->
+				<!-- <pre> behåller textens strukrur -->
+				<!-- <code> ett element som representerar kod -->
 				<pre><code>&lt;!doctype html&gt;
 &lt;html lang="en"&gt;
   &lt;head&gt;
@@ -168,25 +169,157 @@
 &lt;/html&gt;</code></pre>
 
 				<h2 id="title4">Taggar</h2>
-				<p>Det går också att skriva taggar i html</p>
-
-				<h2 id="title5">Title5</h2>
 				<p>
-					Webnavigation menu. Lorem ipsum dolor sit amet consectetur adipisicing
-					elit. Quidem nihil quod dolorem ipsa doloremque quo deserunt dicta.
-					Non iure minus voluptas itaque quasi sequi sed, veritatis vero,
-					aperiam ratione vitae!
+					HTML bygger på så kallade <strong>taggar</strong>. En tagg är ett
+					kommando som talar om för webbläsaren hur innehållet ska tolkas. De
+					flesta taggar har en öppningstagg och en stängningstagg. Till exempel:
 				</p>
 
-				<h2 id="title6">Title6</h2>
+				<pre><code>&lt;p&gt;Detta är en paragraf&lt;/p&gt;</code></pre>
+
 				<p>
-					navigation menu.Lorem ipsum dolor sit amet consectetur adipisicing
-					elit. Quidem nihil quod dolorem ipsa doloremque quo deserunt dicta.
-					Non iure minus voluptas itaque quasi sequi sed, veritatis vero,
-					aperiam ratione vitae!Lorem ipsum dolor sit amet consectetur
-					adipisicing elit. Quidem nihil quod dolorem ipsa doloremque quo
-					deserunt dicta. Non iure minus voluptas itaque quasi sequi sed,
-					veritatis vero, aperiam ratione vitae!
+					Här är <code>&lt;p&gt;</code> öppningstaggen och
+					<code>&lt;/p&gt;</code>
+					stängningstaggen. Allt innehåll mellan dessa tillhör elementet. Vissa
+					taggar saknar stängningstagg, till exempel bilder:
+				</p>
+
+				<pre><code>&lt;img src="bild.jpg" alt="En bild" /&gt;</code></pre>
+				<p>
+					Detta kallas för självstängande taggar. Detta betyder att
+					stängningstagg inte behövs. Eftersom det inte finns något innehåll som
+					ska inuti en bild, så är det inte nödvändigt att ha en stängningstagg.
+				</p>
+
+				<p>Vanliga HTML-taggar inkluderar:</p>
+				<ul>
+					<li><code>&lt;h1&gt; - &lt;h6&gt;</code> för rubriker</li>
+					<li><code>&lt;p&gt;</code> för paragrafer</li>
+					<li><code>&lt;a&gt;</code> för länkar</li>
+					<li><code>&lt;img&gt;</code> för bilder</li>
+					<li>
+						<code>&lt;div&gt;</code> och <code>&lt;section&gt;</code> för
+						struktur
+					</li>
+				</ul>
+
+				<h2 id="title5">Attributer</h2>
+				<p>
+					Attribut ger extra information om en tagg och placeras i
+					öppningstaggen. De består av ett namn och ett värde:
+				</p>
+
+				<pre><code>&lt;a href="https://example.com"&gt;Besök sidan&lt;/a&gt;</code></pre>
+
+				<p>
+					Här är <code>href</code> ett attribut som anger vart länken leder.
+					Andra vanliga attribut är:
+				</p>
+
+				<ul>
+					<li><code>src</code> – används för bilder och skript</li>
+					<li>
+						<code>alt</code> – alternativ text för bilder (viktigt för
+						tillgänglighet)
+					</li>
+					<li><code>class</code> – används för styling med CSS</li>
+					<li><code>id</code> – unikt ID för ett element</li>
+				</ul>
+
+				<p>
+					Attribut är centrala eftersom de kopplar HTML till både CSS och
+					JavaScript.
+				</p>
+
+				<h2 id="title5">Semantisk HTML och tillgänglighet</h2>
+				<p>
+					Semantisk HTML innebär att man använder rätt taggar för rätt innehåll.
+					Istället för att bara använda generella element som
+					<code>&lt;div&gt;</code>, använder man mer beskrivande taggar som
+					tydligt visar vad innehållet är.
+				</p>
+
+				<p>Exempel på semantiska element är:</p>
+
+				<ul>
+					<li><code>&lt;header&gt;</code> – sidans huvud eller introduktion</li>
+					<li><code>&lt;nav&gt;</code> – navigationsmenyer</li>
+					<li><code>&lt;main&gt;</code> – huvudinnehåll</li>
+					<li><code>&lt;section&gt;</code> – tematiska delar</li>
+					<li><code>&lt;article&gt;</code> – självständigt innehåll</li>
+					<li><code>&lt;footer&gt;</code> – sidfot</li>
+				</ul>
+
+				<p>
+					Att använda semantisk HTML är viktigt för
+					<strong>tillgänglighet</strong>. Det gör att hjälpmedel som
+					skärmläsare kan förstå sidans struktur och hjälpa användare att
+					navigera.
+				</p>
+
+				<p>Exempel på hur semantik förbättrar tillgänglighet:</p>
+
+				<ul>
+					<li>
+						Skärmläsare kan hoppa direkt till
+						<code>&lt;main&gt;</code>-innehållet
+					</li>
+					<li><code>&lt;nav&gt;</code> gör det tydligt var menyn finns</li>
+					<li><code>alt</code>-texter beskriver bilder för synskadade</li>
+				</ul>
+
+				<p>Exempel:</p>
+
+				<pre><code>&lt;img src="hund.jpg" alt="En brun hund som springer i gräset"&gt;</code></pre>
+
+				<p>Dessutom bör man använda:</p>
+
+				<ul>
+					<li>
+						Tydliga rubriker i rätt ordning (<code>&lt;h1&gt;</code> →
+						<code>&lt;h2&gt;</code> → <code>&lt;h3&gt;</code>)
+					</li>
+					<li>Beskrivande länkar (inte bara “klicka här”)</li>
+					<li>ARIA-attribut vid behov för extra stöd</li>
+				</ul>
+
+				<p>
+					Genom att kombinera semantisk HTML och god struktur skapar du inte
+					bara en snygg webbplats – utan en som alla kan använda.
+				</p>
+
+				<h2 id="title6">Exempel</h2>
+				<p>
+					Här är ett enkelt exempel på en komplett webbsida som visar hur HTML
+					används i praktiken:
+				</p>
+
+				<pre><code>&lt;!doctype html&gt;
+&lt;html lang="sv"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Min första hemsida&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Välkommen!&lt;/h1&gt;
+  &lt;p&gt;Detta är min första webbsida.&lt;/p&gt;
+
+  &lt;a href="https://google.com"&gt;Gå till Google&lt;/a&gt;
+
+  &lt;img src="bild.jpg" alt="Exempelbild"&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+				<p>
+					I detta exempel ser du hur olika taggar samverkar för att skapa en
+					fungerande webbsida. Rubriker, text, länkar och bilder kombineras för
+					att bygga upp innehållet.
+				</p>
+
+				<p>
+					HTML är grunden för alla webbplatser. När du behärskar HTML kan du
+					sedan gå vidare till CSS för design och JavaScript för interaktivitet.
 				</p>
 			</article>
 		</main>

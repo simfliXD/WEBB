@@ -20,12 +20,12 @@
 	--aside-background: #393f4d;
 	--aside-card-background: #a38a47;
 
-	/* Kod exempel - adjusted for new palette */
-	--code-snippet-background-color: #393939; /* Dark Grey */
-	--code-snippet-text-color: #d4d4dc; /* Silver Fox */
-	--code-snippet-border: 2px solid #ec7f37; /* Light Orange */
+	/* Färg för kodexempel*/
+	--code-snippet-background-color: #393939;
+	--code-snippet-text-color: #d4d4dc;
+	--code-snippet-border: 2px solid #ec7f37;
 
-	/*Transitions längder i sekunder*/
+	/*Transitions längd i sekunder*/
 	--transition-quick: 0.15s;
 	--transition-standard: 0.3s;
 	--transition-slow: 0.4s;

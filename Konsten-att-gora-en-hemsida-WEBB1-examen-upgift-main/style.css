@@ -10,7 +10,7 @@
 	--secondary-border-color: #393939;
 	--header-text-color: #1d1e22;
 	--heading-text-color: #393f4d;
-	--text-color: #1d1e22; 
+	--text-color: #1d1e22;
 	--hyper-text-color: #ff5a09;
 	--muted-text-color: #415f61;
 	--hover-color: #feda6a;
@@ -18,7 +18,7 @@
 	--overlay-color: rgba(0, 0, 0, 0.5);
 	--dropdown-menu-background: #393f4d45;
 	--aside-background: #393f4d;
-	--aside-card-background: #a38a47;
+	--aside-card-background: #c7b44a;
 
 	/* Färg för kodexempel*/
 	--code-snippet-background-color: #393939;
@@ -65,7 +65,7 @@ body.dark-mode {
 	--overlay-color: rgba(0, 0, 0, 0.5);
 	--dropdown-menu-background: #393f4d25;
 	--aside-background: #393f4d;
-	--aside-card-background: #cc602e;
+	--aside-card-background: #a48b47;
 
 	/* Kod exempel i mörkt tema - adjusted */
 	--code-snippet-background-color: #393939;
@@ -502,11 +502,6 @@ footer {
 	}
 }
 @media screen and (max-width: 800px) {
-	article {
-		justify-self: center;
-		max-width: none;
-		margin: 0.5em auto;
-	}
 }
 @media screen and (max-width: 750px) {
 	.header-logo {
@@ -514,6 +509,9 @@ footer {
 		width: 90%;
 		padding-right: 0;
 		border-right: none;
+	}
+	.navbar-menu-toggle {
+		margin-right:;
 	}
 
 	main {
@@ -530,6 +528,12 @@ footer {
 		position: static;
 		width: 100%;
 		margin: 0.5rem 0;
+	}
+
+	article {
+		justify-self: center;
+		max-width: none;
+		margin: 0.5em auto;
 	}
 }
 
@@ -550,11 +554,6 @@ footer {
 		width: 100vw;
 		height: auto;
 		display: block;
-	}
-
-	.navbar-menu-toggle {
-		align-content: left;
-		margin-right: 1rem;
 	}
 }
 

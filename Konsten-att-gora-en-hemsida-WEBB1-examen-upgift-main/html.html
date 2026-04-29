@@ -233,60 +233,85 @@
 
 				<h2 id="title6">Semantisk HTML och tillgänglighet</h2>
 				<p>
-					Semantisk HTML innebär att man använder rätt taggar för rätt innehåll.
+					Semantisk HTML är <strong>alltid</strong> bättre att andvända än
+					ARIA-attributer om det går. Vad är Sematisk HTML då? Jo det är att man
+					använder rätt taggar, baserat på <strong>vad innehållet är</strong>.
 					Istället för att bara använda generella element som
 					<code>&lt;div&gt;</code>, använder man mer beskrivande taggar som
-					tydligt visar vad innehållet är.
+					tydligt visar vad innehållet är. etta gör det änklare för andra att
+					läsa din kod men framförallt hjälpmedel som skärmläsare.
 				</p>
 
 				<p>Exempel på semantiska element är:</p>
 
 				<ul>
-					<li><code>&lt;header&gt;</code> – sidans huvud eller introduktion</li>
+					<li><code>&lt;header&gt;</code> – sidans huvud</li>
 					<li><code>&lt;nav&gt;</code> – navigationsmenyer</li>
-					<li><code>&lt;main&gt;</code> – huvudinnehåll</li>
-					<li><code>&lt;section&gt;</code> – tematiska delar</li>
-					<li><code>&lt;article&gt;</code> – självständigt innehåll</li>
+					<li>
+						<code>&lt;main&gt;</code> – huvudinnehåll (kan bara finnas en per
+						sida)
+					</li>
+					<li><code>&lt;aside&gt;</code> - blurb, inehållshörtäckning...</li>
+					<li><code>&lt;section&gt;</code> – grupperat inbhåll</li>
+					<li><code>&lt;article&gt;</code> – artikel, inlägg...</li>
 					<li><code>&lt;footer&gt;</code> – sidfot</li>
 				</ul>
 
 				<p>
-					Att använda semantisk HTML är viktigt för
-					<strong>tillgänglighet</strong>. Det gör att hjälpmedel som
-					skärmläsare kan förstå sidans struktur och hjälpa användare att
-					navigera.
+					Semantisk HTML är viktigt för <strong>tillgänglighet</strong>. Det gör
+					att t.ex skärmläsare kan förstå sidans struktur och hjälpa användare
+					med nedsatt syn att navigera hemsidan.
 				</p>
 
-				<p>Exempel på hur semantik förbättrar tillgänglighet:</p>
+				<p>Förutom bara beskrivande divar är det viktigt att man:</p>
 
 				<ul>
 					<li>
-						Skärmläsare kan hoppa direkt till
-						<code>&lt;main&gt;</code>-innehållet
-					</li>
-					<li><code>&lt;nav&gt;</code> gör det tydligt var menyn finns</li>
-					<li><code>alt</code>-texter beskriver bilder för synskadade</li>
-				</ul>
-
-				<p>Exempel:</p>
-
-				<pre><code>&lt;img src="hund.jpg" alt="En brun hund som springer i gräset"&gt;</code></pre>
-
-				<p>Dessutom bör man använda:</p>
-
-				<ul>
-					<li>
-						Tydliga rubriker i rätt ordning (<code>&lt;h1&gt;</code> →
+						Tydliga rubriker satta i rätt ordning (<code>&lt;h1&gt;</code> →
 						<code>&lt;h2&gt;</code> → <code>&lt;h3&gt;</code>)
 					</li>
 					<li>Beskrivande länkar (inte bara “klicka här”)</li>
 					<li>ARIA-attribut vid behov för extra stöd</li>
+					<li>
+						<code>alt</code>-texter som beskriver bildens inehåll både om bilden
+						inte kan hämtas och för skärmläsare att läsa.
+					</li>
 				</ul>
 
 				<p>
 					Genom att kombinera semantisk HTML och god struktur skapar du inte
-					bara en snygg webbplats – utan en som alla kan använda.
+					bara en snygg webbplats, utan en som alla kan använda.
 				</p>
+
+				<h3>Icke-semantiskt vs semantiskt</h3>
+
+				<p><strong>Icke-semantiskt (dåligt exempel):</strong></p>
+
+				<pre><code>&lt;div class="header"&gt;
+  &lt;div class="nav"&gt;
+    &lt;a href="#"&gt;Hem&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="main"&gt;
+  &lt;div class="article"&gt;
+    &lt;img src="hund.jpg"&gt;
+    &lt;div class="title"&gt;Mitt inlägg&lt;/div&gt;d
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+				<p><strong>Semantiskt (bra exempel):</strong></p>
+
+				<pre><code>&lt;header&gt;
+  &lt;nav&gt;
+    &lt;a href="#"&gt;Hem&lt;/a&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
+&lt;main&gt;
+  &lt;article&gt;
+    &lt;img src="hund.jpg" alt="En brun hund som springer i gräset"&gt;
+    &lt;h1&gt;Mitt inlägg&lt;/h1&gt;
+  &lt;/article&gt;
+&lt;/main&gt;</code></pre>
 
 				<h2 id="title6">Exempel</h2>
 				<p>
@@ -351,6 +376,108 @@
 					HTML är grunden för alla webbplatser. När du behärskar HTML kan du
 					sedan gå vidare till CSS för design och JavaScript för interaktivitet.
 				</p>
+				<!-- Ersätt ditt befintliga korta avsnitt om "Semantisk HTML och tillgänglighet" med detta, 
+eller lägg till detta efter det avsnittet (med nya ID:n) -->
+
+				<h2 id="title5-semantik">Semantisk HTML – mer än bara divar</h2>
+				<p></p>
+
+				<h2 id="title5b">ARIA-attribut – när HTML inte räcker till</h2>
+				<p>
+					<strong>ARIA</strong> (Accessible Rich Internet Applications) är en
+					specifikation som låter dig förbättra tillgängligheten när vanlig HTML
+					inte är tillräcklig. Tänk på ARIA som en <strong>sista utväg</strong>
+					– använd alltid semantisk HTML först!
+				</p>
+
+				<h3>De viktigaste ARIA-attributerna</h3>
+
+				<h4>aria-label – lägg till en textbeskrivning</h4>
+				<p>
+					Används när ett element saknar synlig text men behöver en beskrivning
+					för skärmläsare.
+				</p>
+				<pre><code>&lt;button aria-label="Stäng meddelande"&gt;✕&lt;/button&gt;
+&lt;nav aria-label="Huvudmeny"&gt;...&lt;/nav&gt;</code></pre>
+
+
+				<h4>aria-hidden – dölj element från skärmläsare</h4>
+				<p>
+					Användbart för dekorativa ikoner eller bilder som inte tillför
+					information.
+				</p>
+				<pre><code>&lt;span aria-hidden="true"&gt;🎉&lt;/span&gt;
+&lt;img src="dekor-bakgrund.jpg" alt="" aria-hidden="true"&gt;</code></pre>
+
+				<h3>ARIA-roller (roles)</h3>
+				<p>
+					Med <code>role</code>-attributet kan du ändra ett elements "betydelse"
+					för skärmläsare. Används när du måste bygga något med
+					<code>&lt;div&gt;</code> som borde vara en knapp eller en sök-ruta.
+				</p>
+
+				<pre><code>&lt;!-- En DIV som beter sig som en knapp --&gt;
+&lt;div role="button" tabindex="0"&gt;Klicka här&lt;/div&gt;
+
+&lt;!-- Ange att en div är en huvudmeny --&gt;
+&lt;div role="menubar"&gt;...&lt;/div&gt;
+
+&lt;!-- Sökfält --&gt;
+&lt;div role="search"&gt;
+  &lt;input type="text"&gt;
+&lt;/div&gt;</code></pre>
+
+				<h3>Vanliga ARIA-tillstånd</h3>
+				<p>
+					Dessa attribut ändras ofta dynamiskt med JavaScript (men bra att känna
+					till redan nu):
+				</p>
+				<ul>
+					<li>
+						<code>aria-expanded="true/false"</code> – Är en meny eller dropdown
+						utfälld?
+					</li>
+					<li>
+						<code>aria-selected="true/false"</code> – Är ett element valt (t.ex.
+						i en flikmeny)?
+					</li>
+					<li>
+						<code>aria-checked="true/false/mixed"</code> – För anpassade
+						checkboxar.
+					</li>
+					<li>
+						<code>aria-disabled="true"</code> – Elementet är tillfälligt
+						inaktiverat.
+					</li>
+				</ul>
+
+				<h2 id="title5d">Testa din tillgänglighet</h2>
+				<p>
+					Här är enkla sätt att kontrollera om din semantiska HTML och ARIA
+					fungerar:
+				</p>
+				<ul>
+					<li>
+						<strong>Tangentbordet:</strong> Kan du navigera enbart med Tab,
+						Enter och piltangenterna?
+					</li>
+					<li>
+						<strong>Skärmläsare:</strong> Testa med
+						<strong>NVDA (Windows)</strong> eller
+						<strong>VoiceOver (Mac)</strong>.
+					</li>
+					<li>
+						<strong>WAVE-verktyget:</strong>
+						<a href="https://wave.webaim.org" target="_blank"
+							>wave.webaim.org</a
+						>
+						– analyserar tillgänglighet.
+					</li>
+					<li>
+						<strong>Webbläsarens utvecklarverktyg:</strong> F12 → fliken
+						"Accessibility" (Tillgänglighet).
+					</li>
+				</ul>
 			</article>
 		</main>
 

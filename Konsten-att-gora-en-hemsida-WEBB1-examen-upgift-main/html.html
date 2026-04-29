@@ -12,11 +12,11 @@
 		<link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
 
 		<!-- Hämta alla sidor för snabbare navigering -->
-		<link rel="prefetch" href="historia.html" as="document" />
-		<link rel="prefetch" href="lagar.html" as="document" />
-		<link rel="prefetch" href="html.html" as="document" />
-		<link rel="prefetch" href="css.html" as="document" />
-		<link rel="prefetch" href="javascript.html" as="document" />
+		<link rel="prefetch" href="historia.html" />
+		<link rel="prefetch" href="lagar.html" />
+		<link rel="prefetch" href="html.html" />
+		<link rel="prefetch" href="css.html" />
+		<link rel="prefetch" href="javascript.html" />
 	</head>
 
 	<body>
@@ -106,11 +106,11 @@
 			<aside aria-label="Innehållsförteckning">
 				<ul>
 					<!-- These links point to headings inside the article (ID based) -->
-					<li><a href="#title1">Vad är HTML?</a></li>
-					<li><a href="#title2"></a></li>
+					<li><a href="#title1">HTML</a></li>
+					<li><a href="#title2">Vad är HTML?</a></li>
 					<li><a href="#title3">Struktur</a></li>
 					<li><a href="#title4">Taggar</a></li>
-					<li><a href="#title5">Attribut</a></li>
+					<li><a href="#title5">Attributer</a></li>
 					<li><a href="#title6">Exempel</a></li>
 				</ul>
 			</aside>
@@ -184,7 +184,7 @@
 					taggar saknar stängningstagg, till exempel bilder:
 				</p>
 
-				<pre><code>&lt;img src="bild.jpg" alt="En bild" /&gt;</code></pre>
+				<pre><code>&lt;img src="bild.jpg" alt="En bild"&gt;</code></pre>
 				<p>
 					Detta kallas för självstängande taggar. Detta betyder att
 					stängningstagg inte behövs. Eftersom det inte finns något innehåll som
@@ -231,7 +231,7 @@
 					JavaScript.
 				</p>
 
-				<h2 id="title5">Semantisk HTML och tillgänglighet</h2>
+				<h2 id="title6">Semantisk HTML och tillgänglighet</h2>
 				<p>
 					Semantisk HTML innebär att man använder rätt taggar för rätt innehåll.
 					Istället för att bara använda generella element som
@@ -290,23 +290,53 @@
 
 				<h2 id="title6">Exempel</h2>
 				<p>
-					Här är ett enkelt exempel på en komplett webbsida som visar hur HTML
-					används i praktiken:
+					Här är ett enkelt exempel på en webbsida som visar hur HTML kan
+					användas:
 				</p>
 
 				<pre><code>&lt;!doctype html&gt;
 &lt;html lang="sv"&gt;
 &lt;head&gt;
   &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
   &lt;title&gt;Min första hemsida&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
-  &lt;h1&gt;Välkommen!&lt;/h1&gt;
-  &lt;p&gt;Detta är min första webbsida.&lt;/p&gt;
 
-  &lt;a href="https://google.com"&gt;Gå till Google&lt;/a&gt;
+  &lt;a href="#main" class="skip-link"&gt;Hoppa till innehåll&lt;/a&gt;
 
-  &lt;img src="bild.jpg" alt="Exempelbild"&gt;
+  &lt;header&gt;
+    &lt;h1&gt;Min hemsida&lt;/h1&gt;
+  &lt;/header&gt;
+
+  &lt;nav aria-label="Huvudmeny"&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="#"&gt;Hem&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#"&gt;Om oss&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#"&gt;Kontakt&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+
+  &lt;main id="main"&gt;
+    &lt;section&gt;
+      &lt;h2&gt;Välkommen!&lt;/h2&gt;
+      &lt;p&gt;Detta är min första webbsida.&lt;/p&gt;
+
+      &lt;a href="https://google.com" aria-label="Gå till Google (öppnas i ny flik)" target="_blank"&gt;
+        Gå till Google
+      &lt;/a&gt;
+
+      &lt;figure&gt;
+        &lt;img src="bild.jpg" alt="Beskrivande text för bildinehållet"&gt;
+        &lt;figcaption&gt;Exempelbild&lt;/figcaption&gt;
+      &lt;/figure&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+
+  &lt;footer&gt;
+    &lt;p&gt;&amp;copy; 2026 Min hemsida&lt;/p&gt;
+  &lt;/footer&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>

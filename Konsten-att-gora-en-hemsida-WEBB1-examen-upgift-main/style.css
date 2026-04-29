@@ -1,27 +1,29 @@
 /* ===== CSS VARIABLAR ===== */
 
 :root {
-	/*Färger*/
-	--primary-color: #333333;
-	--secondary-color: #4caf50;
-	--shadow-color: #303d37;
-	--background-color: #f0f0f0;
-	--primary-border-color: #198e17;
-	--secondary-border-color: #2e3b3f;
-	--header-text-color: #f1f1ee;
-	--heading-text-color: #253f25;
-	--text-color: #333333;
-	--hyper-text-color: #5537b5;
-	--muted-text-color: #3f810c;
-	--hover-color: #2e3b3f;
-	--toggle-button-color: #a7e9de;
-	--overlayy-color: rgba(0, 0, 0, 0.5);
-	--dropdown-menu-color: #45802966;
+	/*Färger - Clean grey-based palette with orange accents*/
+	--primary-color: #444b5c;
+	--secondary-color: #ff5a09;
+	--shadow-color: #1d1e22;
+	--background-color: #d4d4dc;
+	--primary-border-color: #be4f0c;
+	--secondary-border-color: #393939;
+	--header-text-color: #1d1e22;
+	--heading-text-color: #393f4d;
+	--text-color: #1d1e22; 
+	--hyper-text-color: #ff5a09;
+	--muted-text-color: #415f61;
+	--hover-color: #feda6a;
+	--toggle-button-color: #d4d4dc;
+	--overlay-color: rgba(0, 0, 0, 0.5);
+	--dropdown-menu-background: #393f4d45;
+	--aside-background: #393f4d;
+	--aside-card-background: #a38a47;
 
-	/* För kod exempel*/
-	--code-snippet-background-color: #211f3a;
-	--code-snippet-text-color: #a6ccd6;
-	--code-snippet-border: 2px solid #318a7b;
+	/* Kod exempel - adjusted for new palette */
+	--code-snippet-background-color: #393939; /* Dark Grey */
+	--code-snippet-text-color: #d4d4dc; /* Silver Fox */
+	--code-snippet-border: 2px solid #ec7f37; /* Light Orange */
 
 	/*Transitions längder i sekunder*/
 	--transition-quick: 0.15s;
@@ -46,26 +48,29 @@
 /* ===== VARIABLAR FÖR MÖRKT LÄGE ===== */
 
 body.dark-mode {
-	/*Färger i mörkt thema*/
-	--primary-color: #4d4242;
-	--secondary-color: #4caf50;
-	--shadow-color: #2d6a4f;
-	--background-color: #121212;
-	--border-color: #4caf50;
-	--header-text-color: #1b1515;
-	--heading-text-color: #386024;
-	--text-color: #fefefe;
-	--hyper-text-color: #37b539;
-	--muted-text-color: #888888;
-	--hover-color: #526f53;
-	--toggle-button-color: #242424;
-	--overlayy-color: rgba(0, 0, 0, 0.5);
-	--dropdown-menu-color: #45802966;
+	/* Färger i mörkt thema */
+	--primary-color: #393f4d;
+	--secondary-color: #ff5a09;
+	--shadow-color: #1d1e22;
+	--background-color: #1d1e22;
+	--primary-border-color: #feda6a;
+	--secondary-border-color: #393939;
+	--header-text-color: #d4d4dc;
+	--heading-text-color: #feda6a;
+	--text-color: #d4d4dc;
+	--hyper-text-color: #ff5a09;
+	--muted-text-color: #3d5a6d;
+	--hover-color: #be4f0c;
+	--toggle-button-color: #393939;
+	--overlay-color: rgba(0, 0, 0, 0.5);
+	--dropdown-menu-background: #393f4d25;
+	--aside-background: #393f4d;
+	--aside-card-background: #cc602e;
 
-	/* Kod exempel i mörkt thema*/
-	--code-snippet-background-color: #35374b;
-	--code-snippet-text-color: #a6ccd6;
-	--code-snippet-border: 2px solid #1c4963;
+	/* Kod exempel i mörkt tema - adjusted */
+	--code-snippet-background-color: #393939;
+	--code-snippet-text-color: #d4d4dc;
+	--code-snippet-border: 2px solid #ec7f37;
 }
 
 body {
@@ -108,7 +113,7 @@ header {
 	color: var(--header-text-color);
 	height: var(--header-height);
 	padding: 1.2rem 1em;
-	border-bottom: 4px solid var(--primary-border-color);
+	border-bottom: 1px solid var(--primary-border-color);
 	transition: transform var(--transition-standard) ease;
 }
 
@@ -180,7 +185,7 @@ header.hide {
 #overlay {
 	position: fixed;
 	inset: 0;
-	background-color: var(--overlayy-color);
+	background-color: var(--overlay-color);
 	backdrop-filter: blur(2px);
 	z-index: 8;
 	opacity: 0;
@@ -303,7 +308,7 @@ aside {
 	z-index: 10;
 	height: fit-content;
 	width: clamp(160px, 15vw, 280px);
-	background: var(--primary-color);
+	background: var(--aside-background);
 	padding: 1.5rem 1em;
 	border-radius: 10px;
 }
@@ -321,7 +326,7 @@ aside li a {
 	text-decoration: none;
 	padding: 1em 0.5em;
 	border-radius: 6px;
-	background-color: rgba(255, 255, 255, 0.1);
+	background-color: var(--aside-card-background);
 	color: var(--header-text-color);
 	font-weight: 600;
 	counter-increment: headings; /* Incrementerar räknaren "headings" varje gång ny länk skapas */
@@ -435,7 +440,7 @@ footer {
 		width: clamp(180px, 25vw, 250px);
 		padding: 5rem 1.5rem;
 		border-left: 1px solid var(--primary-border-color);
-		background-color: var(--dropdown-menu-color);
+		background-color: var(--dropdown-menu-background);
 		backdrop-filter: blur(8px);
 
 		/* Flyttar elementet till höger med hela sin längd */

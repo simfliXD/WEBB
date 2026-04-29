@@ -11,21 +11,82 @@
 		<link rel="stylesheet" href="style.css" />
 		<link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
 
-		<!-- Hämta alla sidor för snabbare navigering -->
 		<link rel="prefetch" href="historia.html" />
 		<link rel="prefetch" href="lagar.html" />
 		<link rel="prefetch" href="html.html" />
 		<link rel="prefetch" href="css.html" />
 		<link rel="prefetch" href="javascript.html" />
+
+		<style>
+			/* Stilar specifika för startsidan */
+			.hero {
+				width: 50%;
+				margin: 2rem auto;
+				display: block;
+				border-radius: 12px;
+				box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+				object-fit: cover;
+			}
+
+			.hero-caption {
+				text-align: center;
+				font-size: 0.9rem;
+				color: var(--muted-text-color);
+				margin-top: 0.5rem;
+				margin-bottom: 2rem;
+			}
+
+			.card-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+				gap: 1.5rem;
+				margin: 2rem 0;
+			}
+
+			.card {
+				background: var(--aside-background);
+				color: var(--header-text-color);
+				border-radius: 10px;
+				padding: 1.5rem;
+				text-decoration: none;
+				display: block;
+				border-left: 4px solid var(--secondary-color);
+				transition:
+					transform 0.2s ease,
+					box-shadow 0.2s ease;
+			}
+
+			.card:hover {
+				transform: translateY(-4px);
+				box-shadow: 0 8px 20px var(--shadow-color);
+			}
+
+			.card h3 {
+				color: var(--hover-color);
+				margin-bottom: 0.5rem;
+				font-size: 1.2rem;
+			}
+
+			.card p {
+				font-size: 0.9rem;
+				margin: 0;
+				opacity: 0.85;
+			}
+
+			@media (max-width: 750px) {
+				.hero {
+					width: 100%;
+				}
+			}
+		</style>
 	</head>
 
 	<body>
-		<a href="#main" class="skip-link">Hoppa till huvudinnehål</a>
+		<a href="#main" class="skip-link">Hoppa till huvudinnehåll</a>
 
 		<header>
 			<div class="header-logo" id="logo">
 				<a href="index.html">
-					<!-- Det här är en SVG (Scalable Vector Graphics) -->
 					<svg
 						width="380"
 						height="30"
@@ -47,8 +108,6 @@
 								font-size="24"
 								font-style="normal"
 								opacity="1"
-								id="text-1774217872752"
-								class=""
 								style="visibility: visible"
 								stroke-width="0"
 								transform="rotate(0, 202.25835037231445, 18.5)"
@@ -80,7 +139,6 @@
 					<li><a href="html.html">HTML</a></li>
 					<li><a href="css.html">CSS</a></li>
 					<li><a href="javascript.html">JavaScript</a></li>
-
 					<li class="dark-mode-toggle-item">
 						<label class="navbar-dark-mode-label" for="darkModeToggle"
 							>Mörkt läge</label
@@ -99,181 +157,128 @@
 		<main id="main">
 			<aside aria-label="Innehållsförteckning">
 				<ul>
-					<!-- These links point to headings inside the article (ID based) -->
-					<li><a href="#title1">Title1</a></li>
-					<li><a href="#title2">Title2</a></li>
-					<li><a href="#title3">Title3</a></li>
-					<li><a href="#title4">Title4</a></li>
-					<li><a href="#title5">Title5</a></li>
-					<li><a href="#title6">Title6</a></li>
+					<li><a href="#title1">Välkommen</a></li>
+					<li><a href="#title2">Vad lär du dig?</a></li>
+					<li><a href="#title3">Hur fungerar webben?</a></li>
+					<li><a href="#title4">Kom igång</a></li>
 				</ul>
 			</aside>
 			<article id="main-content">
-				<!-- inserted IDs for sidebar anchoring -->
-				<h1 id="title1">KONSTEN ATT SKAPA EN HEMSIDA</h1>
-				<h2 id="title2">Title2</h2>
-				<p>
-					Hnavigation menu. aaaaaaaaaaaaaa aaaaaaaaaaaaaa aaaaaaaaaaaaaaa
-					aaaaaaaaaaaaaaaa ajjjjjjjjjjjj jjjjjjjjjjj jjjjjjjjjjjjjjjj
-					jjjjjjjjjjjjjj jjjjjjje topic you select from aaaaaaaaaaaaaaaaaaa ja
-					jaaaaa aaaa aaaa aaaa aaaa aaaa Lorem ipsum dolor sit amet consectetur
-					adipisicing elit. Quidem nihil quod dolorem ipsa doloremque quo
-					deserunt dicta. Non iure minus voluptas itaque quasi sequi sed,
-					veritatis vero, aperiam ratione vitae!
+				<h1 id="title1">Konsten att skapa en hemsida</h1>
+
+				<!-- Bild som täcker halva sidan, centrerad, relaterad till webbutveckling -->
+				<img
+					src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200&q=80"
+					alt="Kod på en datorskärm som visar HTML, CSS och JavaScript – symboliserar webbutveckling"
+					class="hero"
+					loading="eager"
+				/>
+				<p class="hero-caption">
+					Webbutveckling – konsten att bygga för webben. Foto: Unsplash
 				</p>
 
-				<h2 id="title3">Title3</h2>
+				<h2 id="title2">Vad lär du dig här?</h2>
 				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem nihil
-					quod dolorem ipsa doloremque quo deserunt dicta. Non iure minus
-					voluptas itaque quasi sequi sed, veritatis vero, aperiam ratione
-					vitae!
+					Den här webbsidan är en guide till webbutveckling – skriven för dig
+					som vill lära dig hur man skapar webbsidor från grunden. Oavsett om du
+					aldrig skrivit en rad kod eller om du vill repetera grunderna hittar
+					du det du behöver här.
+				</p>
+				<p>En webbsida byggs upp av tre tekniker som samverkar:</p>
+				<ul>
+					<li>
+						<strong>HTML</strong> – strukturen. HTML bestämmer vad som finns på
+						sidan: rubriker, text, bilder, knappar och länkar.
+					</li>
+					<li>
+						<strong>CSS</strong> – utseendet. CSS styr hur allt ser ut: färger,
+						typsnitt, layout och animationer.
+					</li>
+					<li>
+						<strong>JavaScript</strong> – interaktiviteten. JavaScript gör sidan
+						levande: den reagerar på knapptryck, hämtar data och uppdaterar
+						innehållet utan att ladda om sidan.
+					</li>
+				</ul>
+				<p>
+					Du hittar förklaringar av alla tre tekniker i menyn ovan. Den här
+					sidan är i sig ett exempel – titta gärna på källkoden med
+					<kbd>F12</kbd> i webbläsaren!
 				</p>
 
-				<h2 id="title4">Title4</h2>
+				<h2 id="title3">Hur fungerar en webbsida egentligen?</h2>
 				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
-					dignissimos voluptatibus dolore, pariatur, quidem odit adipisci
-					perferendis labore reiciendis vero laudantium quo ex tempore rerum
-					nobis illum magnam laboriosam accusantium. Hernavignavigation menu.
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora unde
-					ipsum laborum aut maxime, veritatis cum itaque laboriosam nulla enim
-					commodi alias aliquam ullam dolor nisi asperiores libero quod
-					perferendis!
+					När du skriver in en webbadress i din webbläsare sker det mycket bakom
+					kulisserna. Enkelt förklarat:
+				</p>
+				<ol style="margin-left: 2rem; margin-bottom: 1.2rem; line-height: 1.8">
+					<li>
+						Webbläsaren frågar en <strong>DNS-server</strong> om vilken
+						IP-adress domännamnet (t.ex. <code>google.com</code>) pekar på.
+					</li>
+					<li>
+						Webbläsaren skickar ett
+						<strong>HTTP-förfrågningsmeddelande</strong> till rätt server.
+					</li>
+					<li>Servern svarar med HTML-filen.</li>
+					<li>
+						Webbläsaren läser HTML-filen och hämtar sedan CSS-filer,
+						JavaScript-filer och bilder som den refererar till.
+					</li>
+					<li>
+						Webbläsaren <strong>renderar</strong> sidan – tolkar all kod och
+						ritar upp det du ser på skärmen.
+					</li>
+				</ol>
+				<p>
+					Det här sker på bråkdelen av en sekund varje gång du laddar en sida.
+					Optimerad kod, komprimerade bilder och effektiv nätverkskommunikation
+					är avgörande för att det ska gå snabbt.
 				</p>
 
-				<h2 id="title5">Title5</h2>
-				<p>
-					Webnavigation menu. Lorem ipsum dolor sit amet consectetur adipisicing
-					elit. Quidem nihil quod dolorem ipsa doloremque quo deserunt dicta.
-					Non iure minus voluptas itaque quasi sequi sed, veritatis vero,
-					aperiam ratione vitae!
-				</p>
+				<h2 id="title4">Utforska guiden</h2>
+				<p>Välj ett ämne nedan för att börja lära dig:</p>
 
-				<h2 id="title6">Title6</h2>
-				<p>
-					navigation menu.Lorem ipsum dolor sit amet consectetur adipisicing
-					elit. Quidem nihil quod dolorem ipsa doloremque quo deserunt dicta.
-					Non iure minus voluptas itaque quasi sequi sed, veritatis vero,
-					aperiam ratione vitae!Lorem ipsum dolor sit amet consectetur
-					adipisicing elit. Quidem nihil quod dolorem ipsa doloremque quo
-					deserunt dicta. Non iure minus voluptas itaque quasi sequi sed,
-					veritatis vero, aperiam ratione vitae! Lorem ipsum dolor sit amet
-					consectetur adipisicing elit. A, fugit laboriosam tempore velit dolor
-					enim nulla animi necessitatibus labore numquam libero eos qui soluta
-					sint possimus. Facere nemo ipsum incidunt. lorem Lorem ipsum dolor sit
-					amet consectetur adipisicing elit. Animi saepe, provident non magni at
-					ducimus repellat aperiam earum laudantium voluptatem assumenda,
-					molestiae porro, iusto quibusdam ex nulla? Inventore, nam accusantium.
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, quaerat
-					possimus ex cupiditate ratione beatae obcaecati saepe mollitia amet
-					unde accusantium rerum, numquam autem dolor pariatur nesciunt quas
-					excepturi eaque! lorem Lorem ipsum dolor sit amet consectetur
-					adipisicing elit. Quidem nihil quod dolorem ipsa doloremque quo
-					deserunt dicta. Non iure minus voluptas itaque quasi sequi sed,
-					veritatis vero, aperiam ratione vitae!Lorem ipsum dolor sit amet
-					consectetur adipisicing elit. Quidem nihil quod dolorem ipsa
-					doloremque quo deserunt dicta. Non iure minus voluptas itaque quasi
-					sequi sed, veritatis vero, aperiam ratione vitae! Lorem ipsum dolor
-					sit amet consectetur adipisicing elit. A, fugit laboriosam tempore
-					velit dolor enim nulla animi necessitatibus labore numquam libero eos
-					qui soluta sint possimus. Facere nemo ipsum incidunt. lorem Lorem
-					ipsum dolor sit amet consectetur adipisicing elit. Animi saepe,
-					provident non magni at ducimus repellat aperiam earum laudantium
-					voluptatem assumenda, molestiae porro, iusto quibusdam ex nulla?
-					Inventore, nam accusantium. Lorem ipsum dolor sit amet consectetur
-					adipisicing elit. Et, quaerat possimus ex cupiditate ratione beatae
-					obcaecati saepe mollitia amet unde accusantium rerum, numquam autem
-					dolor pariatur nesciunt quas excepturi eaque! loremLorem ipsum dolor
-					sit amet consectetur adipisicing elit. Quidem nihil quod dolorem ipsa
-					doloremque quo deserunt dicta. Non iure minus voluptas itaque quasi
-					sequi sed, veritatis vero, aperiam ratione vitae!Lorem ipsum dolor sit
-					amet consectetur adipisicing elit. Quidem nihil quod dolorem ipsa
-					doloremque quo deserunt dicta. Non iure minus voluptas itaque quasi
-					sequi sed, veritatis vero, aperiam ratione vitae! Lorem ipsum dolor
-					sit amet consectetur adipisicing elit. A, fugit laboriosam tempore
-					velit dolor enim nulla animi necessitatibus labore numquam libero eos
-					qui soluta sint possimus. Facere nemo ipsum incidunt. lorem Lorem
-					ipsum dolor sit amet consectetur adipisicing elit. Animi saepe,
-					provident non magni at ducimus repellat aperiam earum laudantium
-					voluptatem assumenda, molestiae porro, iusto quibusdam ex nulla?
-					Inventore, nam accusantium. Lorem ipsum dolor sit amet consectetur
-					adipisicing elit. Et, quaerat possimus ex cupiditate ratione beatae
-					obcaecati saepe mollitia amet unde accusantium rerum, numquam autem
-					dolor pariatur nesciunt quas excepturi eaque! loremLorem ipsum dolor
-					sit amet consectetur adipisicing elit. Quidem nihil quod dolorem ipsa
-					doloremque quo deserunt dicta. Non iure minus voluptas itaque quasi
-					sequi sed, veritatis vero, aperiam ratione vitae!Lorem ipsum dolor sit
-					amet consectetur adipisicing elit. Quidem nihil quod dolorem ipsa
-					doloremque quo deserunt dicta. Non iure minus voluptas itaque quasi
-					sequi sed, veritatis vero, aperiam ratione vitae! Lorem ipsum dolor
-					sit amet consectetur adipisicing elit. A, fugit laboriosam tempore
-					velit dolor enim nulla animi necessitatibus labore numquam libero eos
-					qui soluta sint possimus. Facere nemo ipsum incidunt. lorem Lorem
-					ipsum dolor sit amet consectetur adipisicing elit. Animi saepe,
-					provident non magni at ducimus repellat aperiam earum laudantium
-					voluptatem assumenda, molestiae porro, iusto quibusdam ex nulla?
-					Inventore, nam accusantium. Lorem ipsum dolor sit amet consectetur
-					adipisicing elit. Et, quaerat possimus ex cupiditate ratione beatae
-					obcaecati saepe mollitia amet unde accusantium rerum, numquam autem
-					dolor pariatur nesciunt quas excepturi eaque! loremLorem ipsum dolor
-					sit amet consectetur adipisicing elit. Quidem nihil quod dolorem ipsa
-					doloremque quo deserunt dicta. Non iure minus voluptas itaque quasi
-					sequi sed, veritatis vero, aperiam ratione vitae!Lorem ipsum dolor sit
-					amet consectetur adipisicing elit. Quidem nihil quod dolorem ipsa
-					doloremque quo deserunt dicta. Non iure minus voluptas itaque quasi
-					sequi sed, veritatis vero, aperiam ratione vitae! Lorem ipsum dolor
-					sit amet consectetur adipisicing elit. A, fugit laboriosam tempore
-					velit dolor enim nulla animi necessitatibus labore numquam libero eos
-					qui soluta sint possimus. Facere nemo ipsum incidunt. lorem Lorem
-					ipsum dolor sit amet consectetur adipisicing elit. Animi saepe,
-					provident non magni at ducimus repellat aperiam earum laudantium
-					voluptatem assumenda, molestiae porro, iusto quibusdam ex nulla?
-					Inventore, nam accusantium. Lorem ipsum dolor sit amet consectetur
-					adipisicing elit. Et, quaerat possimus ex cupiditate ratione beatae
-					obcaecati saepe mollitia amet unde accusantium rerum, numquam autem
-					dolor pariatur nesciunt quas excepturi eaque! loremLorem ipsum dolor
-					sit amet consectetur adipisicing elit. Quidem nihil quod dolorem ipsa
-					doloremque quo deserunt dicta. Non iure minus voluptas itaque quasi
-					sequi sed, veritatis vero, aperiam ratione vitae!Lorem ipsum dolor sit
-					amet consectetur adipisicing elit. Quidem nihil quod dolorem ipsa
-					doloremque quo deserunt dicta. Non iure minus voluptas itaque quasi
-					sequi sed, veritatis vero, aperiam ratione vitae! Lorem ipsum dolor
-					sit amet consectetur adipisicing elit. A, fugit laboriosam tempore
-					velit dolor enim nulla animi necessitatibus labore numquam libero eos
-					qui soluta sint possimus. Facere nemo ipsum incidunt. lorem Lorem
-					ipsum dolor sit amet consectetur adipisicing elit. Animi saepe,
-					provident non magni at ducimus repellat aperiam earum laudantium
-					voluptatem assumenda, molestiae porro, iusto quibusdam ex nulla?
-					Inventore, nam accusantium. Lorem ipsum dolor sit amet consectetur
-					adipisicing elit. Et, quaerat possimus ex cupiditate ratione beatae
-					obcaecati saepe mollitia amet unde accusantium rerum, numquam autem
-					dolor pariatur nesciunt quas excepturi eaque! loremLorem ipsum dolor
-					sit amet consectetur adipisicing elit. Quidem nihil quod dolorem ipsa
-					doloremque quo deserunt dicta. Non iure minus voluptas itaque quasi
-					sequi sed, veritatis vero, aperiam ratione vitae!Lorem ipsum dolor sit
-					amet consectetur adipisicing elit. Quidem nihil quod dolorem ipsa
-					doloremque quo deserunt dicta. Non iure minus voluptas itaque quasi
-					sequi sed, veritatis vero, aperiam ratione vitae! Lorem ipsum dolor
-					sit amet consectetur adipisicing elit. A, fugit laboriosam tempore
-					velit dolor enim nulla animi necessitatibus labore numquam libero eos
-					qui soluta sint possimus. Facere nemo ipsum incidunt. lorem Lorem
-					ipsum dolor sit amet consectetur adipisicing elit. Animi saepe,
-					provident non magni at ducimus repellat aperiam earum laudantium
-					voluptatem assumenda, molestiae porro, iusto quibusdam ex nulla?
-					Inventore, nam accusantium. Lorem ipsum dolor sit amet consectetur
-					adipisicing elit. Et, quaerat possimus ex cupiditate ratione beatae
-					obcaecati saepe mollitia amet unde accusantium rerum, numquam autem
-					dolor pariatur nesciunt quas excepturi eaque! lorem
-				</p>
+				<nav aria-label="Ämnesnavigation" class="card-grid">
+					<a href="historia.html" class="card">
+						<h3>Historia</h3>
+						<p>
+							Hur kom webben till? Från Tim Berners-Lee till HTML5 och dagens
+							webb.
+						</p>
+					</a>
+					<a href="lagar.html" class="card">
+						<h3>Lagar</h3>
+						<p>
+							GDPR, upphovsrätt, kaklagen – vad måste du känna till som
+							webbutvecklare?
+						</p>
+					</a>
+					<a href="html.html" class="card">
+						<h3>HTML</h3>
+						<p>
+							Grunderna i HTML – taggar, attribut, semantik och tillgänglighet.
+						</p>
+					</a>
+					<a href="css.html" class="card">
+						<h3>CSS</h3>
+						<p>Ge din sida stil – färger, layout, responsiv design och mer.</p>
+					</a>
+					<a href="javascript.html" class="card">
+						<h3>JavaScript</h3>
+						<p>
+							Gör sidan interaktiv – variabler, funktioner, DOM och
+							händelselyssnare.
+						</p>
+					</a>
+				</nav>
 			</article>
 		</main>
 
 		<footer id="footer">
-			<p>&copy; <em>2026 Konsten att gora en hemsida. :D</em></p>
+			<p>&copy; <em>2026 Konsten att göra en hemsida. :D</em></p>
 		</footer>
 
-		<!-- Script -->
 		<script src="script.js" defer></script>
 	</body>
 </html>

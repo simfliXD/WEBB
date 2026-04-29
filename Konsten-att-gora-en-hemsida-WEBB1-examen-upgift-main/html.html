@@ -20,7 +20,7 @@
 	</head>
 
 	<body>
-		<a href="#main" class="skip-link">Hoppa till huvudinnehål</a>
+		<a href="#main" class="skip-link">Hoppa till huvudinnehåll</a>
 
 		<header>
 			<div class="header-logo" id="logo">
@@ -105,23 +105,25 @@
 		<main id="main">
 			<aside aria-label="Innehållsförteckning">
 				<ul>
-					<!-- These links point to headings inside the article (ID based) -->
 					<li><a href="#title1">HTML</a></li>
 					<li><a href="#title2">Vad är HTML?</a></li>
 					<li><a href="#title3">Struktur</a></li>
 					<li><a href="#title4">Taggar</a></li>
 					<li><a href="#title5">Attributer</a></li>
-					<li><a href="#title6">Exempel</a></li>
+					<li><a href="#title6">Metataggar</a></li>
+					<li><a href="#title7">ARIA-attributer</a></li>
+					<li><a href="#title8">Semantisk HTML och tillgänglighet</a></li>
+					<li><a href="#title9">Exempel</a></li>
 				</ul>
 			</aside>
 			<article id="main-content">
-				<!-- inserted IDs for sidebar anchoring -->
 				<h1 id="title1">HTML</h1>
+
 				<h2 id="title2">Vad är HTML?</h2>
 				<p>
-					HTML (HyperText Markup Language) är det grundlaggande märkspråket för
+					HTML (HyperText Markup Language) är det grundläggande märkspråket för
 					att skapa webbsidor. Det används för att strukturera innehållet på en
-					webbplats exempelvis text, bilder, länkar och andra element. HTML
+					webbplats – exempelvis text, bilder, länkar och andra element. HTML
 					består av olika taggar som används för att definiera olika delar av
 					sidan, som huvudrubriker, paragrafer, bilder, länkar och tabeller med
 					mera.
@@ -129,37 +131,37 @@
 
 				<h2 id="title3">Struktur</h2>
 				<p>
-					När man skriver ett HTML-dokument, har ldokumentet en viss struktur
-					som måste följas. Det börjar alltid med en doctype deklaration (
-					!DOCTYPE html ) som talar om för webbläsaren att det är ett
-					HTML5-dokument. Sedan följer html-taggen som inehåller hela
-					dokumentet, och inom den finns head-taggen detta är huvudet på
-					documentets kropp och inehåller metadatan. Sedan kommer självakroppen,
-					body taggen den inehåller alla element som documentet består av, till
-					exempel text och bilder, samt så bestämmer du ordningen av elementen
-					här med i vilken ordning du skriver dem i.
+					När man skriver ett HTML-dokument har dokumentet en viss struktur som
+					måste följas. Det börjar alltid med en doctype-deklaration (<code
+						>!DOCTYPE html</code
+					>) som talar om för webbläsaren att det är ett HTML5-dokument. Sedan
+					följer <code>&lt;html&gt;</code>-taggen som innehåller hela
+					dokumentet. Inuti den finns <code>&lt;head&gt;</code>-taggen – det är
+					dokumentets huvud och innehåller metadata som titel och teckenkodning.
+					Sedan kommer själva kroppen, <code>&lt;body&gt;</code>-taggen, som
+					innehåller alla element som dokumentet består av, till exempel text
+					och bilder. Ordningen du skriver elementen i avgör hur de visas på
+					sidan.
 				</p>
-				<h3>Exempel på struktur i ett HTML 5 document</h3>
+				<h3>Exempel på struktur i ett HTML5-dokument</h3>
 
-				<!-- <pre> behåller textens strukrur -->
-				<!-- <code> ett element som representerar kod -->
 				<pre><code>&lt;!doctype html&gt;
-&lt;html lang="en"&gt;
+&lt;html lang="sv"&gt;
   &lt;head&gt;
     &lt;meta charset="UTF-8" /&gt;
     &lt;meta
       name="viewport"
       content="width=device-width, initial-scale=1"
     /&gt;
-    &lt;title&gt;Document Title&lt;/title&gt;
+    &lt;title&gt;Dokumentets titel&lt;/title&gt;
     &lt;style&gt;
-    body{
+    body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
       background-color: pink;
     }
-  &lt;/style&gt;
+    &lt;/style&gt;
   &lt;/head&gt;
   &lt;body&gt;
     &lt;header&gt;...&lt;/header&gt;
@@ -184,24 +186,116 @@
 					taggar saknar stängningstagg, till exempel bilder:
 				</p>
 
-				<pre><code>&lt;img src="bild.jpg" alt="En bild"&gt;</code></pre>
+				<pre><code>&lt;img src="bild.jpg" alt="En brun hund som springer i gräset"&gt;</code></pre>
 				<p>
-					Detta kallas för självstängande taggar. Detta betyder att
-					stängningstagg inte behövs. Eftersom det inte finns något innehåll som
-					ska inuti en bild, så är det inte nödvändigt att ha en stängningstagg.
+					Detta kallas för självstängande taggar. Eftersom det inte finns något
+					innehåll som ska inuti en bild är det inte nödvändigt med en
+					stängningstagg.
 				</p>
 
 				<p>Vanliga HTML-taggar inkluderar:</p>
 				<ul>
-					<li><code>&lt;h1&gt; - &lt;h6&gt;</code> för rubriker</li>
-					<li><code>&lt;p&gt;</code> för paragrafer</li>
-					<li><code>&lt;a&gt;</code> för länkar</li>
-					<li><code>&lt;img&gt;</code> för bilder</li>
 					<li>
-						<code>&lt;div&gt;</code> och <code>&lt;section&gt;</code> för
-						struktur
+						<code>&lt;h1&gt; – &lt;h6&gt;</code> – rubriker i fallande storlek
+					</li>
+					<li><code>&lt;p&gt;</code> – paragrafer med löptext</li>
+					<li><code>&lt;a&gt;</code> – länkar till andra sidor eller ankare</li>
+					<li><code>&lt;img&gt;</code> – bilder (självstängande)</li>
+					<li>
+						<code>&lt;div&gt;</code> och <code>&lt;section&gt;</code> –
+						generella strukturelement
+					</li>
+					<li>
+						<code>&lt;span&gt;</code> – inline-motsvarigheten till
+						<code>&lt;div&gt;</code>, används för att styla delar av en text
+					</li>
+					<li>
+						<code>&lt;strong&gt;</code> och <code>&lt;em&gt;</code> – fet
+						respektive kursiv text med semantisk betydelse
+					</li>
+					<li>
+						<code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code> och
+						<code>&lt;li&gt;</code> – osorterade och sorterade listor
+					</li>
+					<li>
+						<code>&lt;video&gt;</code> och <code>&lt;audio&gt;</code> –
+						inbäddade mediafiler
 					</li>
 				</ul>
+
+				<h3>Formulärtaggar</h3>
+				<p>
+					Formulär används för att samla in information från användaren, till
+					exempel vid inloggning eller kontaktformulär. De viktigaste
+					formulärtaggarna är:
+				</p>
+				<ul>
+					<li><code>&lt;form&gt;</code> – omsluter hela formuläret</li>
+					<li>
+						<code>&lt;input&gt;</code> – inmatningsfält (självstängande),
+						används för text, e-post, lösenord med mera
+					</li>
+					<li>
+						<code>&lt;label&gt;</code> – etikett kopplad till ett
+						inmatningsfält, viktigt för tillgänglighet
+					</li>
+					<li>
+						<code>&lt;button&gt;</code> – klickbar knapp för att skicka formulär
+						eller utföra en handling
+					</li>
+					<li><code>&lt;textarea&gt;</code> – flerradigt textfält</li>
+					<li>
+						<code>&lt;select&gt;</code> och <code>&lt;option&gt;</code> –
+						rullgardinsmeny
+					</li>
+				</ul>
+
+				<pre><code>&lt;form action="/skicka" method="post"&gt;
+  &lt;label for="namn"&gt;Ditt namn:&lt;/label&gt;
+  &lt;input type="text" id="namn" name="namn" required placeholder="Förnamn Efternamn"&gt;
+
+  &lt;label for="epost"&gt;E-post:&lt;/label&gt;
+  &lt;input type="email" id="epost" name="epost" required&gt;
+
+  &lt;label for="meddelande"&gt;Meddelande:&lt;/label&gt;
+  &lt;textarea id="meddelande" name="meddelande" rows="4"&gt;&lt;/textarea&gt;
+
+  &lt;button type="submit"&gt;Skicka&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+				<h3>Tabelltaggar</h3>
+				<p>
+					Tabeller används för att visa strukturerad data i rader och kolumner.
+					De ska <strong>inte</strong> användas för layout – använd CSS för det.
+				</p>
+				<ul>
+					<li><code>&lt;table&gt;</code> – omsluter hela tabellen</li>
+					<li>
+						<code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>,
+						<code>&lt;tfoot&gt;</code> – grupperar rubrik-, data- och fotrader
+					</li>
+					<li><code>&lt;tr&gt;</code> – en tabellrad</li>
+					<li>
+						<code>&lt;th&gt;</code> – en rubrikcell (fet och centrerad som
+						standard)
+					</li>
+					<li><code>&lt;td&gt;</code> – en datacell</li>
+				</ul>
+
+				<pre><code>&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th scope="col"&gt;Namn&lt;/th&gt;
+      &lt;th scope="col"&gt;Ålder&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Anna&lt;/td&gt;
+      &lt;td&gt;28&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
 
 				<h2 id="title5">Attributer</h2>
 				<p>
@@ -213,33 +307,155 @@
 
 				<p>
 					Här är <code>href</code> ett attribut som anger vart länken leder.
-					Andra vanliga attribut är:
 				</p>
 
+				<h4>Andra vanliga attribut är:</h4>
 				<ul>
-					<li><code>src</code> – används för bilder och skript</li>
 					<li>
-						<code>alt</code> – alternativ text för bilder (viktigt för
-						tillgänglighet)
+						<code>src</code> – anger källfilen för bilder, video och skript
 					</li>
-					<li><code>class</code> – används för styling med CSS</li>
-					<li><code>id</code> – unikt ID för ett element</li>
+					<li>
+						<code>alt</code> – alternativ text för bilder, viktigt för
+						tillgänglighet och om bilden inte kan hämtas
+					</li>
+					<li>
+						<code>class</code> – används för styling med CSS (kan delas av flera
+						element)
+					</li>
+					<li>
+						<code>id</code> – unikt ID för ett element, används av CSS och
+						JavaScript
+					</li>
+					<li>
+						<code>lang</code> – anger språket på sidan eller ett specifikt
+						element, exempelvis <code>lang="sv"</code> på
+						<code>&lt;html&gt;</code>-taggen. Viktigt för skärmläsare och
+						sökmotorer.
+					</li>
+					<li>
+						<code>type</code> – anger typen på ett <code>&lt;input&gt;</code>-
+						eller <code>&lt;button&gt;</code>-element, exempelvis
+						<code>type="email"</code> eller <code>type="submit"</code>
+					</li>
+					<li>
+						<code>required</code> – ett booleskt attribut som gör ett
+						formulärfält obligatoriskt
+					</li>
+					<li>
+						<code>placeholder</code> – visar en ledtext inuti ett tomt
+						inmatningsfält
+					</li>
+					<li>
+						<code>target="_blank"</code> – öppnar en länk i en ny flik.
+						Kombinera alltid med <code>rel="noopener noreferrer"</code> av
+						säkerhetsskäl:
+						<pre><code>&lt;a href="https://example.com" target="_blank" rel="noopener noreferrer"&gt;
+  Öppna i ny flik
+&lt;/a&gt;</code></pre>
+					</li>
+					<li>
+						<code>loading="lazy"</code> – skjuter upp inladdningen av bilder
+						tills de är nära att synas på skärmen. Förbättrar sidans
+						laddningstid:
+						<pre><code>&lt;img src="stor-bild.jpg" alt="Beskrivning" loading="lazy"&gt;</code></pre>
+					</li>
 				</ul>
 
 				<p>
-					Attribut är centrala eftersom de kopplar HTML till både CSS och
-					JavaScript.
+					Attributer som <code>id</code> och <code>class</code> används för att
+					koppla samman HTML med både CSS och JavaScript.
 				</p>
 
-				<h2 id="title6">Semantisk HTML och tillgänglighet</h2>
+				<h2 id="title6">Metataggar</h2>
 				<p>
-					Semantisk HTML är <strong>alltid</strong> bättre att andvända än
-					ARIA-attributer om det går. Vad är Sematisk HTML då? Jo det är att man
-					använder rätt taggar, baserat på <strong>vad innehållet är</strong>.
+					<code>&lt;meta&gt;</code>-taggar placeras i
+					<code>&lt;head&gt;</code> och innehåller metadata om sidan – alltså
+					information om dokumentet som inte syns direkt på sidan men som
+					används av webbläsare, sökmotorer och sociala medier.
+				</p>
+
+				<h4>Vanliga metataggar:</h4>
+				<ul>
+					<li>
+						<code>charset</code> – anger teckenkodning. Använd alltid
+						<code>UTF-8</code> för att stödja alla tecken inklusive å, ä och ö:
+						<pre><code>&lt;meta charset="UTF-8"&gt;</code></pre>
+					</li>
+					<li>
+						<code>viewport</code> – styr hur sidan skalas på mobila enheter.
+						Nödvändigt för responsiv design:
+						<pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+					</li>
+					<li>
+						<code>description</code> – en kort beskrivning av sidan som visas i
+						sökresultat:
+						<pre><code>&lt;meta name="description" content="En guide till HTML, CSS och JavaScript."&gt;</code></pre>
+					</li>
+					<li>
+						<code>Open Graph</code> – ett protokoll från Meta (Facebook) som
+						styr hur sidan visas när den delas på sociala medier. Används av de
+						flesta plattformar:
+						<pre><code>&lt;meta property="og:title" content="Min hemsida"&gt;
+&lt;meta property="og:description" content="En guide till webbutveckling."&gt;
+&lt;meta property="og:image" content="https://example.com/bild.jpg"&gt;
+&lt;meta property="og:url" content="https://example.com"&gt;</code></pre>
+					</li>
+				</ul>
+
+				<h2 id="title7">ARIA-attributer</h2>
+				<p>
+					<strong>ARIA</strong> (Accessible Rich Internet Applications) är en
+					specifikation som låter dig förbättra tillgängligheten när vanlig HTML
+					inte är tillräcklig.
+				</p>
+
+				<h4>De viktigaste ARIA-attributerna:</h4>
+				<ul>
+					<li>
+						<code>aria-label</code> – textbeskrivning. Används när ett element
+						saknar synlig text men behöver en beskrivning för skärmläsare.
+					</li>
+					<li>
+						<code>aria-hidden</code> – döljer element från skärmläsare.
+						Användbart för dekorativa ikoner eller bilder som inte tillför
+						information.
+					</li>
+					<li>
+						<code>role</code> – attributet som används för att ändra ett
+						elements "betydelse" för skärmläsare. Används när du skapar t.ex. en
+						meny eller sökruta med en <code>&lt;div&gt;</code>.
+					</li>
+				</ul>
+
+				<p>Dessa är attributer som ofta ändras dynamiskt med JavaScript:</p>
+				<ul>
+					<li>
+						<code>aria-hidden="true/false"</code> – Är elementet gömt eller
+						synligt?
+					</li>
+					<li>
+						<code>aria-expanded="true/false"</code> – Är ett element utfällt?
+						<br />Används på den här webbsidan för att berätta om menyn är
+						utfälld i mobilt läge.
+					</li>
+					<li>
+						<code>aria-checked="true/false/mixed"</code> – För checkboxar.
+					</li>
+					<li>
+						<code>aria-disabled="true"</code> – Elementet är tillfälligt
+						inaktiverat.
+					</li>
+				</ul>
+
+				<h2 id="title8">Semantisk HTML och tillgänglighet</h2>
+				<p>
+					Semantisk HTML är <strong>alltid</strong> bättre att använda än
+					ARIA-attributer om det går. Vad är semantisk HTML? Det innebär att man
+					använder rätt taggar baserat på <strong>vad innehållet är</strong>.
 					Istället för att bara använda generella element som
-					<code>&lt;div&gt;</code>, använder man mer beskrivande taggar som
-					tydligt visar vad innehållet är. etta gör det änklare för andra att
-					läsa din kod men framförallt hjälpmedel som skärmläsare.
+					<code>&lt;div&gt;</code> använder man mer beskrivande taggar som
+					tydligt visar vad innehållet betyder. Det gör det enklare för andra
+					att läsa din kod, men framför allt för hjälpmedel som skärmläsare.
 				</p>
 
 				<p>Exempel på semantiska element är:</p>
@@ -251,30 +467,64 @@
 						<code>&lt;main&gt;</code> – huvudinnehåll (kan bara finnas en per
 						sida)
 					</li>
-					<li><code>&lt;aside&gt;</code> - blurb, inehållshörtäckning...</li>
-					<li><code>&lt;section&gt;</code> – grupperat inbhåll</li>
+					<li>
+						<code>&lt;aside&gt;</code> – sidopanel, innehållsförteckning...
+					</li>
+					<li><code>&lt;section&gt;</code> – grupperat innehåll</li>
 					<li><code>&lt;article&gt;</code> – artikel, inlägg...</li>
+					<li>
+						<code>&lt;figure&gt;</code> och <code>&lt;figcaption&gt;</code> –
+						bild med bildtext
+					</li>
 					<li><code>&lt;footer&gt;</code> – sidfot</li>
 				</ul>
 
 				<p>
 					Semantisk HTML är viktigt för <strong>tillgänglighet</strong>. Det gör
-					att t.ex skärmläsare kan förstå sidans struktur och hjälpa användare
+					att t.ex. skärmläsare kan förstå sidans struktur och hjälpa användare
 					med nedsatt syn att navigera hemsidan.
 				</p>
 
-				<p>Förutom bara beskrivande divar är det viktigt att man:</p>
+				<p>Förutom beskrivande element är det viktigt att man har:</p>
 
 				<ul>
 					<li>
-						Tydliga rubriker satta i rätt ordning (<code>&lt;h1&gt;</code> →
+						Tydliga rubriker i rätt ordning (<code>&lt;h1&gt;</code> →
 						<code>&lt;h2&gt;</code> → <code>&lt;h3&gt;</code>)
 					</li>
-					<li>Beskrivande länkar (inte bara “klicka här”)</li>
+					<li>Beskrivande länkar (inte bara "klicka här")</li>
 					<li>ARIA-attribut vid behov för extra stöd</li>
 					<li>
-						<code>alt</code>-texter som beskriver bildens inehåll både om bilden
-						inte kan hämtas och för skärmläsare att läsa.
+						<code>alt</code>-texter som beskriver bildens innehåll, både om
+						bilden inte kan hämtas och för skärmläsare att läsa
+					</li>
+				</ul>
+
+				<h3>Testa din tillgänglighet</h3>
+				<p>Enkla sätt att kolla om tillgängligheten på din webbsida är bra:</p>
+				<ul>
+					<li>
+						<strong>Tangentbordet:</strong> Kan du navigera enbart med Tab,
+						Enter och piltangenterna?
+					</li>
+					<li>
+						<strong>Skärmläsare:</strong> Testa med
+						<strong>NVDA (Windows)</strong> eller
+						<strong>VoiceOver (Mac)</strong>.
+					</li>
+					<li>
+						<strong>WAVE-verktyget:</strong>
+						<a
+							href="https://wave.webaim.org"
+							target="_blank"
+							rel="noopener noreferrer"
+							>wave.webaim.org</a
+						>
+						– analyserar tillgänglighet.
+					</li>
+					<li>
+						<strong>Webbläsarens utvecklarverktyg:</strong> F12 → fliken
+						"Accessibility" (Tillgänglighet).
 					</li>
 				</ul>
 
@@ -295,7 +545,7 @@
 &lt;div class="main"&gt;
   &lt;div class="article"&gt;
     &lt;img src="hund.jpg"&gt;
-    &lt;div class="title"&gt;Mitt inlägg&lt;/div&gt;d
+    &lt;div class="title"&gt;Mitt inlägg&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
 
@@ -313,10 +563,9 @@
   &lt;/article&gt;
 &lt;/main&gt;</code></pre>
 
-				<h2 id="title6">Exempel</h2>
+				<h2 id="title9">Exempel</h2>
 				<p>
-					Här är ett enkelt exempel på en webbsida som visar hur HTML kan
-					användas:
+					Här är ett exempel som visar hur en HTML fil kan se ut:
 				</p>
 
 				<pre><code>&lt;!doctype html&gt;
@@ -325,6 +574,7 @@
   &lt;meta charset="UTF-8"&gt;
   &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
   &lt;title&gt;Min första hemsida&lt;/title&gt;
+  &lt;meta name="description" content="Min första webbsida – en guide till HTML."&gt;
 &lt;/head&gt;
 &lt;body&gt;
 
@@ -342,147 +592,52 @@
     &lt;/ul&gt;
   &lt;/nav&gt;
 
-  &lt;main id="main"&gt;
+  &lt;main&gt;
     &lt;section&gt;
       &lt;h2&gt;Välkommen!&lt;/h2&gt;
       &lt;p&gt;Detta är min första webbsida.&lt;/p&gt;
 
-      &lt;a href="https://google.com" aria-label="Gå till Google (öppnas i ny flik)" target="_blank"&gt;
+      &lt;a href="https://google.com"
+         aria-label="Gå till Google (öppnas i ny flik)"
+         target="_blank"
         Gå till Google
       &lt;/a&gt;
 
       &lt;figure&gt;
-        &lt;img src="bild.jpg" alt="Beskrivande text för bildinehållet"&gt;
+        &lt;img src="bild.jpg" alt="Beskrivande text för bildinnehållet"&gt;
         &lt;figcaption&gt;Exempelbild&lt;/figcaption&gt;
       &lt;/figure&gt;
+    &lt;/section&gt;
+
+    &lt;section&gt;
+      &lt;h2&gt;Kontakta oss&lt;/h2&gt;
+      &lt;form action="/skicka" method="post"&gt;
+        &lt;label for="namn"&gt;Ditt namn:&lt;/label&gt;
+        &lt;input type="text" id="namn" name="namn" required placeholder="Förnamn Efternamn"&gt;
+
+        &lt;label for="epost"&gt;E-post:&lt;/label&gt;
+        &lt;input type="email" id="epost" name="epost" required&gt;
+
+        &lt;label for="meddelande"&gt;Meddelande:&lt;/label&gt;
+        &lt;textarea id="meddelande" name="meddelande" rows="4"&gt;&lt;/textarea&gt;
+
+        &lt;button type="submit"&gt;Skicka&lt;/button&gt;
+      &lt;/form&gt;
     &lt;/section&gt;
   &lt;/main&gt;
 
   &lt;footer&gt;
-    &lt;p&gt;&amp;copy; 2026 Min hemsida&lt;/p&gt;
+    &lt;p&gt;Det här var hela min hemsida.&lt;/p&gt;
   &lt;/footer&gt;
 
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-
-				<p>
-					I detta exempel ser du hur olika taggar samverkar för att skapa en
-					fungerande webbsida. Rubriker, text, länkar och bilder kombineras för
-					att bygga upp innehållet.
-				</p>
-
-				<p>
-					HTML är grunden för alla webbplatser. När du behärskar HTML kan du
-					sedan gå vidare till CSS för design och JavaScript för interaktivitet.
-				</p>
-				<!-- Ersätt ditt befintliga korta avsnitt om "Semantisk HTML och tillgänglighet" med detta, 
-eller lägg till detta efter det avsnittet (med nya ID:n) -->
-
-				<h2 id="title5-semantik">Semantisk HTML – mer än bara divar</h2>
-				<p></p>
-
-				<h2 id="title5b">ARIA-attribut – när HTML inte räcker till</h2>
-				<p>
-					<strong>ARIA</strong> (Accessible Rich Internet Applications) är en
-					specifikation som låter dig förbättra tillgängligheten när vanlig HTML
-					inte är tillräcklig. Tänk på ARIA som en <strong>sista utväg</strong>
-					– använd alltid semantisk HTML först!
-				</p>
-
-				<h3>De viktigaste ARIA-attributerna</h3>
-
-				<h4>aria-label – lägg till en textbeskrivning</h4>
-				<p>
-					Används när ett element saknar synlig text men behöver en beskrivning
-					för skärmläsare.
-				</p>
-				<pre><code>&lt;button aria-label="Stäng meddelande"&gt;✕&lt;/button&gt;
-&lt;nav aria-label="Huvudmeny"&gt;...&lt;/nav&gt;</code></pre>
-
-
-				<h4>aria-hidden – dölj element från skärmläsare</h4>
-				<p>
-					Användbart för dekorativa ikoner eller bilder som inte tillför
-					information.
-				</p>
-				<pre><code>&lt;span aria-hidden="true"&gt;🎉&lt;/span&gt;
-&lt;img src="dekor-bakgrund.jpg" alt="" aria-hidden="true"&gt;</code></pre>
-
-				<h3>ARIA-roller (roles)</h3>
-				<p>
-					Med <code>role</code>-attributet kan du ändra ett elements "betydelse"
-					för skärmläsare. Används när du måste bygga något med
-					<code>&lt;div&gt;</code> som borde vara en knapp eller en sök-ruta.
-				</p>
-
-				<pre><code>&lt;!-- En DIV som beter sig som en knapp --&gt;
-&lt;div role="button" tabindex="0"&gt;Klicka här&lt;/div&gt;
-
-&lt;!-- Ange att en div är en huvudmeny --&gt;
-&lt;div role="menubar"&gt;...&lt;/div&gt;
-
-&lt;!-- Sökfält --&gt;
-&lt;div role="search"&gt;
-  &lt;input type="text"&gt;
-&lt;/div&gt;</code></pre>
-
-				<h3>Vanliga ARIA-tillstånd</h3>
-				<p>
-					Dessa attribut ändras ofta dynamiskt med JavaScript (men bra att känna
-					till redan nu):
-				</p>
-				<ul>
-					<li>
-						<code>aria-expanded="true/false"</code> – Är en meny eller dropdown
-						utfälld?
-					</li>
-					<li>
-						<code>aria-selected="true/false"</code> – Är ett element valt (t.ex.
-						i en flikmeny)?
-					</li>
-					<li>
-						<code>aria-checked="true/false/mixed"</code> – För anpassade
-						checkboxar.
-					</li>
-					<li>
-						<code>aria-disabled="true"</code> – Elementet är tillfälligt
-						inaktiverat.
-					</li>
-				</ul>
-
-				<h2 id="title5d">Testa din tillgänglighet</h2>
-				<p>
-					Här är enkla sätt att kontrollera om din semantiska HTML och ARIA
-					fungerar:
-				</p>
-				<ul>
-					<li>
-						<strong>Tangentbordet:</strong> Kan du navigera enbart med Tab,
-						Enter och piltangenterna?
-					</li>
-					<li>
-						<strong>Skärmläsare:</strong> Testa med
-						<strong>NVDA (Windows)</strong> eller
-						<strong>VoiceOver (Mac)</strong>.
-					</li>
-					<li>
-						<strong>WAVE-verktyget:</strong>
-						<a href="https://wave.webaim.org" target="_blank"
-							>wave.webaim.org</a
-						>
-						– analyserar tillgänglighet.
-					</li>
-					<li>
-						<strong>Webbläsarens utvecklarverktyg:</strong> F12 → fliken
-						"Accessibility" (Tillgänglighet).
-					</li>
-				</ul>
 			</article>
 		</main>
 
 		<footer id="footer">
-			<p>&copy; <em>2026 Konsten att gora en hemsida. :D</em></p>
+			<p>&copy; <em>2026 Konsten att göra en hemsida. :D</em></p>
 		</footer>
 
 		<!-- Script -->

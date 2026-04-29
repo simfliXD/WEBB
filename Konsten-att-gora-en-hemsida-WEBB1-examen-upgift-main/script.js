@@ -50,6 +50,7 @@ if (darkModeToggle) {
 }
 
 // ===== MENY FUNKTIONALLITET =====
+
 const overlay = document.getElementById("overlay");
 const navbarToggle = document.querySelector(".navbar-menu-toggle");
 const navbarMenu = document.querySelector(".navbar-menu");

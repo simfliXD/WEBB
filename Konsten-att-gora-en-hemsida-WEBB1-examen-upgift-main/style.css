@@ -506,12 +506,12 @@ footer {
 @media screen and (max-width: 750px) {
 	.header-logo {
 		flex-shrink: 1;
-		width: 90%;
+		width: 85%;
 		padding-right: 0;
 		border-right: none;
 	}
 	.navbar-menu-toggle {
-		margin-right:;
+		margin-right: 12rem;
 	}
 
 	main {

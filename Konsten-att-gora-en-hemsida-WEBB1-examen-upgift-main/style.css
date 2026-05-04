@@ -383,8 +383,8 @@ article p {
 	margin: 1.2rem 0;
 }
 
-article ul {
-	list-style: disc;
+article ul,
+article ol {
 	margin-left: 2rem;
 	margin-bottom: 1.2rem;
 }

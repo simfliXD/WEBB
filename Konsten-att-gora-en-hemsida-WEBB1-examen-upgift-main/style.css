@@ -23,7 +23,7 @@
 	/* Färg för kodexempel*/
 	--code-snippet-background-color: #393939;
 	--code-snippet-text-color: #d4d4dc;
-	--code-snippet-border: 2px solid #ec7f37;
+	--code-snippet-border: 2px solid #393939;
 
 	/*Transitions längd i sekunder*/
 	--transition-quick: 0.15s;
@@ -36,13 +36,6 @@
 
 	/* Räknare för rubiker */
 	counter-reset: headings;
-}
-
-/* Globara attributer för alla element */
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box; /* Gör så att padding och border räknas in i elementets totala bredd och höjd ( ändrar hur "width" och "height" attributen kalkyleras) */
 }
 
 /* ===== VARIABLAR FÖR MÖRKT LÄGE ===== */
@@ -71,6 +64,13 @@ body.dark-mode {
 	--code-snippet-background-color: #393939;
 	--code-snippet-text-color: #d4d4dc;
 	--code-snippet-border: 2px solid #ec7f37;
+}
+
+/* Globara attributer för alla element */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box; /* Gör så att padding och border räknas in i elementets totala bredd och höjd ( ändrar hur "width" och "height" attributen kalkyleras) */
 }
 
 body {
@@ -501,17 +501,12 @@ footer {
 		transform: translateY(-8px) rotate(-45deg);
 	}
 }
-@media screen and (max-width: 800px) {
-}
+
 @media screen and (max-width: 750px) {
 	.header-logo {
 		flex-shrink: 1;
 		width: 85%;
-		padding-right: 0;
 		border-right: none;
-	}
-	.navbar-menu-toggle {
-		margin-right: 12rem;
 	}
 
 	main {
@@ -537,7 +532,7 @@ footer {
 	}
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 450px) {
 	header {
 		flex-direction: column;
 		align-items: center;

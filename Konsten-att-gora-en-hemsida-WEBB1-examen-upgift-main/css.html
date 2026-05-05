@@ -1,31 +1,31 @@
 <!doctype html>
 <html lang="sv">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta
-			name="description"
-			content="Guide för att skapa en hemsida med HTML, CSS och JavaScript."
-		/>
-		<title>Konsten att skapa en hemsida | CSS</title>
-		<link rel="stylesheet" href="style.css" />
-		<link rel="stylesheet" href="css.css" />
-		<link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta
+            name="description"
+            content="Guide för att skapa en hemsida med HTML, CSS och JavaScript."
+       >
+        <title>Konsten att skapa en hemsida | CSS</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css.css">
+        <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
 
-		<link rel="prefetch" href="historia.html" as="document" />
-		<link rel="prefetch" href="lagar.html" as="document" />
-		<link rel="prefetch" href="html.html" as="document" />
-		<link rel="prefetch" href="css.html" as="document" />
-		<link rel="prefetch" href="javascript.html" as="document" />
-	</head>
+        <link rel="prefetch" href="historia.html">
+        <link rel="prefetch" href="lagar.html">
+        <link rel="prefetch" href="html.html">
+        <link rel="prefetch" href="css.html">
+        <link rel="prefetch" href="javascript.html">
+    </head>
 
 	<body>
 		<a href="#main" class="skip-link">Hoppa till huvudinnehåll</a>
 
-		<header>
-			<div class="header-logo" id="logo">
-				<a href="index.html">
-					<svg
+        <header>
+            <div class="header-logo" id="logo">
+                <a href="index.html">
+                    <svg
 						width="380"
 						height="30"
 						viewBox="0 0 380 30"
@@ -35,60 +35,55 @@
 						aria-label="Konsten att skapa en hemsida"
 					>
 						<g class="drawing-elements">
-							<path
-								d="M30,22v3c0,0.552-0.448,1-1,1h-1c-0.552,0-1-0.448-1-1v-3c0-0.552,0.448-1,1-1v-7.539l-11.198-0.896  C16.621,12.822,16.337,13,16,13c-0.552,0-1-0.448-1-1c0-0.552,0.448-1,1-1c0.396,0,0.732,0.235,0.894,0.57l11.186,0.895  c0.516,0.041,0.92,0.479,0.92,0.997V21C29.552,21,30,21.448,30,22z M16,19.725c-0.547,0-1.094-0.111-1.603-0.334L8,16.592v2.227  c0,1.136,0.642,2.175,1.658,2.683l0,0C11.655,22.501,13.827,23,16,23s4.345-0.499,6.341-1.497l0,0C23.358,20.995,24,19.956,24,18.82  v-2.227l-6.397,2.799C17.094,19.614,16.547,19.725,16,19.725z M29.906,11.084L17.202,5.526C16.819,5.358,16.41,5.275,16,5.275  c-0.41,0-0.819,0.084-1.202,0.252L2.094,11.084c-0.799,0.35-0.799,1.483,0,1.832l12.703,5.559c0.765,0.334,1.641,0.334,2.405,0  l9.416-4.121l-9.438-0.755C16.843,13.858,16.434,14,16,14c-1.103,0-2-0.897-2-2c0-1.103,0.897-2,2-2  c0.552,0,1.062,0.224,1.431,0.609l10.729,0.858c0.842,0.067,1.525,0.666,1.751,1.445C30.704,12.561,30.703,11.433,29.906,11.084z"
-							/>
-							<text
-								x="41"
-								y="24"
-								fill="#000000"
-								font-family="Segoe UI"
-								font-size="24"
-								font-style="normal"
-								opacity="1"
-								style="visibility: visible"
-								stroke-width="0"
-								transform="rotate(0, 202.25835037231445, 18.5)"
-							>
+							<path d="M30,22v3c0,0.552-0.448,1-1,1h-1c-0.552,0-1-0.448-1-1v-3c0-0.552,0.448-1,1-1v-7.539l-11.198-0.896  C16.621,12.822,16.337,13,16,13c-0.552,0-1-0.448-1-1c0-0.552,0.448-1,1-1c0.396,0,0.732,0.235,0.894,0.57l11.186,0.895  c0.516,0.041,0.92,0.479,0.92,0.997V21C29.552,21,30,21.448,30,22z M16,19.725c-0.547,0-1.094-0.111-1.603-0.334L8,16.592v2.227  c0,1.136,0.642,2.175,1.658,2.683l0,0C11.655,22.501,13.827,23,16,23s4.345-0.499,6.341-1.497l0,0C23.358,20.995,24,19.956,24,18.82  v-2.227l-6.397,2.799C17.094,19.614,16.547,19.725,16,19.725z M29.906,11.084L17.202,5.526C16.819,5.358,16.41,5.275,16,5.275  c-0.41,0-0.819,0.084-1.202,0.252L2.094,11.084c-0.799,0.35-0.799,1.483,0,1.832l12.703,5.559c0.765,0.334,1.641,0.334,2.405,0  l9.416-4.121l-9.438-0.755C16.843,13.858,16.434,14,16,14c-1.103,0-2-0.897-2-2c0-1.103,0.897-2,2-2  c0.552,0,1.062,0.224,1.431,0.609l10.729,0.858c0.842,0.067,1.525,0.666,1.751,1.445C30.704,12.561,30.703,11.433,29.906,11.084z"/>
+							<text x="41" y="24" fill="#000000" font-family="Segoe UI" font-size="24" font-style="normal" opacity="1" style="visibility: visible" stroke-width="0" transform="rotate(0, 202.25835037231445, 18.5)">
 								Konsten att skapa en hemsida
 							</text>
 						</g>
 					</svg>
-				</a>
-			</div>
+                    </svg>
+                </a>
+            </div>
 
-			<nav class="header-navbar">
-				<button
-					class="navbar-menu-toggle"
-					aria-label="Toggle navigation menu"
-					aria-expanded="false"
-					aria-controls="navbar-menu"
-				>
-					<span class="bar"></span>
-					<span class="bar"></span>
-					<span class="bar"></span>
-				</button>
-				<ul class="navbar-menu" id="navbar-menu" aria-hidden="true">
-					<li><a href="index.html">Hem</a></li>
-					<li><a href="historia.html">Historia</a></li>
-					<li><a href="lagar.html">Lagar</a></li>
-					<li><a href="html.html">HTML</a></li>
-					<li>
-						<a class="active-link" aria-current="page" href="css.html">CSS</a>
-					</li>
-					<li><a href="javascript.html">JavaScript</a></li>
-					<li class="dark-mode-toggle-item">
-						<label class="navbar-dark-mode-label" for="darkModeToggle"
-							>Mörkt läge</label
-						>
-						<label class="switch">
-							<input type="checkbox" id="darkModeToggle" />
-							<span class="slider"></span>
-						</label>
-					</li>
-				</ul>
-			</nav>
-		</header>
+            <nav class="header-navbar">
+                <button
+                    class="navbar-menu-toggle"
+                    aria-label="Toggle navigation menu"
+                    aria-expanded="false"
+                    aria-controls="navbar-menu"
+                >
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <ul class="navbar-menu" id="navbar-menu" aria-hidden="true">
+                    <li><a href="index.html">Hem</a></li>
+                    <li><a href="historia.html">Historia</a></li>
+                    <li><a href="lagar.html">Lagar</a></li>
+                    <li><a href="html.html">HTML</a></li>
+                    <li>
+                        <a
+                            class="active-link"
+                            aria-current="page"
+                            href="css.html"
+                            >CSS</a
+                        >
+                    </li>
+                    <li><a href="javascript.html">JavaScript</a></li>
+                    <li class="dark-mode-toggle-item">
+                        <label
+                            class="navbar-dark-mode-label"
+                            for="darkModeToggle"
+                            >Mörkt läge</label
+                        >
+                        <label class="switch">
+                            <input type="checkbox" id="darkModeToggle">
+                            <span class="slider"></span>
+                        </label>
+                    </li>
+                </ul>
+            </nav>
+        </header>
 
 		<div id="overlay" onclick="closeNavbar()" aria-hidden="true"></div>
 
@@ -498,30 +493,56 @@ main {
 					<li><code>vh</code> – procent av viewport höjden</li>
 				</ul>
 
-				<!-- ===== FÄRGANPASSNING ===== -->
-				<h2 id="title9">Ändra sidans CSS färg styling själv</h2>
-				<p>
-					Välj bakgrunds- och textfärg nedan och tryck på
-					<strong>Aktivera</strong> för att se hur det ser ut! Tryck på
-					<strong>Återställ</strong> för att återställa standardfärgerna.
-				</p>
+                <!-- ===== INTERAKTIVT DEMO: FÄRGANPASSNING ===== -->
+                <h2 id="title9">Prova själv – ändra sidans färger</h2>
+                <p>
+                    CSS-variabler gör det möjligt att ändra hela sidans utseende
+                    med bara några rader JavaScript. Välj bakgrunds- och
+                    textfärg nedan och tryck på <strong>Aktivera</strong> –
+                    förändringen sker direkt på den här sidan, ovanpå både ljust
+                    och mörkt läge.
+                </p>
+                <p>
+                    Tekniken fungerar genom att JavaScript skapar ett nytt
+                    <code>&lt;style&gt;</code>-element i
+                    <code>&lt;head&gt;</code> med regler som matchar
+                    <code>:root, body, body.dark-mode</code>. Eftersom dessa
+                    regler läggs till sist i dokumentet vinner de i kaskaden och
+                    skriver över befintliga variabler.
+                </p>
 
-				<section class="color-selector-container">
-					<div class="color-selector-field">
-						<label for="selector-bg">Bakgrundsfärg</label>
-						<input type="color" id="selector-bg" value="#d4d4dc" />
-					</div>
-					<div class="color-selector-field">
-						<label for="selector-text">Textfärg</label>
-						<input type="color" id="selector-text" value="#1d1e22" />
-					</div>
-					<div class="color-selector-actions">
-						<button id="selector-apply">Aktivera</button>
-						<button id="selector-reset">Återställ</button>
-					</div>
-				</section>
-			</article>
-		</main>
+                <div
+                    class="color-demo-box"
+                    role="group"
+                    aria-label="Färganpassning"
+                >
+                    <div class="color-demo-controls">
+                        <div class="color-demo-field">
+                            <label for="demo-bg">Bakgrundsfärg</label>
+                            <input type="color" id="demo-bg" value="#d4d4dc">
+                        </div>
+                        <div class="color-demo-field">
+                            <label for="demo-text">Textfärg</label>
+                            <input
+                                type="color"
+                                id="demo-text"
+                                value="#1d1e22"
+                           >
+                        </div>
+                        <div class="color-demo-actions">
+                            <button id="demo-apply">Aktivera</button>
+                            <button id="demo-reset">Återställ</button>
+                        </div>
+                    </div>
+                    <p
+                        class="color-demo-hint"
+                        role="status"
+                        aria-live="polite"
+                        id="demo-status"
+                    ></p>
+                </div>
+            </article>
+        </main>
 
 		<footer>
 			<p>&copy; <em>2026 Konsten att göra en hemsida :D</em></p>

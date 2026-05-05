@@ -8,7 +8,7 @@
 	--background-color: #d4d4dc;
 	--primary-border-color: #be4f0c;
 	--secondary-border-color: #393939;
-	--header-text-color: #1d1e22;
+	--header-text-color: #cbcbcf;
 	--heading-text-color: #393f4d;
 	--text-color: #1d1e22;
 	--hyper-text-color: #ff5a09;
@@ -48,7 +48,7 @@ body.dark-mode {
 	--background-color: #1d1e22;
 	--primary-border-color: #feda6a;
 	--secondary-border-color: #393939;
-	--header-text-color: #d4d4dc;
+	--header-text-color: #cacad2;
 	--heading-text-color: #feda6a;
 	--text-color: #d4d4dc;
 	--hyper-text-color: #ff5a09;
@@ -58,7 +58,7 @@ body.dark-mode {
 	--overlay-color: rgba(0, 0, 0, 0.5);
 	--dropdown-menu-background: #393f4d25;
 	--aside-background: #393f4d;
-	--aside-card-background: #a48b47;
+	--aside-card-background: #b89f5e; /* Adjusted for better contrast in dark mode */
 
 	/* Kod exempel i mörkt tema - adjusted */
 	--code-snippet-background-color: #393939;
@@ -128,10 +128,10 @@ header.hide {
 	height: fit-content;
 	gap: 0.8em;
 	padding-right: 1.5rem;
-	margin-right: 1rem;
 	border-right-style: solid;
 	border-right-width: clamp(2px, 12px - 0.8vw, 8px);
 	border-right-color: var(--primary-border-color);
+	margin-right: 1rem;
 }
 
 /* Gör SVG loggan responsiv med färg temat */
@@ -170,16 +170,38 @@ header.hide {
 	align-items: center;
 	list-style: none;
 	text-decoration: none;
-	gap: 1.5rem;
+	gap: 1.25rem;
 }
 
 .navbar-menu li a {
 	width: max-content;
 	text-decoration: none;
-	font-weight: 500;
+	font-size: 1.1rem;
+	font-weight: 550;
+	background-color: color-mix(
+		in srgb,
+		var(--aside-background) 25%,
+		transparent
+	);
 	color: var(--header-text-color);
-	padding: 0.5rem 0.75rem;
+	padding: 0.75rem 1rem;
 	border-radius: 4px;
+	transition: var(--transition-quick) ease-in;
+}
+
+.navbar-menu li a:hover {
+	background-color: var(--hover-color);
+	font-weight: 700;
+	box-shadow:
+		0 2px 5px var(--shadow-color),
+		0 4px 10px var(--shadow-color);
+}
+
+.active-link {
+	text-decoration: none;
+	list-style: none;
+	font-weight: 800;
+	border-bottom: 2px solid var(--primary-border-color);
 }
 
 #overlay {
@@ -205,21 +227,6 @@ header.hide {
 	color: var(--header-text-color);
 	font-weight: 500;
 	font-size: 0.95rem;
-}
-
-.navbar-menu li a:hover {
-	background-color: var(--hover-color);
-	font-weight: 700;
-	box-shadow:
-		0 2px 5px var(--shadow-color),
-		0 4px 10px var(--shadow-color);
-}
-
-.active-link {
-	text-decoration: none;
-	list-style: none;
-	font-weight: bold;
-	border-bottom: 2px solid var(--primary-border-color);
 }
 
 /* ===== Fous indikator för navigation med tangentbord ===== */

@@ -32,7 +32,7 @@
 
 	/* höjd inkluderar padding + border */
 	--header-height: clamp(60px, 10vw, 80px);
-	--footer-height: 120px;
+	--footer-height: 100px;
 
 	/* Räknare för rubiker */
 	counter-reset: headings;
@@ -306,11 +306,14 @@ aside {
 		var(--header-height) + 1em
 	); /* Gör så att elementet stannar 1em under headern*/
 	z-index: 10;
-	height: fit-content;
+	height: auto;
+	max-height: calc(100vh - var(--header-height) - 2rem);
 	width: clamp(160px, 15vw, 280px);
 	background: var(--aside-background);
 	padding: 1.5rem 1em;
 	border-radius: 10px;
+	overflow-y: auto;
+	scroll-behavior: smooth;
 }
 
 aside ul {
@@ -419,8 +422,9 @@ article pre code {
 footer {
 	height: var(--footer-height);
 	background: var(--primary-color);
-	color: white;
-	padding: 2rem;
+	color: var(--header-text-color);
+	padding: 1.5rem;
+	margin: none;
 	text-align: center;
 	border-top: 5px solid var(--primary-border-color);
 }
@@ -521,6 +525,7 @@ footer {
 	aside {
 		display: block;
 		position: static;
+		height: fit-content;
 		width: 100%;
 		margin: 0.5rem 0;
 	}
@@ -549,6 +554,19 @@ footer {
 		width: 100vw;
 		height: auto;
 		display: block;
+	}
+
+	main {
+		margin: 0;
+		padding: 0;
+	}
+
+	article {
+		width: 100%;
+		padding: none;
+		margin: none;
+		border: none;
+		border-top: 2px solid var(--secondary-border-color);
 	}
 }
 

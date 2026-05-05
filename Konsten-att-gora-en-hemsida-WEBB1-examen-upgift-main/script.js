@@ -6,61 +6,56 @@ const darkModeToggle = document.getElementById("darkModeToggle");
 const header = document.querySelector("header");
 
 // ===== MÖRKT LÄGE FUNKTIONALLITET =====
-if (darkModeToggle) {
-	const savedMode = localStorage.getItem("Tema");
-	const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-	if (savedMode === "mörkt") {
+const savedMode = localStorage.getItem("Tema");
+const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+if (savedMode === "mörkt") {
+	document.body.classList.add("dark-mode");
+	darkModeToggle.checked = true;
+} else if (savedMode === "ljust") {
+	// Gör inget, behåll ljust läge
+} else {
+	// Inget sparat värde, använd systemets preferens
+	if (prefersDark) {
+		// console.log("Föredraget mörkt läge, aktiverar mörkt läge.");
 		document.body.classList.add("dark-mode");
 		darkModeToggle.checked = true;
-	} else if (savedMode === "ljust") {
-		// Gör inget, behåll ljust läge
+		localStorage.setItem("Tema", "mörkt");
 	} else {
-		// Inget sparat värde, använd systemets preferens
-		if (prefersDark) {
-			// console.log("Föredraget mörkt läge, aktiverar mörkt läge.");
-			document.body.classList.add("dark-mode");
-			darkModeToggle.checked = true;
-			localStorage.setItem("Tema", "mörkt");
-		} else {
-			// console.log("Föredraget ljust läge, behåller ljust läge.");
-			localStorage.setItem("darkMode", "disabled");
-		}
+		// console.log("Föredraget ljust läge, behåller ljust läge.");
+		localStorage.setItem("darkMode", "disabled");
 	}
-
-	// Efter en frame så sätter vi på en transiton för body:n. Detta ger en mjuk övergång mellan Ljust/Mörkt läge.
-	requestAnimationFrame(() => {
-		document.body.style.transition = "var(--transition-quick) ease";
-	});
-
-	// Lyssna efter eventet "change" på toggle switchen,
-	// då uppdatera klassen på body elementet för att ändra färgschemat
-	// och sedan sparas det nya värdet i local storage.
-	darkModeToggle.addEventListener("change", function () {
-		if (this.checked) {
-			console.log("Mörkt läge aktiverat.");
-			document.body.classList.add("dark-mode");
-			localStorage.setItem("Tema", "mörkt");
-			savedMode = "mörkt";
-			console.log("Sparat i localStorage:", localStorage.getItem("Tema"));
-		} else {
-			console.log("Ljust läge aktiverat.");
-			document.body.classList.remove("dark-mode");
-			localStorage.setItem("Tema", "ljust");
-			savedMode = "ljust";
-			console.log("Sparat i localStorage:", localStorage.getItem("Tema"));
-		}
-	});
 }
+
+// Efter en frame så sätter vi på en transiton för body:n. Detta ger en mjuk övergång mellan Ljust/Mörkt läge.
+requestAnimationFrame(() => {
+	document.body.style.transition = "var(--transition-quick) ease";
+});
+
+// Lyssna efter eventet "change" på toggle switchen,
+// då uppdatera klassen på body elementet för att ändra färgschemat
+// och sedan sparas det nya värdet i local storage.
+darkModeToggle.addEventListener("change", function () {
+	if (darkModeToggle.checked) {
+		console.log("Mörkt läge aktiverat.");
+		document.body.classList.add("dark-mode");
+		localStorage.setItem("Tema", "mörkt");
+		savedMode = "mörkt";
+		console.log("Sparat i localStorage:", localStorage.getItem("Tema"));
+	} else {
+		console.log("Ljust läge aktiverat.");
+		document.body.classList.remove("dark-mode");
+		localStorage.setItem("Tema", "ljust");
+		savedMode = "ljust";
+		console.log("Sparat i localStorage:", localStorage.getItem("Tema"));
+	}
+});
 
 // ===== MENY FUNKTIONALLITET =====
 
-const overlay = document.getElementById("overlay");
-const navbarToggle = document.querySelector(".navbar-menu-toggle");
-const navbarMenu = document.querySelector(".navbar-menu");
-
 const mediaQuery = window.matchMedia("(width < 1150px)");
-
+const navbarMenu = document.querySelector(".navbar-menu");
 function updateNavbar(e) {
 	const isSidebar = e.matches;
 	// console.log(isSidebar);
@@ -77,23 +72,32 @@ updateNavbar(mediaQuery);
 mediaQuery.addEventListener("change", updateNavbar);
 
 // Funktioner för att öppna och stänga navbaren, dessa används både av knappen och av overlayn (när man clickar utanför menyn så stängs den)
+
+const overlay = document.getElementById("overlay");
+const navbarToggle = document.querySelector(".navbar-menu-toggle");
+
 function closeNavbar() {
 	navbarToggle.classList.remove("show");
+	navbarToggle.setAttribute("aria-expanded", "false");
+
 	navbarMenu.classList.remove("show");
 	navbarMenu.setAttribute("inert", " ");
-	overlay.classList.remove("show");
-	navbarToggle.setAttribute("aria-expanded", "false");
 	navbarMenu.setAttribute("aria-hidden", "true");
-	navbarToggle.focus();
+
+	overlay.classList.remove("show");
+
+	navbarToggle.focus(); // Lägg focus på meny knappen efter menyn stängs
 }
 
 function openNavbar() {
 	navbarToggle.classList.add("show");
+	navbarToggle.setAttribute("aria-expanded", "true");
+
 	navbarMenu.classList.add("show");
 	navbarMenu.removeAttribute("inert");
-	overlay.classList.add("show");
-	navbarToggle.setAttribute("aria-expanded", "true");
 	navbarMenu.setAttribute("aria-hidden", "false");
+
+	overlay.classList.add("show");
 }
 
 // Visa/dölj navbar när man clickar på knappen (Börgar menyn)
@@ -114,7 +118,7 @@ navbarLinks.forEach((link) => {
 });
 
 // Stäng navbar när man clickar på overlayen
-overlay?.addEventListener("click", () => {
+overlay.addEventListener("click", () => {
 	closeNavbar();
 });
 

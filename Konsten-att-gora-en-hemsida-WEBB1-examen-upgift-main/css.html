@@ -1,213 +1,202 @@
 <!doctype html>
 <html lang="sv">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-            name="description"
-            content="Guide för att skapa en hemsida med HTML, CSS och JavaScript."
-        />
-        <title>Konsten att skapa en hemsida | CSS</title>
-        <link rel="stylesheet" href="style.css" />
-        <link rel="stylesheet" href="css.css" />
-        <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="description"
+			content="Guide för att skapa en hemsida med HTML, CSS och JavaScript."
+		/>
+		<title>Konsten att skapa en hemsida | CSS</title>
+		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="css.css" />
+		<link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
 
-        <link rel="prefetch" href="historia.html" as="document" />
-        <link rel="prefetch" href="lagar.html" as="document" />
-        <link rel="prefetch" href="html.html" as="document" />
-        <link rel="prefetch" href="css.html" as="document" />
-        <link rel="prefetch" href="javascript.html" as="document" />
-    </head>
+		<link rel="prefetch" href="historia.html" as="document" />
+		<link rel="prefetch" href="lagar.html" as="document" />
+		<link rel="prefetch" href="html.html" as="document" />
+		<link rel="prefetch" href="css.html" as="document" />
+		<link rel="prefetch" href="javascript.html" as="document" />
+	</head>
 
-    <body>
-        <a href="#main" class="skip-link">Hoppa till huvudinnehåll</a>
+	<body>
+		<a href="#main" class="skip-link">Hoppa till huvudinnehåll</a>
 
-        <header>
-            <div class="header-logo" id="logo">
-                <a href="index.html">
-                    <svg
-                        width="380"
-                        height="30"
-                        viewBox="0 0 380 30"
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        role="img"
-                        aria-label="Konsten att skapa en hemsida"
-                    >
-                        <g class="drawing-elements">
-                            <path
-                                d="M30,22v3c0,0.552-0.448,1-1,1h-1c-0.552,0-1-0.448-1-1v-3c0-0.552,0.448-1,1-1v-7.539l-11.198-0.896  C16.621,12.822,16.337,13,16,13c-0.552,0-1-0.448-1-1c0-0.552,0.448-1,1-1c0.396,0,0.732,0.235,0.894,0.57l11.186,0.895  c0.516,0.041,0.92,0.479,0.92,0.997V21C29.552,21,30,21.448,30,22z M16,19.725c-0.547,0-1.094-0.111-1.603-0.334L8,16.592v2.227  c0,1.136,0.642,2.175,1.658,2.683l0,0C11.655,22.501,13.827,23,16,23s4.345-0.499,6.341-1.497l0,0C23.358,20.995,24,19.956,24,18.82  v-2.227l-6.397,2.799C17.094,19.614,16.547,19.725,16,19.725z M29.906,11.084L17.202,5.526C16.819,5.358,16.41,5.275,16,5.275  c-0.41,0-0.819,0.084-1.202,0.252L2.094,11.084c-0.799,0.35-0.799,1.483,0,1.832l12.703,5.559c0.765,0.334,1.641,0.334,2.405,0  l9.416-4.121l-9.438-0.755C16.843,13.858,16.434,14,16,14c-1.103,0-2-0.897-2-2c0-1.103,0.897-2,2-2  c0.552,0,1.062,0.224,1.431,0.609l10.729,0.858c0.842,0.067,1.525,0.666,1.751,1.445C30.704,12.561,30.703,11.433,29.906,11.084z"
-                            />
-                            <text
-                                x="41"
-                                y="24"
-                                fill="#000000"
-                                font-family="Segoe UI"
-                                font-size="24"
-                                font-style="normal"
-                                opacity="1"
-                                style="visibility: visible"
-                                stroke-width="0"
-                                transform="rotate(0, 202.25835037231445, 18.5)"
-                            >
-                                Konsten att skapa en hemsida
-                            </text>
-                        </g>
-                    </svg>
-                </a>
-            </div>
+		<header>
+			<div class="header-logo" id="logo">
+				<a href="index.html">
+					<svg
+						width="380"
+						height="30"
+						viewBox="0 0 380 30"
+						xmlns="http://www.w3.org/2000/svg"
+						xmlns:xlink="http://www.w3.org/1999/xlink"
+						role="img"
+						aria-label="Konsten att skapa en hemsida"
+					>
+						<g class="drawing-elements">
+							<path
+								d="M30,22v3c0,0.552-0.448,1-1,1h-1c-0.552,0-1-0.448-1-1v-3c0-0.552,0.448-1,1-1v-7.539l-11.198-0.896  C16.621,12.822,16.337,13,16,13c-0.552,0-1-0.448-1-1c0-0.552,0.448-1,1-1c0.396,0,0.732,0.235,0.894,0.57l11.186,0.895  c0.516,0.041,0.92,0.479,0.92,0.997V21C29.552,21,30,21.448,30,22z M16,19.725c-0.547,0-1.094-0.111-1.603-0.334L8,16.592v2.227  c0,1.136,0.642,2.175,1.658,2.683l0,0C11.655,22.501,13.827,23,16,23s4.345-0.499,6.341-1.497l0,0C23.358,20.995,24,19.956,24,18.82  v-2.227l-6.397,2.799C17.094,19.614,16.547,19.725,16,19.725z M29.906,11.084L17.202,5.526C16.819,5.358,16.41,5.275,16,5.275  c-0.41,0-0.819,0.084-1.202,0.252L2.094,11.084c-0.799,0.35-0.799,1.483,0,1.832l12.703,5.559c0.765,0.334,1.641,0.334,2.405,0  l9.416-4.121l-9.438-0.755C16.843,13.858,16.434,14,16,14c-1.103,0-2-0.897-2-2c0-1.103,0.897-2,2-2  c0.552,0,1.062,0.224,1.431,0.609l10.729,0.858c0.842,0.067,1.525,0.666,1.751,1.445C30.704,12.561,30.703,11.433,29.906,11.084z"
+							/>
+							<text
+								x="41"
+								y="24"
+								fill="#000000"
+								font-family="Segoe UI"
+								font-size="24"
+								font-style="normal"
+								opacity="1"
+								style="visibility: visible"
+								stroke-width="0"
+								transform="rotate(0, 202.25835037231445, 18.5)"
+							>
+								Konsten att skapa en hemsida
+							</text>
+						</g>
+					</svg>
+				</a>
+			</div>
 
-            <nav class="header-navbar">
-                <button
-                    class="navbar-menu-toggle"
-                    aria-label="Toggle navigation menu"
-                    aria-expanded="false"
-                    aria-controls="navbar-menu"
-                >
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </button>
-                <ul class="navbar-menu" id="navbar-menu" aria-hidden="true">
-                    <li><a href="index.html">Hem</a></li>
-                    <li><a href="historia.html">Historia</a></li>
-                    <li><a href="lagar.html">Lagar</a></li>
-                    <li><a href="html.html">HTML</a></li>
-                    <li>
-                        <a
-                            class="active-link"
-                            aria-current="page"
-                            href="css.html"
-                            >CSS</a
-                        >
-                    </li>
-                    <li><a href="javascript.html">JavaScript</a></li>
-                    <li class="dark-mode-toggle-item">
-                        <label
-                            class="navbar-dark-mode-label"
-                            for="darkModeToggle"
-                            >Mörkt läge</label
-                        >
-                        <label class="switch">
-                            <input type="checkbox" id="darkModeToggle" />
-                            <span class="slider"></span>
-                        </label>
-                    </li>
-                </ul>
-            </nav>
-        </header>
+			<nav class="header-navbar">
+				<button
+					class="navbar-menu-toggle"
+					aria-label="Toggle navigation menu"
+					aria-expanded="false"
+					aria-controls="navbar-menu"
+				>
+					<span class="bar"></span>
+					<span class="bar"></span>
+					<span class="bar"></span>
+				</button>
+				<ul class="navbar-menu" id="navbar-menu" aria-hidden="true">
+					<li><a href="index.html">Hem</a></li>
+					<li><a href="historia.html">Historia</a></li>
+					<li><a href="lagar.html">Lagar</a></li>
+					<li><a href="html.html">HTML</a></li>
+					<li>
+						<a class="active-link" aria-current="page" href="css.html">CSS</a>
+					</li>
+					<li><a href="javascript.html">JavaScript</a></li>
+					<li class="dark-mode-toggle-item">
+						<label class="navbar-dark-mode-label" for="darkModeToggle"
+							>Mörkt läge</label
+						>
+						<label class="switch">
+							<input type="checkbox" id="darkModeToggle" />
+							<span class="slider"></span>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</header>
 
-        <div id="overlay" onclick="closeNavbar()" aria-hidden="true"></div>
+		<div id="overlay" onclick="closeNavbar()" aria-hidden="true"></div>
 
-        <main id="main">
-            <aside aria-label="Innehållsförteckning">
-                <ul>
-                    <li><a href="#title1">CSS</a></li>
-                    <li><a href="#title2">Vad är CSS?</a></li>
-                    <li><a href="#title3">Syntax</a></li>
-                    <li><a href="#title4">Selektorer</a></li>
-                    <li><a href="#title5">Viktiga egenskaper</a></li>
-                    <li><a href="#title6">HTML vs CSS</a></li>
-                    <li><a href="#title7">CSS-variabler</a></li>
-                    <li><a href="#title8">Responsiv design</a></li>
-                </ul>
-            </aside>
-            <article id="main-content">
-                <h1 id="title1">CSS</h1>
+		<main id="main">
+			<aside aria-label="Innehållsförteckning">
+				<ul>
+					<li><a href="#title1">CSS</a></li>
+					<li><a href="#title2">Vad är CSS?</a></li>
+					<li><a href="#title3">Syntax</a></li>
+					<li><a href="#title4">Selektorer</a></li>
+					<li><a href="#title5">Viktiga egenskaper</a></li>
+					<li><a href="#title6">HTML vs CSS</a></li>
+					<li><a href="#title7">CSS-variabler</a></li>
+					<li><a href="#title8">Responsiv design</a></li>
+				</ul>
+			</aside>
+			<article id="main-content">
+				<h1 id="title1">CSS</h1>
 
-                <h2 id="title2">Vad är CSS?</h2>
-                <p>
-                    CSS (Cascading Style Sheets) är ett stilspråk som används
-                    för att styra utseendet och layouten på HTML-dokument. Med
-                    CSS bestämmer du hur element ska se ut – till exempel vilken
-                    färg text ska ha, hur stor en bild ska vara, eller hur en
-                    sida ska bete sig på en mobil skärm.
-                </p>
-                <p>
-                    "Cascading" syftar på hur regler tillämpas i en viss ordning
-                    (kaskad) där specifika regler vinner över generella, och
-                    senare regler kan skriva över tidigare.
-                </p>
+				<h2 id="title2">Vad är CSS?</h2>
+				<p>
+					CSS (Cascading Style Sheets) är ett stilspråk som används för att
+					bestämma utseendet och layouten på HTML-dokument. Med CSS bestämmer du
+					hur olika HTML-element ska se ut, exempvis vilken färg text ska ha,
+					storleken, eller hur en sida ska bete sig på vid olika skärm
+					storlekar.
+				</p>
+				<p>
+					"Cascading" syftar på hur regler tillämpas i en viss ordning (kaskad)
+					där specifika regler vinner över generella, och senare regler kan
+					skriva över tidigare regler på samma element.
+				</p>
 
-                <h2 id="title3">Syntax – Hur CSS är uppbyggt</h2>
-                <p>
-                    En CSS-regel består av en <strong>selektor</strong> och ett
-                    <strong>deklarationsblock</strong>. Deklarationsblocket
-                    innehåller en eller flera <strong>egenskaper</strong> med
-                    <strong>värden</strong>:
-                </p>
+				<h2 id="title3">Syntax</h2>
+				<h4>Hur CSS är uppbyggt</h4>
+				<p>
+					En CSS-regel består av en <strong>selektor</strong> och ett
+					<strong>deklarationsblock</strong>. Deklarationsblocket innehåller en
+					eller flera <strong>egenskaper</strong> med <strong>värden</strong>:
+				</p>
 
-                <pre><code>selektor {
+				<pre><code>selektor {
   egenskap: värde;
   egenskap: värde;
 }</code></pre>
 
-                <p>Konkret exempel – gör alla rubriker blå och centrerade:</p>
-                <pre><code>h1 {
-  color: blue;
-  text-align: center;
-  font-size: 2rem;
-}</code></pre>
+				<h3>Tre sätt att skriva CSS</h3>
+				<p>Det finns tre sätt att koppla CSS till ett HTML-dokument:</p>
 
-                <h3>Tre sätt att lägga till CSS</h3>
-                <p>Det finns tre sätt att koppla CSS till ett HTML-dokument:</p>
+				<ol>
+					<li>
+						<strong>Extern fil (rekommenderat)</strong> – CSS skrivs i en
+						separat <code>.css</code>-fil som länkas in i HTML-filen:
+					</li>
+                    <p>
+                        <pre><code>&lt;link rel="stylesheet" href="style.css"&gt;</code></pre>
+				</p>
+				
 
-                <p>
-                    <strong>1. Extern fil (rekommenderat)</strong> – CSS skrivs
-                    i en separat <code>.css</code>-fil och länkas in i
-                    HTML-filen:
-                </p>
-                <pre><code>&lt;link rel="stylesheet" href="style.css"&gt;</code></pre>
-
-                <p>
-                    <strong>2. Intern stil</strong> – CSS skrivs direkt i
-                    <code>&lt;head&gt;</code> med
-                    <code>&lt;style&gt;</code>-taggen:
-                </p>
-                <pre><code>&lt;style&gt;
+				<li
+					<strong> Intern stil</strong> – CSS skrivs direkt i
+					<code>&lt;head&gt;</code> med <code>&lt;style&gt;</code>-taggen:
+            </li>
+				<pre><code>&lt;style&gt;
   body {
     background-color: lightblue;
   }
 &lt;/style&gt;</code></pre>
 
-                <p>
-                    <strong>3. Inline-stil</strong> – CSS skrivs direkt i
-                    HTML-elementets <code>style</code>-attribut. Bör undvikas:
-                </p>
-                <pre><code>&lt;p style="color: red; font-size: 18px;"&gt;Röd text&lt;/p&gt;</code></pre>
+				<li>
+					<strong> Inline-stil</strong> – CSS skrivs direkt i HTML-elementets
+					<code>style</code>-attribut:
+				</li>
+				<pre><code>&lt;p style="color: red; font-size: 48px;"&gt;Stor röd text&lt;/p&gt;</code></pre>
+                </ol>
 
-                <h2 id="title4">Selektorer</h2>
-                <p>
-                    Selektorer bestämmer <strong>vilka HTML-element</strong> som
-                    CSS-reglerna ska påverka.
-                </p>
+				<h2 id="title4">Selektorer</h2>
+				<p>
+					Selektorer bestämmer <strong>vilka HTML-element</strong> som
+					CSS-reglerna ska påverka.
+				</p>
 
-                <ul>
-                    <li>
-                        <strong>Tagg-selektor</strong> – påverkar alla element
-                        av en viss typ:
-                        <pre><code>p {
+				<ul>
+					<li>
+						<strong>Tagg-selektor</strong> – påverkar alla element av en viss
+						typ:
+						<pre><code>p {
   line-height: 1.6;
 }</code></pre>
-                    </li>
-                    <li>
-                        <strong>Klass-selektor</strong> – påverkar alla element
-                        med en viss klass (punktnotation):
-                        <pre><code>.highlight {
+					</li>
+					<li>
+						<strong>Klass-selektor</strong> – påverkar alla element med en viss
+						klass (punktnotation):
+						<pre><code>.highlight {
   background-color: yellow;
 }</code></pre>
-                    </li>
-                    <li>
-                        <strong>ID-selektor</strong> – påverkar ett enskilt
-                        element med ett visst ID (brädgårdsnotation):
-                        <pre><code>#main-header {
+					</li>
+					<li>
+						<strong>ID-selektor</strong> – påverkar ett enskilt element med ett
+						visst ID (brädgårdsnotation):
+						<pre><code>#main-header {
   font-size: 3rem;
 }</code></pre>
-                    </li>
-                    <li>
-                        <strong>Kombinations-selektor</strong> – påverkar
-                        element som uppfyller flera villkor:
-                        <pre><code>/* Alla &lt;p&gt; inuti en &lt;article&gt; */
+					</li>
+					<li>
+						<strong>Kombinations-selektor</strong> – påverkar element som
+						uppfyller flera villkor:
+						<pre><code>/* Alla &lt;p&gt; inuti en &lt;article&gt; */
 article p {
   color: #333;
 }
@@ -216,11 +205,11 @@ article p {
 div.card {
   border: 1px solid black;
 }</code></pre>
-                    </li>
-                    <li>
-                        <strong>Pseudoklasser</strong> – stilar element i ett
-                        visst tillstånd, t.ex. vid hovring:
-                        <pre><code>a:hover {
+					</li>
+					<li>
+						<strong>Pseudoklasser</strong> – stilar element i ett visst
+						tillstånd, t.ex. vid hovring:
+						<pre><code>a:hover {
   color: orange;
   text-decoration: underline;
 }
@@ -228,80 +217,67 @@ div.card {
 button:focus {
   outline: 3px solid blue;
 }</code></pre>
-                    </li>
-                </ul>
+					</li>
+				</ul>
 
-                <h2 id="title5">Viktiga CSS-egenskaper</h2>
+				<h2 id="title5">Viktiga CSS-egenskaper</h2>
 
-                <h3>Färger och bakgrunder</h3>
-                <ul>
-                    <li>
-                        <code>color</code> – textfärg. Kan anges som namn, hex,
-                        rgb eller hsl:
-                        <pre><code>p {
+				<h3>Färger och bakgrunder</h3>
+				<ul>
+					<li>
+						<code>color</code> – textfärg. Kan anges som namn, hex, rgb eller
+						hsl:
+						<pre><code>p {
   color: #333333;          /* Hex */
   color: rgb(51, 51, 51);  /* RGB */
   color: hsl(0, 0%, 20%);  /* HSL */
 }</code></pre>
-                    </li>
-                    <li>
-                        <code>background-color</code> – bakgrundsfärg på ett
-                        element
-                    </li>
-                    <li>
-                        <code>background-image</code> – bakgrundsbild:
-                        <pre><code>div {
+					</li>
+					<li><code>background-color</code> – bakgrundsfärg på ett element</li>
+					<li>
+						<code>background-image</code> – bakgrundsbild:
+						<pre><code>div {
   background-image: url("bakgrund.jpg");
   background-size: cover;
   background-position: center;
 }</code></pre>
-                    </li>
-                </ul>
+					</li>
+				</ul>
 
-                <h3>Box-modellen</h3>
-                <p>
-                    Alla HTML-element är en "låda" bestående av innehåll,
-                    <code>padding</code>, <code>border</code> och
-                    <code>margin</code>:
-                </p>
-                <pre><code>div {
+				<h3>Box-modellen</h3>
+				<p>
+					Alla HTML-element är en "låda" bestående av innehåll,
+					<code>padding</code>, <code>border</code> och <code>margin</code>:
+				</p>
+				<pre><code>div {
   width: 300px;
   padding: 20px;          /* Inre avstånd */
   border: 2px solid black; /* Ram */
   margin: 10px auto;      /* Yttre avstånd, auto centrerar horisontellt */
 }</code></pre>
 
-                <h3>Text och typografi</h3>
-                <ul>
-                    <li><code>font-family</code> – typsnittsfamilj</li>
-                    <li><code>font-size</code> – teckenstorlek</li>
-                    <li>
-                        <code>font-weight</code> – tjocklek (normal, bold,
-                        100–900)
-                    </li>
-                    <li><code>line-height</code> – radavstånd</li>
-                    <li>
-                        <code>text-align</code> – justering (left, center,
-                        right)
-                    </li>
-                    <li>
-                        <code>text-decoration</code> – underline, line-through,
-                        none
-                    </li>
-                </ul>
-                <pre><code>body {
+				<h3>Text och typografi</h3>
+				<ul>
+					<li><code>font-family</code> – typsnittsfamilj</li>
+					<li><code>font-size</code> – teckenstorlek</li>
+					<li><code>font-weight</code> – tjocklek (normal, bold, 100–900)</li>
+					<li><code>line-height</code> – radavstånd</li>
+					<li><code>text-align</code> – justering (left, center, right)</li>
+					<li><code>text-decoration</code> – underline, line-through, none</li>
+				</ul>
+				<pre><code>body {
   font-family: "Segoe UI", Arial, sans-serif;
   font-size: 16px;
   line-height: 1.6;
   color: #1d1e22;
 }</code></pre>
 
-                <h3>Layout med Flexbox</h3>
-                <p>
-                    Flexbox gör det enkelt att placera element bredvid varandra
-                    eller centrera dem:
-                </p>
-                <pre><code>.container {
+				<h3>Layout med Flexbox</h3>
+				<p>
+					Flexbox gör det enkelt att placera element bredvid varandra eller
+					centrera dem:
+				</p>
+				<pre><code>.container {
   display: flex;
   justify-content: center;  /* Horisontell placering */
   align-items: center;      /* Vertikal placering */
@@ -309,64 +285,58 @@ button:focus {
   flex-wrap: wrap;          /* Tillåt radbrytning */
 }</code></pre>
 
-                <h3>Layout med Grid</h3>
-                <p>
-                    CSS Grid används för att skapa mer komplexa rutnätslayouter:
-                </p>
-                <pre><code>.grid {
+				<h3>Layout med Grid</h3>
+				<p>CSS Grid används för att skapa mer komplexa rutnätslayouter:</p>
+				<pre><code>.grid {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr; /* Tre kolumner */
   gap: 20px;
 }</code></pre>
 
-                <h2 id="title6">Varför separera HTML och CSS?</h2>
-                <p>
-                    Det finns starka skäl till att hålla HTML och CSS i separata
-                    filer:
-                </p>
-                <ul>
-                    <li>
-                        <strong>Separation av ansvar</strong> – HTML beskriver
-                        <em>vad</em> innehållet är, CSS beskriver
-                        <em>hur</em> det ser ut. Det gör koden lättare att
-                        förstå och underhålla.
-                    </li>
-                    <li>
-                        <strong>Återanvändning</strong> – en enda CSS-fil kan
-                        styra utseendet på hundratals HTML-sidor. Vill du ändra
-                        en färg gör du det på ett ställe.
-                    </li>
-                    <li>
-                        <strong>Snabbare laddning</strong> – webbläsaren cachar
-                        CSS-filen, så den behöver bara laddas ned en gång per
-                        besökare.
-                    </li>
-                    <li>
-                        <strong>Teamwork</strong> – designers kan jobba med CSS
-                        medan utvecklare jobbar med HTML, utan att skriva över
-                        varandras arbete.
-                    </li>
-                    <li>
-                        <strong>Enklare testning</strong> – du kan byta ut hela
-                        utseendet utan att ändra ett enda HTML-element.
-                    </li>
-                </ul>
+				<h2 id="title6">Varför separera HTML och CSS?</h2>
+				<p>
+					Det finns starka skäl till att hålla HTML och CSS i separata filer:
+				</p>
+				<ul>
+					<li>
+						<strong>Separation av ansvar</strong> – HTML beskriver
+						<em>vad</em> innehållet är, CSS beskriver <em>hur</em> det ser ut.
+						Det gör koden lättare att förstå och underhålla.
+					</li>
+					<li>
+						<strong>Återanvändning</strong> – en enda CSS-fil kan styra
+						utseendet på hundratals HTML-sidor. Vill du ändra en färg gör du det
+						på ett ställe.
+					</li>
+					<li>
+						<strong>Snabbare laddning</strong> – webbläsaren cachar CSS-filen,
+						så den behöver bara laddas ned en gång per besökare.
+					</li>
+					<li>
+						<strong>Teamwork</strong> – designers kan jobba med CSS medan
+						utvecklare jobbar med HTML, utan att skriva över varandras arbete.
+					</li>
+					<li>
+						<strong>Enklare testning</strong> – du kan byta ut hela utseendet
+						utan att ändra ett enda HTML-element.
+					</li>
+				</ul>
 
-                <p>
-                    Jämför de två varianterna nedan. De ger exakt samma resultat
-                    men den externa CSS-varianten är betydligt renare:
-                </p>
+				<p>
+					Jämför de två varianterna nedan. De ger exakt samma resultat men den
+					externa CSS-varianten är betydligt renare:
+				</p>
 
-                <p><strong>Dåligt (inline CSS):</strong></p>
-                <pre><code>&lt;h1 style="color: orange; font-size: 2rem; text-align: center; margin-bottom: 1rem;"&gt;
+				<p><strong>Dåligt (inline CSS):</strong></p>
+				<pre><code>&lt;h1 style="color: orange; font-size: 2rem; text-align: center; margin-bottom: 1rem;"&gt;
   Välkommen
 &lt;/h1&gt;
 &lt;p style="color: #333; font-size: 1rem; line-height: 1.6;"&gt;
   Lite text här.
 &lt;/p&gt;</code></pre>
 
-                <p><strong>Bra (extern CSS-fil):</strong></p>
-                <pre><code>/* style.css */
+				<p><strong>Bra (extern CSS-fil):</strong></p>
+				<pre><code>/* style.css */
 h1 {
   color: orange;
   font-size: 2rem;
@@ -378,18 +348,17 @@ p {
   font-size: 1rem;
   line-height: 1.6;
 }</code></pre>
-                <pre><code>&lt;!-- index.html --&gt;
+				<pre><code>&lt;!-- index.html --&gt;
 &lt;h1&gt;Välkommen&lt;/h1&gt;
 &lt;p&gt;Lite text här.&lt;/p&gt;</code></pre>
 
-                <h2 id="title7">CSS-variabler</h2>
-                <p>
-                    CSS-variabler (officiellt kallade "custom properties") låter
-                    dig spara värden som du kan återanvända i hela stilmallen.
-                    De definieras med <code>--</code> och används med
-                    <code>var()</code>:
-                </p>
-                <pre><code>/* Definiera i :root för att göra dem globala */
+				<h2 id="title7">CSS-variabler</h2>
+				<p>
+					CSS-variabler (officiellt kallade "custom properties") låter dig spara
+					värden som du kan återanvända i hela stilmallen. De definieras med
+					<code>--</code> och används med <code>var()</code>:
+				</p>
+				<pre><code>/* Definiera i :root för att göra dem globala */
 :root {
   --primary-color: #ff5a09;
   --text-color: #1d1e22;
@@ -408,43 +377,40 @@ button {
 h1 {
   color: var(--primary-color);
 }</code></pre>
-                <p>
-                    Det stora fördelen är att du kan ändra färgen på hela sajten
-                    genom att byta ett enda värde i <code>:root</code>. Det är
-                    också hur mörkt läge implementeras på den här sidan –
-                    JavaScript lägger till klassen <code>dark-mode</code> på
-                    <code>&lt;body&gt;</code> och CSS-variablerna skrivs över
-                    med mörkare färger.
-                </p>
+				<p>
+					Det stora fördelen är att du kan ändra färgen på hela sajten genom att
+					byta ett enda värde i <code>:root</code>. Det är också hur mörkt läge
+					implementeras på den här sidan – JavaScript lägger till klassen
+					<code>dark-mode</code> på <code>&lt;body&gt;</code> och
+					CSS-variablerna skrivs över med mörkare färger.
+				</p>
 
-                <h2 id="title8">Responsiv design och media queries</h2>
-                <p>
-                    En responsiv webbsida anpassar sig automatiskt till skärmens
-                    storlek – oavsett om den visas på en stor datorskärm eller
-                    en liten mobiltelefon.
-                </p>
+				<h2 id="title8">Responsiv design och media queries</h2>
+				<p>
+					En responsiv webbsida anpassar sig automatiskt till skärmens storlek –
+					oavsett om den visas på en stor datorskärm eller en liten
+					mobiltelefon.
+				</p>
 
-                <h3>Viktiga grunder</h3>
-                <p>
-                    Alltid börja med denna meta-tagg i
-                    <code>&lt;head&gt;</code> – utan den fungerar inte responsiv
-                    design på mobila enheter:
-                </p>
-                <pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
-                <p>
-                    Den talar om för mobila webbläsare att använda enhetens
-                    faktiska bredd istället för att zooma ut och visa en
-                    skrivbordsvy.
-                </p>
+				<h3>Viktiga grunder</h3>
+				<p>
+					Alltid börja med denna meta-tagg i
+					<code>&lt;head&gt;</code> – utan den fungerar inte responsiv design på
+					mobila enheter:
+				</p>
+				<pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+				<p>
+					Den talar om för mobila webbläsare att använda enhetens faktiska bredd
+					istället för att zooma ut och visa en skrivbordsvy.
+				</p>
 
-                <h3>Media queries</h3>
-                <p>
-                    Med <code>@media</code> kan du skriva CSS-regler som
-                    <strong>bara aktiveras vid en viss skärmbredd</strong>. Det
-                    är grunden för att anpassa layouten till mobiler och
-                    surfplattor.
-                </p>
-                <pre><code>/* Dessa regler gäller alltid (desktop-first) */
+				<h3>Media queries</h3>
+				<p>
+					Med <code>@media</code> kan du skriva CSS-regler som
+					<strong>bara aktiveras vid en viss skärmbredd</strong>. Det är grunden
+					för att anpassa layouten till mobiler och surfplattor.
+				</p>
+				<pre><code>/* Dessa regler gäller alltid (desktop-first) */
 h1 {
   font-size: 3rem;
 }
@@ -468,123 +434,101 @@ h1 {
   }
 }</code></pre>
 
-                <p>
-                    I exemplet ovan används <code>3vw</code> som enhet.
-                    <code>vw</code> står för <em>viewport width</em> – alltså en
-                    procent av skärmbredden. Det gör att texten automatiskt
-                    skalas med skärmens storlek.
-                </p>
-                <p>
-                    <em
-                        >Texten i detta avsnitt om media queries och vw-enheter
-                        är skriven med hjälp av AI.</em
-                    >
-                </p>
+				<p>
+					I exemplet ovan används <code>3vw</code> som enhet.
+					<code>vw</code> står för <em>viewport width</em> – alltså en procent
+					av skärmbredden. Det gör att texten automatiskt skalas med skärmens
+					storlek.
+				</p>
 
-                <h3>Responsivt konkret exempel</h3>
-                <p>
-                    På den här webbsidan används media queries för att dölja
-                    sidomenyn och göra navigationen till en hamburgermeny på
-                    smala skärmar:
-                </p>
-                <pre><code>/* Desktop: sidomeny och artikel sida vid sida */
+				<h3>Responsivt konkret exempel</h3>
+				<p>
+					På den här webbsidan används media queries för att stapla sidomenyn
+					och artikeln samt göra navigationen till en hamburgermeny på smala
+					skärmar:
+				</p>
+				<pre><code>/* Desktop: sidomeny och artikel sida vid sida */
 main {
   display: grid;
   grid-template-columns: auto 1fr;
 }
 
-/* Mobil: stapla vertikalt, sidomeny full bredd */
+/* Mobil: stapla artikel och sidomeny vertikalt, sidomeny full bredd */
 @media screen and (max-width: 750px) {
   main {
-    grid-template-columns: auto; /* En kolumn */
+    grid-template-columns: auto; /* En ända kolumn */
   }
 
   aside {
-    position: static; /* Inte längre sticky */
+    position: static; /* Inte längre sticky utan den stannar på sin plats */
     width: 100%;
   }
 }</code></pre>
-
-                <h3>Enheter att känna till</h3>
-                <ul>
-                    <li><code>px</code> – pixlar, fast storlek</li>
-                    <li><code>%</code> – procent av förälderns storlek</li>
-                    <li>
-                        <code>rem</code> – relativt till rot-elementets
-                        teckenstorlek (rekommenderat för typsnitt)
-                    </li>
-                    <li>
-                        <code>em</code> – relativt till det aktuella elementets
-                        teckenstorlek
-                    </li>
-                    <li><code>vw</code> – procent av skärmbredden</li>
-                    <li><code>vh</code> – procent av skärmhöjden</li>
-                    <li>
-                        <code>clamp(min, ideal, max)</code> – håller ett värde
-                        inom ett intervall, perfekt för responsiv typografi:
-                        <pre><code>h1 {
+				<h3>Responsiv design utan media queries</h3>
+				<p>
+					Det går faktiskt att göra en helt responsiv design utan media queries
+					– genom att använda flexbox eller grid tillsammans med flexibla
+					enheter som <code>fr</code>, <code>vw</code>, <code>vh</code>,
+					<code>%</code>, <code>em</code> och <code>rem</code>. Det kräver mer
+					planering och kreativitet
+				</p>
+				<h4>
+					Det enklast sättet att hålla en sida resonsiv utan media queries är
+					med <code>clamp</code>
+				</h4>
+				<code>clamp(min, ideal, max)</code> – håller ett värde inom ett
+				intervall, perfekt för responsiv typografi:
+				<pre><code>h1 {
   /* Aldrig mindre än 1.5rem, aldrig större än 3rem */
   font-size: clamp(1.5rem, 4vw, 3rem);
 }</code></pre>
-                    </li>
-                </ul>
 
-                <!-- ===== INTERAKTIVT DEMO: FÄRGANPASSNING ===== -->
-                <h2 id="title9">Prova själv – ändra sidans färger</h2>
-                <p>
-                    CSS-variabler gör det möjligt att ändra hela sidans utseende
-                    med bara några rader JavaScript. Välj bakgrunds- och
-                    textfärg nedan och tryck på <strong>Aktivera</strong> –
-                    förändringen sker direkt på den här sidan, ovanpå både ljust
-                    och mörkt läge.
-                </p>
-                <p>
-                    Tekniken fungerar genom att JavaScript skapar ett nytt
-                    <code>&lt;style&gt;</code>-element i
-                    <code>&lt;head&gt;</code> med regler som matchar
-                    <code>:root, body, body.dark-mode</code>. Eftersom dessa
-                    regler läggs till sist i dokumentet vinner de i kaskaden och
-                    skriver över befintliga variabler.
-                </p>
+				<h3>Bra enheter att känna till</h3>
+				<ul>
+					<li><code>px</code> – pixlar, fast storlek</li>
+					<li><code>%</code> – procent av förälderns storlek</li>
+					<li>
+						<code>rem</code> – relativt till rot-elementets teckensnittstorlek
+					</li>
+					<li>
+						<code>em</code> – relativt till det aktuella elementets
+						teckensnittstorlek
+					</li>
+					<li><code>vw</code> – procent av viewport bredden</li>
+					<li><code>vh</code> – procent av viewport höjden</li>
+				</ul>
 
-                <div
-                    class="color-demo-box"
-                    role="group"
-                    aria-label="Färganpassning"
-                >
-                    <div class="color-demo-controls">
-                        <div class="color-demo-field">
-                            <label for="demo-bg">Bakgrundsfärg</label>
-                            <input type="color" id="demo-bg" value="#d4d4dc" />
-                        </div>
-                        <div class="color-demo-field">
-                            <label for="demo-text">Textfärg</label>
-                            <input
-                                type="color"
-                                id="demo-text"
-                                value="#1d1e22"
-                            />
-                        </div>
-                        <div class="color-demo-actions">
-                            <button id="demo-apply">Aktivera</button>
-                            <button id="demo-reset">Återställ</button>
-                        </div>
-                    </div>
-                    <p
-                        class="color-demo-hint"
-                        role="status"
-                        aria-live="polite"
-                        id="demo-status"
-                    ></p>
-                </div>
-            </article>
-        </main>
+				<!-- ===== FÄRGANPASSNING ===== -->
+				<h2 id="title9">Ändra sidans CSS färg styling själv</h2>
+				<p>
+					Välj bakgrunds- och textfärg nedan och tryck på
+					<strong>Aktivera</strong> för att se hur det ser ut! Tryck på
+					<strong>Återställ</strong> för att återställa standardfärgerna.
+				</p>
 
-        <foo</script>ter id="footer">
-            <p>&copy; <em>2026 Konsten att göra en hemsida. :D</em></p>
-        </footer>
+				<section class="color-selector-container">
+					<div class="color-selector-field">
+						<label for="selector-bg">Bakgrundsfärg</label>
+						<input type="color" id="selector-bg" value="#d4d4dc" />
+					</div>
+					<div class="color-selector-field">
+						<label for="selector-text">Textfärg</label>
+						<input type="color" id="selector-text" value="#1d1e22" />
+					</div>
+					<div class="color-selector-actions">
+						<button id="selector-apply">Aktivera</button>
+						<button id="selector-reset">Återställ</button>
+					</div>
+				</section>
+			</article>
+		</main>
 
-        <script src="script.js" defer></script>
-        <script src="css.js"> </script>
-    </body>
+		<footer>
+			<p>&copy; <em>2026 Konsten att göra en hemsida :D</em></p>
+			<p><sub>Kontakta mig på simon.flink@elev.ntig.se</sub></p>
+		</footer>
+
+		<script src="script.js" defer></script>
+		<script src="css.js"></script>
+	</body>
 </html>

@@ -18,7 +18,7 @@
 
 .card-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 	gap: 1.5rem;
 	margin: 2rem 0;
 }
@@ -30,10 +30,7 @@
 	padding: 1.5rem;
 	text-decoration: none;
 	display: block;
-	border-left: 4px solid var(--secondary-color);
-	transition:
-		transform 0.2s ease,
-		box-shadow 0.2s ease;
+	transition: 0.2s ease;
 }
 
 .card:hover {

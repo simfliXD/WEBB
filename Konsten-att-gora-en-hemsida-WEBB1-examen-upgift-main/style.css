@@ -225,7 +225,7 @@ header.hide {
 
 .navbar-dark-mode-label {
 	color: var(--header-text-color);
-	font-weight: 500;
+	font-weight: 600;
 	font-size: 0.95rem;
 }
 

@@ -7,13 +7,13 @@ const header = document.querySelector("header");
 
 // ===== MÖRKT LÄGE FUNKTIONALLITET =====
 if (darkModeToggle) {
-	const savedMode = localStorage.getItem("darkMode");
+	const savedMode = localStorage.getItem("Tema");
 	const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-	if (savedMode === "enabled") {
+	if (savedMode === "mörkt") {
 		document.body.classList.add("dark-mode");
 		darkModeToggle.checked = true;
-	} else if (savedMode === "disabled") {
+	} else if (savedMode === "ljust") {
 		// Gör inget, behåll ljust läge
 	} else {
 		// Inget sparat värde, använd systemets preferens
@@ -21,10 +21,10 @@ if (darkModeToggle) {
 			console.log("Föredraget mörkt läge, aktiverar mörkt läge.");
 			document.body.classList.add("dark-mode");
 			darkModeToggle.checked = true;
-			localStorage.setItem("darkMode", "enabled");
+			localStorage.setItem("Tema", "mörkt");
 		} else {
 			console.log("Föredraget ljust läge, behåller ljust läge.");
-			localStorage.setItem("darkMode", "disabled");
+			localStorage.setItem("Tema", "ljust");
 		}
 	}
 
@@ -40,11 +40,15 @@ if (darkModeToggle) {
 		if (this.checked) {
 			console.log("Mörkt läge aktiverat.");
 			document.body.classList.add("dark-mode");
-			localStorage.setItem("darkMode", "enabled");
+			localStorage.setItem("Tema", "mörkt");
+			savedMode = "mörkt";
+			console.log("Sparat i localStorage:", localStorage.getItem("Tema"));
 		} else {
 			console.log("Ljust läge aktiverat.");
 			document.body.classList.remove("dark-mode");
-			localStorage.setItem("darkMode", "disabled");
+			localStorage.setItem("Tema", "ljust");
+			savedMode = "ljust";
+			console.log("Sparat i localStorage:", localStorage.getItem("Tema"));
 		}
 	});
 }

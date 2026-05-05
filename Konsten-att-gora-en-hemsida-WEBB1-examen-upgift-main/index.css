@@ -1,0 +1,60 @@
+/* Stilar specifika för startsidan */
+.hero {
+	width: 75%;
+	margin: 2rem auto;
+	display: block;
+	border-radius: 12px;
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+	object-fit: cover;
+}
+
+.hero-caption {
+	text-align: center;
+	font-size: 0.9rem;
+	color: var(--muted-text-color);
+	margin-top: 0.5rem;
+	margin-bottom: 2rem;
+}
+
+.card-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: 1.5rem;
+	margin: 2rem 0;
+}
+
+.card {
+	background: var(--aside-background);
+	color: var(--header-text-color);
+	border-radius: 10px;
+	padding: 1.5rem;
+	text-decoration: none;
+	display: block;
+	border-left: 4px solid var(--secondary-color);
+	transition:
+		transform 0.2s ease,
+		box-shadow 0.2s ease;
+}
+
+.card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+.card h3 {
+	color: var(--hover-color);
+	margin-bottom: 0.5rem;
+	font-size: 1.2rem;
+}
+
+.card p {
+	font-size: 0.9rem;
+	margin: 0;
+	opacity: 0.85;
+}
+
+@media (max-width: 750px) {
+	.hero {
+		width: 100%;
+	}
+}

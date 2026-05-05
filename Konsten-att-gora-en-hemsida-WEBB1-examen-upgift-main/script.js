@@ -18,13 +18,13 @@ if (darkModeToggle) {
 	} else {
 		// Inget sparat värde, använd systemets preferens
 		if (prefersDark) {
-			console.log("Föredraget mörkt läge, aktiverar mörkt läge.");
+			// console.log("Föredraget mörkt läge, aktiverar mörkt läge.");
 			document.body.classList.add("dark-mode");
 			darkModeToggle.checked = true;
 			localStorage.setItem("Tema", "mörkt");
 		} else {
-			console.log("Föredraget ljust läge, behåller ljust läge.");
-			localStorage.setItem("Tema", "ljust");
+			// console.log("Föredraget ljust läge, behåller ljust läge.");
+			localStorage.setItem("darkMode", "disabled");
 		}
 	}
 
@@ -63,9 +63,10 @@ const mediaQuery = window.matchMedia("(width < 1150px)");
 
 function updateNavbar(e) {
 	const isSidebar = e.matches;
-	console.log(isSidebar);
+	// console.log(isSidebar);
 	if (isSidebar) {
 		navbarMenu.setAttribute("inert", " ");
+		// inert gömmer elementet från accesability trädet och skärmläsare utan att göra elementet osynligt vilket skulle ta bort animationen.
 	} else {
 		navbarMenu.removeAttribute("inert");
 	}

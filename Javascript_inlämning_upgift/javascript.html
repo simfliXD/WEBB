@@ -1,22 +1,21 @@
 <!doctype html>
 <html lang="sv">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exempel: javascript</title>
+    <style>
+      #visningRuta {
+        display: block;
+        width: 200px;
+        height: 30px;
+        border: 1px solid black;
+        margin-bottom: 10px;
+        padding: 5px;
+        font-size: 18px;
+      }
+    </style>
   </head>
-  <style>
-    /* Såhär kunde man tydligen göra css för id:s */
-    #visningRuta {
-      display: block;
-      width: 200px;
-      height: 30px;
-      border: 1px solid black;
-      margin-bottom: 10px;
-      padding: 5px;
-      font-size: 18px;
-    }
-  </style>
   <body>
     <h1 id="titel" style="b">Välkommen</h1>
 
@@ -37,31 +36,30 @@
     <p><button onclick="duebast()">R.L</button></p>
 
     <h2>Miniräknare exempel</h2>
-    '
 
     <output id="visningRuta"></output>
 
     <button onclick="skriv('7')">7</button>
     <button onclick="skriv('8')">8</button>
-    <button onclick="skriv('9')">9</button><br />
+    <button onclick="skriv('9')">9</button><br>
 
     <button onclick="skriv('4')">4</button>
     <button onclick="skriv('5')">5</button>
-    <button onclick="skriv('6')">6</button><br />
+    <button onclick="skriv('6')">6</button><br>
 
     <button onclick="skriv('1')">1</button>
     <button onclick="skriv('2')">2</button>
-    <button onclick="skriv('3')">3</button><br />
+    <button onclick="skriv('3')">3</button><br>
 
     <button onclick="skriv('0')">0</button>
-    <button onclick="skriv('.')">.</button><br /><br />
+    <button onclick="skriv('.')">.</button><br><br>
 
     <button onclick="skriv('+')">+</button>
     <button onclick="skriv('-')">-</button>
     <button onclick="skriv('*')">*</button>
     <button onclick="skriv('/')">/</button>
     <button onclick="skriv('^')">^</button>
-    <button onclick="rot()">√</button><br /><br />
+    <button onclick="rot()">√</button><br><br>
 
     <button onclick="beräkna()">=</button>
     <button onclick="rensa()">C</button>

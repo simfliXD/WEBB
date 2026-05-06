@@ -158,13 +158,28 @@
 				stängningstagg.
 			</p>
 
-			<p>Vanliga HTML-taggar inkluderar:</p>
+			<h4>Text styling:</h4>
+
+			<ul>
+				<li><code>&lt;b&gt;</code> – <b>Bold</b></li>
+				<li><code>&lt;i&gt;</code> – <i>Italic</i></li>
+				<li><code>&lt;u&gt;</code> – <u>Underline</u></li>
+				<li><code>&lt;s&gt;</code> – <s>Strikethrough</s></li>
+				<li><code>&lt;mark&gt;</code> – <mark>Mark</mark></li>
+				<li><code>&lt;small&gt;</code> – <small>Small</small></li>
+				<li><code>&lt;del&gt;</code> – <del>Deleted</del></li>
+				<li><code>&lt;ins&gt;</code> – <ins>Inserted</ins></li>
+				<li><code>&lt;sub&gt;</code> – H<sub>2</sub>O</li>
+				<li><code>&lt;sup&gt;</code> – E=mc<sup>2</sup></li>
+			</ul>
+
+			<h4>Vanliga HTML-taggar:</h4>
 			<ul>
 				<li>
-					<code>&lt;h1&gt; – &lt;h6&gt;</code> – rubriker i fallande storlek
+					<code>&lt;h1&gt; – &lt;h6&gt;</code> – rubriker i minskande storlek
 				</li>
-				<li><code>&lt;p&gt;</code> – paragrafer med löptext</li>
-				<li><code>&lt;a&gt;</code> – länkar till andra sidor eller ankare</li>
+				<li><code>&lt;p&gt;</code> – paragrafer</li>
+				<li><code>&lt;a&gt;</code> – ankare kan länkar till andra sidor eller platser på sidan</li>
 				<li><code>&lt;img&gt;</code> – bilder (självstängande)</li>
 				<li>
 					<code>&lt;div&gt;</code> och <code>&lt;section&gt;</code> –
@@ -173,10 +188,6 @@
 				<li>
 					<code>&lt;span&gt;</code> – inline-motsvarigheten till
 					<code>&lt;div&gt;</code>, används för att styla delar av en text
-				</li>
-				<li>
-					<code>&lt;strong&gt;</code> och <code>&lt;em&gt;</code> – fet
-					respektive kursiv text med semantisk betydelse
 				</li>
 				<li>
 					<code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code> och
@@ -223,28 +234,39 @@
   &lt;input type="email" id="epost" name="epost" required&gt;
 
   &lt;label for="meddelande"&gt;Meddelande:&lt;/label&gt;
-  &lt;textarea id="meddelande" name="meddelande" rows="4"&gt;&lt;/textarea&gt;
+  &lt;textarea id="meddelande" name="meddelande" rows="2"&gt;&lt;/textarea&gt;
 
   &lt;button type="submit"&gt;Skicka&lt;/button&gt;
 &lt;/form&gt;</code></pre>
+			<h4>Resultat:</h4>
+			<form action="/skicka" method="post" onsubmit="return false">
+				<label for="namn">Ditt namn:</label>
+				<input type="text" id="namn" name="namn" required placeholder="Förnamn Efternamn">
+
+				<label for="epost">E-post:</label>
+				<input type="email" id="epost" name="epost" required>
+
+				<label for="meddelande">Meddelande:</label>
+				<textarea id="meddelande" name="meddelande" rows="2"></textarea>
+
+				<button type="submit">Skicka</button>
+			</form>
 
 			<h3>Tabelltaggar</h3>
 			<p>
-				Tabeller används för att visa strukturerad data i rader och kolumner.
-				De ska <strong>inte</strong> användas för layout – använd CSS för det.
+				Tabeller används för att visa strukturerad data i rader och kolumner, typ som excel.
 			</p>
 			<ul>
-				<li><code>&lt;table&gt;</code> – omsluter hela tabellen</li>
+				<li><code>&lt;table&gt;</code> – hela tabellen</li>
 				<li>
 					<code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>,
-					<code>&lt;tfoot&gt;</code> – grupperar rubrik-, data- och fotrader
+					<code>&lt;tfoot&gt;</code> – grupper för rubrik-, innehåll- och fotrader
 				</li>
-				<li><code>&lt;tr&gt;</code> – en tabellrad</li>
+				<li><code>&lt;tr&gt;</code> – tabellrad</li>
 				<li>
-					<code>&lt;th&gt;</code> – en rubrikcell (fet och centrerad som
-					standard)
+					<code>&lt;th&gt;</code> – rubrikcell (fet och centrerad som standard)
 				</li>
-				<li><code>&lt;td&gt;</code> – en datacell</li>
+				<li><code>&lt;td&gt;</code> – datacell</li>
 			</ul>
 
 			<pre><code>&lt;table&gt;
@@ -261,6 +283,34 @@
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;</code></pre>
+			<h4>Med lite CSS</h4>
+			<pre><code>article table {
+width: 100%;
+border-collapse: collapse; /* Kollapsar kantlinjer samman */
+}
+
+article th,
+article td {
+text-align: left;
+padding: 2px 1rem;
+border: 1px solid black;
+}
+		</pre></code>
+			<h4>Blir Resultatet:</h4>
+			<table>
+				<thead>
+					<tr>
+						<th scope="col">Namn</th>
+						<th scope="col">Ålder</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Anna</td>
+						<td>28</td>
+					</tr>
+				</tbody>
+			</table>
 
 			<h2 id="title5">Attributer</h2>
 			<p>

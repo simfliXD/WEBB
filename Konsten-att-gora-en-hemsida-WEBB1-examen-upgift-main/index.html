@@ -113,8 +113,7 @@
 				</li>
 			</ul>
 			<p>
-				När du skriver in en webbadress i din webbläsare sker det mycket bakom
-				kulisserna. Enkelt förklarat:
+				När du skriver in en webbadress i din webbläsare så sker det fasktist en del bakom kulisserna:
 			</p>
 			<ol>
 				<li>
@@ -122,58 +121,55 @@
 					IP-adress domännamnet (t.ex. <code>google.com</code>) pekar på.
 				</li>
 				<li>
-					Webbläsaren skickar ett
-					<strong>HTTP-förfrågningsmeddelande</strong> till rätt server.
-				</li>
-				<li>Servern svarar med HTML-filen.</li>
-				<li>
-					Webbläsaren läser HTML-filen och hämtar sedan CSS-filer,
-					JavaScript-filer och bilder som den refererar till.
+					Webbläsaren och servern skapar en <strong>TCP</strong> anslutning över port 443 för HTTPS (säker
+					kommunikation).
 				</li>
 				<li>
-					Webbläsaren <strong>renderar</strong> sidan – tolkar all kod och
-					ritar upp det du ser på skärmen.
+					Webbläsaren frågar servern om filerna till webbsidan, vilket sedan skickas till webbläsaren.
+
+				</li>
+				<li>
+					Webbläsaren läser och tolkar te.x HTML, CSS och JavaScript koden.
+				</li>
+				<li>
+					Sedan <strong>renderas</strong> sidan och du kan se den på skärmen.
 				</li>
 			</ol>
 			<p>
-				Det här sker på bråkdelen av en sekund varje gång du laddar en sida.
-				Optimerad kod, komprimerade bilder och effektiv nätverkskommunikation
-				är avgörande för att det ska gå snabbt.
+				Det här sker offtast på bara millisekunder varje gång du laddar en sida.
 			</p>
 
 			<h2 id="title4">Utforska guiden</h2>
-			<p>Välj ett ämne nedan för att börja lära dig:</p>
+			<p>Välj ett ämne nedan för att börja:</p>
 
 			<nav aria-label="Ämnesnavigation" class="card-grid">
 				<a href="historia.html" class="card">
 					<h3>Historia</h3>
 					<p>
-						Hur kom webben till? Från Tim Berners-Lee till HTML5 och dagens
-						webb.
+						Hur kom webben till? Vem skapade den? Och hur har den utvecklats över tid?
 					</p>
 				</a>
 				<a href="lagar.html" class="card">
 					<h3>Lagar</h3>
 					<p>
-						GDPR, upphovsrätt, kaklagen – vad måste du känna till som
+						GDPR, upphovsrätt, kaklagen. Vad måste du känna till som
 						webbutvecklare?
 					</p>
 				</a>
 				<a href="html.html" class="card">
 					<h3>HTML</h3>
 					<p>
-						Grunderna i HTML – taggar, attribut, semantik och tillgänglighet.
+						Grunderna i HTML. Taggar, attributer, semantik och tillgänglighet.
 					</p>
 				</a>
 				<a href="css.html" class="card">
 					<h3>CSS</h3>
-					<p>Ge din sida stil – färger, layout, responsiv design och mer.</p>
+					<p>Ge hemsidor stil. Färger, layout och responsiv design m.m.</p>
 				</a>
 				<a href="javascript.html" class="card">
 					<h3>JavaScript</h3>
 					<p>
-						Gör sidan interaktiv – variabler, funktioner, DOM och
-						händelselyssnare.
+						Hur gör man en hemsida interaktiv? Variabler, funktioner och DOM m.m.
 					</p>
 				</a>
 			</nav>

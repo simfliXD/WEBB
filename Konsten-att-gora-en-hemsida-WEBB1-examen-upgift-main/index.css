@@ -1,4 +1,4 @@
-/* Stilar specifika för startsidan */
+/* Stil specifika för startsidan */
 .hero {
 	width: 75%;
 	margin: 2rem auto;
@@ -23,7 +23,7 @@
 }
 
 .card {
-	background: var(--aside-background);
+	background: var(--aside-background-color);
 	color: var(--header-text-color);
 	border-radius: 10px;
 	padding: 1.5rem;
@@ -38,7 +38,7 @@
 }
 
 .card h3 {
-	color: var(--heading-text-color);
+	color: var(--aside-text-color);
 	margin-bottom: 0.5rem;
 	font-size: 1.2rem;
 }

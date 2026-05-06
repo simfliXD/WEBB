@@ -1,36 +1,40 @@
 /* ===== CSS VARIABLAR ===== */
 
 :root {
-	/*Färger - Clean grey-based palette with orange accents*/
+	/*Färger*/
 	--primary-color: #444b5c;
 	--secondary-color: #ff5a09;
 	--shadow-color: #1d1e22;
 	--background-color: #d4d4dc;
+
 	--primary-border-color: #be4f0c;
 	--secondary-border-color: #393939;
+
 	--header-text-color: #cbcbcf;
 	--heading-text-color: #393f4d;
 	--text-color: #1d1e22;
 	--hyper-text-color: #ff5a09;
 	--muted-text-color: #415f61;
-	--hover-color: #feda6a;
-	--toggle-button-color: #d4d4dc;
-	--overlay-color: rgba(0, 0, 0, 0.5);
-	--dropdown-menu-background: #393f4d45;
-	--aside-background: #393f4d;
-	--aside-card-background: #c7b44a;
 
-	/* Färg för kodexempel*/
+	--hover-color: #feda6a;
+	--toggle-button-color: #accad1;
+	--overlay-color: rgba(0, 0, 0, 0.5);
+
+	--dropdown-menu-background: #393f4d45;
+	--aside-text-color: #3d0952;
+	--aside-background-color: #393f4d;
+	--aside-card-background-color: #c7b44a;
+
 	--code-snippet-background-color: #393939;
 	--code-snippet-text-color: #d4d4dc;
 	--code-snippet-border: 2px solid #393939;
 
-	/*Transitions längd i sekunder*/
+	/* Övergångs längd i sekunder*/
 	--transition-quick: 0.15s;
 	--transition-standard: 0.3s;
 	--transition-slow: 0.4s;
 
-	/* höjd inkluderar padding + border */
+	/* Höjd storlekar*/
 	--header-height: clamp(60px, 10vw, 80px);
 	--footer-height: 100px;
 
@@ -41,26 +45,30 @@
 /* ===== VARIABLAR FÖR MÖRKT LÄGE ===== */
 
 body.dark-mode {
-	/* Färger i mörkt thema */
 	--primary-color: #393f4d;
-	--secondary-color: #ff5a09;
+	--secondary-color: #4b9469;
 	--shadow-color: #1d1e22;
 	--background-color: #1d1e22;
+
 	--primary-border-color: #feda6a;
 	--secondary-border-color: #393939;
+
 	--header-text-color: #cacad2;
 	--heading-text-color: #feda6a;
 	--text-color: #d4d4dc;
 	--hyper-text-color: #ff5a09;
 	--muted-text-color: #3d5a6d;
-	--hover-color: #be4f0c;
+
+	--hover-color: #feda6a;
 	--toggle-button-color: #393939;
+
 	--overlay-color: rgba(0, 0, 0, 0.5);
 	--dropdown-menu-background: #393f4d25;
-	--aside-background: #393f4d;
-	--aside-card-background: #b89f5e; /* Adjusted for better contrast in dark mode */
 
-	/* Kod exempel i mörkt tema - adjusted */
+	--aside-text-color: #160230;
+	--aside-background-color: #393f4d;
+	--aside-card-background-color: #b89f5e;
+
 	--code-snippet-background-color: #393939;
 	--code-snippet-text-color: #d4d4dc;
 	--code-snippet-border: 2px solid #ec7f37;
@@ -80,19 +88,23 @@ body {
 	min-height: 100dvh;
 }
 
-/* ===== SKIP-TO-CONTENT LINK ===== */
+/* ===== Tillgänglighet ===== */
 
 .skip-link {
 	position: absolute;
 	top: -40px;
 	left: 0;
+
+	padding: 8px 16px;
 	background-color: var(--secondary-color);
 	color: white;
-	padding: 8px 16px;
+
 	text-decoration: none;
-	z-index: 101;
-	border-radius: 0 0 4px 0;
 	font-weight: bold;
+	border-radius: 0 0 4px 0;
+
+	/* Över allt annat*/
+	z-index: 101;
 }
 
 .skip-link:focus {
@@ -100,38 +112,55 @@ body {
 	outline: 3px solid var(--primary-color);
 }
 
+/* ===== Fous indikator för navigation med tangentbord ===== */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+	outline: 3px solid var(--secondary-color);
+	outline-offset: 2px;
+}
+
+.switch input:focus-visible + .slider {
+	outline: 3px solid var(--secondary-color);
+	outline-offset: 2px;
+	border-radius: 50%;
+}
+
 /* ===== HEADER ===== */
 
 /* Make this with rectangles with borders to the right and botom for some kind of 3D effect. sluta tänka på ängelska nu för fan. */
 header {
 	display: flex;
-	position: fixed; /* Gör att headern stannar i toppen av sidan */
-	width: 100%;
+	position: fixed;
 	top: 0;
+	width: 100%;
 	z-index: 100;
+
+	height: var(--header-height);
+	padding: 1.2rem 1rem;
+
 	background: var(--primary-color);
 	color: var(--header-text-color);
-	height: var(--header-height);
-	padding: 1.2rem 1em;
 	border-bottom: 1px solid var(--primary-border-color);
+
 	transition: transform var(--transition-standard) ease;
 }
 
-/* Den här crassen sätts på headern när man scrollar nedåt och då flyttas headern uppåt ur synhåll */
+/* Andvänds för att gömma/visa headern vid scrollning */
 header.hide {
 	transform: translateY(-100%);
 }
 
+/* ===== LOGA OCH NAVIGATION ===== */
+
 .header-logo {
 	display: flex;
 	align-items: center;
-	height: fit-content;
-	gap: 0.8em;
-	padding-right: 1.5rem;
-	border-right-style: solid;
-	border-right-width: clamp(2px, 12px - 0.8vw, 8px);
-	border-right-color: var(--primary-border-color);
+
 	margin-right: 1rem;
+
+	border-right: solid clamp(2px, 12px - 0.8vw, 8px) var(--primary-border-color);
 }
 
 /* Gör SVG loggan responsiv med färg temat */
@@ -143,16 +172,19 @@ header.hide {
 .header-navbar {
 	display: flex;
 	align-items: center;
+
 	margin-left: auto;
 	margin-right: 2rem;
 }
 
+/* Hambörgar menyn stannar gömd på större skärmar */
 .navbar-menu-toggle {
 	display: none;
+
+	padding: 0.5rem;
 	background: none;
 	border: none;
 	cursor: pointer;
-	padding: 0.5rem;
 }
 
 .navbar-menu-toggle .bar {
@@ -160,82 +192,48 @@ header.hide {
 	width: 25px;
 	height: 3px;
 	margin: 5px auto;
+
 	background-color: var(--header-text-color);
-	border-radius: 3px;
+	border-radius: 5px;
+
 	transition: all var(--transition-quick) ease-in-out;
 }
 
 .navbar-menu {
 	display: flex;
 	align-items: center;
+	gap: 1.25rem;
+
 	list-style: none;
 	text-decoration: none;
-	gap: 1.25rem;
 }
 
 .navbar-menu li a {
+	display: block;
 	width: max-content;
-	text-decoration: none;
+
+	padding: 0.75rem 1rem;
+
 	font-size: 1.1rem;
 	font-weight: 550;
-	background-color: color-mix(
-		in srgb,
-		var(--aside-background) 25%,
-		transparent
-	);
+	text-decoration: none;
+
 	color: var(--header-text-color);
-	padding: 0.75rem 1rem;
+
+	border: var(--secondary-border-color) solid 2px;
 	border-radius: 4px;
+
 	transition: var(--transition-quick) ease-in;
 }
 
 .navbar-menu li a:hover {
-	background-color: var(--hover-color);
 	font-weight: 700;
+
+	color: var(--secondary-color);
+	background-color: var(--hover-color);
 	box-shadow:
 		0 2px 5px var(--shadow-color),
 		0 4px 10px var(--shadow-color);
-}
-
-.active-link {
-	text-decoration: none;
-	list-style: none;
-	font-weight: 800;
-	border-bottom: 2px solid var(--primary-border-color);
-}
-
-#overlay {
-	position: fixed;
-	inset: 0;
-	background-color: var(--overlay-color);
-	backdrop-filter: blur(2px);
-	z-index: 8;
-	opacity: 0;
-	visibility: hidden;
-	transition: opacity var(--transition-standard) ease;
-}
-
-/* Dark mode toggle in navbar */
-.dark-mode-toggle-item {
-	display: flex;
-	align-items: center;
-	gap: 0.8rem;
-	margin-left: auto;
-}
-
-.navbar-dark-mode-label {
-	color: var(--header-text-color);
-	font-weight: 600;
-	font-size: 0.95rem;
-}
-
-/* ===== Fous indikator för navigation med tangentbord ===== */
-
-a:focus-visible,
-button:focus-visible,
-input:focus-visible {
-	outline: 3px solid var(--secondary-color);
-	outline-offset: 2px;
 }
 
 .navbar-menu li a:focus-visible {
@@ -253,17 +251,56 @@ input:focus-visible {
 	outline: none;
 }
 
+.active-link {
+	font-weight: 800;
+	border-bottom: 2px solid var(--primary-border-color);
+}
+
+/* Overlay som visas över main när menyn är öppen */
+#overlay {
+	position: fixed;
+	inset: 0;
+
+	background-color: var(--overlay-color);
+	backdrop-filter: blur(2px);
+
+	z-index: 8;
+
+	opacity: 0;
+	visibility: hidden;
+
+	transition: opacity var(--transition-standard) ease;
+}
+
 /* ===== Mörkt/Ljust läge switch ===== */
 
+.dark-mode-toggle-item {
+	display: flex;
+	align-items: center;
+	gap: 0.8rem;
+
+	margin-left: auto;
+}
+
+.navbar-dark-mode-label {
+	font-size: 0.95rem;
+	font-weight: 600;
+
+	color: var(--header-text-color);
+}
 .switch {
+	position: relative;
+
 	width: 60px;
 	height: 30px;
-	position: relative;
+
 	background: var(--toggle-button-color);
 	border-radius: 30px;
-	transition: var(--transition-standard);
+
 	cursor: pointer;
 	flex-shrink: 0;
+
+	transition: var(--transition-standard);
 }
 
 .switch input {
@@ -274,13 +311,16 @@ input:focus-visible {
 
 .slider {
 	position: absolute;
-	height: 22px;
-	width: 22px;
 	left: 4px;
 	bottom: 4px;
-	background: linear-gradient(180deg, #ffcc89, #d8860b);
-	transition: var(--transition-standard);
+
+	width: 22px;
+	height: 22px;
+
 	border-radius: 50%;
+	background: linear-gradient(180deg, #ffcc89, #d8860b);
+
+	transition: var(--transition-standard);
 }
 
 input:checked + .slider {
@@ -288,37 +328,35 @@ input:checked + .slider {
 	background: linear-gradient(180deg, #777, #3a3a3a3a);
 }
 
-.switch input:focus-visible + .slider {
-	outline: 3px solid var(--secondary-color);
-	outline-offset: 2px;
-	border-radius: 50%;
-}
-
 /* =====  Layout ===== */
 
 main {
 	display: grid;
 	grid-template-columns: auto 1fr;
+
 	width: 100%;
-	margin: calc(5vw + 2.5rem) 0 2.5rem;
 	padding: 0 1.5rem;
+	margin: calc(5vw + 2.5rem) 0 2.5rem;
+
 	min-height: calc(100vh - var(--header-height) - var(--footer-height));
 }
 
 /* ===== SIDOMENY ===== */
 
 aside {
-	position: sticky; /* Gör så att elementet "fastnar" på skärmen till den når gränsen av sin förälders avgränsningruta, i detta fall "main" */
-	top: calc(
-		var(--header-height) + 1em
-	); /* Gör så att elementet stannar 1em under headern*/
+	position: sticky;
+	top: calc(var(--header-height) + 1rem);
 	z-index: 10;
-	height: auto;
+
+	height: fit-content;
 	max-height: calc(100vh - var(--header-height) - 2rem);
+
 	width: clamp(160px, 15vw, 280px);
-	background: var(--aside-background);
+
 	padding: 1.5rem 1em;
+	background: var(--aside-background-color);
 	border-radius: 10px;
+
 	overflow-y: auto;
 	scroll-behavior: smooth;
 }
@@ -326,25 +364,25 @@ aside {
 aside ul {
 	display: flex;
 	flex-direction: column;
+	gap: 0.5rem;
+
 	list-style: none;
 	text-decoration: none;
-	gap: 0.5rem;
 }
 
 aside li a {
 	display: block;
-	text-decoration: none;
 	padding: 1em 0.5em;
-	border-radius: 6px;
-	background-color: var(--aside-card-background);
-	color: var(--header-text-color);
-	font-weight: 600;
-	counter-increment: headings; /* Incrementerar räknaren "headings" varje gång ny länk skapas */
-}
 
-aside li a:hover {
-	background-color: var(--hover-color);
-	color: var(--secondary-color);
+	font-weight: 600;
+	text-decoration: none;
+
+	color: var(--aside-text-color);
+	background-color: var(--aside-card-background-color);
+	border-radius: 6px;
+
+	/* Incrementerar räknaren "headings" varje gång ny länk skapas */
+	counter-increment: headings;
 }
 
 /* Lägger till nummering för varje länk i sidomenyn */
@@ -354,25 +392,35 @@ aside li a:before {
 	color: var(--muted-text-color);
 }
 
+aside li a:hover {
+	background-color: var(--hover-color);
+	color: var(--secondary-color);
+}
+
 /* ===== ARTIKELINNEHÅLL ===== */
 
 article {
-	max-width: 1100px;
 	width: min(1100px, calc(100% - 1.5rem));
+	max-width: 1100px;
 	margin: 0 auto;
-	background: var(--background-color);
+
 	padding: clamp(1rem, 2.5vw, 2.5rem);
+
+	background: var(--background-color);
 	border: 2px solid var(--secondary-border-color);
+
 	min-height: calc(100vh - var(--header-height) - var(--footer-height) - 6rem);
 }
 
 article h1 {
 	font-size: clamp(1.25rem, calc(4vw + 1rem), 3rem);
 	text-align: center;
-	color: var(--heading-text-color);
+
 	margin-bottom: 1rem;
-	border-bottom: 3px solid var(--primary-border-color);
 	padding-bottom: 0.5rem;
+
+	color: var(--heading-text-color);
+	border-bottom: 3px solid var(--primary-border-color);
 }
 
 article h2 {
@@ -406,17 +454,20 @@ article a {
 
 /* Code blocks */
 article pre {
-	font-family: "JetBrains Mono", ui-monospace, monospace;
+	margin: 1rem 0;
+	padding: 1rem;
+
 	font-size: 0.9rem;
 	line-height: 1.4;
+	font-family: "JetBrains Mono", ui-monospace, monospace;
+
 	white-space: pre-wrap;
+	overflow-x: auto;
+
 	background-color: var(--code-snippet-background-color);
 	color: var(--code-snippet-text-color);
-	padding: 1rem;
 	border: var(--code-snippet-border);
 	border-radius: 5px;
-	overflow-x: auto;
-	margin: 1rem 0;
 }
 
 article pre code {
@@ -428,11 +479,13 @@ article pre code {
 
 footer {
 	height: var(--footer-height);
+	padding: 1.5rem;
+
+	text-align: center;
+
 	background: var(--primary-color);
 	color: var(--header-text-color);
-	padding: 1.5rem;
-	margin: none;
-	text-align: center;
+
 	border-top: 5px solid var(--primary-border-color);
 }
 
@@ -440,15 +493,18 @@ footer {
 
 @media screen and (max-width: 1150px) {
 	.navbar-menu {
-		flex-direction: column;
-		align-items: flex-start;
-		gap: 1.7rem;
 		position: fixed;
 		top: 0;
 		right: 0;
 		z-index: 9;
+
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 1.7rem;
+
 		min-height: 150vh;
 		width: clamp(180px, 25vw, 250px);
+
 		padding: 5rem 1.5rem;
 		border-left: 1px solid var(--primary-border-color);
 		background-color: var(--dropdown-menu-background);
@@ -463,30 +519,26 @@ footer {
 		opacity: 1;
 		visibility: visible;
 	}
-
+	/* Andvänds för att visa/göma menyn*/
 	.navbar-menu.show {
 		/* Flyttar tillbaka elementet till sin start positon */
 		transform: translateX(0);
 	}
 
-	.navbar-menu ul {
-		width: 100%;
-		flex-direction: column;
-	}
-
-	.navbar-menu a {
-		width: 100%;
+	.navbar-menu li a {
 		font-size: 1.2rem;
-		background-color: var(--secondary-color);
+		width: 100%;
+		background-color: var(--primary-color);
 	}
 
 	.dark-mode-toggle-item {
-		margin-left: 0;
-		padding: 0.75rem 0;
-		border-top: 1px solid rgba(255, 255, 255, 0.2);
-		width: 100%;
-		padding-top: 1rem;
 		justify-content: space-between;
+
+		width: 100%;
+		padding: 0.75rem 0;
+		padding-top: 1rem;
+		border-top: 1px solid rgba(255, 255, 255, 0.2);
+		margin-left: 0;
 	}
 
 	.navbar-dark-mode-label {
@@ -530,16 +582,17 @@ footer {
 	}
 
 	aside {
-		display: block;
 		position: static;
+		display: block;
+
 		height: fit-content;
 		width: 100%;
+
 		margin: 0.5rem 0;
 	}
 
 	article {
-		justify-self: center;
-		max-width: none;
+		width: 100%;
 		margin: 0.5em auto;
 	}
 }
@@ -548,24 +601,25 @@ footer {
 	header {
 		flex-direction: column;
 		align-items: center;
+
 		height: auto;
 		padding: 0;
 		margin: 0;
 	}
 
-	.header-logo {
-		justify-content: flex-start;
-	}
-
 	.header-logo svg {
-		width: 100vw;
 		height: auto;
-		display: block;
+		width: 95vw;
 	}
 
 	main {
 		margin: 0;
 		padding: 0;
+	}
+
+	aside {
+		margin-top: calc(var(--header-height) * 1.4);
+		border-radius: 0;
 	}
 
 	article {
@@ -578,11 +632,17 @@ footer {
 }
 
 @media screen and (max-width: 350px) {
+	.navbar-menu-toggle {
+		padding: 2px;
+	}
+
 	.navbar-menu {
 		position: fixed;
-		inset: var(--header-height) 0 0 0; /* top = header height, rest 0 */
-		width: 100vw;
 		align-items: center;
+		inset: var(--header-height) 0 0 0; /* top = header height, rest 0 */
+
+		width: 100vw;
+
 		gap: clamp(0.5rem, 5vw, 2rem);
 		padding: 1rem 0.5rem;
 		border-left: none;
@@ -590,8 +650,9 @@ footer {
 
 	.navbar-menu li a {
 		display: block;
+
 		width: min(92vw, 320px);
-		font-size: clamp(0.9rem, 3.8vw, 1.05rem);
+
 		padding: clamp(0.5rem, 8vw, 1.5rem) clamp(0.6rem, 3vw, 1rem);
 		border-radius: 6px;
 	}

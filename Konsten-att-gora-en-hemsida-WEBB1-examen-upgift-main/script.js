@@ -24,7 +24,7 @@ if (savedMode === "mörkt") {
 		localStorage.setItem("Tema", "mörkt");
 	} else {
 		// console.log("Föredraget ljust läge, behåller ljust läge.");
-		localStorage.setItem("darkMode", "disabled");
+		localStorage.setItem("Tema", "ljust");
 	}
 }
 

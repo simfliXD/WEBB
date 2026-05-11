@@ -159,7 +159,7 @@ header.hide {
 	display: flex;
 	align-items: center;
 
-	margin-right: 1rem;
+	padding-right: 1rem;
 
 	border-right: solid clamp(2px, 12px - 0.8vw, 8px) var(--primary-border-color);
 }

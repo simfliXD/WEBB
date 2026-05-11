@@ -52,8 +52,8 @@
 }
 
 #custom-style-apply {
-	background: var(--secondary-color);
-	color: var(--header-text-color);
+	background: #1a9b1a;
+	color: var(--text-color);
 }
 
 #custom-style-apply:hover,
@@ -63,5 +63,5 @@
 
 #custom-style-reset {
 	background: var(--aside-background-color);
-	color: var(--header-text-color);
+	color: var(--heading-text-color);
 }

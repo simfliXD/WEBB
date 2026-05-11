@@ -6,8 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Guide för att skapa en hemsida med HTML, CSS och JavaScript.">
 	<title>Konsten att skapa en hemsida | CSS</title>
-	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="css.css">
+	<link rel="stylesheet" href="style.css?v=2">
+	<link rel="stylesheet" href="css.css?v=2">
 	<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
 
 	<link rel="prefetch" href="historia.html">
@@ -72,12 +72,18 @@
 			<ul>
 				<li><a href="#title1">CSS</a></li>
 				<li><a href="#title2">Vad är CSS?</a></li>
-				<li><a href="#title3">Syntax</a></li>
-				<li><a href="#title4">Selektorer</a></li>
-				<li><a href="#title5">Viktiga egenskaper</a></li>
-				<li><a href="#title6">HTML vs CSS</a></li>
-				<li><a href="#title7">CSS-variabler</a></li>
-				<li><a href="#title8">Responsiv design</a></li>
+				<li><a href="#title3">Tre sätt att skriva CSS</a></li>
+				<li><a href="#title4">Varför separera HTML och CSS?</a></li>
+				<li><a href="#title5">CSS-syntax</a></li>
+				<li><a href="#title6">Selektorer</a></li>
+				<li><a href="#title7">Box-modellen</a></li>
+				<li><a href="#title8">Färger och bakgrunder</a></li>
+				<li><a href="#title9">Text och typografi</a></li>
+				<li><a href="#title10">Layout med Flexbox</a></li>
+				<li><a href="#title11">Layout med Grid</a></li>
+				<li><a href="#title12">Responsiv design och media queries</a></li>
+				<li><a href="#title13">CSS-variabler</a></li>
+				<li><a href="#title14">Anpassad styling – ändra sidans färger</a></li>
 			</ul>
 		</aside>
 		<article id="main-content">
@@ -97,8 +103,95 @@
 				skriva över tidigare regler på samma element.
 			</p>
 
-			<h2 id="title3">Syntax</h2>
-			<h4>Hur CSS är uppbyggt</h4>
+			<h2 id="title3">Tre sätt att skriva CSS</h2>
+			<p>Det finns tre sätt att koppla CSS till ett HTML-dokument:</p>
+
+			<ol>
+				<li>
+					<strong>Extern fil (rekommenderat)</strong> – CSS skrivs i en
+					separat <code>.css</code>-fil som länkas in i HTML-filen:
+					<pre><code>&lt;link rel="stylesheet" href="style.css"&gt;</code></pre>
+				</li>
+
+				<li>
+					<strong>Intern stil</strong> – CSS skrivs direkt i
+					<code>&lt;head&gt;</code> med <code>&lt;style&gt;</code>-taggen:
+					<pre><code>&lt;style&gt;
+  body {
+    background-color: lightblue;
+  }
+&lt;/style&gt;</code></pre>
+				</li>
+
+				<li>
+					<strong> Inline-stil</strong> – CSS skrivs direkt i HTML-elementets
+					<code>style</code>-attribut:
+					<pre><code>&lt;p style="color: red; font-size: 48px;"&gt;Stor röd text&lt;/p&gt;</code></pre>
+				</li>
+			</ol>
+
+			<h2 id="title4">Varför separera HTML och CSS?</h2>
+			<p>
+				Det finns starka skäl till att hålla HTML och CSS i separata filer:
+			</p>
+			<ul>
+				<li>
+					<strong>Separation av ansvar</strong> – HTML beskriver
+					<em>vad</em> innehållet är, CSS beskriver <em>hur</em> det ser ut.
+					Det gör koden lättare att förstå och underhålla.
+				</li>
+				<li>
+					<strong>Återanvändning</strong> – en enda CSS-fil kan styra
+					utseendet på hundratals HTML-sidor. Vill du ändra en färg gör du det
+					på ett ställe.
+				</li>
+				<li>
+					<strong>Snabbare laddning</strong> – webbläsaren cachar CSS-filen,
+					så den behöver bara laddas ned en gång per besökare.
+				</li>
+				<li>
+					<strong>Teamwork</strong> – designers kan jobba med CSS medan
+					utvecklare jobbar med HTML, utan att skriva över varandras arbete.
+				</li>
+				<li>
+					<strong>Enklare testning</strong> – du kan byta ut hela utseendet
+					utan att ändra ett enda HTML-element.
+				</li>
+			</ul>
+
+			<p>
+				Jämför de två varianterna nedan. De ger exakt samma resultat men den
+				externa CSS-varianten är betydligt renare:
+			</p>
+
+			<p><strong>Dåligt (inline CSS):</strong></p>
+			<pre><code>&lt;h1 style="color: orange; font-size: 2rem; text-align: center; margin-bottom: 1rem;"&gt;
+  Välkommen
+&lt;/h1&gt;
+&lt;p style="color: #333; font-size: 1rem; line-height: 1.6;"&gt;
+  Lite text här.
+&lt;/p&gt;</code></pre>
+
+			<p><strong>Bra (extern CSS-fil):</strong></p>
+			<pre><code>/* style.css */
+h1 {
+  color: orange;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+p {
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+</code></pre>
+			<pre><code>&lt;!-- index.html --&gt;
+&lt;h1&gt;Välkommen&lt;/h1&gt;
+&lt;p&gt;Lite text här.&lt;/p&gt;</code></pre>
+
+			<h2 id="title5">CSS-syntax</h2>
+			<h3>Hur CSS är uppbyggt</h3>
 			<p>
 				En CSS-regel består av en <strong>selektor</strong> och ett
 				<strong>deklarationsblock</strong>. Deklarationsblocket innehåller en
@@ -110,36 +203,7 @@
   egenskap: värde;
 }</code></pre>
 
-			<h3>Tre sätt att skriva CSS</h3>
-			<p>Det finns tre sätt att koppla CSS till ett HTML-dokument:</p>
-
-			<ol>
-				<li>
-					<strong>Extern fil (rekommenderat)</strong> – CSS skrivs i en
-					separat <code>.css</code>-fil som länkas in i HTML-filen:
-				</li>
-				<p>
-				<pre><code>&lt;link rel="stylesheet" href="style.css"&gt;</code></pre>
-				</p>
-
-
-				<li <strong> Intern stil</strong> – CSS skrivs direkt i
-					<code>&lt;head&gt;</code> med <code>&lt;style&gt;</code>-taggen:
-				</li>
-				<pre><code>&lt;style&gt;
-  body {
-    background-color: lightblue;
-  }
-&lt;/style&gt;</code></pre>
-
-				<li>
-					<strong> Inline-stil</strong> – CSS skrivs direkt i HTML-elementets
-					<code>style</code>-attribut:
-				</li>
-				<pre><code>&lt;p style="color: red; font-size: 48px;"&gt;Stor röd text&lt;/p&gt;</code></pre>
-			</ol>
-
-			<h2 id="title4">Selektorer</h2>
+			<h2 id="title6">Selektorer</h2>
 			<p>
 				Selektorer bestämmer <strong>vilka HTML-element</strong> som
 				CSS-reglerna ska påverka.
@@ -194,9 +258,19 @@ button:focus {
 				</li>
 			</ul>
 
-			<h2 id="title5">Viktiga CSS-egenskaper</h2>
+			<h2 id="title7">Box-modellen</h2>
+			<p>
+				Alla HTML-element är en "låda" bestående av innehåll,
+				<code>padding</code>, <code>border</code> och <code>margin</code>:
+			</p>
+			<pre><code>div {
+  width: 300px;
+  padding: 20px;          /* Inre avstånd */
+  border: 2px solid black; /* Ram */
+  margin: 10px auto;      /* Yttre avstånd, auto centrerar horisontellt */
+}</code></pre>
 
-			<h3>Färger och bakgrunder</h3>
+			<h2 id="title8">Färger och bakgrunder</h2>
 			<ul>
 				<li>
 					<code>color</code> – textfärg. Kan anges som namn, hex, rgb eller
@@ -236,19 +310,7 @@ button:focus {
 				<code>#F00</code> är samma som <code>#FF0000</code>.
 			</p>
 
-			<h3>Box-modellen</h3>
-			<p>
-				Alla HTML-element är en "låda" bestående av innehåll,
-				<code>padding</code>, <code>border</code> och <code>margin</code>:
-			</p>
-			<pre><code>div {
-  width: 300px;
-  padding: 20px;          /* Inre avstånd */
-  border: 2px solid black; /* Ram */
-  margin: 10px auto;      /* Yttre avstånd, auto centrerar horisontellt */
-}</code></pre>
-
-			<h3>Text och typografi</h3>
+			<h2 id="title9">Text och typografi</h2>
 			<ul>
 				<li><code>font-family</code> – typsnittsfamilj</li>
 				<li><code>font-size</code> – teckenstorlek</li>
@@ -264,7 +326,7 @@ button:focus {
   color: #1d1e22;
 }</code></pre>
 
-			<h3>Layout med Flexbox</h3>
+			<h2 id="title10">Layout med Flexbox</h2>
 			<p>
 				Flexbox gör det enkelt att placera element bredvid varandra eller
 				centrera dem:
@@ -277,7 +339,7 @@ button:focus {
   flex-wrap: wrap;          /* Tillåt radbrytning */
 }</code></pre>
 
-			<h3>Layout med Grid</h3>
+			<h2 id="title11">Layout med Grid</h2>
 			<p>CSS Grid används för att skapa mer komplexa rutnätslayouter:</p>
 			<pre><code>.grid {
   display: grid;
@@ -285,99 +347,7 @@ button:focus {
   gap: 20px;
 }</code></pre>
 
-			<h2 id="title6">Varför separera HTML och CSS?</h2>
-			<p>
-				Det finns starka skäl till att hålla HTML och CSS i separata filer:
-			</p>
-			<ul>
-				<li>
-					<strong>Separation av ansvar</strong> – HTML beskriver
-					<em>vad</em> innehållet är, CSS beskriver <em>hur</em> det ser ut.
-					Det gör koden lättare att förstå och underhålla.
-				</li>
-				<li>
-					<strong>Återanvändning</strong> – en enda CSS-fil kan styra
-					utseendet på hundratals HTML-sidor. Vill du ändra en färg gör du det
-					på ett ställe.
-				</li>
-				<li>
-					<strong>Snabbare laddning</strong> – webbläsaren cachar CSS-filen,
-					så den behöver bara laddas ned en gång per besökare.
-				</li>
-				<li>
-					<strong>Teamwork</strong> – designers kan jobba med CSS medan
-					utvecklare jobbar med HTML, utan att skriva över varandras arbete.
-				</li>
-				<li>
-					<strong>Enklare testning</strong> – du kan byta ut hela utseendet
-					utan att ändra ett enda HTML-element.
-				</li>
-			</ul>
-
-			<p>
-				Jämför de två varianterna nedan. De ger exakt samma resultat men den
-				externa CSS-varianten är betydligt renare:
-			</p>
-
-			<p><strong>Dåligt (inline CSS):</strong></p>
-			<pre><code>&lt;h1 style="color: orange; font-size: 2rem; text-align: center; margin-bottom: 1rem;"&gt;
-  Välkommen
-&lt;/h1&gt;
-&lt;p style="color: #333; font-size: 1rem; line-height: 1.6;"&gt;
-  Lite text här.
-&lt;/p&gt;</code></pre>
-
-			<p><strong>Bra (extern CSS-fil):</strong></p>
-			<pre><code>/* style.css */
-h1 {
-  color: orange;
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-p {
-  color: #333;
-  font-size: 1rem;
-  line-height: 1.6;
-}</code></pre>
-			<pre><code>&lt;!-- index.html --&gt;
-&lt;h1&gt;Välkommen&lt;/h1&gt;
-&lt;p&gt;Lite text här.&lt;/p&gt;</code></pre>
-
-			<h2 id="title7">CSS-variabler</h2>
-			<p>
-				CSS-variabler (officiellt kallade "custom properties") låter dig spara
-				värden som du kan återanvända i hela stilmallen. De definieras med
-				<code>--</code> och används med <code>var()</code>:
-			</p>
-			<pre><code>/* Definiera i :root för att göra dem globala */
-:root {
-  --primary-color: #ff5a09;
-  --text-color: #1d1e22;
-  --font-size-base: 1rem;
-  --border-radius: 8px;
-}
-
-/* Använd dem sedan var som helst */
-button {
-  background-color: var(--primary-color);
-  color: white;
-  border-radius: var(--border-radius);
-  font-size: var(--font-size-base);
-}
-
-h1 {
-  color: var(--primary-color);
-}</code></pre>
-			<p>
-				Det stora fördelen är att du kan ändra färgen på hela sajten genom att
-				byta ett enda värde i <code>:root</code>. Det är också hur mörkt läge
-				implementeras på den här sidan – JavaScript lägger till klassen
-				<code>dark-mode</code> på <code>&lt;body&gt;</code> och
-				CSS-variablerna skrivs över med mörkare färger.
-			</p>
-
-			<h2 id="title8">Responsiv design och media queries</h2>
+			<h2 id="title12">Responsiv design och media queries</h2>
 			<p>
 				En responsiv webbsida anpassar sig automatiskt till skärmens storlek –
 				oavsett om den visas på en stor datorskärm eller en liten
@@ -456,6 +426,7 @@ main {
     width: 100%;
   }
 }</code></pre>
+
 			<h3>Responsiv design utan media queries</h3>
 			<p>
 				Det går faktiskt att göra en helt responsiv design utan media queries
@@ -490,40 +461,70 @@ main {
 				<li><code>vh</code> – procent av viewport höjden</li>
 			</ul>
 
-			<!-- ===== INTERAKTIVT DEMO: FÄRGANPASSNING ===== -->
-			<h2 id="title9">Prova själv – ändra sidans färger</h2>
+			<h2 id="title13">CSS-variabler</h2>
+			<p>
+				CSS-variabler (officiellt kallade "custom properties") låter dig spara
+				värden som du kan återanvända i hela stilmallen. De definieras med
+				<code>--</code> och används med <code>var()</code>:
+			</p>
+			<pre><code>/* Definiera i :root för att göra dem globala */
+:root {
+  --primary-color: #ff5a09;
+  --text-color: #1d1e22;
+  --font-size-base: 1rem;
+  --border-radius: 8px;
+}
+
+/* Använd dem sedan var som helst */
+button {
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-base);
+}
+
+h1 {
+  color: var(--primary-color);
+}</code></pre>
+			<p>
+				Det stora fördelen är att du kan ändra färgen på hela sajten genom att
+				byta ett enda värde i <code>:root</code>. Det är också hur mörkt läge
+				implementeras på den här sidan – JavaScript lägger till klassen
+				<code>dark-mode</code> på <code>&lt;body&gt;</code> och
+				CSS-variablerna skrivs över med mörkare färger.
+			</p>
+
+			<!-- Anpassad styling -->
+			<h2 id="title14">Anpassad styling – ändra sidans färger</h2>
 			<p>
 				CSS-variabler gör det möjligt att ändra hela sidans utseende
 				med bara några rader JavaScript. Välj bakgrunds- och
-				textfärg nedan och tryck på <strong>Aktivera</strong> –
-				förändringen sker direkt på den här sidan, ovanpå både ljust
-				och mörkt läge.
+				textfärg nedan och tryck på <strong>Aktivera</strong>.
 			</p>
 			<p>
-				Tekniken fungerar genom att JavaScript skapar ett nytt
-				<code>&lt;style&gt;</code>-element i
+				Det fungerar genom att med hjälp av JavaScript skapa en ny
+				<code>&lt;style&gt;</code> element i
 				<code>&lt;head&gt;</code> med regler som matchar
 				<code>:root, body, body.dark-mode</code>. Eftersom dessa
-				regler läggs till sist i dokumentet vinner de i kaskaden och
-				skriver över befintliga variabler.
+				regler läggs till sist i dokumentet vinner de i <b>kaskaden</b> och
+				skriver över variablarna.
 			</p>
 
-			<div class="color-demo-box" role="group" aria-label="Färganpassning">
-				<div class="color-demo-controls">
-					<div class="color-demo-field">
-						<label for="demo-bg">Bakgrundsfärg</label>
-						<input type="color" id="demo-bg" value="#d4d4dc">
+			<div class="custom-style-box" role="group" aria-label="Anpassad styling">
+				<div class="custom-style-controls">
+					<div class="custom-style-field">
+						<label for="custom-bg">Bakgrundsfärg</label>
+						<input type="color" id="custom-bg-color" value="#eef1f5">
 					</div>
-					<div class="color-demo-field">
-						<label for="demo-text">Textfärg</label>
-						<input type="color" id="demo-text" value="#1d1e22">
+					<div class="custom-style-field">
+						<label for="custom-text">Textfärg</label>
+						<input type="color" id="custom-text-color" value="#f5f7fb">
 					</div>
-					<div class="color-demo-actions">
-						<button id="demo-apply">Aktivera</button>
-						<button id="demo-reset">Återställ</button>
+					<div class="custom-style-actions">
+						<button id="custom-style-apply" onclick="applyStyle()">Aktivera</button>
+						<button id="custom-style-reset" onclick="resetStyle()">Återställ</button>
 					</div>
 				</div>
-				<p class="color-demo-hint" role="status" aria-live="polite" id="demo-status"></p>
 			</div>
 		</article>
 	</main>

@@ -7,7 +7,7 @@ const header = document.querySelector("header");
 
 // ===== MÖRKT LÄGE FUNKTIONALLITET =====
 
-const savedMode = localStorage.getItem("Tema");
+let savedMode = localStorage.getItem("Tema");
 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
 if (savedMode === "mörkt") {
@@ -61,9 +61,11 @@ function updateNavbar(e) {
 	// console.log(isSidebar);
 	if (isSidebar) {
 		navbarMenu.setAttribute("inert", " ");
+		navbarMenu.setAttribute("aria-hidden", "true");
 		// inert gömmer elementet från accesability trädet och skärmläsare utan att göra elementet osynligt vilket skulle ta bort animationen.
 	} else {
 		navbarMenu.removeAttribute("inert");
+		navbarMenu.setAttribute("aria-hidden", "false");
 	}
 }
 
@@ -81,12 +83,19 @@ function closeNavbar() {
 	navbarToggle.setAttribute("aria-expanded", "false");
 
 	navbarMenu.classList.remove("show");
-	navbarMenu.setAttribute("inert", " ");
-	navbarMenu.setAttribute("aria-hidden", "true");
+	if (mediaQuery.matches) {
+		navbarMenu.setAttribute("inert", " ");
+		navbarMenu.setAttribute("aria-hidden", "true");
+	} else {
+		navbarMenu.removeAttribute("inert");
+		navbarMenu.setAttribute("aria-hidden", "false");
+	}
 
 	overlay.classList.remove("show");
 
-	navbarToggle.focus(); // Lägg focus på meny knappen efter menyn stängs
+	if (mediaQuery.matches) {
+		navbarToggle.focus(); // Lägg focus på meny knappen efter menyn stängs
+	}
 }
 
 function openNavbar() {
@@ -110,7 +119,7 @@ navbarToggle?.addEventListener("click", () => {
 });
 
 // Stäng navbar när man clickar på en länk
-const navbarLinks = document.querySelectorAll("li a");
+const navbarLinks = document.querySelectorAll(".navbar-menu a");
 navbarLinks.forEach((link) => {
 	link.addEventListener("click", () => {
 		closeNavbar();

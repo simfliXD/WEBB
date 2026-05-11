@@ -1,4 +1,4 @@
-.color-selector-box {
+.custom-style-box {
 	border: 2px dashed var(--primary-border-color);
 	border-radius: 8px;
 	padding: 1.4rem;
@@ -6,26 +6,26 @@
 	background: color-mix(in srgb, var(--background-color) 80%, transparent);
 }
 
-.color-selector-container {
+.custom-style-controls {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: flex-end;
 	gap: 1.2rem;
 }
 
-.color-selector-field {
+.custom-style-field {
 	display: flex;
 	flex-direction: column;
 	gap: 0.4rem;
 }
 
-.color-selector-field label {
+.custom-style-field label {
 	font-size: 0.85rem;
 	font-weight: 600;
 	color: var(--heading-text-color);
 }
 
-.color-selector-field input[type="color"] {
+.custom-style-field input[type="color"] {
 	width: 52px;
 	height: 36px;
 	border: 2px solid var(--primary-border-color);
@@ -35,44 +35,33 @@
 	padding: 2px;
 }
 
-.color-selector-actions {
+.custom-style-actions {
 	display: flex;
 	gap: 0.6rem;
 }
 
-.color-selector-actions button {
+.custom-style-actions button {
 	padding: 0.5rem 1.2rem;
 	border: none;
 	border-radius: 6px;
 	font-size: 0.9rem;
 	font-weight: 600;
 	cursor: pointer;
-	transition:
-		opacity 0.15s ease,
-		transform 0.15s ease;
+	transition: opacity 0.15s ease,
+	transform 0.15s ease;
 }
 
-#selector-apply {
+#custom-style-apply {
 	background: var(--secondary-color);
 	color: var(--header-text-color);
 }
 
-#selector-apply:hover {
+#custom-style-apply:hover,
+#custom-style-reset:hover {
 	opacity: 0.8;
 }
 
-#selector-reset {
-	background: var(--aside-background);
+#custom-style-reset {
+	background: var(--aside-background-color);
 	color: var(--header-text-color);
-}
-
-#selector-reset:hover {
-	opacity: 0.8;
-}
-
-.color-selector-hint {
-	margin: 0.8rem 0 0;
-	font-size: 0.82rem;
-	color: var(--muted-text-color);
-	min-height: 1.2em;
 }

@@ -7,24 +7,31 @@ const header = document.querySelector("header");
 
 // ===== MÖRKT LÄGE FUNKTIONALLITET =====
 
-let savedMode = localStorage.getItem("Tema");
+let savedMode = localStorage.getItem("tema");
 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-if (savedMode === "mörkt") {
-	document.body.classList.add("dark-mode");
-	darkModeToggle.checked = true;
-} else if (savedMode === "ljust") {
-	// Gör inget, behåll ljust läge
-} else {
-	// Inget sparat värde, använd systemets preferens
-	if (prefersDark) {
-		// console.log("Föredraget mörkt läge, aktiverar mörkt läge.");
+function applyTheme(mode) {
+	if (mode === "mörkt") {
 		document.body.classList.add("dark-mode");
-		darkModeToggle.checked = true;
-		localStorage.setItem("Tema", "mörkt");
+		if (darkModeToggle) darkModeToggle.checked = true;
 	} else {
-		// console.log("Föredraget ljust läge, behåller ljust läge.");
-		localStorage.setItem("Tema", "ljust");
+		document.body.classList.remove("dark-mode");
+		if (darkModeToggle) darkModeToggle.checked = false;
+	}
+}
+
+// Initial apply
+if (savedMode === "mörkt") {
+	applyTheme("mörkt");
+} else if (savedMode === "ljust") {
+	applyTheme("ljust");
+} else {
+	if (prefersDark) {
+		applyTheme("mörkt");
+		localStorage.setItem("tema", "mörkt");
+	} else {
+		applyTheme("ljust");
+		localStorage.setItem("tema", "ljust");
 	}
 }
 
@@ -33,22 +40,29 @@ requestAnimationFrame(() => {
 	document.body.style.transition = "var(--transition-quick) ease";
 });
 
+// Lyssna på storage-event så att andra öppna fönster/flikar får uppdatering när temat ändras någon annanstans
+window.addEventListener("storage", (e) => {
+	if (e.key === "tema") {
+		applyTheme(e.newValue);
+	}
+});
+
 // Lyssna efter eventet "change" på toggle switchen,
 // då uppdatera klassen på body elementet för att ändra färgschemat
 // och sedan sparas det nya värdet i local storage.
-darkModeToggle.addEventListener("change", function () {
+darkModeToggle?.addEventListener("change", function () {
 	if (darkModeToggle.checked) {
 		console.log("Mörkt läge aktiverat.");
-		document.body.classList.add("dark-mode");
-		localStorage.setItem("Tema", "mörkt");
+		applyTheme("mörkt");
+		localStorage.setItem("tema", "mörkt");
 		savedMode = "mörkt";
-		console.log("Sparat i localStorage:", localStorage.getItem("Tema"));
+		console.log("Sparat i localStorage:", localStorage.getItem("tema"));
 	} else {
 		console.log("Ljust läge aktiverat.");
-		document.body.classList.remove("dark-mode");
-		localStorage.setItem("Tema", "ljust");
+		applyTheme("ljust");
+		localStorage.setItem("tema", "ljust");
 		savedMode = "ljust";
-		console.log("Sparat i localStorage:", localStorage.getItem("Tema"));
+		console.log("Sparat i localStorage:", localStorage.getItem("tema"));
 	}
 });
 

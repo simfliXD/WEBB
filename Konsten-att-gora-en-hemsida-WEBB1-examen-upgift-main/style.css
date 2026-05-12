@@ -27,8 +27,9 @@
 	--dropdown-menu-background: rgba(48, 57, 73, 0.92);
 
 	--aside-text-color: #263141;
-	--aside-background-color: #d3dde9;
-	--aside-card-background-color: #f8fafc;
+	--aside-background-color: #c9d5e5;
+	--aside-card-background-color: #e3eaf1;
+
 
 	--code-snippet-background-color: #393939;
 	--code-snippet-text-color: #d4d4dc;
@@ -422,7 +423,7 @@ aside li a:is(:hover, :focus-visible) {
 /* ===== ARTIKELINNEHÅLL ===== */
 
 article {
-	height: calc(100vh - var(--header-height) - var(--footer-height) - 6rem);
+	min-height: calc(100vh - var(--header-height) - var(--footer-height) - 6rem);
 	width: min(1060px, 100%); /* Max 1060px, annars 100% */
 
 	background: var(--article-background-color);

@@ -56,8 +56,39 @@
 	color: var(--muted-text-color);
 }
 
+.playground{
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+	gap: 1rem;
+	align-items: start;
+}
+
+.playground-editor {
+	min-height: 320px;
+	margin: 0;
+	padding: 1rem;
+	overflow: auto;
+}
+
+.playground-editor code {
+	display: block;
+	min-height: 100%;
+}
+
+.playground-preview {
+	width: 100%;
+	min-height: 320px;
+	background-color: var(--code-snippet-background-color);
+	border: 1px solid var(--secondary-border-color);
+	border-radius: 5px;
+}
+
 @media (max-width: 750px) {
 	.hero {
 		width: 100%;
+	}
+
+	.playground-grid {
+		grid-template-columns: minmax(0, 1fr);
 	}
 }

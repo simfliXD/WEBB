@@ -58,7 +58,6 @@ darkModeToggle?.addEventListener("change", function () {
 	}
 });
 
-
 // ===== MENY FUNKTIONALLITET =====
 
 // matchMedia kollar om skärmen är smalare än 1150px
@@ -121,6 +120,7 @@ function openNavbar() {
 	overlay.classList.add("show");
 }
 
+// click-event på hamburgarmenyn för att öppna/stänga menyn.
 navbarToggle?.addEventListener("click", () => {
 	if (navbarMenu.classList.contains("show")) {
 		closeNavbar();
@@ -129,15 +129,8 @@ navbarToggle?.addEventListener("click", () => {
 	}
 });
 
-// Stäng navbar vid länkklick
-const navbarLinks = document.querySelectorAll(".navbar-menu a");
-navbarLinks.forEach((link) => {
-	link.addEventListener("click", () => {
-		closeNavbar();
-	});
-});
-
 // Stäng navbar vid klick på overlay (utanför menyn)
+// finns också onlcick-attribut i HTML som gör att det fungerar även utan JavaScript.
 overlay.addEventListener("click", () => {
 	closeNavbar();
 });

@@ -1,142 +1,231 @@
 <!doctype html>
 <html lang="sv">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="Guide för att skapa en hemsida med HTML, CSS och JavaScript.">
-		<title>Konsten att skapa en hemsida</title>
-		<link rel="stylesheet" href="style.css">
-		<link rel="stylesheet" href="index.css">
-		<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
-		<link rel="prefetch" href="historia.html">
-		<link rel="prefetch" href="lagar.html">
-		<link rel="prefetch" href="html.html">
-		<link rel="prefetch" href="css.html">
-		<link rel="prefetch" href="javascript.html">
-	</head>
 
-	<body>
-		<!-- Skip-link: syns vid tabb, hoppar till main -->
-		<a href="#main" class="skip-link">Hoppa till huvudinnehåll</a>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Guide för att skapa en hemsida med HTML, CSS och JavaScript.">
+	<title>Konsten att skapa en hemsida</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="index.css">
+	<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+	<link rel="prefetch" href="historia.html">
+	<link rel="prefetch" href="lagar.html">
+	<link rel="prefetch" href="html.html">
+	<link rel="prefetch" href="css.html">
+	<link rel="prefetch" href="javascript.html">
+</head>
 
-		<!-- HEADER -->
-		<header>
-			<div class="header-logo" id="logo">
-				<a href="index.html">
-					<!-- SVG-loggotyp -->
-					<svg width="360" height="30" viewBox="0 0 385 30" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Konsten att skapa en hemsida">
-						<g class="drawing-elements">
-							<path d="M30,22v3c0,0.552-0.448,1-1,1h-1c-0.552,0-1-0.448-1-1v-3c0-0.552,0.448-1,1-1v-7.539l-11.198-0.896  C16.621,12.822,16.337,13,16,13c-0.552,0-1-0.448-1-1c0-0.552,0.448-1,1-1c0.396,0,0.732,0.235,0.894,0.57l11.186,0.895  c0.516,0.041,0.92,0.479,0.92,0.997V21C29.552,21,30,21.448,30,22z M16,19.725c-0.547,0-1.094-0.111-1.603-0.334L8,16.592v2.227  c0,1.136,0.642,2.175,1.658,2.683l0,0C11.655,22.501,13.827,23,16,23s4.345-0.499,6.341-1.497l0,0C23.358,20.995,24,19.956,24,18.82  v-2.227l-6.397,2.799C17.094,19.614,16.547,19.725,16,19.725z M29.906,11.084L17.202,5.526C16.819,5.358,16.41,5.275,16,5.275  c-0.41,0-0.819,0.084-1.202,0.252L2.094,11.084c-0.799,0.35-0.799,1.483,0,1.832l12.703,5.559c0.765,0.334,1.641,0.334,2.405,0  l9.416-4.121l-9.438-0.755C16.843,13.858,16.434,14,16,14c-1.103,0-2-0.897-2-2c0-1.103,0.897-2,2-2  c0.552,0,1.062,0.224,1.431,0.609l10.729,0.858c0.842,0.067,1.525,0.666,1.751,1.445C30.704,12.561,30.703,11.433,29.906,11.084z"/>
-							<text x="41" y="24" fill="#000000" font-family="Segoe UI" font-size="26" stroke-width="0">Konsten att skapa en hemsida</text>
-						</g>
-					</svg>
+<body>
+	<!-- Skip-link: syns vid tabb, hoppar till main -->
+	<a href="#main" class="skip-link">Hoppa till huvudinnehåll</a>
+
+	<!-- HEADER -->
+	<header>
+		<div class="header-logo" id="logo">
+			<a href="index.html">
+				<!-- SVG-loggotyp -->
+				<svg width="360" height="30" viewBox="0 0 385 30" xmlns="http://www.w3.org/2000/svg" role="img"
+					aria-label="Konsten att skapa en hemsida">
+					<g class="drawing-elements">
+						<path
+							d="M30,22v3c0,0.552-0.448,1-1,1h-1c-0.552,0-1-0.448-1-1v-3c0-0.552,0.448-1,1-1v-7.539l-11.198-0.896  C16.621,12.822,16.337,13,16,13c-0.552,0-1-0.448-1-1c0-0.552,0.448-1,1-1c0.396,0,0.732,0.235,0.894,0.57l11.186,0.895  c0.516,0.041,0.92,0.479,0.92,0.997V21C29.552,21,30,21.448,30,22z M16,19.725c-0.547,0-1.094-0.111-1.603-0.334L8,16.592v2.227  c0,1.136,0.642,2.175,1.658,2.683l0,0C11.655,22.501,13.827,23,16,23s4.345-0.499,6.341-1.497l0,0C23.358,20.995,24,19.956,24,18.82  v-2.227l-6.397,2.799C17.094,19.614,16.547,19.725,16,19.725z M29.906,11.084L17.202,5.526C16.819,5.358,16.41,5.275,16,5.275  c-0.41,0-0.819,0.084-1.202,0.252L2.094,11.084c-0.799,0.35-0.799,1.483,0,1.832l12.703,5.559c0.765,0.334,1.641,0.334,2.405,0  l9.416-4.121l-9.438-0.755C16.843,13.858,16.434,14,16,14c-1.103,0-2-0.897-2-2c0-1.103,0.897-2,2-2  c0.552,0,1.062,0.224,1.431,0.609l10.729,0.858c0.842,0.067,1.525,0.666,1.751,1.445C30.704,12.561,30.703,11.433,29.906,11.084z" />
+						<text x="41" y="24" fill="#000000" font-family="Segoe UI" font-size="26" stroke-width="0">
+							Konsten att skapa en hemsida
+						</text>
+					</g>
+				</svg>
+			</a>
+		</div>
+
+		<!-- NAVIGATION -->
+		<nav class="header-navbar">
+			<!-- Hamburger-meny för mobil -->
+			<button class="navbar-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false"
+				aria-controls="navbar-menu">
+				<span class="bar"></span>
+				<span class="bar"></span>
+				<span class="bar"></span>
+			</button>
+			<ul class="navbar-menu" id="navbar-menu" aria-hidden="true">
+				<li>
+					<a class="active-link" aria-current="sida" href="index.html">Hem</a>
+				</li>
+				<li><a href="historia.html">Historia</a></li>
+				<li><a href="lagar.html">Lagar</a></li>
+				<li><a href="html.html">HTML</a></li>
+				<li><a href="css.html">CSS</a></li>
+				<li><a href="javascript.html">JavaScript</a></li>
+				<!-- Dark mode toggle -->
+				<li class="dark-mode-toggle-item">
+					<span class="navbar-dark-mode-label">Mörkt läge</span>
+					<label class="switch">
+						<input type="checkbox" id="darkModeToggle" />
+						<span class="slider"></span>
+					</label>
+				</li>
+			</ul>
+		</nav>
+	</header>
+
+	<!-- Overlay: mörk bakgrund bakom mobilmeny -->
+	<div id="overlay" onclick="closeNavbar()" aria-hidden="true"></div>
+
+	<!-- MAIN -->
+	<main id="main">
+		<!-- Sidebar: innehållsförteckning -->
+		<aside aria-label="Innehållsförteckning">
+			<ul>
+				<li><a href="#hem">Välkommen</a></li>
+				<li><a href="#vad-lar-du-dig">Vad lär du dig här?</a></li>
+				<li>
+					<a href="#hur-fungerar-webben">Hur fungerar webben?</a>
+				</li>
+				<li><a href="#utforska-guiden">Utforska guiden</a></li>
+				<li><a href="#testa-html">Testa HTML</a></li>
+			</ul>
+		</aside>
+
+		<!-- Huvudinnehåll -->
+		<article id="main-content">
+			<h1 id="hem">Konsten att skapa en hemsida</h1>
+			<img src="assets/webbutveckling.svg"
+				alt="Kod på en datorskärm som visar HTML, CSS och JavaScript – symboliserar webbutveckling" class="hero"
+				loading="eager" />
+			<p class="hero-caption">
+				Foto: magnific | Licens typ: Gratis för kommersiell
+				användnign
+			</p>
+
+			<h2 id="vad-lar-du-dig">Vad lär du dig här?</h2>
+			<p>
+				Den här webbsidan är en guide till webbutveckling. Vi går
+				igenom allt från grunderna.
+			</p>
+			<p>
+				Du hittar förklaringar av alla tre tekniker i menyn ovan.
+				Den här sidan är i sig själv gjord som ett exempel – titta
+				gärna på källkoden med <kbd>F12</kbd> i webbläsaren!
+			</p>
+
+			<h2 id="hur-fungerar-webben">
+				Hur fungerar en webbsida egentligen?
+			</h2>
+			<p>En typisk webbsida byggs upp av tre olika tekniker:</p>
+			<ul>
+				<li>
+					<strong>HTML</strong> – strukturen. HTML bestämmer vad
+					som finns på sidan: rubriker, text, bilder, knappar och
+					länkar.
+				</li>
+				<li>
+					<strong>CSS</strong> – utseendet. CSS styr hur allt ser
+					ut: färger, typsnitt, layout och animationer.
+				</li>
+				<li>
+					<strong>JavaScript</strong> – interaktiviteten.
+					JavaScript gör sidan levande: den reagerar på
+					knapptryck, hämtar data och uppdaterar innehållet utan
+					att ladda om sidan.
+				</li>
+			</ul>
+			<p>
+				När du skriver in en webbadress i din webbläsare så sker det
+				faktiskt en del bakom kulisserna:
+			</p>
+			<ol>
+				<li>
+					Webbläsaren frågar en <strong>DNS-server</strong> om
+					vilken IP-adress domännamnet (t.ex.
+					<code>google.com</code>) pekar på.
+				</li>
+				<li>
+					Webbläsaren och servern skapar en
+					<strong>TCP</strong> anslutning över port 443 för HTTPS
+					(säker kommunikation).
+				</li>
+				<li>
+					Webbläsaren frågar servern om filerna till webbsidan,
+					vilket sedan skickas till webbläsaren.
+				</li>
+				<li>
+					Webbläsaren läser och tolkar HTML, CSS och JavaScript
+					koden.
+				</li>
+				<li>
+					Sedan <strong>renderas</strong> sidan och du kan se den
+					på skärmen.
+				</li>
+			</ol>
+			<p>
+				Det här sker ofta på bara millisekunder varje gång du laddar
+				en sida.
+			</p>
+
+			<h2 id="utforska-guiden">Utforska guiden</h2>
+			<p>Välj ett ämne nedan för att börja:</p>
+
+			<!-- Länkkort -->
+			<nav aria-label="Ämnesnavigation" class="card-grid">
+				<a href="historia.html" class="card">
+					<h3>Historia</h3>
+					<p>
+						Hur kom webben till? Vem skapade den? Och hur har
+						den utvecklats över tid?
+					</p>
 				</a>
-			</div>
-
-			<!-- NAVIGATION -->
-			<nav class="header-navbar">
-				<!-- Hamburger-meny för mobil -->
-				<button class="navbar-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navbar-menu">
-					<span class="bar"></span>
-					<span class="bar"></span>
-					<span class="bar"></span>
-				</button>
-				<ul class="navbar-menu" id="navbar-menu" aria-hidden="true">
-					<li><a class="active-link" aria-current="page" href="index.html">Hem</a></li>
-					<li><a href="historia.html">Historia</a></li>
-					<li><a href="lagar.html">Lagar</a></li>
-					<li><a href="html.html">HTML</a></li>
-					<li><a href="css.html">CSS</a></li>
-					<li><a href="javascript.html">JavaScript</a></li>
-					<!-- Dark mode toggle -->
-					<li class="dark-mode-toggle-item">
-						<span class="navbar-dark-mode-label">Mörkt läge</span>
-						<label class="switch">
-							<input type="checkbox" id="darkModeToggle">
-							<span class="slider"></span>
-						</label>
-					</li>
-				</ul>
+				<a href="lagar.html" class="card">
+					<h3>Lagar</h3>
+					<p>
+						GDPR, upphovsrätt, kaklagen. Vad måste du känna till
+						som webbutvecklare?
+					</p>
+				</a>
+				<a href="html.html" class="card">
+					<h3>HTML</h3>
+					<p>
+						Grunderna i HTML. Taggar, attributer, semantik och
+						tillgänglighet.
+					</p>
+				</a>
+				<a href="css.html" class="card">
+					<h3>CSS</h3>
+					<p>
+						Ge hemsidor stil. Färger, layout och responsiv
+						design m.m.
+					</p>
+				</a>
+				<a href="javascript.html" class="card">
+					<h3>JavaScript</h3>
+					<p>
+						Hur gör man en hemsida interaktiv? Variabler,
+						funktioner och DOM m.m.
+					</p>
+				</a>
 			</nav>
-		</header>
 
-		<!-- Overlay: mörk bakgrund bakom mobilmeny -->
-		<div id="overlay" onclick="closeNavbar()" aria-hidden="true"></div>
+			<h1 id="testa-html">Testa HTML</h1>
+			<p>
+				Skriv HTML i kodrutan och se resultatet direkt i
+				förhandsvisningen.
+			</p>
+			<section class="playground" aria-labelledby="testa-html">
+				<pre class="playground-editor" contenteditable="false" spellcheck="false" data-html-editor
+					aria-label="Redigerbar HTML-kod"><code>&lt;h1&gt;Hej!&lt;/h1&gt;
+&lt;p&gt;Skriv HTML här och se resultatet i ramen nedan.&lt;/p&gt;</code></pre>
+				<iframe class="playground-preview" data-html-preview title="Förhandsvisning av HTML-koden"></iframe>
+			</section>
+		</article>
+	</main>
 
-		<!-- MAIN -->
-		<main id="main">
-			<!-- Sidebar: innehållsförteckning -->
-			<aside aria-label="Innehållsförteckning">
-				<ul>
-					<li><a href="#hem">Välkommen</a></li>
-					<li><a href="#vad-lar-du-dig">Vad lär du dig här?</a></li>
-					<li><a href="#hur-fungerar-webben">Hur fungerar webben?</a></li>
-					<li><a href="#utforska-guiden">Utforska guiden</a></li>
-				</ul>
-			</aside>
+	<!-- FOOTER -->
+	<footer id="footer">
+		<p>&copy; <em>2026 Konsten att göra en hemsida :D</em></p>
+		<p><sub>Kontakta mig på simon.flink@elev.ntig.se</sub></p>
+	</footer>
 
-			<!-- Huvudinnehåll -->
-			<article id="main-content">
-				<h1 id="hem">Konsten att skapa en hemsida</h1>
-				<img src="assets/webbutveckling.svg" alt="Kod på en datorskärm som visar HTML, CSS och JavaScript – symboliserar webbutveckling" class="hero" loading="eager">
-				<p class="hero-caption">Foto: magnific | Licens typ: Gratis för kommersiell användnign</p>
+	<script src="script.js" defer></script>
+	<script src="index.js" defer></script>
+</body>
 
-				<h2 id="vad-lar-du-dig">Vad lär du dig här?</h2>
-				<p>Den här webbsidan är en guide till webbutveckling. Vi går igenom allt från grunderna.</p>
-				<p>Du hittar förklaringar av alla tre tekniker i menyn ovan. Den här sidan är i sig själv gjord som ett exempel – titta gärna på källkoden med <kbd>F12</kbd> i webbläsaren!</p>
-
-				<h2 id="hur-fungerar-webben">Hur fungerar en webbsida egentligen?</h2>
-				<p>En typisk webbsida byggs upp av tre olika tekniker:</p>
-				<ul>
-					<li><strong>HTML</strong> – strukturen. HTML bestämmer vad som finns på sidan: rubriker, text, bilder, knappar och länkar.</li>
-					<li><strong>CSS</strong> – utseendet. CSS styr hur allt ser ut: färger, typsnitt, layout och animationer.</li>
-					<li><strong>JavaScript</strong> – interaktiviteten. JavaScript gör sidan levande: den reagerar på knapptryck, hämtar data och uppdaterar innehållet utan att ladda om sidan.</li>
-				</ul>
-				<p>När du skriver in en webbadress i din webbläsare så sker det faktiskt en del bakom kulisserna:</p>
-				<ol>
-					<li>Webbläsaren frågar en <strong>DNS-server</strong> om vilken IP-adress domännamnet (t.ex. <code>google.com</code>) pekar på.</li>
-					<li>Webbläsaren och servern skapar en <strong>TCP</strong> anslutning över port 443 för HTTPS (säker kommunikation).</li>
-					<li>Webbläsaren frågar servern om filerna till webbsidan, vilket sedan skickas till webbläsaren.</li>
-					<li>Webbläsaren läser och tolkar HTML, CSS och JavaScript koden.</li>
-					<li>Sedan <strong>renderas</strong> sidan och du kan se den på skärmen.</li>
-				</ol>
-				<p>Det här sker ofta på bara millisekunder varje gång du laddar en sida.</p>
-
-				<h2 id="utforska-guiden">Utforska guiden</h2>
-				<p>Välj ett ämne nedan för att börja:</p>
-
-				<!-- Länkkort -->
-				<nav aria-label="Ämnesnavigation" class="card-grid">
-					<a href="historia.html" class="card">
-						<h3>Historia</h3>
-						<p>Hur kom webben till? Vem skapade den? Och hur har den utvecklats över tid?</p>
-					</a>
-					<a href="lagar.html" class="card">
-						<h3>Lagar</h3>
-						<p>GDPR, upphovsrätt, kaklagen. Vad måste du känna till som webbutvecklare?</p>
-					</a>
-					<a href="html.html" class="card">
-						<h3>HTML</h3>
-						<p>Grunderna i HTML. Taggar, attributer, semantik och tillgänglighet.</p>
-					</a>
-					<a href="css.html" class="card">
-						<h3>CSS</h3>
-						<p>Ge hemsidor stil. Färger, layout och responsiv design m.m.</p>
-					</a>
-					<a href="javascript.html" class="card">
-						<h3>JavaScript</h3>
-						<p>Hur gör man en hemsida interaktiv? Variabler, funktioner och DOM m.m.</p>
-					</a>
-				</nav>
-			</article>
-		</main>
-
-		<!-- FOOTER -->
-		<footer id="footer">
-			<p>&copy; <em>2026 Konsten att göra en hemsida :D</em></p>
-			<p><sub>Kontakta mig på simon.flink@elev.ntig.se</sub></p>
-		</footer>
-
-		<script src="script.js" defer></script>
-	</body>
 </html>

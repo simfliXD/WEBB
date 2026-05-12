@@ -56,11 +56,10 @@
 	color: var(--muted-text-color);
 }
 
-.playground{
+.playground {
 	display: grid;
-	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 	gap: 1rem;
-	align-items: start;
+	margin: 2rem 0;
 }
 
 .playground-editor {
@@ -86,9 +85,5 @@
 @media (max-width: 750px) {
 	.hero {
 		width: 100%;
-	}
-
-	.playground-grid {
-		grid-template-columns: minmax(0, 1fr);
 	}
 }

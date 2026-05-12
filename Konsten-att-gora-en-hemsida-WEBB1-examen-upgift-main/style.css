@@ -31,8 +31,8 @@
 	--aside-card-background-color: #e3eaf1;
 
 
-	--code-snippet-background-color: #393939;
-	--code-snippet-text-color: #d4d4dc;
+	--code-snippet-background-color: #f8eded;
+	--code-snippet-text-color: #1a1a28;
 	--code-snippet-border: 2px solid #393939;
 
 	/* Övergångs längd i sekunder*/
@@ -527,6 +527,14 @@ article pre {
 article pre code {
 	font-family: inherit; /* Ärver font från pre */
 	color: inherit;
+	background-color: transparent;
+}
+article code {
+	font-family: "JetBrains Mono", ui-monospace, monospace;
+	color: var(--code-snippet-text-color);
+	background-color: var(--code-snippet-background-color);
+	padding: 0.1rem 0.4rem;
+	border-radius: 4px;
 }
 
 /* ===== FOOTER ===== */

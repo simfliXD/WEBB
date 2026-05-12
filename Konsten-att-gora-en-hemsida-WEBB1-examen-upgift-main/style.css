@@ -53,10 +53,10 @@ body.dark-mode {
 	--secondary-color: #78b58e;
 	--shadow-color: rgba(0, 0, 0, 0.35);
 	--background-color: #181c24;
-	--article-background-color: #202631;
+	--article-background-color: #1f2027;
 
 	--primary-border-color: #d7b95f;
-	--secondary-border-color: #3b4352;
+	--secondary-border-color: #3b4352;	
 
 	--header-text-color: #cacad2;
 	--heading-text-color: #f0cf77;
@@ -73,7 +73,7 @@ body.dark-mode {
 
 	--aside-text-color:  #e8edf5;
 	--aside-background-color: #282d38;
-	--aside-card-background-color: #464930;
+	--aside-card-background-color: #313a42;
 
 	--code-snippet-background-color: #393939;
 	--code-snippet-text-color: #d4d4dc;
@@ -342,7 +342,7 @@ input:checked + .slider {
 
 main {
 	display: grid;
-	grid-template-columns: auto minmax(0, 1fr); /* Sidomeny + main-content */
+	grid-template-columns: auto 1fr; /* Sidomeny + artikel */
 	gap: 1.5rem;
 
 	width: 100%;
@@ -410,7 +410,7 @@ aside li a:before {
 
 aside li a:hover {
 	background-color: var(--hover-color);
-	color: var(--hyper-text-color);
+	color: var(--aside-text-color);
 	border-color: var(--primary-border-color);
 }
 

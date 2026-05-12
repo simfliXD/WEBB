@@ -1,92 +1,117 @@
 // ===== JAVASCRIPT =====
 
-// TIPS: Om du anvdänder VS code så kan man flytta musen över koden för att see förknaringar och klicka på MDN referens för djupare förklaring
+// TIPS: Om du använder VS Code så kan man flytta musen över koden för att se förklaringar och klicka på MDN-referens för djupare förklaring
 
+// getElementById() hämtar element med specifikt ID, querySelector() hämtar första matchande element
 const darkModeToggle = document.getElementById("darkModeToggle");
 const header = document.querySelector("header");
 
 // ===== MÖRKT LÄGE FUNKTIONALLITET =====
+// localStorage sparas i webbläsaren och finns kvar mellan besök
+// matchMedia kollar om användaren har mörkt tema i sitt operativsystem
 
-const savedMode = localStorage.getItem("Tema");
+let savedMode = localStorage.getItem("tema");
 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-if (savedMode === "mörkt") {
-	document.body.classList.add("dark-mode");
-	darkModeToggle.checked = true;
-} else if (savedMode === "ljust") {
-	// Gör inget, behåll ljust läge
-} else {
-	// Inget sparat värde, använd systemets preferens
-	if (prefersDark) {
-		// console.log("Föredraget mörkt läge, aktiverar mörkt läge.");
+// classList.add/remove lägger till eller tar bort CSS-klasser på element
+function applyTheme(mode) {
+	if (mode === "mörkt") {
 		document.body.classList.add("dark-mode");
-		darkModeToggle.checked = true;
-		localStorage.setItem("Tema", "mörkt");
+		if (darkModeToggle) darkModeToggle.checked = true;
 	} else {
-		// console.log("Föredraget ljust läge, behåller ljust läge.");
-		localStorage.setItem("Tema", "ljust");
+		document.body.classList.remove("dark-mode");
+		if (darkModeToggle) darkModeToggle.checked = false;
 	}
 }
 
-// Efter en frame så sätter vi på en transiton för body:n. Detta ger en mjuk övergång mellan Ljust/Mörkt läge.
+// Initiera rätt tema baserat på sparat läge eller systempreferens
+if (savedMode === "mörkt") {
+	applyTheme("mörkt");
+} else if (savedMode === "ljust") {
+	applyTheme("ljust");
+} else {
+	if (prefersDark) {
+		applyTheme("mörkt");
+		localStorage.setItem("tema", "mörkt");
+	} else {
+		applyTheme("ljust");
+		localStorage.setItem("tema", "ljust");
+	}
+}
+
+// Efter en frame sätter vi på en transition för mjuk färgövergång
 requestAnimationFrame(() => {
 	document.body.style.transition = "var(--transition-quick) ease";
 });
 
-// Lyssna efter eventet "change" på toggle switchen,
-// då uppdatera klassen på body elementet för att ändra färgschemat
-// och sedan sparas det nya värdet i local storage.
-darkModeToggle.addEventListener("change", function () {
+// Storage-event synkar temat mellan öppna flikar/fönster
+window.addEventListener("storage", (e) => {
+	if (e.key === "tema") {
+		applyTheme(e.newValue);
+	}
+});
+
+// change-event triggas när checkbox kryssas i/ur
+darkModeToggle?.addEventListener("change", function () {
 	if (darkModeToggle.checked) {
 		console.log("Mörkt läge aktiverat.");
-		document.body.classList.add("dark-mode");
-		localStorage.setItem("Tema", "mörkt");
-		savedMode = "mörkt";
-		console.log("Sparat i localStorage:", localStorage.getItem("Tema"));
+		applyTheme("mörkt");
+		localStorage.setItem("tema", "mörkt");
 	} else {
 		console.log("Ljust läge aktiverat.");
-		document.body.classList.remove("dark-mode");
-		localStorage.setItem("Tema", "ljust");
-		savedMode = "ljust";
-		console.log("Sparat i localStorage:", localStorage.getItem("Tema"));
+		applyTheme("ljust");
+		localStorage.setItem("tema", "ljust");
 	}
 });
 
 // ===== MENY FUNKTIONALLITET =====
-
+// matchMedia kollar om skärmen är smalare än 1150px (mobil vs desktop)
 const mediaQuery = window.matchMedia("(width < 1150px)");
 const navbarMenu = document.querySelector(".navbar-menu");
+
+// setAttribute/removeAttribute lägger till eller tar bort HTML-attribut
+// inert: gör elementet inaktivt (osynligt för tillgänglighet men behåller animationer)
+// aria-hidden: döljer elementet för skärmläsare
 function updateNavbar(e) {
 	const isSidebar = e.matches;
-	// console.log(isSidebar);
 	if (isSidebar) {
 		navbarMenu.setAttribute("inert", " ");
-		// inert gömmer elementet från accesability trädet och skärmläsare utan att göra elementet osynligt vilket skulle ta bort animationen.
+		navbarMenu.setAttribute("aria-hidden", "true");
 	} else {
 		navbarMenu.removeAttribute("inert");
+		navbarMenu.setAttribute("aria-hidden", "false");
 	}
 }
 
-// Kör funktionen en gång närsiudan laddas och updatera sedan varje gång media queryn ändras
+// Kör vid sidladdning och uppdatera vid fönsterstorleksändring
 updateNavbar(mediaQuery);
 mediaQuery.addEventListener("change", updateNavbar);
 
-// Funktioner för att öppna och stänga navbaren, dessa används både av knappen och av overlayn (när man clickar utanför menyn så stängs den)
-
+// ===== ÖPPNA/STÄNG NAVBAR =====
 const overlay = document.getElementById("overlay");
 const navbarToggle = document.querySelector(".navbar-menu-toggle");
 
+// classList.add/remove("show") visar/döljer menyn via CSS
+// aria-expanded talar om för skärmläsare om menyn är öppen
+// .focus() flyttar tangentbordsfokus till element (viktigt för tillgänglighet)
 function closeNavbar() {
 	navbarToggle.classList.remove("show");
 	navbarToggle.setAttribute("aria-expanded", "false");
 
 	navbarMenu.classList.remove("show");
-	navbarMenu.setAttribute("inert", " ");
-	navbarMenu.setAttribute("aria-hidden", "true");
+	if (mediaQuery.matches) {
+		navbarMenu.setAttribute("inert", " ");
+		navbarMenu.setAttribute("aria-hidden", "true");
+	} else {
+		navbarMenu.removeAttribute("inert");
+		navbarMenu.setAttribute("aria-hidden", "false");
+	}
 
 	overlay.classList.remove("show");
 
-	navbarToggle.focus(); // Lägg focus på meny knappen efter menyn stängs
+	if (mediaQuery.matches) {
+		navbarToggle.focus();
+	}
 }
 
 function openNavbar() {
@@ -100,7 +125,7 @@ function openNavbar() {
 	overlay.classList.add("show");
 }
 
-// Visa/dölj navbar när man clickar på knappen (Börgar menyn)
+// classList.contains("show") kollar om elementet har klassen "show"
 navbarToggle?.addEventListener("click", () => {
 	if (navbarMenu.classList.contains("show")) {
 		closeNavbar();
@@ -109,27 +134,29 @@ navbarToggle?.addEventListener("click", () => {
 	}
 });
 
-// Stäng navbar när man clickar på en länk
-const navbarLinks = document.querySelectorAll("li a");
+// Stäng navbar vid länkklick
+const navbarLinks = document.querySelectorAll(".navbar-menu a");
 navbarLinks.forEach((link) => {
 	link.addEventListener("click", () => {
 		closeNavbar();
 	});
 });
 
-// Stäng navbar när man clickar på overlayen
+// Stäng navbar vid klick på overlay (utanför menyn)
 overlay.addEventListener("click", () => {
 	closeNavbar();
 });
 
-// Stäng nabrar med Escape tangenten
+// Stäng navbar med Escape-tangenten
 document.addEventListener("keydown", (e) => {
 	if (e.key === "Escape" && navbarMenu.classList.contains("show")) {
 		closeNavbar();
 	}
 });
 
-// ===== SCROLLNINGS LOGIC FÖR ATT BESTÄMMA OM HEADERN SKA VARA SYNLIG =====
+// ===== SCROLLNING - DÖLJ/VISA HEADER =====
+// window.scrollY är antalet pixlar dokumentet scrollats från toppen
+// scrollDelta visar riktning: positiv = scrollar ner, negativ = scrollar upp
 
 let lastScrollY = window.scrollY;
 
@@ -140,23 +167,15 @@ window.addEventListener("scroll", () => {
 	// Ignorera små scrollningar för att undvika flimmer
 	if (Math.abs(scrollDelta) < 5) return;
 
-	// Göm inte headern om mobilmenyn är öppen
+	// Visa alltid header om mobilmenyn är öppen
 	if (navbarMenu.classList.contains("show")) return;
 
-	// Om användaren scrollar ner och har scrollat mer än 120px från toppen, göm headern
+	// Scrollar ner och mer än 120px från toppen = göm header
 	if (scrollDelta > 0 && currentScrollY > 120) {
 		header.classList.add("hide");
 	} else {
-		// Annars visa headern
 		header.classList.remove("hide");
 	}
-	//console.log(
-	//  "Scroll delta:",
-	//  scrollDelta,
-	//  "Current scroll Y:",
-	//  currentScrollY,
-	// );
 
-	// Uppdatera senaste scrollpositionen
 	lastScrollY = currentScrollY;
 });

@@ -145,7 +145,7 @@ header {
 	z-index: 100; /* Högre z-index = ovanpå andra element */
 
 	height: var(--header-height);
-	padding: 0.85rem 1rem;
+	padding: 0.85rem 1vw;
 
 	background: var(--primary-color);
 	color: var(--header-text-color);
@@ -155,7 +155,7 @@ header {
 	transition: transform var(--transition-standard) ease; /* Animering vid scroll */
 }
 
-/* header.hide: klass som läggs till via JS när användaren scrollar ner */
+/* header.hide: klass som läggs till med JS när användaren scrollar ner */
 header.hide {
 	transform: translateY(-100%); /* Flyttar headern upp utanför skärmen */
 }
@@ -167,6 +167,7 @@ header.hide {
 	align-items: center;
 
 	padding-right: 1rem;
+
 
 	border-right: solid clamp(2px, 12px - 0.8vw, 8px)
 		var(--primary-border-color);

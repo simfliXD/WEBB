@@ -22,6 +22,7 @@
 	--toggle-button-color: #c9d4df;
 
 	--overlay-color: rgba(0, 0, 0, 0.5);
+	--switch-slider-gradient: linear-gradient(180deg, #ffcc89, #d8860b);
 	--dropdown-menu-background: rgba(48, 57, 73, 0.92);
 
 	--aside-text-color: #263141;
@@ -67,6 +68,7 @@ body.dark-mode {
 	--toggle-button-color: #393939;
 
 	--overlay-color: rgba(0, 0, 0, 0.5);
+	--switch-slider-gradient: linear-gradient(180deg, #777, #3a3a3a3a);
 	--dropdown-menu-background: rgba(37, 43, 55, 0.95);
 
 	--aside-text-color:  #e8edf5;
@@ -295,6 +297,7 @@ header.hide {
 
 	color: var(--header-text-color);
 }
+
 .switch {
 	position: relative;
 
@@ -325,14 +328,14 @@ header.hide {
 	height: 22px;
 
 	border-radius: 50%;
-	background: linear-gradient(180deg, #ffcc89, #d8860b);
+	background: var(--switch-slider-gradient);
 
 	transition: var(--transition-standard);
 }
 
 input:checked + .slider {
 	transform: translateX(30px);
-	background: linear-gradient(180deg, #777, #3a3a3a3a);
+	background: var(--switch-slider-gradient);
 }
 
 /* ===== HUVUDLAYOUT ===== */
@@ -407,7 +410,7 @@ aside li a:before {
 
 aside li a:hover {
 	background-color: var(--hover-color);
-	color: var(--secondary-color);
+	color: var(--hyper-text-color);
 	border-color: var(--primary-border-color);
 }
 

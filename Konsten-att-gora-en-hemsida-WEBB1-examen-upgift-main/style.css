@@ -18,7 +18,8 @@
 	--hyper-text-color: #c84d16;
 	--muted-text-color: #5b697a;
 
-	--hover-color: #ffe0a6;
+	--hover-text-color: #050504;
+	--hover-background-color: #ffe0a6;
 	--toggle-button-color: #c9d4df;
 
 	--overlay-color: rgba(0, 0, 0, 0.5);
@@ -38,6 +39,9 @@
 	--transition-standard: 0.3s;
 	--transition-slow: 0.4s;
 
+	--focus-outline: 3px solid var(--secondary-color);
+	--focus-outline-offset: 2px;
+
 	/* Höjd storlekar*/
 	--header-height: clamp(56px, 8vw, 72px);
 	--footer-height: 100px;
@@ -56,7 +60,7 @@ body.dark-mode {
 	--article-background-color: #1f2027;
 
 	--primary-border-color: #d7b95f;
-	--secondary-border-color: #3b4352;	
+	--secondary-border-color: #3b4352;
 
 	--header-text-color: #cacad2;
 	--heading-text-color: #f0cf77;
@@ -64,21 +68,21 @@ body.dark-mode {
 	--hyper-text-color: #f08a4b;
 	--muted-text-color: #9aa8b8;
 
-	--hover-color: #feda6a;
+	--hover-text-color: #050504;
+	--hover-background-color: #feda6a;
 	--toggle-button-color: #393939;
 
 	--overlay-color: rgba(0, 0, 0, 0.5);
 	--switch-slider-gradient: linear-gradient(180deg, #777, #3a3a3a3a);
 	--dropdown-menu-background: rgba(37, 43, 55, 0.95);
 
-	--aside-text-color:  #e8edf5;
+	--aside-text-color: #e8edf5;
 	--aside-background-color: #282d38;
 	--aside-card-background-color: #313a42;
 
 	--code-snippet-background-color: #393939;
 	--code-snippet-text-color: #d4d4dc;
 	--code-snippet-border: 2px solid #ed7f37;
-
 }
 
 /* ( * ) väljer ALLA element */
@@ -105,7 +109,7 @@ body {
 	left: 0;
 
 	padding: 8px 16px;
-	background-color: var(--secondary-color);
+	background-color: var(--secondary-color) !important;
 	color: white;
 
 	text-decoration: none;
@@ -115,25 +119,26 @@ body {
 	z-index: 101; /* ligger ovanpå allt annat */
 }
 
-/* :focus när elementet klickas eller markeras med tab */
-.skip-link:focus {
-	top: 0; /* Flyttar in länken i sikte */
+/* ===== FOKUS-INDIKATOR FÖR TANGENTBORD ===== */
+
+/* :focus-visible visar fokus vid tangentbordsnavigering*/
+.skip-link:focus-visible {
+	top: 0; /* Flyttar in länken till toppen av sidan */
 	outline: 3px solid var(--primary-color); /* Synlig fokusmarkering */
 }
-
-/* ===== FOKUS-INDIKATOR FÖR TANGENTBORD ===== */
-/* :focus-visible visar fokusring ENBART vid tangentbordsnavigering (inte mus) */
 
 a:focus-visible,
 button:focus-visible,
 input:focus-visible {
-	outline: 3px solid var(--secondary-color); /* Synlig ring runt elementet */
-	outline-offset: 2px; /* Avstånd mellan element och ring */
+	outline: var(--focus-outline); /* Synlig utlinje runt elementet */
+	outline-offset: var(
+		--focus-outline-offset
+	); /* Avstånd mellan element och utlinje */
 }
 
 .switch input:focus-visible + .slider {
-	outline: 3px solid var(--secondary-color);
-	outline-offset: 2px;
+	outline: var(--focus-outline);
+	outline-offset: var(--focus-outline-offset);
 	border-radius: 50%;
 }
 
@@ -169,7 +174,6 @@ header.hide {
 	align-items: center;
 
 	padding-right: 1rem;
-
 
 	border-right: solid clamp(2px, 12px - 0.8vw, 8px)
 		var(--primary-border-color);
@@ -212,7 +216,7 @@ header.hide {
 }
 
 .navbar-menu {
-	display: flex;
+	display: inline-flex;
 	align-items: center;
 	gap: 1.25rem;
 
@@ -234,24 +238,22 @@ header.hide {
 
 	border: 1px solid rgba(255, 255, 255, 0.18);
 	border-radius: 4px;
-
 	transition: var(--transition-quick) ease-in;
 }
 
-.navbar-menu li a:hover {
-	color: var(--primary-color);
-	background-color: var(--hover-color);
-	box-shadow: 0 6px 14px var(--shadow-color);
+.navbar-menu li a:is(:hover, :focus-visible) {
+	color: var(--hover-text-color);
+	background-color: var(--hover-background-color);
+	box-shadow: var(--interactive-shadow);
 }
 
 .navbar-menu li a:focus-visible {
-	background-color: var(--hover-color);
-	outline: 3px solid var(--secondary-color);
+	outline: var(--focus-outline);
 }
 
 .navbar-menu-toggle:focus-visible {
-	outline: 3px solid var(--secondary-color);
-	outline-offset: 2px;
+	outline: var(--focus-outline);
+	outline-offset: var(--focus-outline-offset);
 	border-radius: 4px;
 }
 
@@ -260,20 +262,18 @@ header.hide {
 }
 
 .navbar-menu li a.active-link {
-
 	border-bottom: 2px solid var(--primary-border-color);
 }
 
-/* ===== OVERLAY ===== */
-/* overlay: halvgenomskinlig mörk bakgrund som visas bakom mobilmenyn */
+/* Halvgenomskinlig bakgrund som visas bakom mobilmenyn */
 #overlay {
 	position: fixed;
-	inset: 0; /* shorthand: top:0, right:0, bottom:0, left:0 */
+	inset: 0; /* top:0, right:0, bottom:0, left:0 */
 
 	background-color: var(--overlay-color);
 	backdrop-filter: blur(2px); /* Slöeffekt på innehållet under */
 
-	z-index: 8;
+	z-index: 11;
 
 	opacity: 0;
 	visibility: hidden; /* Dold men synlig för tab-ordning */
@@ -349,7 +349,9 @@ main {
 	padding: 0 clamp(1rem, 3vw, 2rem);
 	margin: calc(var(--header-height) + 2rem) 0 3rem; /* Lägger till marginal för fixed header */
 
-	min-height: calc(100vh - var(--header-height) - var(--footer-height)); /* Minst höjd för att trycka ner footer */
+	min-height: calc(
+		100vh - var(--header-height) - var(--footer-height)
+	); /* Minst höjd för att trycka ner footer */
 }
 
 /* ===== SIDOMENY ===== */
@@ -387,6 +389,7 @@ aside ul {
 aside li a {
 	display: block;
 	padding: 0.75rem 0.8rem;
+	border-radius: 5px;
 
 	font-weight: 600;
 	text-decoration: none;
@@ -394,8 +397,6 @@ aside li a {
 
 	color: var(--aside-text-color);
 	background-color: var(--aside-card-background-color);
-	border: 1px solid transparent;
-	border-radius: 5px;
 
 	/* Incrementerar räknaren "headings" varje gång ny länk skapas */
 	counter-increment: headings;
@@ -404,33 +405,34 @@ aside li a {
 /* Lägger till nummering för varje länk i sidomenyn */
 aside li a:before {
 	content: counter(headings) ". ";
-	font-weight: bold;
+	font-weight: 800;
 	color: var(--muted-text-color);
 }
 
-aside li a:hover {
-	background-color: var(--hover-color);
-	color: var(--aside-text-color);
-	border-color: var(--primary-border-color);
+aside li a:is(:hover, :focus-visible) {
+	background-color: var(--hover-background-color);
+	color: var(--hover-text-color);
+
+	border: 1px solid var(--primary-border-color);
+
+	box-shadow: 0 0 6px 6px var(--shadow-color);
+	transform: translateX(0.5rem);
 }
 
 /* ===== ARTIKELINNEHÅLL ===== */
-/* minmax(0, 1fr) i main gör att article kan krympa vid smala skärmar */
 
 article {
+	height: calc(100vh - var(--header-height) - var(--footer-height) - 6rem);
 	width: min(1060px, 100%); /* Max 1060px, annars 100% */
-	max-width: 1060px;
-	min-width: 0;
-	margin: 0 auto; /* Centrerar elementet horisontellt */
-
-	padding: clamp(1.25rem, 3vw, 3rem); /* Responsiv padding */
 
 	background: var(--article-background-color);
-	border: 1px solid var(--secondary-border-color);
 	border-radius: 8px;
-	box-shadow: 0 10px 30px var(--shadow-color);
 
-	min-height: calc(100vh - var(--header-height) - var(--footer-height) - 6rem);
+	padding: clamp(1.25rem, 3vw, 3rem); /* Responsiv padding */
+	border: 1px solid var(--secondary-border-color);
+	margin: 0 auto; /* Centrerar elementet horisontellt */
+
+	box-shadow: 0 10px 30px var(--shadow-color);
 }
 
 /* Responsiva rubriker med clamp() */
@@ -464,7 +466,7 @@ article h4 {
 }
 
 article p {
-	margin: 1rem 0 ;
+	margin: 1rem 0;
 }
 
 article ul,
@@ -626,7 +628,10 @@ footer {
 	}
 
 	main {
-		grid-template-columns: minmax(0, 1fr); /* Endast en kolumn, inget aside */
+		grid-template-columns: minmax(
+			0,
+			1fr
+		); /* Endast en kolumn, inget aside */
 		width: 100%;
 		gap: 1rem;
 		margin: calc(var(--header-height) + 1rem) 0 2rem;
@@ -646,7 +651,10 @@ footer {
 
 	aside ul {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Auto-grid */
+		grid-template-columns: repeat(
+			auto-fit,
+			minmax(150px, 1fr)
+		); /* Auto-grid */
 		align-items: stretch;
 	}
 

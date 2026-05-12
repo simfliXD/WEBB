@@ -26,7 +26,7 @@
 	--dropdown-menu-background: rgba(48, 57, 73, 0.92);
 
 	--aside-text-color: #263141;
-	--aside-background-color: #dfe6ee;
+	--aside-background-color: #d3dde9;
 	--aside-card-background-color: #f8fafc;
 
 	--code-snippet-background-color: #393939;
@@ -72,8 +72,8 @@ body.dark-mode {
 	--dropdown-menu-background: rgba(37, 43, 55, 0.95);
 
 	--aside-text-color:  #e8edf5;
-	--aside-background-color: #252b37;
-	--aside-card-background-color: #303849;
+	--aside-background-color: #282d38;
+	--aside-card-background-color: #464930;
 
 	--code-snippet-background-color: #393939;
 	--code-snippet-text-color: #d4d4dc;

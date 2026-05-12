@@ -430,6 +430,7 @@ article {
 	min-height: calc(100vh - var(--header-height) - var(--footer-height) - 6rem);
 }
 
+/* Responsiva rubriker med clamp() */
 article h1 {
 	font-size: clamp(1.8rem, 4vw, 2.8rem);
 	text-align: center;
@@ -460,7 +461,7 @@ article h4 {
 }
 
 article p {
-	margin: 1rem 0 1.25rem;
+	margin: 1rem 0 ;
 }
 
 article ul,
@@ -471,7 +472,7 @@ article ol {
 
 article p,
 article li {
-	max-width: 76ch;
+	max-width: 85%; /* Max 85% av artikelens bredd. Gör det enklare att läsa på breda skärmar */
 }
 
 article li {
@@ -648,6 +649,11 @@ footer {
 
 	aside li {
 		display: flex;
+	}
+
+	article p,
+	article li {
+		max-width: 100%;
 	}
 
 	aside li a {

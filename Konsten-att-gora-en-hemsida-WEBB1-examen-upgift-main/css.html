@@ -50,7 +50,7 @@
 				<li><a href="historia.html">Historia</a></li>
 				<li><a href="lagar.html">Lagar</a></li>
 				<li><a href="html.html">HTML</a></li>
-				<li><a class="active-link" aria-current="sida" href="css.html">CSS</a></li>
+				<li><a class="active-link" aria-current="page" href="css.html">CSS</a></li>
 				<li><a href="javascript.html">JavaScript</a></li>
 				<li class="dark-mode-toggle-item">
 					<span class="navbar-dark-mode-label">Mörkt läge</span>
@@ -113,7 +113,7 @@
 
 			<ol>
 				<li>
-					<strong>Extern fil (rekommenderat)</strong> – CSS skrivs i en
+					<strong>Extern fil (rekommenderas)</strong> – CSS skrivs i en
 					separat <code>.css</code>-fil som länkas in i HTML-filen:
 					<pre><code>&lt;link rel="stylesheet" href="style.css"&gt;</code></pre>
 				</li>
@@ -503,7 +503,7 @@ div {
   align-items: center;      /* Vertikal placering */
   gap: 1rem;                /* Avstånd mellan barn-element */
   flex-wrap: wrap;          /* Tillåt radbrytning */
-}</code></pre>
+}</code></pre>-
 
 			<h2 id="layout-grid">Layout med Grid</h2>
 			<p>CSS Grid används för att skapa mer komplexa rutnätslayouter:</p>
@@ -515,8 +515,8 @@ div {
 
 			<h2 id="2d-transformer">2D-transformer</h2>
 			<p>
-				Med <code>transform</code> kan du rotera, skala, förskjuta och förvränga
-				element utan att påverka dokumentflödet.
+				Med <code>transform</code> kan du rotera, skala och flytta
+				element utan att påverka dokument strukturen.
 			</p>
 
 			<h3>translate()</h3>
@@ -525,7 +525,7 @@ div {
   transform: translate(20px, 10px);
 }
 
-/* Separat axel */
+/* Separata axlar */
 transform: translateX(20px);
 transform: translateY(-10px);</code></pre>
 
@@ -534,46 +534,23 @@ transform: translateY(-10px);</code></pre>
 			<pre><code>.rotate {
   transform: rotate(45deg);
 }
-
-/* Rotera runt centrum */
-transform: rotateX(180deg);
-transform: rotateY(90deg);</code></pre>
+</code></pre>
 
 			<h3>scale()</h3>
-			<p>Skala element (storlek):</p>
+			<p>Skala element (förstora/minska):</p>
 			<pre><code>.bigger {
   transform: scale(1.5);
 }
 
 /* Separat för X och Y */
-.transform: scale(1, 0.5);  /* Bilda spegelvänd */
+.transform: scale(1, 0.5);  /* Spegelvänd */
 transform: scaleX(2);       /* Dubbel bredd */
 transform: scaleY(0.5);     /* Halv höjd */</code></pre>
-
-			<h3>skew()</h3>
-			<p>Förvräng element:</p>
-			<pre><code>.skew {
-  transform: skewX(20deg);
-  transform: skewY(-10deg);
-}</code></pre>
-
-			<h3>Kombinera transformationer</h3>
-			<p>Flera transformationer kan kombineras:</p>
-			<pre><code>.combined {
-  transform: rotate(45deg) scale(1.2) translate(10px, 0);
-}</code></pre>
-
-			<h3>transform-origin</h3>
-			<p>Ändra rotationscentrum:</p>
-			<pre><code>.rotate-corner {
-  transform-origin: top left;
-  transform: rotate(45deg);
-}</code></pre>
 
 			<h2 id="transitioner-animationer">Transitioner och animationer</h2>
 			<p>
 				Transitioner skapar mjuka övergångar mellan tillstånd. Animationer
-				skapar mer komplexa, upprepande rörelser.
+				är mer komplexa rörelser.
 			</p>
 
 			<h3>Transitioner</h3>
@@ -588,12 +565,6 @@ transform: scaleY(0.5);     /* Halv höjd */</code></pre>
 .button:hover {
   background-color: red;
 }</code></pre>
-
-			<p>
-				<code>transition</code> är genväg för: <code>transition-property</code>,
-				<code>transition-duration</code>, <code>transition-timing-function</code>,
-				<code>transition-delay</code>.
-			</p>
 
 			<h4>Timing-funktioner</h4>
 			<ul>
@@ -638,40 +609,29 @@ transform: scaleY(0.5);     /* Halv höjd */</code></pre>
   to { transform: rotate(360deg); }
 }</code></pre>
 
-			<h3>will-change</h3>
-			<p>
-				Optimerar för animation genom att förbereda webbläsaren:
-			</p>
-			<pre><code>.animated {
-  will-change: transform, opacity;
-}</code></pre>
-
-			<h2 id="responsiv-design">Responsiv design och media queries</h2>
+			<h2 id="responsiv-design">Responsiv design</h2>
 			<p>
 				En responsiv webbsida anpassar sig automatiskt till skärmens storlek –
 				oavsett om den visas på en stor datorskärm eller en liten
 				mobiltelefon.
 			</p>
 
-			<h3>Viktiga grunder</h3>
 			<p>
-				Alltid börja med denna meta-tagg i
-				<code>&lt;head&gt;</code> – utan den fungerar inte responsiv design på
-				mobila enheter:
+				Utan <code>viewport</code> meta-taggen fungerar inte responsiv design:
 			</p>
 			<pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
 			<p>
-				Den talar om för mobila webbläsare att använda enhetens faktiska bredd
+				Den talar om för webbläsaren att använda enhetens faktiska bredd
 				istället för att zooma ut och visa en skrivbordsvy.
 			</p>
 
 			<h3>Media queries</h3>
 			<p>
 				Med <code>@media</code> kan du skriva CSS-regler som
-				<strong>bara aktiveras vid en viss skärmbredd</strong>. Det är grunden
-				för att anpassa layouten till mobiler och surfplattor.
+				<strong>bara aktiveras när vissa kriterier uppfylls</strong>. Grunden
+				för att kunna anpassa layouten till mobiler och surfplattor.
 			</p>
-			<pre><code>/* Dessa regler gäller alltid (desktop-first) */
+			<pre><code>/* Dessa regler gäller alltid */
 h1 {
   font-size: 3rem;
 }
@@ -697,42 +657,17 @@ h1 {
 
 			<p>
 				I exemplet ovan används <code>3vw</code> som enhet.
-				<code>vw</code> står för <em>viewport width</em> – alltså en procent
+				<code>vw</code> står för <em>viewport width</em> – alltså procent
 				av skärmbredden. Det gör att texten automatiskt skalas med skärmens
 				storlek.
 			</p>
 
-			<h3>Responsivt konkret exempel</h3>
-			<p>
-				På den här webbsidan används media queries för att stapla sidomenyn
-				och artikeln samt göra navigationen till en hamburgermeny på smala
-				skärmar:
-			</p>
-			<pre><code>/* Desktop: sidomeny och artikel sida vid sida */
-main {
-  display: grid;
-  grid-template-columns: auto 1fr;
-}
-
-/* Mobil: stapla artikel och sidomeny vertikalt, sidomeny full bredd */
-@media screen and (max-width: 750px) {
-  main {
-    grid-template-columns: auto; /* En ända kolumn */
-  }
-
-  aside {
-    position: static; /* Inte längre sticky utan den stannar på sin plats */
-    width: 100%;
-  }
-}</code></pre>
-
 			<h3>Responsiv design utan media queries</h3>
 			<p>
-				Det går faktiskt att göra en helt responsiv design utan media queries
-				– genom att använda flexbox eller grid tillsammans med flexibla
+				Det går faktiskt att göra en helt responsiv design utan massor av media queries
+				. Man kan använda flexbox eller grid tillsammans med flexibla
 				enheter som <code>fr</code>, <code>vw</code>, <code>vh</code>,
-				<code>%</code>, <code>em</code> och <code>rem</code>. Det kräver mer
-				planering och kreativitet
+				<code>%</code>, <code>em</code> och <code>rem</code>.
 			</p>
 			<h4>
 				Det enklast sättet att hålla en sida resonsiv utan media queries är
@@ -761,15 +696,13 @@ main {
 			</ul>
 
 			<h3>Fler media-egenskaper</h3>
-			<p>Utöver bredd och höjd finns många andra media-egenskaper:</p>
+			<p>Utöver bredd och höjd finns många andra media-egenskaper till exempel:</p>
 			<ul>
 				<li><code>aspect-ratio</code> – skärmens bildförhållande</li>
 				<li><code>orientation</code> – portrait eller landscape</li>
 				<li><code>resolution</code> – skärmens pixeldensitet (dpi/dpcm)</li>
 				<li><code>prefers-color-scheme</code> – mörkt eller ljust läge</li>
 				<li><code>prefers-reduced-motion</code> – användaren föredrar mindre animation</li>
-				<li><code>hover</code> – hover med mus</li>
-				<li><code>pointer</code> – pekskärm, mus, eller pekdon</li>
 			</ul>
 
 			<pre><code>/* Mörkt läge */
@@ -781,11 +714,7 @@ main {
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
 }
-
-/* Pekenhet */
-@media (pointer: coarse) {
-  button { padding: 12px; }  /* Större för touch */
-}</code></pre>
+</code></pre>
 
 			<h3>Logiska operatorer</h3>
 			<p>Kombinera villkor med <code>and</code>, <code>not</code>, <code>only</code>:</p>
@@ -794,14 +723,10 @@ main {
   .grid { columns: 2; }
 }
 
-/* Negering */
 @media not (max-width: 600px) {
-  .desktop-only { display: block; }
+  .desktop { display: block; }
 }
 
-/* Legacy-stöd */
-@media only screen {
-  .modern { /* gamla webbläsare ignorerar detta */ }
 }</code></pre>
 
 			<h3>Rangesyntax</h3>
@@ -821,22 +746,6 @@ main {
 @supports not (display: grid) {
   .grid { float: left; }  /* Fallback */
 }</code></pre>
-
-			<h3>Utskrift (Print)</h3>
-			<p>Stila utskrifter med <code>@media print</code>:</p>
-			<pre><code>@media print {
-  body { font-size: 12pt; }
-  nav, footer, .no-print { display: none; }
-  a::after { content: " (" attr(href) ")"; }
-  .page-break { break-before: page; }
-}</code></pre>
-
-			<h4>Utskriftsegenskaper</h4>
-			<ul>
-				<li><code>page-break-before</code>, <code>page-break-after</code> – sidbryt</li>
-				<li><code>break-inside</code> – undvik bryta inuti element</li>
-				<li><code>widows</code>, <code>orphans</code> – minsta antal rader</li>
-			</ul>
 
 			<h2 id="css-variabler">CSS-variabler</h2>
 			<p>
@@ -882,7 +791,7 @@ article {
 }
 
 p {
-  /* Behöver inte ange color - ärvs automatiskt */
+  /* Behöver inte ange color, de ärvs automatiskt i en struktur med article -> p */
 }</code></pre>
 
 			<h4>Tvinga arv</h4>
@@ -904,56 +813,28 @@ p {
 			<ul>
 				<li><code>style=""</code> (inline) = 1000</li>
 				<li><code>#id</code> = 100</li>
-				<li><code>.class</code>, <code>[attr]</code>, <code>:pseudo</code> = 10</li>
+				<li><code>.class</code>, <code>:pseudo</code> = 10</li>
 				<li><code>element</code>, <code>::pseudo-element</code> = 1</li>
 				<li><code>*</code> (universell) = 0</li>
 			</ul>
 
-			<pre><code>/* Specificitet: 0-1-1 = 11 */
+			<pre><code>/* Specificitet: 10 + 1 = 11 */
 p.intro {
   color: blue;
 }
 
-/* Specificitet: 0-0-1 = 1 */
+/* Specificitet: 1 */
 p {
   color: red; /* Förlorar mot .intro */
 }</code></pre>
 
 			<h3>!important</h3>
 			<p>
-				<code>!important</code> åsidosätter normal specificitetsordning. Undvik
-				om möjligt - det gör koden svår att underhålla.
+				<code>!important</code> åsidosätter specificitetsordning och går över allt.
 			</p>
 			<pre><code>.important {
   color: red !important;
 }</code></pre>
-
-			<h3>CSS-logiska egenskaper</h3>
-			<p>
-				Logiska egenskaper fungerar oberoende av textriktning. Användbara
-				för flerspråkiga sajter.
-			</p>
-			<pre><code>/* Fysisk (funkar bara för vänster-till-höger) */
-margin-left: 10px;
-
-/* Logisk (fungerar för alla riktningar) */
-margin-inline-start: 10px;
-margin-block-start: 10px;</code></pre>
-
-			<h4>Andra logiska egenskaper</h4>
-			<ul>
-				<li><code>padding-inline-start</code>, <code>padding-inline-end</code></li>
-				<li><code>padding-block-start</code>, <code>padding-block-end</code></li>
-				<li><code>border-inline-width</code></li>
-				<li><code>width</code> → <code>inline-size</code></li>
-				<li><code>height</code> → <code>block-size</code></li>
-			</ul>
-
-			<h3>CSS-variabler fallback</h3>
-			<p>Definiera reservvärden om variabeln inte finns:</p>
-			<pre><code>color: var(--primary-color, blue);
-background: var(--bg-image, none);</code></pre>
-
 			<!-- Anpassad styling -->
 			<h2 id="anpassad-styling">Anpassad styling – ändra sidans färger</h2>
 			<p>

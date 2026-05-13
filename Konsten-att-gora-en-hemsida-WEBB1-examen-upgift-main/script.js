@@ -145,7 +145,7 @@ document.addEventListener("keydown", (e) => {
 
 // ===== SCROLLNING - DÖLJ/VISA HEADER =====
 
-// window.scrollY är antalet pixlar dokumentet scrollats från toppen
+// window.scrollY är antalet pixlar som scrollats från toppen
 // scrollDelta visar riktning: positiv = scrollar ner, negativ = scrollar upp
 
 let lastScrollY = window.scrollY;

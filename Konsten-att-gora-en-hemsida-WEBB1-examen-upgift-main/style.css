@@ -530,7 +530,7 @@ article pre code {
 	background-color: transparent;
 }
 article code {
-	font-family: "JetBrains Mono", ui-monospace, monospace;
+	font-family: "JetBrains Mono", "Lucida Console", monospace;
 	color: var(--code-snippet-text-color);
 	background-color: var(--code-snippet-background-color);
 	padding: 0.1rem 0.4rem;
@@ -552,6 +552,10 @@ footer {
 }
 
 /* ===== MEDIA QUERIES ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
 
 @media screen and (max-width: 1150px) {
 	.navbar-menu {

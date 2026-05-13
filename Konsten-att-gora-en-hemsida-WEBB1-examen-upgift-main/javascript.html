@@ -238,7 +238,6 @@ const input = document.querySelector("input");
 input.addEventListener("input", (event) => {
   console.log("Värdet är nu:", event.target.value);
 });</code></pre>
-			<button onclick="alert('Hej världen!')" Testa JavaScript</button></button>
 
 			<h2 id="morkt-lage">Mörkt läge med JavaScript</h2>
 			<p>
@@ -292,13 +291,26 @@ knapp.addEventListener("click", () => {
 			<h2 id="interaktivt-exempel">Komplett interaktivt exempel</h2>
 			<p>
 				Här är ett komplett litet exempel som kombinerar allt ovan – en enkel
-				räknare:
+				räknare.
 			</p>
+			<div class="interactive-demo">
+				<p>Testa gärna själv genom att klicka på knapparna nedan. Det här fungerar utan extern JavaScript-fil
+					och utan extra <code>&lt;script&gt;</code>-tagg i innehållet.</p>
+				<div id="raknare">
+					<p>Antal klick: <span id="antal">0</span></p>
+					<button type="button"
+						onclick="document.getElementById('antal').textContent = Number(document.getElementById('antal').textContent) + 1">+
+						Öka</button>
+					<button type="button"
+						onclick="document.getElementById('antal').textContent = '0'">Nollställ</button>
+				</div>
+			</div>
+
 			<pre><code>&lt;!-- HTML --&gt;
 &lt;div id="raknare"&gt;
   &lt;p&gt;Antal klick: &lt;span id="antal"&gt;0&lt;/span&gt;&lt;/p&gt;
-  &lt;button id="oka"&gt;+ Öka&lt;/button&gt;
-  &lt;button id="nollstall"&gt;Nollställ&lt;/button&gt;
+  &lt;button type="button" onclick="document.getElementById('antal').textContent = Number(document.getElementById('antal').textContent) + 1"&gt;+ Öka&lt;/button&gt;
+  &lt;button type="button" onclick="document.getElementById('antal').textContent = '0'"&gt;Nollställ&lt;/button&gt;
 &lt;/div&gt;</code></pre>
 
 			<pre><code>/* CSS */
@@ -320,18 +332,8 @@ knapp.addEventListener("click", () => {
 }</code></pre>
 
 			<pre><code>// JavaScript
-let antal = 0;
-const antalSpan = document.getElementById("antal");
-
-document.getElementById("oka").addEventListener("click", () => {
-  antal++;
-  antalSpan.textContent = antal;
-});
-
-document.getElementById("nollstall").addEventListener("click", () => {
-  antal = 0;
-  antalSpan.textContent = antal;
-});</code></pre>
+// Den här funktionen är inbyggd i HTML via onclick-attributen ovan.
+// Ingen separat JavaScript-fil behövs för det interaktiva exemplet.</code></pre>
 		</article>
 	</main>
 

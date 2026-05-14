@@ -82,27 +82,23 @@
 
 			<h2 id="vad-ar-javascript">Vad är JavaScript?</h2>
 			<p>
-				JavaScript (förkortat JS) är ett programmeringsspråk som gör webbsidor
+				JavaScript (JS) är ett objektorienterat programmeringsspråk som gör webbsidor
 				<strong>interaktiva</strong>. Medan HTML strukturerar innehållet och
-				CSS styr utseendet, är det JavaScript som ger sidan liv – till exempel
-				genom att reagera på knapptryck, hämta data från servrar, animera
-				element, eller som på den här sidan, byta mellan mörkt och ljust tema.
+				CSS skapar utseendet, är det JavaScript som ger sidan liv, exempelvis
+				genom att agera på knapptryck, ändra sidans inehåll eller som på den här sidan, byta mellan 
+				mörkt och ljust tema samt dölja headern när du scrollar ned.
 			</p>
-			<p>
-				JavaScript körs direkt i webbläsaren utan att behöva installeras. Det
-				är ett av de mest använda programmeringsspråken i världen och är
-				grunden för moderna webbapplikationer.
-			</p>
+
 			<p>
 				JavaScript läggs till på en sida med
-				<code>&lt;script&gt;</code>-taggen, helst längst ned i
+				<code>&lt;script&gt;</code> taggen, helst längst ned i
 				<code>&lt;body&gt;</code> eller med attributet <code>defer</code> i
-				<code>&lt;head&gt;</code>:
+				<code>&lt;head&gt;</code>: så att Scriptet körs efter all HTML laddats in.
 			</p>
 			<pre><code>&lt;!-- Extern JS-fil, defer = vänta tills HTML är inläst --&gt;
 &lt;script src="script.js" defer&gt;&lt;/script&gt;
 
-&lt;!-- Eller inline direkt i HTML --&gt;
+&lt;!-- Eller direkt i HTML --&gt;
 &lt;script&gt;
   console.log("Hej världen!");
 &lt;/script&gt;</code></pre>
@@ -111,8 +107,7 @@
 			<p>
 				Variabler är namngivna behållare för data. I modern JavaScript
 				använder man <code>let</code> för värden som kan ändras och
-				<code>const</code> för värden som inte ska ändras. Undvik det äldre
-				<code>var</code>.
+				<code>const</code> för värden som inte ska ändras.
 			</p>
 			<pre><code>const namn = "Anna";          // Sträng (text)
 let ålder = 25;               // Tal
@@ -148,7 +143,7 @@ for (const frukt of frukter) {
 			<h2 id="funktioner">Funktioner</h2>
 			<p>
 				En funktion är ett namngivet kodblock som kan anropas när som helst.
-				Det gör att du slipper skriva samma kod om och om igen.
+				Med funktioner behöver man inte skriva samma kod om och om igen.
 			</p>
 			<pre><code>// Definiera en funktion
 function hälsa(namn) {
@@ -199,10 +194,12 @@ rubrik.textContent = "Ny rubrik!";
 rubrik.style.color = "red";
 rubrik.style.fontSize = "3rem";
 
-// Lägg till eller ta bort CSS-klasser (rekommenderat)
+// Lägg till/ta bort CSS-klasser
 rubrik.classList.add("aktiv");
 rubrik.classList.remove("gammal");
-rubrik.classList.toggle("mörk"); // Lägg till om den saknas, ta bort om den finns</code></pre>
+
+// Lägg till om den saknas, ta bort om den finns
+rubrik.classList.toggle("mörk"); </code></pre>
 
 			<h3>Skapa och lägga till element</h3>
 			<pre><code>// Skapa ett nytt element
@@ -216,8 +213,8 @@ document.body.appendChild(nyParagraf);</code></pre>
 			<h2 id="handelselyssnare">Händelselyssnare</h2>
 			<p>
 				Händelselyssnare (<em>event listeners</em>) låter JavaScript reagera
-				på saker som händer på sidan – som att användaren klickar, skriver
-				eller scrollar.
+				på det som sker på sidan som exemplvis man klickar, skriver
+				eller scrollar på sidan.
 			</p>
 			<pre><code>const knapp = document.getElementById("min-knapp");
 
@@ -248,7 +245,7 @@ input.addEventListener("input", (event) => {
 			</p>
 
 			<h3>Steg 1 – HTML: en toggle-knapp</h3>
-			<pre><code>&lt;button id="tema-knapp"&gt;🌙 Byt tema&lt;/button&gt;</code></pre>
+			<pre><code>&lt;button id="tema-knapp"&gt;Byt tema&lt;/button&gt;</code></pre>
 
 			<h3>Steg 2 – CSS: definiera mörkt läge</h3>
 			<pre><code>/* Ljust läge (standard) */
@@ -263,7 +260,7 @@ body.dark-mode {
   color: #e0e0e0;
 }</code></pre>
 
-			<h3>Steg 3 – JavaScript: byt tema vid klick + spara val</h3>
+			<h3>Steg 3 – JavaScript: byt tema vid klick + spara värde i localStorage</h3>
 			<pre><code>const knapp = document.getElementById("tema-knapp");
 
 // Kolla om användaren har ett sparat val från förra besöket
@@ -282,16 +279,16 @@ knapp.addEventListener("click", () => {
 });</code></pre>
 
 			<p>
-				<code>localStorage</code> är en inbyggd webbläsarfunktion som låter
-				dig spara data som finns kvar även när sidan stängs. På den här
-				webbsidan används exakt samma teknik för att komma ihåg vilket tema du
+				<code>localStorage</code> är en webbläsarfunktion som låter
+				dig spara data så det finns kvar även när sidan stängs, lite som cookies. 
+				På den här webbsidan används det för att komma ihåg vilket tema du
 				valde.
 			</p>
 
-			<h2 id="interaktivt-exempel">Komplett interaktivt exempel</h2>
+			<h2 id="interaktivt-exempel">Exempel</h2>
 			<p>
 				Här är ett komplett litet exempel som kombinerar allt ovan – en enkel
-				räknare.
+				räknare:
 			</p>
 			<div class="interactive-demo">
 				<p>Testa gärna själv genom att klicka på knapparna nedan. Det här fungerar utan extern JavaScript-fil
@@ -307,11 +304,11 @@ knapp.addEventListener("click", () => {
 			</div>
 
 			<pre><code>&lt;!-- HTML --&gt;
-&lt;div id="raknare"&gt;
+&lt;section id="raknare"&gt;
   &lt;p&gt;Antal klick: &lt;span id="antal"&gt;0&lt;/span&gt;&lt;/p&gt;
-  &lt;button type="button" onclick="document.getElementById('antal').textContent = Number(document.getElementById('antal').textContent) + 1"&gt;+ Öka&lt;/button&gt;
-  &lt;button type="button" onclick="document.getElementById('antal').textContent = '0'"&gt;Nollställ&lt;/button&gt;
-&lt;/div&gt;</code></pre>
+  &lt;button id="oka"&gt;+ Öka&lt;/button&gt;
+  &lt;button id="nollstall"&gt;Nollställ&lt;/button&gt;
+&lt;/section&gt;</code></pre>
 
 			<pre><code>/* CSS */
 #raknare {
@@ -334,6 +331,20 @@ knapp.addEventListener("click", () => {
 			<pre><code>// JavaScript
 // Den här funktionen är inbyggd i HTML via onclick-attributen ovan.
 // Ingen separat JavaScript-fil behövs för det interaktiva exemplet.</code></pre>
+
+			<pre><code>// JavaScript
+let antal = 0;
+const antalSpan = document.getElementById("antal");
+
+document.getElementById("oka").addEventListener("click", () => {
+  antal++;
+  antalSpan.textContent = antal;
+});
+
+document.getElementById("nollstall").addEventListener("click", () => {
+  antal = 0;
+  antalSpan.textContent = antal;
+});</code></pre>
 
 			<section class="interactive-demo">
 				<h3>Prova räknaren live</h3>

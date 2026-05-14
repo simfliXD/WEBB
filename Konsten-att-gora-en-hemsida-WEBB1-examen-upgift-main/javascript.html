@@ -334,6 +334,17 @@ knapp.addEventListener("click", () => {
 			<pre><code>// JavaScript
 // Den här funktionen är inbyggd i HTML via onclick-attributen ovan.
 // Ingen separat JavaScript-fil behövs för det interaktiva exemplet.</code></pre>
+
+			<section class="interactive-demo">
+				<h3>Prova räknaren live</h3>
+				<div>
+					<p>Antal klick: <span id="antal" aria-live="polite" aria-atomic="true">0</span></p>
+					<div>
+						<button id="oka" aria-label="Öka räknaren">+ Öka</button>
+						<button id="nollstall" aria-label="Nollställ räknaren">Nollställ</button>
+					</div>
+				</div>
+			</section>
 		</article>
 	</main>
 
@@ -343,6 +354,24 @@ knapp.addEventListener("click", () => {
 	</footer>
 
 	<script src="script.js" defer></script>
+
+	<script>
+let antal = 0;
+const antalSpan = document.getElementById("antal");
+
+function oka() {
+  antal++;
+  antalSpan.textContent = antal;
+}
+
+function nollstall() {
+  antal = 0;
+  antalSpan.textContent = antal;
+}
+
+document.getElementById("oka").addEventListener("click", oka);
+document.getElementById("nollstall").addEventListener("click", nollstall);
+	</script>
 </body>
 
 </html>

@@ -148,7 +148,7 @@ input:focus-visible {
 
 header {
 	display: flex;
-	position: fixed; /* fixed: stannar på plats även vid scroll */
+	position: fixed; /* stannar på plats även vid scroll */
 	top: 0;
 	width: 100%;
 	z-index: 100; /* Högre z-index = ovanpå andra element */
@@ -159,7 +159,7 @@ header {
 	background: var(--primary-color);
 	color: var(--header-text-color);
 	border-bottom: 2px solid var(--primary-border-color);
-	box-shadow: 0 2px 14px var(--shadow-color); /* Skugga under headern */
+	box-shadow: 0 8px 14px var(--shadow-color); /* Svag skugga under headern */
 
 	transition: transform var(--transition-standard) ease; /* Animering vid scroll */
 }

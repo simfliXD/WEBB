@@ -2,14 +2,14 @@
 
 // TIPS: Om du använder VS Code så kan man flytta musen över koden för att se förklaringar och klicka på MDN-referens för djupare förklaring
 
-// getElementById() hämtar element med specifikt och unikt ID, querySelector() matchande element
+// getElementById() hämtar element med specifikt och unikt ID, querySelector() hämtar matchande element
 const darkModeToggle = document.getElementById("darkModeToggle");
 const header = document.querySelector("header");
 
 // ===== MÖRKT LÄGE FUNKTIONALLITET =====
+
 // localStorage sparas i webbläsaren
 let savedMode = localStorage.getItem("tema");
-
 
 // classList.add/remove lägger till eller tar bort CSS-klasser på body elementet
 function applyTheme(mode) {
@@ -41,11 +41,12 @@ if (savedMode === "mörkt") {
 }
 
 // Efter en frame sätter vi på en transition för mjuk färgövergång
+// efter att vi har satt på rätt tema (mörkt/ljust)
 requestAnimationFrame(() => {
 	document.body.style.transition = "var(--transition-quick) ease";
 });
 
-// change-event triggas när checkbox kryssas i/ur
+// Körs när checkbox kryssas (AV/PÅ switchen)
 darkModeToggle?.addEventListener("change", function () {
 	if (darkModeToggle.checked) {
 		console.log("Mörkt läge aktiverat.");
@@ -64,9 +65,7 @@ darkModeToggle?.addEventListener("change", function () {
 const mediaQuery = window.matchMedia("(width < 1150px)");
 const navbarMenu = document.querySelector(".navbar-menu");
 
-// set/removeAttribute lägger till eller tar bort HTML-attribut
-// inert: gör elementet inaktivt för navigations trädet (behåller animationer)
-// aria-hidden: döljer elementet för skärmläsare
+// Gömmer navbar menyn i mobil vy från tabbnavigering samt skärmlärasen
 function updateNavbar(e) {
 	const isSidebar = e.matches;
 	if (isSidebar) {
@@ -82,7 +81,9 @@ function updateNavbar(e) {
 updateNavbar(mediaQuery);
 mediaQuery.addEventListener("change", updateNavbar);
 
+
 // ===== ÖPPNA/STÄNG NAVBAR =====
+
 const overlay = document.getElementById("overlay");
 const navbarToggle = document.querySelector(".navbar-menu-toggle");
 
@@ -93,20 +94,14 @@ function closeNavbar() {
 	navbarToggle.classList.remove("show");
 	navbarToggle.setAttribute("aria-expanded", "false");
 
-	navbarMenu.classList.remove("show");
-	if (mediaQuery.matches) {
-		navbarMenu.setAttribute("inert", " ");
-		navbarMenu.setAttribute("aria-hidden", "true");
-	} else {
-		navbarMenu.removeAttribute("inert");
-		navbarMenu.setAttribute("aria-hidden", "false");
-	}
-
 	overlay.classList.remove("show");
+	navbarMenu.classList.remove("show");
 
-	if (mediaQuery.matches) {
-		navbarToggle.focus();
-	}
+	navbarMenu.setAttribute("inert", " ");
+	navbarMenu.setAttribute("aria-hidden", "true");
+
+	navbarToggle.focus();
+	console.log("Navbar is closed");
 }
 
 function openNavbar() {
@@ -118,6 +113,7 @@ function openNavbar() {
 	navbarMenu.setAttribute("aria-hidden", "false");
 
 	overlay.classList.add("show");
+	console.log("Navbar open");
 }
 
 // click-event på hamburgarmenyn för att öppna/stänga menyn.

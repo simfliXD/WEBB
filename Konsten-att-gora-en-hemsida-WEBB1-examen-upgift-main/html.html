@@ -379,16 +379,16 @@ border: 2px solid black;
 				</li>
 				<li>
 					<code>target="_blank"</code> – öppnar en länk i en ny
-					flik. Kombinera alltid med
-					<code>rel="noopener noreferrer"</code> av säkerhetsskäl. Exempel:
-					<pre><code>&lt;a href="https://example.com" target="_blank" rel="noopener noreferrer"&gt;
+					flik. 
+					Exempel:
+					<pre><code>&lt;a href="https://example.com" target="_blank"&gt;
   Sidan öppna i ny flik
 &lt;/a&gt;</code></pre>
 				</li>
 				<li>
-					<code>loading="lazy"</code> – skjuter upp inladdningen
-					av bilder tills de är nära att synas på skärmen.
-					Förbättrar sidans laddningstid. Exempel:
+					<code>loading="lazy"</code> – inladdningen sker när bilden är nära 
+					på att synas på skärmen. Förbättrar sidans laddningstid. 
+					Exempel:
 					<pre><code>&lt;img src="stor-bild.jpg" alt="Beskrivning" loading="lazy"&gt;</code></pre>
 				</li>
 			</ul>
@@ -402,10 +402,9 @@ border: 2px solid black;
 			<h2 id="metataggar">Metataggar</h2>
 			<p>
 				<code>&lt;meta&gt;</code>-taggar placeras i
-				<code>&lt;head&gt;</code> och innehåller metadata om sidan –
+				<code>&lt;head&gt;</code> och innehåller metadata om sidan,
 				alltså information om dokumentet som inte syns direkt på
-				sidan men som används av webbläsare, sökmotorer och sociala
-				medier.
+				sidan men som syns av webbläsare och sökmotorer.
 			</p>
 
 			<h4>Vanliga metataggar:</h4>
@@ -422,18 +421,13 @@ border: 2px solid black;
 					<pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
 				</li>
 				<li>
+					<code>title</code> - sidan titel som visas i webbläsartabben och sökresultat:
+					<pre><code>&lt;meta name="title" content="Konsten att skapa en hemsida"&gt;</code></pre>
+				</li>
+				<li>
 					<code>description</code> - en kort beskrivning av sidan
 					som visas i sökresultat:
 					<pre><code>&lt;meta name="description" content="En guide till HTML, CSS och JavaScript."&gt;</code></pre>
-				</li>
-				<li>
-					<code>Open Graph</code> – ett protokoll från Meta
-					(Facebook) som styr hur sidan visas när den delas på
-					sociala medier. Används av de flesta plattformar:
-					<pre><code>&lt;meta property="og:title" content="Min hemsida"&gt;
-&lt;meta property="og:description" content="En guide till webbutveckling."&gt;
-&lt;meta property="og:image" content="https://example.com/bild.jpg"&gt;
-&lt;meta property="og:url" content="https://example.com"&gt;</code></pre>
 				</li>
 			</ul>
 
@@ -482,23 +476,17 @@ border: 2px solid black;
 					<code>aria-checked="true/false/mixed"</code> – För
 					checkboxar.
 				</li>
-				<li>
-					<code>aria-disabled="true"</code> – Elementet är
-					tillfälligt inaktiverat.
-				</li>
 			</ul>
 
 			<h2 id="semantisk-html">Semantisk HTML och tillgänglighet</h2>
 			<p>
 				Semantisk HTML är <strong>alltid</strong> bättre att använda
-				än ARIA-attributer om det går. Vad är semantisk HTML? Det
+				än ARIA-attributer om det går. Vad är ens semantisk HTML? Det
 				innebär att man använder rätt taggar baserat på
-				<strong>vad innehållet är</strong>. Istället för att bara
-				använda generella element som
-				<code>&lt;div&gt;</code> använder man mer beskrivande taggar
-				som tydligt visar vad innehållet betyder. Det gör det
-				enklare för andra att läsa din kod, men framför allt för
-				hjälpmedel som skärmläsare.
+				<strong>vad innehållet är</strong>, alltså beskrivande taggar. 
+				Hellre för att bara använda generella taggar som
+				<code>&lt;div&gt;</code>. Sematisk HTML gör det enklare för andra 
+				att läsa din kod, men är framför allt bra för hjälpmedel som skärmläsare.
 			</p>
 
 			<p>Exempel på semantiska element är:</p>
@@ -511,7 +499,7 @@ border: 2px solid black;
 					finnas en per sida)
 				</li>
 				<li>
-					<code>&lt;aside&gt;</code> – sidopanel,
+					<code>&lt;aside&gt;</code> – blurb,
 					innehållsförteckning...
 				</li>
 				<li><code>&lt;section&gt;</code> – grupperat innehåll</li>

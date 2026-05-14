@@ -1,3 +1,4 @@
+/* JavaScript för att kunna anpassa temat på CSS sidan */
 function applyStyle() {
 	let old = document.getElementById("custom-theme-style"); // Ta bort tidigare anopassat thema
 	if (old) old.remove();

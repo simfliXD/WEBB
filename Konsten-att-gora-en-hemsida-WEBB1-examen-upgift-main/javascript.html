@@ -287,8 +287,8 @@ knapp.addEventListener("click", () => {
 
 			<h2 id="interaktivt-exempel">Exempel</h2>
 			<p>
-				Här är ett komplett litet exempel som kombinerar allt ovan – en enkel
-				räknare:
+				Här är ett litet exempel som kombinerar de vi lärt os om variablar, 
+				DOM, händelselyssnare och funktioner ovan. En enkel räknare:
 			</p>
 			<div class="interactive-demo">
 				<p>Testa gärna själv genom att klicka på knapparna nedan. Det här fungerar utan extern JavaScript-fil
@@ -370,18 +370,15 @@ document.getElementById("nollstall").addEventListener("click", () => {
 let antal = 0;
 const antalSpan = document.getElementById("antal");
 
-function oka() {
+document.getElementById("oka").addEventListener("click", () => {
   antal++;
   antalSpan.textContent = antal;
-}
+});
 
-function nollstall() {
+document.getElementById("nollstall").addEventListener("click", () => {
   antal = 0;
   antalSpan.textContent = antal;
-}
-
-document.getElementById("oka").addEventListener("click", oka);
-document.getElementById("nollstall").addEventListener("click", nollstall);
+});
 	</script>
 </body>
 

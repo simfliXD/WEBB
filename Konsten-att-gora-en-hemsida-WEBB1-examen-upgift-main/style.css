@@ -60,7 +60,7 @@ body.dark-mode {
 	--background-color: #181c24;
 	--article-background-color: #1f2027;
 
-	--primary-border-color: #d7b95f;
+	--primary-border-color: #d8b95f;
 	--secondary-border-color: #3b4352;
 
 	--header-text-color: #cdcad2;
@@ -377,6 +377,8 @@ aside {
 
 	overflow: auto;
 	scroll-behavior: smooth;
+
+	transition: top var(--transition-standard) ease-in-out;
 }
 
 aside ul {

@@ -141,9 +141,10 @@ document.addEventListener("keydown", (e) => {
 
 // ===== SCROLLNING - DÖLJ/VISA HEADER =====
 
+const aside = document.querySelector("aside");
+
 // window.scrollY är antalet pixlar som scrollats från toppen
 // scrollDelta visar riktning: positiv = scrollar ner, negativ = scrollar upp
-
 let lastScrollY = window.scrollY;
 window.addEventListener("scroll", () => {
 	const currentScrollY = window.scrollY;
@@ -156,10 +157,15 @@ window.addEventListener("scroll", () => {
 	if (navbarMenu.classList.contains("show")) return;
 
 	// Scrollar ner och mer än 120px från toppen = göm header
+	// förläng maxlängden och flytta upp blurben 
 	if (scrollDelta > 0 && currentScrollY > 120) {
 		header.classList.add("hide");
+		aside.style.top = "1rem";
+		aside.style.maxHeight = "calc(100vh - 2rem)";
 	} else {
 		header.classList.remove("hide");
+		aside.style.top = "calc(var(--header-height) + 1rem)";
+		aside.style.maxHeight = "calc(100vh - var(--header-height) - 2rem)";
 	}
 
 	lastScrollY = currentScrollY;

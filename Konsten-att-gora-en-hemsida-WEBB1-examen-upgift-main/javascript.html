@@ -290,18 +290,6 @@ knapp.addEventListener("click", () => {
 				Här är ett litet exempel som kombinerar de vi lärt os om variablar, 
 				DOM, händelselyssnare och funktioner ovan. En enkel räknare:
 			</p>
-			<div class="interactive-demo">
-				<p>Testa gärna själv genom att klicka på knapparna nedan. Det här fungerar utan extern JavaScript-fil
-					och utan extra <code>&lt;script&gt;</code>-tagg i innehållet.</p>
-				<div id="raknare">
-					<p>Antal klick: <span id="antal">0</span></p>
-					<button type="button"
-						onclick="document.getElementById('antal').textContent = Number(document.getElementById('antal').textContent) + 1">+
-						Öka</button>
-					<button type="button"
-						onclick="document.getElementById('antal').textContent = '0'">Nollställ</button>
-				</div>
-			</div>
 
 			<pre><code>&lt;!-- HTML --&gt;
 &lt;section id="raknare"&gt;
@@ -309,28 +297,6 @@ knapp.addEventListener("click", () => {
   &lt;button id="oka"&gt;+ Öka&lt;/button&gt;
   &lt;button id="nollstall"&gt;Nollställ&lt;/button&gt;
 &lt;/section&gt;</code></pre>
-
-			<pre><code>/* CSS */
-#raknare {
-  text-align: center;
-  padding: 2rem;
-  font-size: 1.5rem;
-}
-
-#raknare button {
-  padding: 0.5rem 1.5rem;
-  margin: 0.5rem;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 6px;
-  border: none;
-  background-color: #ff5a09;
-  color: white;
-}</code></pre>
-
-			<pre><code>// JavaScript
-// Den här funktionen är inbyggd i HTML via onclick-attributen ovan.
-// Ingen separat JavaScript-fil behövs för det interaktiva exemplet.</code></pre>
 
 			<pre><code>// JavaScript
 let antal = 0;

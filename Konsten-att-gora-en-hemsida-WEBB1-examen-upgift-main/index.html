@@ -97,16 +97,59 @@
                 användnign
             </p>
 
-            <h2 id="vad-lar-du-dig">Vad lär du dig här?</h2>
-            <p>
-                Den här webbsidan är en guide till webbutveckling. Vi går
-                igenom allt från grunderna.
-            </p>
-            <p>
-                Du hittar förklaringar av alla tre tekniker i menyn ovan.
-                Den här sidan är i sig själv gjord som ett exempel – titta
-                gärna på källkoden med <kbd>F12</kbd> i webbläsaren!
-            </p>
+				<h2 id="hur-fungerar-webben">
+					Hur fungerar en webbsida egentligen?
+				</h2>
+				<p>En typisk webbsida byggs upp av tre olika tekniker:</p>
+				<ul>
+					<li>
+						<strong>HTML</strong> – strukturen. HTML bestämmer vad
+						som finns på sidan: rubriker, text, bilder, knappar och
+						länkar.
+					</li>
+					<li>
+						<strong>CSS</strong> – utseendet. CSS styr hur allt ser
+						ut: färger, typsnitt, layout och animationer.
+					</li>
+					<li>
+						<strong>JavaScript</strong> – interaktiviteten.
+						JavaScript gör sidan levande: den reagerar på
+						knapptryck, hämtar data och uppdaterar innehållet utan
+						att ladda om sidan.
+					</li>
+				</ul>
+				<p>
+					När du skriver in en webbadress i din webbläsare så sker det
+					faktiskt en del mer än vad man kan tro:
+				</p>
+				<ol>
+					<li>
+						Webbläsaren frågar en <strong>DNS-server</strong> om
+						vilken IP-adress domännamnet (t.ex.
+						<code>google.com</code>) pekar på.
+					</li>
+					<li>
+						Webbläsaren och servern skapar en
+						<strong>TCP</strong> anslutning antadligen över port 443 för HTTPS
+						(säker kommunikation).
+					</li>
+					<li>
+						Webbläsaren frågar servern om filerna till webbsidan,
+						vilket sedan skickas till webbläsaren.
+					</li>
+					<li>
+						Webbläsaren läser och tolkar <strong>HTML</strong>, <strong>CSS</strong> och <strong>JavaScript</strong>
+						koden.
+					</li>
+					<li>
+						Sedan <strong>renderas</strong> sidan och du kan se den
+						på skärmen.
+					</li>
+				</ol>
+				<p>
+					Det här sker ofta på bara millisekunder varje gång du laddar
+					en sida.
+				</p>
 
             <h2 id="hur-fungerar-webben">
                 Hur fungerar en webbsida egentligen?
@@ -162,8 +205,44 @@
                 en sida.
             </p>
 
-            <h2 id="utforska-guiden">Utforska guiden</h2>
-            <p>Välj ett ämne nedan för att börja:</p>
+				<!-- Länkkort -->
+				<nav aria-label="Ämnesnavigation" class="card-grid">
+					<a href="historia.html" class="card">
+						<h3>Historia</h3>
+						<p>
+							Hur kom webben till? Vem skapade den? Och hur har
+							den utvecklats över tid?
+						</p>
+					</a>
+					<a href="lagar.html" class="card">
+						<h3>Lagar</h3>
+						<p>
+							GDPR, upphovsrätt, kaklagen. Vad måste man känna till
+							som webbutvecklare?
+						</p>
+					</a>
+					<a href="html.html" class="card">
+						<h3>HTML</h3>
+						<p>
+							Grunderna i HTML. Taggar, attributer, semantik och
+							tillgänglighet.
+						</p>
+					</a>
+					<a href="css.html" class="card">
+						<h3>CSS</h3>
+						<p>
+							Ge hemsidor stil. Färger, layout och responsiv
+							design m.m.
+						</p>
+					</a>
+					<a href="javascript.html" class="card">
+						<h3>JavaScript</h3>
+						<p>
+							Hur gör man en hemsida interaktiv? Variabler,
+							funktioner och DOM m.m.
+						</p>
+					</a>
+				</nav>
 
             <!-- Länkkort -->
             <nav aria-label="Ämnesnavigation" class="card-grid">

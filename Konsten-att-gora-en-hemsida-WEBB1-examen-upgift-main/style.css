@@ -63,7 +63,7 @@ body.dark-mode {
 	--primary-border-color: #d7b95f;
 	--secondary-border-color: #3b4352;
 
-	--header-text-color: #cacad2;
+	--header-text-color: #cdcad2;
 	--heading-text-color: #f0cf77;
 	--text-color: #e2e7ef;
 	--hyper-text-color: #f08a4b;
@@ -104,6 +104,7 @@ body {
 /* ===== TILLGÄNGLIGHET ===== */
 /* Skip-link: en synlig länk som dyker upp vid tangentbordsfokus, leder till main-innehållet */
 
+/* en synlig länk som dyker upp vid tangentbordsfokus, leder till main */
 .skip-link {
 	position: absolute; /* positionerar elementet på absoluta koordinater på webbläsar fönstret */
 	top: -45px; /* Gömmer länken ovanför skärmen tills den får focus */
@@ -163,7 +164,7 @@ header {
 	transition: transform var(--transition-standard) ease; /* Animering vid scroll */
 }
 
-/* header.hide: klass som läggs till med JS när användaren scrollar ner */
+/* Klass som läggs till med JS när användaren scrollar ner */
 header.hide {
 	transform: translateY(-100%); /* Flyttar headern upp utanför skärmen */
 }

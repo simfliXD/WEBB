@@ -157,7 +157,7 @@ window.addEventListener("scroll", () => {
 	if (navbarMenu.classList.contains("show")) return;
 
 	// Scrollar ner och mer än 120px från toppen = göm header
-	// förläng maxlängden och flytta upp blurben 
+	// samt förläng maxlängden och flytta upp blurben 
 	if (scrollDelta > 0 && currentScrollY > 120) {
 		header.classList.add("hide");
 		aside.style.top = "1rem";

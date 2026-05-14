@@ -1,4 +1,4 @@
-// ===== HTML LIVE TESTNING =====
+// ===== TESTA HTML LIVE =====
 const htmlEditor = document.querySelector("[data-html-editor]");
 const htmlPreview = document.querySelector("[data-html-preview]");
 

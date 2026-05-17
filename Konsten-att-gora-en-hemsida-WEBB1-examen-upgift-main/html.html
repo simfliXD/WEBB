@@ -74,7 +74,6 @@
 				<li><a href="#taggar">Taggar</a></li>
 				<li><a href="#attributer">Attributer</a></li>
 				<li><a href="#metataggar">Metataggar</a></li>
-				<li><a href="#aria-attributer">ARIA-attributer</a></li>
 				<li><a href="#semantisk-html">Semantisk HTML och tillgänglighet</a></li>
 				<li><a href="#exempel">Exempel</a></li>
 			</ul>
@@ -399,6 +398,33 @@ border: 2px solid black;
 				både CSS och JavaScript.
 			</p>
 
+			<h3>ARIA-attributer</h3>
+			<p>
+				<strong>ARIA</strong> (Accessible Rich Internet
+				Applications) är en specifikation som låter dig förbättra
+				tillgängligheten när vanlig HTML inte är tillräcklig.
+			</p>
+
+			<h4>De viktigaste ARIA-attributerna:</h4>
+			<ul>
+				<li>
+					<code>aria-label</code> – textbeskrivning. Används när
+					ett element saknar synlig text men behöver en
+					beskrivning för skärmläsare.
+				</li>
+				<li>
+					<code>aria-hidden</code> – döljer element från
+					skärmläsare. Användbart för dekorativa ikoner eller
+					bilder som inte tillför information.
+				</li>
+				<li>
+					<code>role</code> – attributet som används för att ändra
+					ett elements "betydelse" för skärmläsare. Används när du
+					skapar t.ex. en meny eller sökruta med en
+					<code>&lt;div&gt;</code>.
+				</li>
+			</ul>
+
 			<h2 id="metataggar">Metataggar</h2>
 			<p>
 				<code>&lt;meta&gt;</code>-taggar placeras i
@@ -428,33 +454,6 @@ border: 2px solid black;
 					<code>description</code> - en kort beskrivning av sidan
 					som visas i sökresultat:
 					<pre><code>&lt;meta name="description" content="En guide till HTML, CSS och JavaScript."&gt;</code></pre>
-				</li>
-			</ul>
-
-			<h2 id="aria-attributer">ARIA-attributer</h2>
-			<p>
-				<strong>ARIA</strong> (Accessible Rich Internet
-				Applications) är en specifikation som låter dig förbättra
-				tillgängligheten när vanlig HTML inte är tillräcklig.
-			</p>
-
-			<h4>De viktigaste ARIA-attributerna:</h4>
-			<ul>
-				<li>
-					<code>aria-label</code> – textbeskrivning. Används när
-					ett element saknar synlig text men behöver en
-					beskrivning för skärmläsare.
-				</li>
-				<li>
-					<code>aria-hidden</code> – döljer element från
-					skärmläsare. Användbart för dekorativa ikoner eller
-					bilder som inte tillför information.
-				</li>
-				<li>
-					<code>role</code> – attributet som används för att ändra
-					ett elements "betydelse" för skärmläsare. Används när du
-					skapar t.ex. en meny eller sökruta med en
-					<code>&lt;div&gt;</code>.
 				</li>
 			</ul>
 

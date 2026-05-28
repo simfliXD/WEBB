@@ -1,101 +1,133 @@
 <!doctype html>
 <html lang="sv">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta
+			name="description"
+			content="Guide för att skapa en hemsida med HTML, CSS och JavaScript."
+		>
+		<title>Konsten att skapa en hemsida | JavaScript</title>
+		<link rel="stylesheet" href="style.css">
+		<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Guide för att skapa en hemsida med HTML, CSS och JavaScript.">
-	<title>Konsten att skapa en hemsida | JavaScript</title>
-	<link rel="stylesheet" href="style.css">
-	<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+		<link rel="prefetch" href="historia.html">
+		<link rel="prefetch" href="lagar.html">
+		<link rel="prefetch" href="html.html">
+		<link rel="prefetch" href="css.html">
+		<link rel="prefetch" href="javascript.html">
+	</head>
 
-	<link rel="prefetch" href="historia.html">
-	<link rel="prefetch" href="lagar.html">
-	<link rel="prefetch" href="html.html">
-	<link rel="prefetch" href="css.html">
-	<link rel="prefetch" href="javascript.html">
-</head>
+	<body>
+		<a href="#main" class="skip-link">Hoppa till huvudinnehåll</a>
 
-<body>
-	<a href="#main" class="skip-link">Hoppa till huvudinnehåll</a>
+		<!-- HEADER -->
+		<header>
+			<div class="header-logo" id="logo">
+				<a href="index.html">
+					<!-- SVG logotyp -->
+					<svg
+						width="360"
+						height="30"
+						viewBox="0 0 385 30"
+						xmlns="http://www.w3.org/2000/svg"
+						role="img"
+						aria-label="Konsten att skapa en hemsida"
+					>
+						<g class="drawing-elements">
+							<path
+								d="M30,22v3c0,0.552-0.448,1-1,1h-1c-0.552,0-1-0.448-1-1v-3c0-0.552,0.448-1,1-1v-7.539l-11.198-0.896  C16.621,12.822,16.337,13,16,13c-0.552,0-1-0.448-1-1c0-0.552,0.448-1,1-1c0.396,0,0.732,0.235,0.894,0.57l11.186,0.895  c0.516,0.041,0.92,0.479,0.92,0.997V21C29.552,21,30,21.448,30,22z M16,19.725c-0.547,0-1.094-0.111-1.603-0.334L8,16.592v2.227  c0,1.136,0.642,2.175,1.658,2.683l0,0C11.655,22.501,13.827,23,16,23s4.345-0.499,6.341-1.497l0,0C23.358,20.995,24,19.956,24,18.82  v-2.227l-6.397,2.799C17.094,19.614,16.547,19.725,16,19.725z M29.906,11.084L17.202,5.526C16.819,5.358,16.41,5.275,16,5.275  c-0.41,0-0.819,0.084-1.202,0.252L2.094,11.084c-0.799,0.35-0.799,1.483,0,1.832l12.703,5.559c0.765,0.334,1.641,0.334,2.405,0  l9.416-4.121l-9.438-0.755C16.843,13.858,16.434,14,16,14c-1.103,0-2-0.897-2-2c0-1.103,0.897-2,2-2  c0.552,0,1.062,0.224,1.431,0.609l10.729,0.858c0.842,0.067,1.525,0.666,1.751,1.445C30.704,12.561,30.703,11.433,29.906,11.084z"
+							/>
+							<text
+								x="41"
+								y="24"
+								fill="#000000"
+								font-family="Segoe UI"
+								font-size="26"
+								stroke-width="0"
+							>
+								Konsten att skapa en hemsida
+							</text>
+						</g>
+					</svg>
+				</a>
+			</div>
 
-	<!-- HEADER -->
-	<header>
-		<div class="header-logo" id="logo">
-			<a href="index.html">
-				<svg width="360" height="30" viewBox="0 0 385 30" xmlns="http://www.w3.org/2000/svg" role="img"
-					aria-label="Konsten att skapa en hemsida">
-					<g class="drawing-elements">
-						<path
-							d="M30,22v3c0,0.552-0.448,1-1,1h-1c-0.552,0-1-0.448-1-1v-3c0-0.552,0.448-1,1-1v-7.539l-11.198-0.896  C16.621,12.822,16.337,13,16,13c-0.552,0-1-0.448-1-1c0-0.552,0.448-1,1-1c0.396,0,0.732,0.235,0.894,0.57l11.186,0.895  c0.516,0.041,0.92,0.479,0.92,0.997V21C29.552,21,30,21.448,30,22z M16,19.725c-0.547,0-1.094-0.111-1.603-0.334L8,16.592v2.227  c0,1.136,0.642,2.175,1.658,2.683l0,0C11.655,22.501,13.827,23,16,23s4.345-0.499,6.341-1.497l0,0C23.358,20.995,24,19.956,24,18.82  v-2.227l-6.397,2.799C17.094,19.614,16.547,19.725,16,19.725z M29.906,11.084L17.202,5.526C16.819,5.358,16.41,5.275,16,5.275  c-0.41,0-0.819,0.084-1.202,0.252L2.094,11.084c-0.799,0.35-0.799,1.483,0,1.832l12.703,5.559c0.765,0.334,1.641,0.334,2.405,0  l9.416-4.121l-9.438-0.755C16.843,13.858,16.434,14,16,14c-1.103,0-2-0.897-2-2c0-1.103,0.897-2,2-2  c0.552,0,1.062,0.224,1.431,0.609l10.729,0.858c0.842,0.067,1.525,0.666,1.751,1.445C30.704,12.561,30.703,11.433,29.906,11.084z" />
-						<text x="41" y="24" fill="#000000" font-family="Segoe UI" font-size="26"
-							stroke-width="0">Konsten att skapa en hemsida</text>
-					</g>
-				</svg>
-			</a>
-		</div>
+			<nav class="header-navbar">
+				<button
+					class="navbar-menu-toggle"
+					aria-label="Visa eller dölj navigationsmenyn"
+					aria-expanded="false"
+					aria-controls="navbar-menu"
+				>
+					<span class="bar"></span>
+					<span class="bar"></span>
+					<span class="bar"></span>
+				</button>
+				<ul class="navbar-menu" id="navbar-menu" aria-hidden="true">
+					<li><a href="index.html">Hem</a></li>
+					<li><a href="historia.html">Historia</a></li>
+					<li><a href="lagar.html">Lagar</a></li>
+					<li><a href="html.html">HTML</a></li>
+					<li><a href="css.html">CSS</a></li>
+					<li>
+						<a
+							class="active-link"
+							aria-current="page"
+							href="javascript.html"
+							>JavaScript</a
+						>
+					</li>
+					<li class="dark-mode-toggle-item">
+						<span class="navbar-dark-mode-label">Mörkt läge</span>
+						<label class="switch">
+							<input type="checkbox" id="darkModeToggle">
+							<span class="slider"></span>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</header>
 
-		<nav class="header-navbar">
-			<button class="navbar-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false"
-				aria-controls="navbar-menu">
-				<span class="bar"></span>
-				<span class="bar"></span>
-				<span class="bar"></span>
-			</button>
-			<ul class="navbar-menu" id="navbar-menu" aria-hidden="true">
-				<li><a href="index.html">Hem</a></li>
-				<li><a href="historia.html">Historia</a></li>
-				<li><a href="lagar.html">Lagar</a></li>
-				<li><a href="html.html">HTML</a></li>
-				<li><a href="css.html">CSS</a></li>
-				<li><a class="active-link" aria-current="page" href="javascript.html">JavaScript</a></li>
-				<li class="dark-mode-toggle-item">
-					<span class="navbar-dark-mode-label">Mörkt läge</span>
-					<label class="switch">
-						<input type="checkbox" id="darkModeToggle">
-						<span class="slider"></span>
-					</label>
-				</li>
-			</ul>
-		</nav>
-	</header>
+		<!-- Mörk bakgrund bakom mobilmeny, stänger meny vid klick -->
+		<div id="overlay" onclick="closeNavbar()" aria-hidden="true"></div>
 
-	<!-- OVERLAY -->
-	<div id="overlay" onclick="closeNavbar()" aria-hidden="true"></div>
+		<main id="main">
+			<aside aria-label="Innehållsförteckning">
+				<ul>
+					<li><a href="#javascript">JavaScript</a></li>
+					<li><a href="#vad-ar-javascript">Vad är JavaScript?</a></li>
+					<li><a href="#variabler-datatyper">Variabler</a></li>
+					<li><a href="#funktioner">Funktioner</a></li>
+					<li><a href="#dom-manipulation">DOM</a></li>
+					<li><a href="#handelselyssnare">Händelselyssnare</a></li>
+					<li><a href="#morkt-lage">Mörkt läge</a></li>
+					<li><a href="#interaktivt-exempel">Exempel</a></li>
+				</ul>
+			</aside>
 
-	<main id="main">
-		<aside aria-label="Innehållsförteckning">
-			<ul>
-				<li><a href="#javascript">JavaScript</a></li>
-				<li><a href="#vad-ar-javascript">Vad är JavaScript?</a></li>
-				<li><a href="#variabler-datatyper">Variabler</a></li>
-				<li><a href="#funktioner">Funktioner</a></li>
-				<li><a href="#dom-manipulation">DOM</a></li>
-				<li><a href="#handelselyssnare">Händelselyssnare</a></li>
-				<li><a href="#morkt-lage">Mörkt läge</a></li>
-				<li><a href="#interaktivt-exempel">Exempel</a></li>
-			</ul>
-		</aside>
+			<article id="main-content">
+				<h1 id="javascript">JavaScript</h1>
 
-		<article id="main-content">
-			<h1 id="javascript">JavaScript</h1>
+				<h2 id="vad-ar-javascript">Vad är JavaScript?</h2>
+				<p>
+					JavaScript (JS) är ett objektorienterat programmeringsspråk
+					som gör webbsidor
+					<strong>interaktiva</strong>. Medan HTML strukturerar
+					innehållet och CSS skapar utseendet, är det JavaScript som
+					ger sidan liv, exempelvis genom att agera på knapptryck,
+					ändra sidans inehåll eller som på den här sidan, byta mellan
+					mörkt och ljust tema samt dölja headern när du scrollar ned.
+				</p>
 
-			<h2 id="vad-ar-javascript">Vad är JavaScript?</h2>
-			<p>
-				JavaScript (JS) är ett objektorienterat programmeringsspråk som gör webbsidor
-				<strong>interaktiva</strong>. Medan HTML strukturerar innehållet och
-				CSS skapar utseendet, är det JavaScript som ger sidan liv, exempelvis
-				genom att agera på knapptryck, ändra sidans inehåll eller som på den här sidan, byta mellan 
-				mörkt och ljust tema samt dölja headern när du scrollar ned.
-			</p>
-
-			<p>
-				JavaScript läggs till på en sida med
-				<code>&lt;script&gt;</code> taggen, helst längst ned i
-				<code>&lt;body&gt;</code> eller med attributet <code>defer</code> i
-				<code>&lt;head&gt;</code>: så att Scriptet körs efter all HTML laddats in.
-			</p>
-			<pre><code>&lt;!-- Extern JS-fil, defer = vänta tills HTML är inläst --&gt;
+				<p>
+					JavaScript läggs till på en sida med
+					<code>&lt;script&gt;</code> taggen, helst längst ned i
+					<code>&lt;body&gt;</code> eller med attributet
+					<code>defer</code> i <code>&lt;head&gt;</code>: så att
+					Scriptet körs efter all HTML laddats in.
+				</p>
+				<pre><code>&lt;!-- Extern JS-fil, defer = vänta tills HTML är inläst --&gt;
 &lt;script src="script.js" defer&gt;&lt;/script&gt;
 
 &lt;!-- Eller direkt i HTML --&gt;
@@ -103,13 +135,14 @@
   console.log("Hej världen!");
 &lt;/script&gt;</code></pre>
 
-			<h2 id="variabler-datatyper">Variabler och datatyper</h2>
-			<p>
-				Variabler är namngivna behållare för data. I modern JavaScript
-				använder man <code>let</code> för värden som kan ändras och
-				<code>const</code> för värden som inte ska ändras.
-			</p>
-			<pre><code>const namn = "Anna";          // Sträng (text)
+				<h2 id="variabler-datatyper">Variabler och datatyper</h2>
+				<p>
+					Variabler är namngivna behållare för data. I modern
+					JavaScript använder man <code>let</code> för värden som kan
+					ändras och <code>const</code> för värden som inte ska
+					ändras.
+				</p>
+				<pre><code>const namn = "Anna";          // Sträng (text)
 let ålder = 25;               // Tal
 let loggadIn = true;          // Boolean (sant/falskt)
 const färger = ["röd", "blå"]; // Array (lista)
@@ -120,8 +153,8 @@ const färger = ["röd", "blå"]; // Array (lista)
 // let kan tilldelas om:
 ålder = 26; // OK</code></pre>
 
-			<h3>Villkor (if/else)</h3>
-			<pre><code>const timme = new Date().getHours();
+				<h3>Villkor (if/else)</h3>
+				<pre><code>const timme = new Date().getHours();
 
 if (timme &lt; 12) {
   console.log("God morgon!");
@@ -131,8 +164,8 @@ if (timme &lt; 12) {
   console.log("God kväll!");
 }</code></pre>
 
-			<h3>Loopar</h3>
-			<pre><code>// Gå igenom en lista
+				<h3>Loopar</h3>
+				<pre><code>// Gå igenom en lista
 const frukter = ["äpple", "banan", "päron"];
 
 for (const frukt of frukter) {
@@ -140,12 +173,13 @@ for (const frukt of frukter) {
 }
 // Skriver ut: äpple, banan, päron</code></pre>
 
-			<h2 id="funktioner">Funktioner</h2>
-			<p>
-				En funktion är ett namngivet kodblock som kan anropas när som helst.
-				Med funktioner behöver man inte skriva samma kod om och om igen.
-			</p>
-			<pre><code>// Definiera en funktion
+				<h2 id="funktioner">Funktioner</h2>
+				<p>
+					En funktion är ett namngivet kodblock som kan anropas när
+					som helst. Med funktioner behöver man inte skriva samma kod
+					om och om igen.
+				</p>
+				<pre><code>// Definiera en funktion
 function hälsa(namn) {
   return "Hej, " + namn + "!";
 }
@@ -154,11 +188,11 @@ function hälsa(namn) {
 const meddelande = hälsa("Maria");
 console.log(meddelande); // "Hej, Maria!"</code></pre>
 
-			<p>
-				Modern JavaScript använder ofta så kallade
-				<strong>pilfunktioner</strong>:
-			</p>
-			<pre><code>// Pilfunktion – kortare syntax
+				<p>
+					Modern JavaScript använder ofta så kallade
+					<strong>pilfunktioner</strong>:
+				</p>
+				<pre><code>// Pilfunktion – kortare syntax
 const hälsa = (namn) => "Hej, " + namn + "!";
 
 // Med flera rader
@@ -167,15 +201,18 @@ const summa = (a, b) => {
   return resultat;
 };</code></pre>
 
-			<h2 id="dom-manipulation">DOM – Manipulera sidan med JavaScript</h2>
-			<p>
-				DOM (Document Object Model) är webbläsarens representation av
-				HTML-sidan som ett träd av objekt. Med JavaScript kan du hämta, ändra,
-				lägga till och ta bort HTML-element och deras innehåll i realtid.
-			</p>
+				<h2 id="dom-manipulation">
+					DOM – Manipulera sidan med JavaScript
+				</h2>
+				<p>
+					DOM (Document Object Model) är webbläsarens representation
+					av HTML-sidan som ett träd av objekt. Med JavaScript kan du
+					hämta, ändra, lägga till och ta bort HTML-element och deras
+					innehåll i realtid.
+				</p>
 
-			<h3>Hämta element</h3>
-			<pre><code>// Hämta ett element med ID
+				<h3>Hämta element</h3>
+				<pre><code>// Hämta ett element med ID
 const knapp = document.getElementById("min-knapp");
 
 // Hämta element med CSS-selektor (returnerar det första)
@@ -184,8 +221,8 @@ const rubrik = document.querySelector("h1");
 // Hämta alla element som matchar (returnerar en lista)
 const alla = document.querySelectorAll(".kort");</code></pre>
 
-			<h3>Ändra innehåll och stil</h3>
-			<pre><code>const rubrik = document.querySelector("h1");
+				<h3>Ändra innehåll och stil</h3>
+				<pre><code>const rubrik = document.querySelector("h1");
 
 // Ändra textinnehållet
 rubrik.textContent = "Ny rubrik!";
@@ -201,8 +238,8 @@ rubrik.classList.remove("gammal");
 // Lägg till om den saknas, ta bort om den finns
 rubrik.classList.toggle("mörk"); </code></pre>
 
-			<h3>Skapa och lägga till element</h3>
-			<pre><code>// Skapa ett nytt element
+				<h3>Skapa och lägga till element</h3>
+				<pre><code>// Skapa ett nytt element
 const nyParagraf = document.createElement("p");
 nyParagraf.textContent = "Det här är ny text!";
 nyParagraf.classList.add("info");
@@ -210,13 +247,13 @@ nyParagraf.classList.add("info");
 // Lägg till det i DOM:en
 document.body.appendChild(nyParagraf);</code></pre>
 
-			<h2 id="handelselyssnare">Händelselyssnare</h2>
-			<p>
-				Händelselyssnare (<em>event listeners</em>) låter JavaScript reagera
-				på det som sker på sidan som exemplvis man klickar, skriver
-				eller scrollar på sidan.
-			</p>
-			<pre><code>const knapp = document.getElementById("min-knapp");
+				<h2 id="handelselyssnare">Händelselyssnare</h2>
+				<p>
+					Händelselyssnare (<em>event listeners</em>) låter JavaScript
+					reagera på det som sker på sidan som exemplvis man klickar,
+					skriver eller scrollar på sidan.
+				</p>
+				<pre><code>const knapp = document.getElementById("min-knapp");
 
 // Kör en funktion när knappen klickas
 knapp.addEventListener("click", () => {
@@ -236,19 +273,19 @@ input.addEventListener("input", (event) => {
   console.log("Värdet är nu:", event.target.value);
 });</code></pre>
 
-			<h2 id="morkt-lage">Mörkt läge med JavaScript</h2>
-			<p>
-				Mörkt läge är ett bra praktiskt exempel på hur HTML, CSS och
-				JavaScript samverkar. Idén är enkel: JavaScript lägger till eller tar
-				bort en CSS-klass på <code>&lt;body&gt;</code>, och CSS definierar hur
-				sidan ska se ut med den klassen.
-			</p>
+				<h2 id="morkt-lage">Mörkt läge med JavaScript</h2>
+				<p>
+					Mörkt läge är ett bra praktiskt exempel på hur HTML, CSS och
+					JavaScript samverkar. Idén är enkel: JavaScript lägger till
+					eller tar bort en CSS-klass på <code>&lt;body&gt;</code>,
+					och CSS definierar hur sidan ska se ut med den klassen.
+				</p>
 
-			<h3>Steg 1 – HTML: en toggle-knapp</h3>
-			<pre><code>&lt;button id="tema-knapp"&gt;Byt tema&lt;/button&gt;</code></pre>
+				<h3>Steg 1 – HTML: en toggle-knapp</h3>
+				<pre><code>&lt;button id="tema-knapp"&gt;Byt tema&lt;/button&gt;</code></pre>
 
-			<h3>Steg 2 – CSS: definiera mörkt läge</h3>
-			<pre><code>/* Ljust läge (standard) */
+				<h3>Steg 2 – CSS: definiera mörkt läge</h3>
+				<pre><code>/* Ljust läge (standard) */
 body {
   background-color: white;
   color: black;
@@ -260,8 +297,11 @@ body.dark-mode {
   color: #e0e0e0;
 }</code></pre>
 
-			<h3>Steg 3 – JavaScript: byt tema vid klick + spara värde i localStorage</h3>
-			<pre><code>const knapp = document.getElementById("tema-knapp");
+				<h3>
+					Steg 3 – JavaScript: byt tema vid klick + spara värde i
+					localStorage
+				</h3>
+				<pre><code>const knapp = document.getElementById("tema-knapp");
 
 // Kolla om användaren har ett sparat val från förra besöket
 const sparat = localStorage.getItem("tema");
@@ -278,27 +318,28 @@ knapp.addEventListener("click", () => {
   localStorage.setItem("tema", ärMörkt ? "mörkt" : "ljust");
 });</code></pre>
 
-			<p>
-				<code>localStorage</code> är en webbläsarfunktion som låter
-				dig spara data så det finns kvar även när sidan stängs, lite som cookies. 
-				På den här webbsidan används det för att komma ihåg vilket tema du
-				valde.
-			</p>
+				<p>
+					<code>localStorage</code> är en webbläsarfunktion som låter
+					dig spara data så det finns kvar även när sidan stängs, lite
+					som cookies. På den här webbsidan används det för att komma
+					ihåg vilket tema du valde.
+				</p>
 
-			<h2 id="interaktivt-exempel">Exempel</h2>
-			<p>
-				Här är ett litet exempel som kombinerar de vi lärt os om variablar, 
-				DOM, händelselyssnare och funktioner ovan. En enkel räknare:
-			</p>
+				<h2 id="interaktivt-exempel">Exempel</h2>
+				<p>
+					Här är ett litet exempel som kombinerar de vi lärt os om
+					variablar, DOM, händelselyssnare och funktioner ovan. En
+					enkel räknare:
+				</p>
 
-			<pre><code>&lt;!-- HTML --&gt;
+				<pre><code>&lt;!-- HTML --&gt;
 &lt;section id="raknare"&gt;
   &lt;p&gt;Antal klick: &lt;span id="antal"&gt;0&lt;/span&gt;&lt;/p&gt;
   &lt;button id="oka"&gt;+ Öka&lt;/button&gt;
   &lt;button id="nollstall"&gt;Nollställ&lt;/button&gt;
 &lt;/section&gt;</code></pre>
 
-			<pre><code>// JavaScript
+				<pre><code>// JavaScript
 let antal = 0;
 const antalSpan = document.getElementById("antal");
 
@@ -312,41 +353,57 @@ document.getElementById("nollstall").addEventListener("click", () => {
   antalSpan.textContent = antal;
 });</code></pre>
 
-			<section class="interactive-demo">
-				<h3>Prova räknaren</h3>
-				<div>
-					<!-- ARIA-live och ARIA-atomic för att talet ska läsas upp live av skärmläsaren -->
-					<p>Antal klick: <span id="antal" aria-live="polite" aria-atomic="true">0</span></p>
+				<section class="interactive-demo">
+					<h3>Prova räknaren</h3>
 					<div>
-						<button id="oka" aria-label="Öka räknaren">+ Öka</button>
-						<button id="nollstall" aria-label="Nollställ räknaren">Nollställ</button>
+						<!-- ARIA-live och ARIA-atomic för att talet ska läsas upp live av skärmläsaren -->
+						<p>
+							Antal klick:
+							<span
+								id="antal"
+								aria-live="polite"
+								aria-atomic="true"
+								>0</span
+							>
+						</p>
+						<div>
+							<button id="oka" aria-label="Öka räknaren">
+								+ Öka
+							</button>
+							<button
+								id="nollstall"
+								aria-label="Nollställ räknaren"
+							>
+								Nollställ
+							</button>
+						</div>
 					</div>
-				</div>
-			</section>
-		</article>
-	</main>
+				</section>
+			</article>
+		</main>
 
-	<footer id="footer">
-		<p>&copy; <em>2026 Konsten att göra en hemsida :D</em></p>
-		<p><sub>Kontakta mig på simon.flink@elev.ntig.se</sub></p>
-	</footer>
+		<footer id="footer">
+			<p>&copy; <em>2026 Konsten att göra en hemsida :D</em></p>
+			<p><sub>Kontakta mig på simon.flink@elev.ntig.se</sub></p>
+		</footer>
 
-	<script src="script.js" defer></script>
+		<script src="script.js" defer></script>
 
-	<script>
-let antal = 0;
-const antalSpan = document.getElementById("antal");
+		<script>
+			let antal = 0;
+			const antalSpan = document.getElementById("antal");
 
-document.getElementById("oka").addEventListener("click", () => {
-  antal++;
-  antalSpan.textContent = antal;
-});
+			document.getElementById("oka").addEventListener("click", () => {
+				antal++;
+				antalSpan.textContent = antal;
+			});
 
-document.getElementById("nollstall").addEventListener("click", () => {
-  antal = 0;
-  antalSpan.textContent = antal;
-});
-	</script>
-</body>
-
+			document
+				.getElementById("nollstall")
+				.addEventListener("click", () => {
+					antal = 0;
+					antalSpan.textContent = antal;
+				});
+		</script>
+	</body>
 </html>

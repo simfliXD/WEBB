@@ -2,7 +2,8 @@
 /* :root selector väljer root-elementet (html) och är bra för globala variabler */
 
 :root {
-	/*Färger - Dessa variabler används genom hela CSS:en */
+	/* Färger */
+	/* Dessa variabler används genom hela CSS:en */
 	--primary-color: #303949;
 	--secondary-color: #d9561a;
 	--shadow-color: rgba(24, 29, 38, 0.18);
@@ -104,7 +105,7 @@ body {
 /* ===== TILLGÄNGLIGHET ===== */
 /* Skip-link: en synlig länk som dyker upp vid tangentbordsfokus, leder till main-innehållet */
 
-/* en synlig länk som dyker upp vid tangentbordsfokus, leder till main */
+/* en synlig länk som dyker upp vid tangentbordsfokus, går till main */
 .skip-link {
 	position: absolute; /* positionerar elementet på absoluta koordinater på webbläsar fönstret */
 	top: -45px; /* Gömmer länken ovanför skärmen tills den får focus */
@@ -273,7 +274,7 @@ header.hide {
 	inset: 0; /* top:0, right:0, bottom:0, left:0 */
 
 	background-color: var(--overlay-color);
-	backdrop-filter: blur(2px); /* Slöeffekt på innehållet under */
+	backdrop-filter: blur(2px); /* blurrig effekt på innehållet bakom */
 
 	z-index: 11;
 
@@ -507,7 +508,7 @@ article a {
 }
 
 /* ===== KODBLOCK (pre/code) ===== */
-/* <pre> bevarar whitespace och radbrytningar, visar kod som det är */
+/* <pre> bevarar rätt indentering */
 
 article pre {
 	max-width: 100%;
@@ -519,7 +520,7 @@ article pre {
 	font-family: "JetBrains Mono", ui-monospace, monospace;
 
 	white-space: pre-wrap; /* Bryt rader vid behov istället för horisontell scroll */
-	overflow-x: auto; /* Scrollbar om koden är för lång */
+	overflow-x: auto; /* Scrollbar om koden ändå är för lång*/
 
 	background-color: var(--code-snippet-background-color);
 	color: var(--code-snippet-text-color);
@@ -556,8 +557,9 @@ footer {
 
 /* ===== MEDIA QUERIES ===== */
 
+
 @media (prefers-reduced-motion: reduce) {
-  * { animation: none !important; transition: none !important; }
+	* { animation: none !important; transition: none !important; }
 }
 
 @media screen and (max-width: 1150px) {

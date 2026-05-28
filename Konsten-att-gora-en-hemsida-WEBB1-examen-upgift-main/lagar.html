@@ -1,249 +1,315 @@
 <!doctype html>
 <html lang="sv">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta
+			name="description"
+			content="Guide för att skapa en hemsida med HTML, CSS och JavaScript."
+		>
+		<title>Konsten att skapa en hemsida | Lagar</title>
+		<link rel="stylesheet" href="style.css">
+		<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Guide för att skapa en hemsida med HTML, CSS och JavaScript.">
-	<title>Konsten att skapa en hemsida | Lagar</title>
-	<link rel="stylesheet" href="style.css">
-	<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+		<!-- Hämta alla sidor för snabbare navigering -->
+		<link rel="prefetch" href="historia.html">
+		<link rel="prefetch" href="lagar.html">
+		<link rel="prefetch" href="html.html">
+		<link rel="prefetch" href="css.html">
+		<link rel="prefetch" href="javascript.html">
+	</head>
 
-	<!-- Hämta alla sidor för snabbare navigering -->
-	<link rel="prefetch" href="historia.html">
-	<link rel="prefetch" href="lagar.html">
-	<link rel="prefetch" href="html.html">
-	<link rel="prefetch" href="css.html">
-	<link rel="prefetch" href="javascript.html">
-</head>
+	<body>
+		<a href="#main" class="skip-link">Hoppa till huvudinnehållet</a>
 
-<body>
-	<a href="#main" class="skip-link">Hoppa till huvudinnehållet</a>
+		<!-- HEADER -->
+		<header>
+			<div class="header-logo" id="logo">
+				<a href="index.html">
+					<!-- SVG logotyp -->
+					<svg
+						width="360"
+						height="30"
+						viewBox="0 0 385 30"
+						xmlns="http://www.w3.org/2000/svg"
+						role="img"
+						aria-label="Konsten att skapa en hemsida"
+					>
+						<g class="drawing-elements">
+							<path
+								d="M30,22v3c0,0.552-0.448,1-1,1h-1c-0.552,0-1-0.448-1-1v-3c0-0.552,0.448-1,1-1v-7.539l-11.198-0.896  C16.621,12.822,16.337,13,16,13c-0.552,0-1-0.448-1-1c0-0.552,0.448-1,1-1c0.396,0,0.732,0.235,0.894,0.57l11.186,0.895  c0.516,0.041,0.92,0.479,0.92,0.997V21C29.552,21,30,21.448,30,22z M16,19.725c-0.547,0-1.094-0.111-1.603-0.334L8,16.592v2.227  c0,1.136,0.642,2.175,1.658,2.683l0,0C11.655,22.501,13.827,23,16,23s4.345-0.499,6.341-1.497l0,0C23.358,20.995,24,19.956,24,18.82  v-2.227l-6.397,2.799C17.094,19.614,16.547,19.725,16,19.725z M29.906,11.084L17.202,5.526C16.819,5.358,16.41,5.275,16,5.275  c-0.41,0-0.819,0.084-1.202,0.252L2.094,11.084c-0.799,0.35-0.799,1.483,0,1.832l12.703,5.559c0.765,0.334,1.641,0.334,2.405,0  l9.416-4.121l-9.438-0.755C16.843,13.858,16.434,14,16,14c-1.103,0-2-0.897-2-2c0-1.103,0.897-2,2-2  c0.552,0,1.062,0.224,1.431,0.609l10.729,0.858c0.842,0.067,1.525,0.666,1.751,1.445C30.704,12.561,30.703,11.433,29.906,11.084z"
+							/>
+							<text
+								x="41"
+								y="24"
+								fill="#000000"
+								font-family="Segoe UI"
+								font-size="26"
+								stroke-width="0"
+							>
+								Konsten att skapa en hemsida
+							</text>
+						</g>
+					</svg>
+				</a>
+			</div>
 
-	<!-- HEADER -->
-	<header>
-		<div class="header-logo" id="logo">
-			<a href="index.html">
-				<!-- SVG logotyp -->
-				<svg width="360" height="30" viewBox="0 0 385 30" xmlns="http://www.w3.org/2000/svg" role="img"
-					aria-label="Konsten att skapa en hemsida">
-					<g class="drawing-elements">
-						<path
-							d="M30,22v3c0,0.552-0.448,1-1,1h-1c-0.552,0-1-0.448-1-1v-3c0-0.552,0.448-1,1-1v-7.539l-11.198-0.896  C16.621,12.822,16.337,13,16,13c-0.552,0-1-0.448-1-1c0-0.552,0.448-1,1-1c0.396,0,0.732,0.235,0.894,0.57l11.186,0.895  c0.516,0.041,0.92,0.479,0.92,0.997V21C29.552,21,30,21.448,30,22z M16,19.725c-0.547,0-1.094-0.111-1.603-0.334L8,16.592v2.227  c0,1.136,0.642,2.175,1.658,2.683l0,0C11.655,22.501,13.827,23,16,23s4.345-0.499,6.341-1.497l0,0C23.358,20.995,24,19.956,24,18.82  v-2.227l-6.397,2.799C17.094,19.614,16.547,19.725,16,19.725z M29.906,11.084L17.202,5.526C16.819,5.358,16.41,5.275,16,5.275  c-0.41,0-0.819,0.084-1.202,0.252L2.094,11.084c-0.799,0.35-0.799,1.483,0,1.832l12.703,5.559c0.765,0.334,1.641,0.334,2.405,0  l9.416-4.121l-9.438-0.755C16.843,13.858,16.434,14,16,14c-1.103,0-2-0.897-2-2c0-1.103,0.897-2,2-2  c0.552,0,1.062,0.224,1.431,0.609l10.729,0.858c0.842,0.067,1.525,0.666,1.751,1.445C30.704,12.561,30.703,11.433,29.906,11.084z" />
-						<text x="41" y="24" fill="#000000" font-family="Segoe UI" font-size="26"
-							stroke-width="0">Konsten att skapa en hemsida</text>
-					</g>
-				</svg>
-			</a>
-		</div>
+			<nav class="header-navbar">
+				<button
+					class="navbar-menu-toggle"
+					aria-label="Visa eller dölj navigationsmenyn"
+					aria-expanded="false"
+					aria-controls="navbar-menu"
+				>
+					<span class="bar"></span>
+					<span class="bar"></span>
+					<span class="bar"></span>
+				</button>
+				<ul class="navbar-menu" id="navbar-menu" aria-hidden="true">
+					<li><a href="index.html">Hem</a></li>
+					<li><a href="historia.html">Historia</a></li>
+					<li>
+						<a
+							class="active-link"
+							aria-current="page"
+							href="lagar.html"
+							>Lagar</a
+						>
+					</li>
+					<li><a href="html.html">HTML</a></li>
+					<li><a href="css.html">CSS</a></li>
+					<li><a href="javascript.html">JavaScript</a></li>
+					<li class="dark-mode-toggle-item">
+						<span class="navbar-dark-mode-label">Mörkt läge</span>
+						<label class="switch">
+							<input type="checkbox" id="darkModeToggle">
+							<span class="slider"></span>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</header>
 
-		<nav class="header-navbar">
-			<button class="navbar-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false"
-				aria-controls="navbar-menu">
-				<span class="bar"></span>
-				<span class="bar"></span>
-				<span class="bar"></span>
-			</button>
-			<ul class="navbar-menu" id="navbar-menu" aria-hidden="true">
-				<li><a href="index.html">Hem</a></li>
-				<li><a href="historia.html">Historia</a></li>
-				<li><a class="active-link" aria-current="page" href="lagar.html">Lagar</a></li>
-				<li><a href="html.html">HTML</a></li>
-				<li><a href="css.html">CSS</a></li>
-				<li><a href="javascript.html">JavaScript</a></li>
-				<li class="dark-mode-toggle-item">
-					<span class="navbar-dark-mode-label">Mörkt läge</span>
-					<label class="switch">
-						<input type="checkbox" id="darkModeToggle">
-						<span class="slider"></span>
-					</label>
-				</li>
-			</ul>
-		</nav>
-	</header>
+		<!-- Mörk bakgrund bakom mobilmeny, stänger meny vid klick -->
+		<div id="overlay" onclick="closeNavbar()" aria-hidden="true"></div>
 
-	<!-- OVERLAY -->
-	<div id="overlay" onclick="closeNavbar()" aria-hidden="true"></div>
+		<main id="main">
+			<aside aria-label="Innehållsförteckning">
+				<ul>
+					<li><a href="#lagar">LAGAR FÖR NÄTET</a></li>
+					<li><a href="#varfor-lagar">Varför?</a></li>
+					<li><a href="#gdpr">GDPR</a></li>
+					<li><a href="#upphovsratt">Upphovsrätten</a></li>
+					<li><a href="#lek">LEK</a></li>
+					<li><a href="#kaklagen">Kakreglerna</a></li>
+					<li><a href="#integritetspolicy">Integritetspolicy</a></li>
+					<li><a href="#bbs-lagen">BBS-lagen</a></li>
+					<li><a href="#bra-att-tänka-på">Bra att tänka på</a></li>
+					<li><a href="#kallor">Källor</a></li>
+				</ul>
+			</aside>
 
-	<main id="main">
-		<aside aria-label="Innehållsförteckning">
-			<ul>
-				<li><a href="#lagar">LAGAR FÖR NÄTET</a></li>
-				<li><a href="#varfor-lagar">Varför?</a></li>
-				<li><a href="#gdpr">GDPR</a></li>
-				<li><a href="#upphovsratt">Upphovsrätten</a></li>
-				<li><a href="#lek">LEK</a></li>
-				<li><a href="#kaklagen">Kakreglerna</a></li>
-				<li><a href="#integritetspolicy">Integritetspolicy</a></li>
-				<li><a href="#bbs-lagen">BBS-lagen</a></li>
-				<li><a href="#bra-att-tänka-på">Bra att tänka på</a></li>
-				<li><a href="#kallor">Källor</a></li>
-			</ul>
-		</aside>
+			<article id="main-content">
+				<h1 id="lagar">LAGAR FÖR NÄTET</h1>
+				<h2 id="varfor-lagar">Varför har vi lagar på nätet?</h2>
+				<p>
+					Liksom i övriga samhället finns det lagar även på nätet. De
+					skyddar privatpersoner, styr hur företag får hantera data.
+					Utan lagar på nätet blir det svårt att säkerställa
+					integritet och upphovsrätt för användare.
+				</p>
 
-		<article id="main-content">
-			<h1 id="lagar">LAGAR FÖR NÄTET</h1>
-			<h2 id="varfor-lagar">Varför har vi lagar på nätet?</h2>
-			<p>
-				Liksom i övriga samhället finns det lagar även på nätet. De skyddar
-				privatpersoner, styr hur företag får hantera data. Utan lagar på nätet
-				blir det svårt att säkerställa integritet och upphovsrätt för användare.
-			</p>
+				<h2 id="gdpr">Dataskyddsförordningen (GDPR)</h2>
+				<p>
+					Dataskyddsförordningen, även kallad GDPR, skyddar
+					personuppgifter på nätet. Personuppgifter kan vara namn,
+					e-postadress, IP-adress eller andra uppgifter som går att
+					koppla till en individ. För att få behandla personuppgifter
+					måste det finnas en rättslig grund, till exempel samtycke
+					eller avtal. Den som samlar in uppgifterna ska också berätta
+					vilka uppgifter som sparas, varför de sparas, hur länge de
+					sparas och om de delas med någon annan.
+				</p>
+				<p>
+					Som besökare har du rättigheter, till exempel att få veta
+					vilka uppgifter som hämtas om dig, kan du begära nedladdning
+					av din data eller be om radering av alla uppgifter de har på
+					dig.
+				</p>
 
-			<h2 id="gdpr">Dataskyddsförordningen (GDPR)</h2>
-			<p>
-				Dataskyddsförordningen, även kallad GDPR, skyddar personuppgifter på
-				nätet. Personuppgifter kan vara namn, e-postadress, IP-adress eller
-				andra uppgifter som går att koppla till en individ. För att få
-				behandla personuppgifter måste det finnas en rättslig grund, till
-				exempel samtycke eller avtal. Den som samlar in uppgifterna ska också
-				berätta vilka uppgifter som sparas, varför de sparas, hur länge de
-				sparas och om de delas med någon annan.
-			</p>
-			<p>
-				Som besökare har du rättigheter, till exempel att få veta vilka
-				uppgifter som hämtas om dig, kan du begära nedladdning av din data
-				eller be om radering av alla uppgifter de har på dig.
-			</p>
+				<h2 id="upphovsratt">Upphovsrätten</h2>
+				<p>
+					Upphovsrätten skyddar verk som texter, bilder, musik, video
+					och kod. Skaparen bestämmer hur verket får användas och
+					spridas. Det betyder att du inte får kopiera, ändra eller
+					publicera andras material utan tillstånd, om du inte har en
+					licens som tillåter det. Vanliga exempel på sådant som kan
+					användas lagligt är egna bilder, material med CC-licens
+					eller sådant som uttryckligen får återanvändas.
+				</p>
+				<p>
+					På en webbplats bör man alltid ange källa när det behövs,
+					läsa villkoren för bilder och typsnitt och kontrollera att
+					licensen tillåter den användning man planerar. Om man bryter
+					mot upphovsrätten kan det leda till krav på att ta bort
+					materialet, betala skadestånd eller i vissa fall andra
+					rättsliga följder.
+				</p>
 
-			<h2 id="upphovsratt">Upphovsrätten</h2>
-			<p>
-				Upphovsrätten skyddar verk som texter, bilder, musik, video och kod.
-				Skaparen bestämmer hur verket får användas och spridas. Det
-				betyder att du inte får kopiera, ändra eller publicera andras material
-				utan tillstånd, om du inte har en licens som tillåter det. Vanliga
-				exempel på sådant som kan användas lagligt är egna bilder, material med
-				CC-licens eller sådant som uttryckligen får återanvändas.
-			</p>
-			<p>
-				På en webbplats bör man alltid ange källa när det behövs, läsa villkoren
-				för bilder och typsnitt och kontrollera att licensen tillåter den
-				användning man planerar. Om man bryter mot upphovsrätten kan det leda
-				till krav på att ta bort materialet, betala skadestånd eller i vissa
-				fall andra rättsliga följder.
-			</p>
+				<h2 id="lek">Lagen om elektronisk kommunikation (LEK)</h2>
+				<p>
+					Lagen om elektronisk kommunikation, LEK, styr bland annat
+					internet, telefoni och andra elektroniska
+					kommunikationstjänster. Syftet är att användare ska få säkra
+					och effektiva tjänster och att marknaden ska fungera bra med
+					konkurrens och tydliga regler. PTS är en av de myndigheter
+					som uprättar lagen.
+				</p>
+				<p>
+					Tidigare var det LEK som reglerade hur kakor användes på
+					nätet. Numera regleras kakor på nätet av EU, efter GDPR
+					infördes.
+				</p>
+				<h2 id="kaklagen">Kakreglerna</h2>
+				<p>
+					Kakor eller cookies, är små filer som sparas i webbläsaren.
+					De kan användas för att komma ihåg inställningar, se till
+					att du slipper logga in på varje besök eller samla
+					statistik. I praktiken handlar reglerna om att användaren
+					ska få tydlig information och alternativ för samtycke av
+					kakor.
+				</p>
+				<p>
+					Det ska vara lika enkelt att tacka nej som att tacka ja till
+					kakorna. Användaren ska också kunna ändra sitt val senare.
+					Nödvändiga kakor, som krävs för att en tjänst ska fungera,
+					behöver normalt inget samtycke. Om kakor används för
+					statistik eller marknadsföring bör det finnas en tydlig
+					cookie-banner separerat från webbplatsens huvudinnehåll.
+				</p>
+				<h2 id="integritetspolicy">Webbplatsens integritetspolicy</h2>
+				<p>
+					En integritetspolicy förklarar hur webbsidan använder
+					personuppgifter. Integritetspolicyn ska göra det lätt att
+					förstå vilka uppgifter som samlas in, varför de samlas in,
+					vilken rättslig grund som används och om datan delas med
+					tredje part.
+				</p>
+				<p>
+					Det är också bra att skriva hur användaren kan begära utrag
+					eller radering av sin data. Om webbplatsen använder kakor,
+					formulär, analystjänster eller inloggning blir en tydlig
+					policy extra viktig.
+				</p>
+				<h2 id="bbs-lagen">
+					Ansvar för elektroniska anslagstavlor BBS-lagen
+				</h2>
+				<p>
+					BBS-lagen gäller tjänster där användare kan publicera
+					meddelanden, till exempel forum, kommentarsfält och chattar.
+					Den innebär att den som driver tjänsten har ansvar att
+					förhindra eller ta bort uppenbart olagliga meddelanden.
+					Annars så är ansvarsgivande person för sajten som har
+					rättsligt ansvar och tas till rätt.
+				</p>
 
-			<h2 id="lek">Lagen om elektronisk kommunikation (LEK)</h2>
-			<p>
-				Lagen om elektronisk kommunikation, LEK, styr bland annat internet,
-				telefoni och andra elektroniska kommunikationstjänster. Syftet är att
-				användare ska få säkra och effektiva tjänster och att marknaden ska
-				fungera bra med konkurrens och tydliga regler. PTS är en av de
-				myndigheter som uprättar lagen.
-			</p>
-			<p>
-				Tidigare var det LEK som reglerade hur kakor användes på nätet.
-				Numera regleras kakor på nätet av EU, efter GDPR infördes.
-			</p>
-			<h2 id="kaklagen">Kakreglerna</h2>
-			<p>
-				Kakor eller cookies, är små filer som sparas i webbläsaren. De kan
-				användas för att komma ihåg inställningar, se till att du slipper logga
-				in på varje besök eller samla statistik. I praktiken handlar reglerna om 
-				att användaren ska få tydlig information och alternativ för samtycke av kakor.
-			</p>
-			<p>
-				Det ska vara lika enkelt att tacka nej som att tacka ja till kakorna. 
-				Användaren ska också kunna ändra sitt val senare. Nödvändiga kakor,
-				som krävs för att en tjänst ska fungera, behöver normalt inget samtycke.
-				Om kakor används för statistik eller marknadsföring bör det finnas en tydlig
-				cookie-banner separerat från webbplatsens huvudinnehåll.
-			</p>
-			<h2 id="integritetspolicy">Webbplatsens integritetspolicy</h2>
-			<p>
-				En integritetspolicy förklarar hur webbsidan använder personuppgifter. 
-				Integritetspolicyn ska göra det lätt att förstå vilka uppgifter som samlas in,
-				varför de samlas in, vilken rättslig grund som används och om datan delas med tredje part.
-			</p>
-			<p>
-				Det är också bra att skriva hur användaren kan begära utrag eller radering av sin data.
-				Om webbplatsen använder kakor, formulär, analystjänster eller inloggning blir en 
-				tydlig policy extra viktig.
-			</p>
-			<h2 id="bbs-lagen">Ansvar för elektroniska anslagstavlor BBS-lagen</h2>
-			<p>
-				BBS-lagen gäller tjänster där användare kan publicera meddelanden, till
-				exempel forum, kommentarsfält och chattar. Den innebär att den
-				som driver tjänsten har ansvar att förhindra eller ta bort
-				uppenbart olagliga meddelanden. Annars så är ansvarsgivande person för sajten 
-				som har rättsligt ansvar och tas till rätt.
-			</p>
+				<h2 id="bra-att-tänka-på">Bra att tänka på</h2>
+				<p>
+					När man skapar en webbsida är det bra att tänka igenom om
+					den samlar in personuppgifter och använder kakor, sedan se
+					till att lagar och regler följs. Om det används bilder eller
+					texter som ägs av någon annan måste man se till att man har
+					rätt och taillstånd att göra det.
+				</p>
+				<p>
+					En bra webbplats brukar därför ha en kort integritetspolicy,
+					en tydlig kakbanner, korrekta källor, egna eller
+					licensierade bilder och en plan för hur olämpligt innehåll
+					ska hanteras.
+				</p>
 
-			<h2 id="bra-att-tänka-på">Bra att tänka på</h2>
-			<p>
-				När man skapar en webbsida är det bra att tänka igenom om den
-				samlar in personuppgifter och använder kakor, sedan se till att lagar och regler följs. 
-				Om det används bilder eller texter som ägs av någon annan måste man
-				se till att man har rätt och taillstånd att göra det.
-
-			</p>
-			<p>
-				En bra webbplats brukar därför ha en kort integritetspolicy, en tydlig
-				kakbanner, korrekta källor, egna eller licensierade bilder och en plan
-				för hur olämpligt innehåll ska hanteras.
-			</p>
-
-			<h2 id="kallor">Källor</h2>
-			<p>
-				Disclaimer: Informationen är framtagen i lärande syfte och utgör inte
-				juridisk rådgivning. För bindande tolkning kontakta jurist eller
-				relevanta myndigheter.
-			</p>
-			<ul>
-				<!-- targer="_blank" för att öppna länken i en ny flik och 
+				<h2 id="kallor">Källor</h2>
+				<p>
+					Disclaimer: Informationen är framtagen i lärande syfte och
+					utgör inte juridisk rådgivning. För bindande tolkning
+					kontakta jurist eller relevanta myndigheter.
+				</p>
+				<ul>
+					<!-- targer="_blank" för att öppna länken i en ny flik och
 				rel="noopener noreferrer" för öppna länken som en ny process och inte skicka med headern -->
-				<li>
-					<a href="https://www.riksdagen.se/sv/sok/?avd=dokument" 
-						target="_blank" rel="noopener noreferrer">
-						Riksdagen — lagtexter
-					</a>
-				</li>
-				<li>
-					<a href="https://www.imy.se/" target="_blank" rel="noopener noreferrer">
-						Integritetsskyddsmyndigheten (IMY)
-					</a>
-				</li>
-				<li>
-					<a href="https://www.imy.se/verksamhet/dataskydd/det-har-galler-enligt-gdpr/de-registrerades-rattigheter/"
-						target="_blank" rel="noopener noreferrer">
-						IMY — registrerades rättigheter
-					</a>
-				</li>
-				<li>
-					<a href="https://pts.se/internet-och-telefoni/kakor-cookies/" 
-						target="_blank" rel="noopener noreferrer">
-						PTS — kakor (cookies)
-					</a>
-				</li>
-				<li>
-					<a href="https://pts.se/internet-och-telefoni/regler-vi-arbetar-efter/lek--lagen-om-elektronisk-kommunikation/"
-						target="_blank" rel="noopener noreferrer">
-						Post- och telestyrelsen - LEK
-					</a>
-				</li>
-				<li>
-					<a href="https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/lag-1998112-om-ansvar-for-elektroniska_sfs-1998-112/"
-						target="_blank" rel="noopener noreferrer">
-						Riksdagen — BBS-lagen
-					</a>
-				</li>
-				<li>
-					<a href="https://docs.google.com/presentation/d/1Sc5WDhoC6M6NDIYV_8lcLsnfhYubEJMEzLnNcxOtaVI/edit?slide=id.g8fd1836577_0_219#slide=id.g8fd1836577_0_219"
-						target="_blank" rel="noopener noreferrer">
-						Presentationen "Lagar för IT(2025)" i Classroom
-					</a>
-				</li>
-			</ul>
-		</article>
-	</main>
+					<li>
+						<a
+							href="https://www.riksdagen.se/sv/sok/?avd=dokument"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Riksdagen — lagtexter
+						</a>
+					</li>
+					<li>
+						<a
+							href="https://www.imy.se/"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Integritetsskyddsmyndigheten (IMY)
+						</a>
+					</li>
+					<li>
+						<a
+							href="https://www.imy.se/verksamhet/dataskydd/det-har-galler-enligt-gdpr/de-registrerades-rattigheter/"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							IMY — registrerades rättigheter
+						</a>
+					</li>
+					<li>
+						<a
+							href="https://pts.se/internet-och-telefoni/kakor-cookies/"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							PTS — kakor (cookies)
+						</a>
+					</li>
+					<li>
+						<a
+							href="https://pts.se/internet-och-telefoni/regler-vi-arbetar-efter/lek--lagen-om-elektronisk-kommunikation/"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Post- och telestyrelsen - LEK
+						</a>
+					</li>
+					<li>
+						<a
+							href="https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/lag-1998112-om-ansvar-for-elektroniska_sfs-1998-112/"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Riksdagen — BBS-lagen
+						</a>
+					</li>
+					<li>
+						<a
+							href="https://docs.google.com/presentation/d/1Sc5WDhoC6M6NDIYV_8lcLsnfhYubEJMEzLnNcxOtaVI/edit?slide=id.g8fd1836577_0_219#slide=id.g8fd1836577_0_219"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Presentationen "Lagar för IT(2025)" i Classroom
+						</a>
+					</li>
+				</ul>
+			</article>
+		</main>
 
-	<footer id="footer">
-		<p>&copy; <em>2026 Konsten att göra en hemsida :D</em></p>
-		<p><sub>Kontakta mig på simon.flink@elev.ntig.se</sub></p>
-	</footer>
+		<footer id="footer">
+			<p>&copy; <em>2026 Konsten att göra en hemsida :D</em></p>
+			<p><sub>Kontakta mig på simon.flink@elev.ntig.se</sub></p>
+		</footer>
 
-	<!-- Script -->
-	<script src="script.js" defer></script>
-</body>
-
+		<!-- Script -->
+		<script src="script.js" defer></script>
+	</body>
 </html>
